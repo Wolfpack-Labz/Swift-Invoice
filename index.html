@@ -5,28 +5,37 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
   <title>Wolfpack Labz | Legal Documentation Hub</title>
-  <meta name="description" content="Wolfpack Labz legal documentation hub for privacy policies, terms, data requests, and support information for our apps." />
+  <meta
+    name="description"
+    content="Wolfpack Labz legal documentation hub for privacy policies, terms, data requests, and support information for our apps."
+  />
 
-  <!-- Keep these files in the same GitHub repo folder as index.html. -->
   <link rel="icon" type="image/png" sizes="32x32" href="favicon.png" />
+  <link rel="icon" type="image/png" sizes="192x192" href="favicon.png" />
   <link rel="apple-touch-icon" sizes="180x180" href="favicon.png" />
 
   <style>
     :root {
+      --bg: #0f172a;
       --card: #ffffff;
       --card-muted: #f8fafc;
-      --text: #111827;
-      --text-soft: #64748b;
+      --text: #0f172a;
+      --text-soft: #52657f;
       --white: #ffffff;
       --accent: #2563eb;
       --accent-dark: #1d4ed8;
-      --border: #e5e7eb;
+      --border: #e2e8f0;
       --radius: 22px;
       --shadow: 0 18px 45px rgba(15, 23, 42, 0.14);
     }
 
-    * { box-sizing: border-box; }
-    html { scroll-behavior: smooth; }
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
 
     body {
       margin: 0;
@@ -36,8 +45,15 @@
       background: linear-gradient(135deg, #0f172a 0%, #1e293b 44%, #0f172a 100%);
     }
 
-    a { color: inherit; text-decoration: none; }
-    img { max-width: 100%; }
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    img {
+      max-width: 100%;
+      display: block;
+    }
 
     .page {
       width: min(1180px, calc(100% - 32px));
@@ -69,14 +85,14 @@
       align-items: center;
       justify-content: center;
       overflow: hidden;
+      border-radius: 15px;
+      background: rgba(255, 255, 255, 0.08);
     }
 
     .brand-logo img {
       width: 100%;
       height: 100%;
       object-fit: contain;
-      display: block;
-      border-radius: 14px;
     }
 
     .brand h1 {
@@ -109,7 +125,9 @@
       border: 1px solid rgba(255, 255, 255, 0.12);
     }
 
-    .nav a:hover { background: rgba(255, 255, 255, 0.14); }
+    .nav a:hover {
+      background: rgba(255, 255, 255, 0.14);
+    }
 
     .hero {
       display: grid;
@@ -128,12 +146,13 @@
       box-shadow: var(--shadow);
     }
 
-    .hero-main { padding: 36px; }
+    .hero-main {
+      padding: 36px;
+    }
 
     .eyebrow {
       display: inline-flex;
       align-items: center;
-      gap: 8px;
       margin-bottom: 18px;
       color: var(--accent-dark);
       background: #eff6ff;
@@ -171,7 +190,6 @@
       display: inline-flex;
       align-items: center;
       justify-content: center;
-      gap: 8px;
       padding: 13px 18px;
       border-radius: 14px;
       font-weight: 700;
@@ -179,10 +197,25 @@
       border: 1px solid transparent;
     }
 
-    .button.primary { background: var(--accent); color: white; }
-    .button.primary:hover { background: var(--accent-dark); }
-    .button.secondary { background: #f8fafc; color: #0f172a; border-color: var(--border); }
-    .button.secondary:hover { background: #eef2ff; border-color: #c7d2fe; }
+    .button.primary {
+      background: var(--accent);
+      color: white;
+    }
+
+    .button.primary:hover {
+      background: var(--accent-dark);
+    }
+
+    .button.secondary {
+      background: #f8fafc;
+      color: #0f172a;
+      border-color: var(--border);
+    }
+
+    .button.secondary:hover {
+      background: #eef2ff;
+      border-color: #c7d2fe;
+    }
 
     .hero-side {
       padding: 24px;
@@ -206,19 +239,22 @@
       margin-bottom: 5px;
     }
 
-    .metric span { color: var(--text-soft); font-size: 14px; }
+    .metric span {
+      color: var(--text-soft);
+      font-size: 14px;
+    }
 
     .section {
-      padding: 26px;
+      padding: 26px 34px 34px;
       margin-top: 22px;
     }
 
     .section-header {
       display: flex;
       justify-content: space-between;
-      align-items: flex-end;
+      align-items: flex-start;
       gap: 16px;
-      margin-bottom: 18px;
+      margin-bottom: 24px;
     }
 
     .section-header h3 {
@@ -238,7 +274,6 @@
     .status-pill {
       display: inline-flex;
       align-items: center;
-      gap: 7px;
       background: #ecfdf5;
       color: #166534;
       border: 1px solid #bbf7d0;
@@ -251,26 +286,27 @@
 
     .app-grid {
       display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
+      grid-template-columns: 1fr;
       gap: 18px;
     }
 
     .app-card {
       display: grid;
-      grid-template-columns: 98px 1fr;
+      grid-template-columns: 112px 1fr;
       align-items: start;
-      gap: 18px;
+      gap: 22px;
+      max-width: 760px;
       min-height: 210px;
-      padding: 18px;
+      padding: 22px;
       background: #ffffff;
       border: 1px solid var(--border);
       border-radius: 20px;
     }
 
     .app-logo {
-      width: 98px;
-      height: 98px;
-      border-radius: 24px;
+      width: 112px;
+      height: 112px;
+      border-radius: 26px;
       background: #e8f1ff;
       border: 1px solid #bfdbfe;
       display: flex;
@@ -281,16 +317,20 @@
     }
 
     .app-logo img {
-      width: 86%;
-      height: 86%;
+      width: 82%;
+      height: 82%;
       object-fit: contain;
-      display: block;
     }
 
-    .app-content h4 { margin: 0; font-size: 20px; color: #0f172a; }
+    .app-content h4 {
+      margin: 0;
+      font-size: 20px;
+      color: #0f172a;
+    }
 
     .app-content p {
-      margin: 8px 0 14px;
+      max-width: 560px;
+      margin: 8px 0 18px;
       color: var(--text-soft);
       font-size: 14px;
       line-height: 1.55;
@@ -299,7 +339,7 @@
     .doc-links {
       display: flex;
       flex-wrap: wrap;
-      gap: 8px;
+      gap: 10px;
     }
 
     .doc-links a {
@@ -307,7 +347,7 @@
       background: #f8fafc;
       color: #0f172a;
       border-radius: 999px;
-      padding: 8px 11px;
+      padding: 9px 14px;
       font-size: 13px;
       font-weight: 700;
     }
@@ -342,9 +382,24 @@
       font-size: 20px;
     }
 
-    .utility-card h4 { margin: 0 0 7px; font-size: 17px; color: #0f172a; }
-    .utility-card p { margin: 0 0 14px; color: var(--text-soft); font-size: 14px; line-height: 1.55; }
-    .utility-card a { color: var(--accent-dark); font-size: 14px; font-weight: 800; }
+    .utility-card h4 {
+      margin: 0 0 7px;
+      font-size: 17px;
+      color: #0f172a;
+    }
+
+    .utility-card p {
+      margin: 0 0 14px;
+      color: var(--text-soft);
+      font-size: 14px;
+      line-height: 1.55;
+    }
+
+    .utility-card a {
+      color: var(--accent-dark);
+      font-size: 14px;
+      font-weight: 800;
+    }
 
     .contact-box {
       display: grid;
@@ -357,9 +412,23 @@
       padding: 22px;
     }
 
-    .contact-box h3 { margin: 0 0 6px; font-size: 22px; }
-    .contact-box p { margin: 0; color: #cbd5e1; line-height: 1.6; font-size: 14px; }
-    .contact-box .button { background: white; color: #0f172a; white-space: nowrap; }
+    .contact-box h3 {
+      margin: 0 0 6px;
+      font-size: 22px;
+    }
+
+    .contact-box p {
+      margin: 0;
+      color: #cbd5e1;
+      line-height: 1.6;
+      font-size: 14px;
+    }
+
+    .contact-box .button {
+      background: white;
+      color: #0f172a;
+      white-space: nowrap;
+    }
 
     footer {
       color: #cbd5e1;
@@ -386,20 +455,50 @@
         flex-direction: column;
       }
 
-      .hero { grid-template-columns: 1fr; }
-      .app-grid,
-      .utility-grid { grid-template-columns: 1fr; }
-      .nav { justify-content: flex-start; }
+      .hero {
+        grid-template-columns: 1fr;
+      }
+
+      .utility-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .nav {
+        justify-content: flex-start;
+      }
     }
 
-    @media (max-width: 520px) {
-      .page { width: min(100% - 22px, 1180px); padding-top: 18px; }
+    @media (max-width: 620px) {
+      .page {
+        width: min(100% - 22px, 1180px);
+        padding-top: 18px;
+      }
+
       .hero-main,
       .hero-side,
-      .section { padding: 20px; }
-      .hero h2 { letter-spacing: -1.2px; }
-      .brand-logo { width: 46px; height: 46px; flex-basis: 46px; }
-      .app-card { grid-template-columns: 1fr; }
+      .section {
+        padding: 20px;
+      }
+
+      .hero h2 {
+        letter-spacing: -1.2px;
+      }
+
+      .brand-logo {
+        width: 46px;
+        height: 46px;
+        flex-basis: 46px;
+      }
+
+      .app-card {
+        grid-template-columns: 1fr;
+        max-width: none;
+      }
+
+      .app-logo {
+        width: 96px;
+        height: 96px;
+      }
     }
   </style>
 </head>
@@ -409,7 +508,7 @@
     <header class="topbar">
       <a class="brand" href="./" aria-label="Wolfpack Labz homepage">
         <div class="brand-logo">
-          <img src="https://wolfpack-labz.github.io/Swift-Invoice/favicon.png" alt="Wolfpack Labz logo" />
+          <img src="logo.png" alt="Wolfpack Labz logo" />
         </div>
 
         <div>
@@ -429,6 +528,7 @@
       <div class="hero-main">
         <div class="eyebrow">Legal Documentation Hub</div>
         <h2>One place for app policies, data requests, and support.</h2>
+
         <p>
           Wolfpack Labz builds straightforward SaaS tools and mobile apps that help
           everyday people manage common tasks with less stress. This site hosts
@@ -438,7 +538,14 @@
 
         <div class="hero-actions">
           <a class="button primary" href="#apps">View App Documents</a>
-          <a class="button secondary" href="https://app.termly.io/dsar/868c4685-0469-4ee9-91f1-e5a8645af737" target="_blank" rel="noopener noreferrer">Submit Data Request</a>
+          <a
+            class="button secondary"
+            href="https://app.termly.io/dsar/868c4685-0469-4ee9-91f1-e5a8645af737"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Submit Data Request
+          </a>
         </div>
       </div>
 
@@ -469,14 +576,14 @@
             Add more app cards as Wolfpack Labz releases new products.
           </p>
         </div>
+
         <span class="status-pill">Active documentation</span>
       </div>
 
       <div class="app-grid">
         <article class="app-card">
           <div class="app-logo">
-            <img src="https://wolfpack-labz.github.io/Swift-Invoice/swift.png" alt="Swift Invoice logo">
-            App Logo
+            <img src="swift.png" alt="Swift Invoice logo" />
           </div>
 
           <div class="app-content">
@@ -489,34 +596,17 @@
             <div class="doc-links">
               <a href="privacy-policy.html">Privacy Policy</a>
               <a href="#">Terms of Use</a>
-              <a href="https://app.termly.io/dsar/868c4685-0469-4ee9-91f1-e5a8645af737" target="_blank" rel="noopener noreferrer">Data Request</a>
+              <a
+                href="https://app.termly.io/dsar/868c4685-0469-4ee9-91f1-e5a8645af737"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Data Request
+              </a>
               <a href="mailto:wolfpack-labs@gmail.com">Support</a>
             </div>
           </div>
         </article>
-
-<!--
-       <article class="app-card">
-          <div class="app-logo">
-
-          </div>
-
-          <div class="app-content">
-            <h4>Future App</h4>
-            <p>
-              Reserve this space for the next Wolfpack Labz app. Replace this
-              text with the app name, description, logo, and legal document links.
-            </p>
-
-            <div class="doc-links">
-              <a href="#">Privacy Policy</a>
-              <a href="#">Terms of Use</a>
-              <a href="https://app.termly.io/dsar/868c4685-0469-4ee9-91f1-e5a8645af737" target="_blank" rel="noopener noreferrer">Data Request</a>
-              <a href="mailto:wolfpack-labs@gmail.com">Support</a>
-            </div>
-          </div>
-        </article>
--->
       </div>
     </section>
 
@@ -540,7 +630,13 @@
           <div class="icon">🛡️</div>
           <h4>Data Requests</h4>
           <p>Submit a request to review, update, or delete personal information.</p>
-          <a href="https://app.termly.io/dsar/868c4685-0469-4ee9-91f1-e5a8645af737" target="_blank" rel="noopener noreferrer">Open request form →</a>
+          <a
+            href="https://app.termly.io/dsar/868c4685-0469-4ee9-91f1-e5a8645af737"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Open request form →
+          </a>
         </article>
 
         <article class="utility-card">
