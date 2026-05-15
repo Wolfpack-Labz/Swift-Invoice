@@ -1,138 +1,142 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Swift Invoice - Privacy & Policies</title>
-  <meta name="description" content="Privacy policy and legal links for the Swift Invoice app." />
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Swift Invoice | Legal</title>
+  <meta name="description" content="Legal and privacy links for the Swift Invoice mobile app." />
   <style>
     :root {
-      --bg: #f7f8fb;
+      --bg: #f6f8fb;
       --card: #ffffff;
-      --text: #1f2937;
-      --muted: #6b7280;
-      --accent: #2563eb;
-      --border: #e5e7eb;
+      --text: #172033;
+      --muted: #5f6b7a;
+      --primary: #2563eb;
+      --border: #dbe3ef;
     }
-
-    * {
-      box-sizing: border-box;
-    }
-
+    * { box-sizing: border-box; }
     body {
       margin: 0;
       font-family: Arial, Helvetica, sans-serif;
       background: var(--bg);
       color: var(--text);
-      line-height: 1.6;
-    }
-
-    .container {
       min-height: 100vh;
       display: flex;
       align-items: center;
       justify-content: center;
-      padding: 24px;
+      padding: 32px 16px;
     }
-
-    .card {
+    main {
       width: 100%;
-      max-width: 680px;
+      max-width: 720px;
       background: var(--card);
       border: 1px solid var(--border);
-      border-radius: 18px;
-      padding: 32px;
-      box-shadow: 0 10px 30px rgba(31, 41, 55, 0.08);
+      border-radius: 20px;
+      box-shadow: 0 16px 45px rgba(23, 32, 51, 0.08);
+      padding: 36px;
     }
-
+    .badge {
+      display: inline-block;
+      padding: 8px 12px;
+      border-radius: 999px;
+      background: #eaf1ff;
+      color: #1d4ed8;
+      font-size: 14px;
+      font-weight: 700;
+      margin-bottom: 18px;
+    }
     h1 {
-      margin: 0 0 8px;
-      font-size: 2rem;
-      line-height: 1.2;
+      margin: 0 0 12px;
+      font-size: clamp(32px, 5vw, 48px);
+      line-height: 1.05;
     }
-
-    .subtitle {
-      margin: 0 0 28px;
+    p {
+      margin: 0 0 24px;
       color: var(--muted);
+      font-size: 17px;
+      line-height: 1.6;
     }
-
     .links {
       display: grid;
-      gap: 14px;
-      margin: 24px 0;
-    }
-
-    .policy-link {
-      display: block;
-      padding: 16px 18px;
-      border: 1px solid var(--border);
-      border-radius: 12px;
-      color: var(--accent);
-      text-decoration: none;
-      font-weight: 700;
-      background: #ffffff;
-      transition: transform 0.15s ease, box-shadow 0.15s ease, border-color 0.15s ease;
-    }
-
-    .policy-link:hover,
-    .policy-link:focus {
-      transform: translateY(-1px);
-      border-color: var(--accent);
-      box-shadow: 0 6px 18px rgba(37, 99, 235, 0.14);
-      outline: none;
-    }
-
-    .note {
+      gap: 12px;
       margin-top: 24px;
-      padding-top: 18px;
-      border-top: 1px solid var(--border);
-      color: var(--muted);
-      font-size: 0.95rem;
     }
-
+    a.card-link {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 16px;
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 18px 20px;
+      color: var(--text);
+      text-decoration: none;
+      transition: transform .15s ease, border-color .15s ease, background .15s ease;
+    }
+    a.card-link:hover {
+      transform: translateY(-2px);
+      border-color: var(--primary);
+      background: #fbfdff;
+    }
+    .link-title {
+      font-weight: 700;
+      font-size: 17px;
+    }
+    .link-desc {
+      display: block;
+      color: var(--muted);
+      font-size: 14px;
+      margin-top: 4px;
+    }
+    .arrow {
+      color: var(--primary);
+      font-size: 22px;
+      flex: 0 0 auto;
+    }
     footer {
-      margin-top: 28px;
+      margin-top: 30px;
       color: var(--muted);
-      font-size: 0.9rem;
-    }
-
-    @media (max-width: 520px) {
-      .card {
-        padding: 24px;
-      }
-
-      h1 {
-        font-size: 1.6rem;
-      }
+      font-size: 14px;
+      line-height: 1.5;
     }
   </style>
 </head>
 <body>
-  <main class="container">
-    <section class="card" aria-labelledby="page-title">
-      <h1 id="page-title">Swift Invoice</h1>
-      <p class="subtitle">Privacy, policy, and legal information for the Swift Invoice app.</p>
+  <main>
+    <span class="badge">Swift Invoice</span>
+    <h1>Legal & Privacy</h1>
+    <p>
+      This page contains legal and privacy links for the Swift Invoice mobile app by WolfPack Labs LLC.
+    </p>
 
-      <div class="links" aria-label="Policy links">
-        <!-- Replace the href values below with your actual policy page URLs or file paths. -->
-        <a class="policy-link" href="privacy-policy.html">Privacy Policy</a>
-        <a class="policy-link" href="terms-of-use.html">Terms of Use</a>
-        <a class="policy-link" href="data-deletion.html">Data Deletion Request</a>
-        <a class="policy-link" href="support.html">Support</a>
-      </div>
-
-      <p class="note">
-        This page is provided as a central location for app policy links required by app stores and users.
-      </p>
-
-      <footer>
-        &copy; <span id="year"></span> Swift Invoice. All rights reserved.
-      </footer>
+    <section class="links" aria-label="Legal links">
+      <a class="card-link" href="privacy-policy.html">
+        <span>
+          <span class="link-title">Privacy Policy</span>
+          <span class="link-desc">View how Swift Invoice collects, uses, and protects information.</span>
+        </span>
+        <span class="arrow" aria-hidden="true">›</span>
+      </a>
+      <a class="card-link" href="mailto:wolfpack-labs@gmail.com?subject=Swift%20Invoice%20Support">
+        <span>
+          <span class="link-title">Support</span>
+          <span class="link-desc">Contact WolfPack Labs LLC for app support.</span>
+        </span>
+        <span class="arrow" aria-hidden="true">›</span>
+      </a>
+      <a class="card-link" href="https://app.termly.io/dsar/868c4685-0469-4ee9-91f1-e5a8645af737" target="_blank" rel="noopener noreferrer">
+        <span>
+          <span class="link-title">Data Request</span>
+          <span class="link-desc">Submit a data access, update, or deletion request.</span>
+        </span>
+        <span class="arrow" aria-hidden="true">›</span>
+      </a>
     </section>
-  </main>
 
-  <script>
-    document.getElementById('year').textContent = new Date().getFullYear();
-  </script>
+    <footer>
+      Direct privacy policy URL:<br />
+      https://wolfpack-labz.github.io/Swift-Invoice/privacy-policy.html
+    </footer>
+  </main>
 </body>
 </html>
