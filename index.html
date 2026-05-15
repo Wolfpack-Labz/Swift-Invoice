@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Swift Invoice - Privacy & Policies</title>
+  <meta name="description" content="Privacy policy and legal links for the Swift Invoice app." />
+  <style>
+    :root {
+      --bg: #f7f8fb;
+      --card: #ffffff;
+      --text: #1f2937;
+      --muted: #6b7280;
+      --accent: #2563eb;
+      --border: #e5e7eb;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: Arial, Helvetica, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+    }
+
+    .container {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 24px;
+    }
+
+    .card {
+      width: 100%;
+      max-width: 680px;
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 18px;
+      padding: 32px;
+      box-shadow: 0 10px 30px rgba(31, 41, 55, 0.08);
+    }
+
+    h1 {
+      margin: 0 0 8px;
+      font-size: 2rem;
+      line-height: 1.2;
+    }
+
+    .subtitle {
+      margin: 0 0 28px;
+      color: var(--muted);
+    }
+
+    .links {
+      display: grid;
+      gap: 14px;
+      margin: 24px 0;
+    }
+
+    .policy-link {
+      display: block;
+      padding: 16px 18px;
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      color: var(--accent);
+      text-decoration: none;
+      font-weight: 700;
+      background: #ffffff;
+      transition: transform 0.15s ease, box-shadow 0.15s ease, border-color 0.15s ease;
+    }
+
+    .policy-link:hover,
+    .policy-link:focus {
+      transform: translateY(-1px);
+      border-color: var(--accent);
+      box-shadow: 0 6px 18px rgba(37, 99, 235, 0.14);
+      outline: none;
+    }
+
+    .note {
+      margin-top: 24px;
+      padding-top: 18px;
+      border-top: 1px solid var(--border);
+      color: var(--muted);
+      font-size: 0.95rem;
+    }
+
+    footer {
+      margin-top: 28px;
+      color: var(--muted);
+      font-size: 0.9rem;
+    }
+
+    @media (max-width: 520px) {
+      .card {
+        padding: 24px;
+      }
+
+      h1 {
+        font-size: 1.6rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <main class="container">
+    <section class="card" aria-labelledby="page-title">
+      <h1 id="page-title">Swift Invoice</h1>
+      <p class="subtitle">Privacy, policy, and legal information for the Swift Invoice app.</p>
+
+      <div class="links" aria-label="Policy links">
+        <!-- Replace the href values below with your actual policy page URLs or file paths. -->
+        <a class="policy-link" href="privacy-policy.html">Privacy Policy</a>
+        <a class="policy-link" href="terms-of-use.html">Terms of Use</a>
+        <a class="policy-link" href="data-deletion.html">Data Deletion Request</a>
+        <a class="policy-link" href="support.html">Support</a>
+      </div>
+
+      <p class="note">
+        This page is provided as a central location for app policy links required by app stores and users.
+      </p>
+
+      <footer>
+        &copy; <span id="year"></span> Swift Invoice. All rights reserved.
+      </footer>
+    </section>
+  </main>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
