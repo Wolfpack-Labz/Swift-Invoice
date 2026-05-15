@@ -1,141 +1,656 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Swift Invoice | Legal</title>
-  <meta name="description" content="Legal and privacy links for the Swift Invoice mobile app." />
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Wolfpack Labz | Legal Documentation Hub</title>
+  <meta name="description" content="Wolfpack Labz legal documentation hub for privacy policies, terms, data requests, and support information for our apps." />
+
   <style>
     :root {
-      --bg: #f6f8fb;
+      --bg: #0f172a;
       --card: #ffffff;
-      --text: #172033;
-      --muted: #5f6b7a;
-      --primary: #2563eb;
-      --border: #dbe3ef;
+      --card-muted: #f8fafc;
+      --text: #111827;
+      --text-soft: #64748b;
+      --white: #ffffff;
+      --accent: #2563eb;
+      --accent-dark: #1d4ed8;
+      --border: #e5e7eb;
+      --radius: 22px;
+      --shadow: 0 18px 45px rgba(15, 23, 42, 0.14);
     }
-    * { box-sizing: border-box; }
+
+    * {
+      box-sizing: border-box;
+    }
+
     body {
       margin: 0;
       font-family: Arial, Helvetica, sans-serif;
-      background: var(--bg);
+      background: linear-gradient(135deg, #0f172a 0%, #1e293b 44%, #0f172a 100%);
       color: var(--text);
       min-height: 100vh;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .page {
+      width: min(1180px, calc(100% - 32px));
+      margin: 0 auto;
+      padding: 28px 0 52px;
+    }
+
+    .topbar {
       display: flex;
       align-items: center;
-      justify-content: center;
-      padding: 32px 16px;
+      justify-content: space-between;
+      gap: 18px;
+      margin-bottom: 34px;
+      color: var(--white);
     }
-    main {
-      width: 100%;
-      max-width: 720px;
-      background: var(--card);
-      border: 1px solid var(--border);
-      border-radius: 20px;
-      box-shadow: 0 16px 45px rgba(23, 32, 51, 0.08);
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+
+    .brand-logo {
+      width: 48px;
+      height: 48px;
+      border-radius: 16px;
+      background: rgba(255, 255, 255, 0.12);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      display: grid;
+      place-items: center;
+      font-weight: 800;
+      letter-spacing: -1px;
+    }
+
+    .brand h1 {
+      margin: 0;
+      font-size: 22px;
+      letter-spacing: -0.4px;
+    }
+
+    .brand p {
+      margin: 3px 0 0;
+      color: #cbd5e1;
+      font-size: 14px;
+    }
+
+    .nav {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      flex-wrap: wrap;
+      justify-content: flex-end;
+    }
+
+    .nav a {
+      color: #e2e8f0;
+      font-size: 14px;
+      padding: 10px 14px;
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.08);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+    }
+
+    .nav a:hover {
+      background: rgba(255, 255, 255, 0.14);
+    }
+
+    .hero {
+      display: grid;
+      grid-template-columns: 1.35fr 0.65fr;
+      gap: 22px;
+      align-items: stretch;
+      margin-bottom: 22px;
+    }
+
+    .hero-main,
+    .hero-side,
+    .section {
+      background: rgba(255, 255, 255, 0.96);
+      border: 1px solid rgba(255, 255, 255, 0.75);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+    }
+
+    .hero-main {
       padding: 36px;
     }
-    .badge {
-      display: inline-block;
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      color: var(--accent-dark);
+      background: #eff6ff;
+      border: 1px solid #dbeafe;
       padding: 8px 12px;
       border-radius: 999px;
-      background: #eaf1ff;
-      color: #1d4ed8;
-      font-size: 14px;
+      font-size: 13px;
       font-weight: 700;
       margin-bottom: 18px;
     }
-    h1 {
-      margin: 0 0 12px;
-      font-size: clamp(32px, 5vw, 48px);
-      line-height: 1.05;
+
+    .hero h2 {
+      margin: 0;
+      font-size: clamp(34px, 5vw, 56px);
+      line-height: 0.98;
+      letter-spacing: -2px;
+      color: #0f172a;
     }
-    p {
-      margin: 0 0 24px;
-      color: var(--muted);
-      font-size: 17px;
-      line-height: 1.6;
+
+    .hero-main p {
+      max-width: 720px;
+      margin: 18px 0 0;
+      color: var(--text-soft);
+      line-height: 1.7;
+      font-size: 16px;
     }
-    .links {
-      display: grid;
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
       gap: 12px;
-      margin-top: 24px;
+      margin-top: 26px;
     }
-    a.card-link {
+
+    .button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      padding: 13px 18px;
+      border-radius: 14px;
+      font-weight: 700;
+      font-size: 14px;
+      border: 1px solid transparent;
+    }
+
+    .button.primary {
+      background: var(--accent);
+      color: white;
+    }
+
+    .button.primary:hover {
+      background: var(--accent-dark);
+    }
+
+    .button.secondary {
+      background: #f8fafc;
+      color: #0f172a;
+      border-color: var(--border);
+    }
+
+    .button.secondary:hover {
+      background: #eef2ff;
+      border-color: #c7d2fe;
+    }
+
+    .hero-side {
+      padding: 24px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      gap: 18px;
+    }
+
+    .metric {
+      background: var(--card-muted);
+      border: 1px solid var(--border);
+      border-radius: 18px;
+      padding: 18px;
+    }
+
+    .metric strong {
+      display: block;
+      color: #0f172a;
+      font-size: 28px;
+      margin-bottom: 5px;
+    }
+
+    .metric span {
+      color: var(--text-soft);
+      font-size: 14px;
+    }
+
+    .section {
+      padding: 26px;
+      margin-top: 22px;
+    }
+
+    .section-header {
       display: flex;
       justify-content: space-between;
-      align-items: center;
+      align-items: flex-end;
       gap: 16px;
-      border: 1px solid var(--border);
-      border-radius: 14px;
-      padding: 18px 20px;
-      color: var(--text);
-      text-decoration: none;
-      transition: transform .15s ease, border-color .15s ease, background .15s ease;
+      margin-bottom: 18px;
     }
-    a.card-link:hover {
-      transform: translateY(-2px);
-      border-color: var(--primary);
-      background: #fbfdff;
+
+    .section-header h3 {
+      margin: 0;
+      font-size: 24px;
+      letter-spacing: -0.6px;
+      color: #0f172a;
     }
-    .link-title {
-      font-weight: 700;
-      font-size: 17px;
-    }
-    .link-desc {
-      display: block;
-      color: var(--muted);
-      font-size: 14px;
-      margin-top: 4px;
-    }
-    .arrow {
-      color: var(--primary);
-      font-size: 22px;
-      flex: 0 0 auto;
-    }
-    footer {
-      margin-top: 30px;
-      color: var(--muted);
+
+    .section-header p {
+      margin: 6px 0 0;
+      color: var(--text-soft);
       font-size: 14px;
       line-height: 1.5;
     }
+
+    .status-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      background: #ecfdf5;
+      color: #166534;
+      border: 1px solid #bbf7d0;
+      border-radius: 999px;
+      padding: 8px 12px;
+      font-size: 13px;
+      font-weight: 700;
+      white-space: nowrap;
+    }
+
+    .app-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 18px;
+    }
+
+    .app-card {
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      background: #ffffff;
+      padding: 18px;
+      display: grid;
+      grid-template-columns: 78px 1fr;
+      gap: 16px;
+      min-height: 210px;
+    }
+
+    .app-logo {
+      width: 78px;
+      height: 78px;
+      border-radius: 22px;
+      background: linear-gradient(135deg, #dbeafe, #eff6ff);
+      border: 1px dashed #93c5fd;
+      display: grid;
+      place-items: center;
+      color: #1d4ed8;
+      font-size: 12px;
+      text-align: center;
+      font-weight: 700;
+      padding: 8px;
+      overflow: hidden;
+    }
+
+    .app-logo img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border-radius: 18px;
+      display: block;
+    }
+
+    .app-content h4 {
+      margin: 0;
+      font-size: 20px;
+      color: #0f172a;
+    }
+
+    .app-content p {
+      margin: 8px 0 14px;
+      color: var(--text-soft);
+      font-size: 14px;
+      line-height: 1.55;
+    }
+
+    .doc-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .doc-links a {
+      border: 1px solid var(--border);
+      background: #f8fafc;
+      color: #0f172a;
+      border-radius: 999px;
+      padding: 8px 11px;
+      font-size: 13px;
+      font-weight: 700;
+    }
+
+    .doc-links a:hover {
+      background: #eff6ff;
+      border-color: #bfdbfe;
+      color: var(--accent-dark);
+    }
+
+    .utility-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 14px;
+    }
+
+    .utility-card {
+      border: 1px solid var(--border);
+      background: #ffffff;
+      border-radius: 18px;
+      padding: 18px;
+    }
+
+    .utility-card .icon {
+      width: 42px;
+      height: 42px;
+      display: grid;
+      place-items: center;
+      border-radius: 14px;
+      background: #eff6ff;
+      margin-bottom: 14px;
+      font-size: 20px;
+    }
+
+    .utility-card h4 {
+      margin: 0 0 7px;
+      font-size: 17px;
+      color: #0f172a;
+    }
+
+    .utility-card p {
+      margin: 0 0 14px;
+      color: var(--text-soft);
+      font-size: 14px;
+      line-height: 1.55;
+    }
+
+    .utility-card a {
+      color: var(--accent-dark);
+      font-size: 14px;
+      font-weight: 800;
+    }
+
+    .contact-box {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 18px;
+      align-items: center;
+      background: #0f172a;
+      color: white;
+      border-radius: 20px;
+      padding: 22px;
+    }
+
+    .contact-box h3 {
+      margin: 0 0 6px;
+      font-size: 22px;
+    }
+
+    .contact-box p {
+      margin: 0;
+      color: #cbd5e1;
+      line-height: 1.6;
+      font-size: 14px;
+    }
+
+    .contact-box .button {
+      background: white;
+      color: #0f172a;
+      white-space: nowrap;
+    }
+
+    footer {
+      color: #cbd5e1;
+      text-align: center;
+      font-size: 13px;
+      margin-top: 30px;
+      line-height: 1.6;
+    }
+
+    code {
+      background: #f1f5f9;
+      border: 1px solid #e2e8f0;
+      border-radius: 8px;
+      padding: 2px 6px;
+      font-size: 12px;
+      color: #0f172a;
+    }
+
+    @media (max-width: 860px) {
+      .topbar,
+      .section-header,
+      .contact-box {
+        align-items: flex-start;
+        flex-direction: column;
+      }
+
+      .hero {
+        grid-template-columns: 1fr;
+      }
+
+      .app-grid,
+      .utility-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .app-card {
+        grid-template-columns: 1fr;
+      }
+
+      .nav {
+        justify-content: flex-start;
+      }
+    }
+
+    @media (max-width: 520px) {
+      .page {
+        width: min(100% - 22px, 1180px);
+        padding-top: 18px;
+      }
+
+      .hero-main,
+      .hero-side,
+      .section {
+        padding: 20px;
+      }
+
+      .hero h2 {
+        letter-spacing: -1.2px;
+      }
+
+      .brand-logo {
+        width: 42px;
+        height: 42px;
+      }
+    }
   </style>
 </head>
-<body>
-  <main>
-    <span class="badge">Swift Invoice</span>
-    <h1>Legal & Privacy</h1>
-    <p>
-      This page contains legal and privacy links for the Swift Invoice mobile app by WolfPack Labs LLC.
-    </p>
 
-    <section class="links" aria-label="Legal links">
-      <a class="card-link" href="privacy-policy.html">
-        <span>
-          <span class="link-title">Privacy Policy</span>
-          <span class="link-desc">View how Swift Invoice collects, uses, and protects information.</span>
-        </span>
-        <span class="arrow" aria-hidden="true">›</span>
+<body>
+  <main class="page">
+    <header class="topbar">
+      <a class="brand" href="./" aria-label="Wolfpack Labz homepage">
+        <div class="brand-logo">WL</div>
+        <div>
+          <h1>Wolfpack Labz</h1>
+          <p>Simple apps for everyday people</p>
+        </div>
       </a>
-      <a class="card-link" href="mailto:wolfpack-labs@gmail.com?subject=Swift%20Invoice%20Support">
-        <span>
-          <span class="link-title">Support</span>
-          <span class="link-desc">Contact WolfPack Labs LLC for app support.</span>
-        </span>
-        <span class="arrow" aria-hidden="true">›</span>
-      </a>
-      <a class="card-link" href="https://app.termly.io/dsar/868c4685-0469-4ee9-91f1-e5a8645af737" target="_blank" rel="noopener noreferrer">
-        <span>
-          <span class="link-title">Data Request</span>
-          <span class="link-desc">Submit a data access, update, or deletion request.</span>
-        </span>
-        <span class="arrow" aria-hidden="true">›</span>
-      </a>
+
+      <nav class="nav" aria-label="Primary navigation">
+        <a href="#apps">Apps</a>
+        <a href="#legal">Legal Docs</a>
+        <a href="#contact">Contact</a>
+      </nav>
+    </header>
+
+    <section class="hero">
+      <div class="hero-main">
+        <div class="eyebrow">Legal Documentation Hub</div>
+        <h2>One place for app policies, data requests, and support.</h2>
+        <p>
+          Wolfpack Labz builds straightforward SaaS tools and mobile apps that help
+          everyday people manage common tasks with less stress. This site hosts
+          legal documentation, privacy policies, terms, data request forms, and
+          contact information for our apps.
+        </p>
+
+        <div class="hero-actions">
+          <a class="button primary" href="#apps">View App Documents</a>
+          <a class="button secondary" href="https://app.termly.io/dsar/868c4685-0469-4ee9-91f1-e5a8645af737" target="_blank" rel="noopener noreferrer">Submit Data Request</a>
+        </div>
+      </div>
+
+      <aside class="hero-side" aria-label="Company overview">
+        <div class="metric">
+          <strong>SaaS</strong>
+          <span>Simple software tools built for practical, everyday use.</span>
+        </div>
+        <div class="metric">
+          <strong>Legal Hub</strong>
+          <span>Policies and documents for current and future Wolfpack Labz apps.</span>
+        </div>
+        <div class="metric">
+          <strong>Support</strong>
+          <span>Contact Wolfpack Labz for app support, legal questions, or data requests.</span>
+        </div>
+      </aside>
+    </section>
+
+    <section id="apps" class="section">
+      <div class="section-header">
+        <div>
+          <h3>Apps & Documentation</h3>
+          <p>
+            Each app can have its own logo, description, and legal document links.
+            Add more app cards as Wolfpack Labz releases new products.
+          </p>
+        </div>
+        <span class="status-pill">Active documentation</span>
+      </div>
+
+      <div class="app-grid">
+        <article class="app-card">
+          <div class="app-logo">
+            <!-- Replace this placeholder with your app logo:
+            <img src="swift-invoice-logo.png" alt="Swift Invoice logo">
+            -->
+            App Logo
+          </div>
+
+          <div class="app-content">
+            <h4>Swift Invoice</h4>
+            <p>
+              A simple invoicing and estimate app for small businesses,
+              freelancers, contractors, and self-employed professionals.
+            </p>
+
+            <div class="doc-links">
+              <a href="privacy-policy.html">Privacy Policy</a>
+              <a href="#">Terms of Use</a>
+              <a href="https://app.termly.io/dsar/868c4685-0469-4ee9-91f1-e5a8645af737" target="_blank" rel="noopener noreferrer">Data Request</a>
+              <a href="mailto:wolfpack-labs@gmail.com">Support</a>
+            </div>
+          </div>
+        </article>
+
+        <article class="app-card">
+          <div class="app-logo">
+            <!-- Replace this placeholder with your app logo:
+            <img src="future-app-logo.png" alt="Future App logo">
+            -->
+            App Logo
+          </div>
+
+          <div class="app-content">
+            <h4>Future App</h4>
+            <p>
+              Reserve this space for the next Wolfpack Labz app. Replace this
+              text with the app name, description, logo, and legal document links.
+            </p>
+
+            <div class="doc-links">
+              <a href="#">Privacy Policy</a>
+              <a href="#">Terms of Use</a>
+              <a href="https://app.termly.io/dsar/868c4685-0469-4ee9-91f1-e5a8645af737" target="_blank" rel="noopener noreferrer">Data Request</a>
+              <a href="mailto:wolfpack-labs@gmail.com">Support</a>
+            </div>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section id="legal" class="section">
+      <div class="section-header">
+        <div>
+          <h3>General Legal & Support Links</h3>
+          <p>
+            Use these links for company-wide requests, support, or documentation.
+          </p>
+        </div>
+      </div>
+
+      <div class="utility-grid">
+        <article class="utility-card">
+          <div class="icon">📄</div>
+          <h4>Privacy Policies</h4>
+          <p>
+            View privacy policies for Wolfpack Labz apps and services.
+          </p>
+          <a href="#apps">Browse app policies →</a>
+        </article>
+
+        <article class="utility-card">
+          <div class="icon">🛡️</div>
+          <h4>Data Requests</h4>
+          <p>
+            Submit a request to review, update, or delete personal information.
+          </p>
+          <a href="https://app.termly.io/dsar/868c4685-0469-4ee9-91f1-e5a8645af737" target="_blank" rel="noopener noreferrer">Open request form →</a>
+        </article>
+
+        <article class="utility-card">
+          <div class="icon">✉️</div>
+          <h4>Contact</h4>
+          <p>
+            Reach out for support, legal questions, or app-related issues.
+          </p>
+          <a href="mailto:wolfpack-labs@gmail.com">wolfpack-labs@gmail.com →</a>
+        </article>
+      </div>
+    </section>
+
+    <section id="contact" class="section">
+      <div class="contact-box">
+        <div>
+          <h3>Need help with a Wolfpack Labz app?</h3>
+          <p>
+            Contact us for support, documentation questions, account deletion
+            requests, or privacy-related concerns.
+          </p>
+        </div>
+
+        <a class="button" href="mailto:wolfpack-labs@gmail.com">Contact Wolfpack Labz</a>
+      </div>
     </section>
 
     <footer>
-      Direct privacy policy URL:<br />
-      https://wolfpack-labz.github.io/Swift-Invoice/privacy-policy.html
+      <div>© 2026 Wolfpack Labz LLC. All rights reserved.</div>
+      <div>
+        Hosted on GitHub Pages at
+        <code>https://wolfpack-labz.github.io/Swift-Invoice/</code>
+      </div>
     </footer>
   </main>
 </body>
