@@ -3,13 +3,16 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
   <title>Wolfpack Labz | Legal Documentation Hub</title>
-  <link rel="icon" type="image/png" href="favicon.png">
   <meta name="description" content="Wolfpack Labz legal documentation hub for privacy policies, terms, data requests, and support information for our apps." />
+
+  <!-- Keep these files in the same GitHub repo folder as index.html. -->
+  <link rel="icon" type="image/png" sizes="32x32" href="favicon.png" />
+  <link rel="apple-touch-icon" sizes="180x180" href="favicon.png" />
 
   <style>
     :root {
-      --bg: #0f172a;
       --card: #ffffff;
       --card-muted: #f8fafc;
       --text: #111827;
@@ -22,22 +25,19 @@
       --shadow: 0 18px 45px rgba(15, 23, 42, 0.14);
     }
 
-    * {
-      box-sizing: border-box;
-    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
 
     body {
       margin: 0;
-      font-family: Arial, Helvetica, sans-serif;
-      background: linear-gradient(135deg, #0f172a 0%, #1e293b 44%, #0f172a 100%);
-      color: var(--text);
       min-height: 100vh;
+      font-family: Arial, Helvetica, sans-serif;
+      color: var(--text);
+      background: linear-gradient(135deg, #0f172a 0%, #1e293b 44%, #0f172a 100%);
     }
 
-    a {
-      color: inherit;
-      text-decoration: none;
-    }
+    a { color: inherit; text-decoration: none; }
+    img { max-width: 100%; }
 
     .page {
       width: min(1180px, calc(100% - 32px));
@@ -58,18 +58,17 @@
       display: flex;
       align-items: center;
       gap: 14px;
+      min-width: 0;
     }
 
     .brand-logo {
-      width: 48px;
-      height: 48px;
-      border-radius: 16px;
-      background: rgba(255, 255, 255, 0.12);
-      border: 1px solid rgba(255, 255, 255, 0.2);
-      display: grid;
-      place-items: center;
-      font-weight: 800;
-      letter-spacing: -1px;
+      width: 52px;
+      height: 52px;
+      flex: 0 0 52px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
     }
 
     .brand-logo img {
@@ -77,11 +76,13 @@
       height: 100%;
       object-fit: contain;
       display: block;
+      border-radius: 14px;
     }
 
     .brand h1 {
       margin: 0;
       font-size: 22px;
+      line-height: 1.1;
       letter-spacing: -0.4px;
     }
 
@@ -94,9 +95,9 @@
     .nav {
       display: flex;
       align-items: center;
+      justify-content: flex-end;
       gap: 10px;
       flex-wrap: wrap;
-      justify-content: flex-end;
     }
 
     .nav a {
@@ -108,9 +109,7 @@
       border: 1px solid rgba(255, 255, 255, 0.12);
     }
 
-    .nav a:hover {
-      background: rgba(255, 255, 255, 0.14);
-    }
+    .nav a:hover { background: rgba(255, 255, 255, 0.14); }
 
     .hero {
       display: grid;
@@ -129,14 +128,13 @@
       box-shadow: var(--shadow);
     }
 
-    .hero-main {
-      padding: 36px;
-    }
+    .hero-main { padding: 36px; }
 
     .eyebrow {
       display: inline-flex;
       align-items: center;
       gap: 8px;
+      margin-bottom: 18px;
       color: var(--accent-dark);
       background: #eff6ff;
       border: 1px solid #dbeafe;
@@ -144,7 +142,6 @@
       border-radius: 999px;
       font-size: 13px;
       font-weight: 700;
-      margin-bottom: 18px;
     }
 
     .hero h2 {
@@ -182,25 +179,10 @@
       border: 1px solid transparent;
     }
 
-    .button.primary {
-      background: var(--accent);
-      color: white;
-    }
-
-    .button.primary:hover {
-      background: var(--accent-dark);
-    }
-
-    .button.secondary {
-      background: #f8fafc;
-      color: #0f172a;
-      border-color: var(--border);
-    }
-
-    .button.secondary:hover {
-      background: #eef2ff;
-      border-color: #c7d2fe;
-    }
+    .button.primary { background: var(--accent); color: white; }
+    .button.primary:hover { background: var(--accent-dark); }
+    .button.secondary { background: #f8fafc; color: #0f172a; border-color: var(--border); }
+    .button.secondary:hover { background: #eef2ff; border-color: #c7d2fe; }
 
     .hero-side {
       padding: 24px;
@@ -224,10 +206,7 @@
       margin-bottom: 5px;
     }
 
-    .metric span {
-      color: var(--text-soft);
-      font-size: 14px;
-    }
+    .metric span { color: var(--text-soft); font-size: 14px; }
 
     .section {
       padding: 26px;
@@ -277,14 +256,15 @@
     }
 
     .app-card {
+      display: grid;
+      grid-template-columns: 98px 1fr;
+      align-items: start;
+      gap: 18px;
+      min-height: 210px;
+      padding: 18px;
+      background: #ffffff;
       border: 1px solid var(--border);
       border-radius: 20px;
-      background: #ffffff;
-      padding: 18px;
-      display: grid;
-      grid-template-columns: 78px 1fr;
-      gap: 16px;
-      min-height: 210px;
     }
 
     .app-logo {
@@ -292,7 +272,7 @@
       height: 98px;
       border-radius: 24px;
       background: #e8f1ff;
-      border: 1px dashed #8bbcff;
+      border: 1px solid #bfdbfe;
       display: flex;
       align-items: center;
       justify-content: center;
@@ -301,17 +281,13 @@
     }
 
     .app-logo img {
-      width: 88%;
-      height: 88%;
+      width: 86%;
+      height: 86%;
       object-fit: contain;
       display: block;
     }
 
-    .app-content h4 {
-      margin: 0;
-      font-size: 20px;
-      color: #0f172a;
-    }
+    .app-content h4 { margin: 0; font-size: 20px; color: #0f172a; }
 
     .app-content p {
       margin: 8px 0 14px;
@@ -366,24 +342,9 @@
       font-size: 20px;
     }
 
-    .utility-card h4 {
-      margin: 0 0 7px;
-      font-size: 17px;
-      color: #0f172a;
-    }
-
-    .utility-card p {
-      margin: 0 0 14px;
-      color: var(--text-soft);
-      font-size: 14px;
-      line-height: 1.55;
-    }
-
-    .utility-card a {
-      color: var(--accent-dark);
-      font-size: 14px;
-      font-weight: 800;
-    }
+    .utility-card h4 { margin: 0 0 7px; font-size: 17px; color: #0f172a; }
+    .utility-card p { margin: 0 0 14px; color: var(--text-soft); font-size: 14px; line-height: 1.55; }
+    .utility-card a { color: var(--accent-dark); font-size: 14px; font-weight: 800; }
 
     .contact-box {
       display: grid;
@@ -396,23 +357,9 @@
       padding: 22px;
     }
 
-    .contact-box h3 {
-      margin: 0 0 6px;
-      font-size: 22px;
-    }
-
-    .contact-box p {
-      margin: 0;
-      color: #cbd5e1;
-      line-height: 1.6;
-      font-size: 14px;
-    }
-
-    .contact-box .button {
-      background: white;
-      color: #0f172a;
-      white-space: nowrap;
-    }
+    .contact-box h3 { margin: 0 0 6px; font-size: 22px; }
+    .contact-box p { margin: 0; color: #cbd5e1; line-height: 1.6; font-size: 14px; }
+    .contact-box .button { background: white; color: #0f172a; white-space: nowrap; }
 
     footer {
       color: #cbd5e1;
@@ -439,44 +386,20 @@
         flex-direction: column;
       }
 
-      .hero {
-        grid-template-columns: 1fr;
-      }
-
+      .hero { grid-template-columns: 1fr; }
       .app-grid,
-      .utility-grid {
-        grid-template-columns: 1fr;
-      }
-
-      .app-card {
-        grid-template-columns: 1fr;
-      }
-
-      .nav {
-        justify-content: flex-start;
-      }
+      .utility-grid { grid-template-columns: 1fr; }
+      .nav { justify-content: flex-start; }
     }
 
     @media (max-width: 520px) {
-      .page {
-        width: min(100% - 22px, 1180px);
-        padding-top: 18px;
-      }
-
+      .page { width: min(100% - 22px, 1180px); padding-top: 18px; }
       .hero-main,
       .hero-side,
-      .section {
-        padding: 20px;
-      }
-
-      .hero h2 {
-        letter-spacing: -1.2px;
-      }
-
-      .brand-logo {
-        width: 42px;
-        height: 42px;
-      }
+      .section { padding: 20px; }
+      .hero h2 { letter-spacing: -1.2px; }
+      .brand-logo { width: 46px; height: 46px; flex-basis: 46px; }
+      .app-card { grid-template-columns: 1fr; }
     }
   </style>
 </head>
@@ -486,8 +409,9 @@
     <header class="topbar">
       <a class="brand" href="./" aria-label="Wolfpack Labz homepage">
         <div class="brand-logo">
-          <img src="https://wolfpack-labz.github.io/Swift-Invoice/favicon.png" alt="Wolfpack Labz logo">
+          <img src="https://wolfpack-labz.github.io/Swift-Invoice/favicon.png" alt="Wolfpack Labz logo" />
         </div>
+
         <div>
           <h1>Wolfpack Labz</h1>
           <p>Simple apps for everyday people</p>
@@ -523,10 +447,12 @@
           <strong>SaaS</strong>
           <span>Simple software tools built for practical, everyday use.</span>
         </div>
+
         <div class="metric">
           <strong>Legal Hub</strong>
           <span>Policies and documents for current and future Wolfpack Labz apps.</span>
         </div>
+
         <div class="metric">
           <strong>Support</strong>
           <span>Contact Wolfpack Labz for app support, legal questions, or data requests.</span>
@@ -598,9 +524,7 @@
       <div class="section-header">
         <div>
           <h3>General Legal & Support Links</h3>
-          <p>
-            Use these links for company-wide requests, support, or documentation.
-          </p>
+          <p>Use these links for company-wide requests, support, or documentation.</p>
         </div>
       </div>
 
@@ -608,27 +532,21 @@
         <article class="utility-card">
           <div class="icon">📄</div>
           <h4>Privacy Policies</h4>
-          <p>
-            View privacy policies for Wolfpack Labz apps and services.
-          </p>
+          <p>View privacy policies for Wolfpack Labz apps and services.</p>
           <a href="#apps">Browse app policies →</a>
         </article>
 
         <article class="utility-card">
           <div class="icon">🛡️</div>
           <h4>Data Requests</h4>
-          <p>
-            Submit a request to review, update, or delete personal information.
-          </p>
+          <p>Submit a request to review, update, or delete personal information.</p>
           <a href="https://app.termly.io/dsar/868c4685-0469-4ee9-91f1-e5a8645af737" target="_blank" rel="noopener noreferrer">Open request form →</a>
         </article>
 
         <article class="utility-card">
           <div class="icon">✉️</div>
           <h4>Contact</h4>
-          <p>
-            Reach out for support, legal questions, or app-related issues.
-          </p>
+          <p>Reach out for support, legal questions, or app-related issues.</p>
           <a href="mailto:wolfpack-labs@gmail.com">wolfpack-labs@gmail.com →</a>
         </article>
       </div>
