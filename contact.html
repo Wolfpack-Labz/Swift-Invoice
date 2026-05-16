@@ -1,0 +1,397 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Contact | Wolfpack Labs</title>
+  <meta name="description" content="Contact Wolfpack Labs for support requests, bug reports, and other questions." />
+  <style>
+    :root {
+      --bg: #f6f8fb;
+      --card: #ffffff;
+      --text: #172033;
+      --muted: #5f6b7a;
+      --border: #dbe3ef;
+      --primary: #2563eb;
+      --primary-dark: #1d4ed8;
+      --danger: #dc2626;
+      --success: #166534;
+      --shadow: 0 16px 45px rgba(23, 32, 51, 0.08);
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--text);
+      font-family: Arial, Helvetica, sans-serif;
+      line-height: 1.6;
+    }
+
+    .page {
+      max-width: 980px;
+      margin: 0 auto;
+      padding: 28px 16px 56px;
+    }
+
+    .topbar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      margin-bottom: 18px;
+      flex-wrap: wrap;
+    }
+
+    .home-link {
+      color: var(--primary);
+      text-decoration: none;
+      font-weight: 700;
+    }
+
+    .home-link:hover { text-decoration: underline; }
+
+    .contact-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 18px;
+      padding: clamp(22px, 4vw, 44px);
+      box-shadow: var(--shadow);
+      overflow-wrap: anywhere;
+    }
+
+    .eyebrow {
+      color: var(--primary);
+      font-size: 13px;
+      font-weight: 800;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      margin: 0 0 8px;
+    }
+
+    h1, h2, h3 {
+      line-height: 1.25;
+      color: #000;
+    }
+
+    h1 {
+      font-size: clamp(32px, 5vw, 44px);
+      margin: 0 0 10px;
+    }
+
+    h2 {
+      font-size: 22px;
+      margin: 34px 0 12px;
+    }
+
+    p, li {
+      color: var(--muted);
+      font-size: 15px;
+    }
+
+    a { color: var(--primary); }
+
+    .intro {
+      max-width: 720px;
+      margin: 0 0 26px;
+      font-size: 16px;
+    }
+
+    .notice {
+      background: #f1f5ff;
+      border: 1px solid #c7d7fe;
+      padding: 14px 16px;
+      border-radius: 12px;
+      margin: 18px 0 28px;
+      color: #334155;
+    }
+
+    form {
+      display: grid;
+      gap: 18px;
+      margin-top: 22px;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 18px;
+    }
+
+    label {
+      display: block;
+      font-weight: 700;
+      color: #1f2937;
+      margin-bottom: 7px;
+      font-size: 14px;
+    }
+
+    input,
+    select,
+    textarea {
+      width: 100%;
+      border: 1px solid #cbd5e1;
+      border-radius: 12px;
+      padding: 12px 13px;
+      font-size: 15px;
+      font-family: inherit;
+      color: var(--text);
+      background: #fff;
+      outline: none;
+      transition: border-color 0.15s ease, box-shadow 0.15s ease;
+    }
+
+    input:focus,
+    select:focus,
+    textarea:focus {
+      border-color: var(--primary);
+      box-shadow: 0 0 0 4px rgba(37, 99, 235, 0.14);
+    }
+
+    textarea {
+      min-height: 160px;
+      resize: vertical;
+    }
+
+    .hint {
+      margin: 6px 0 0;
+      color: #64748b;
+      font-size: 13px;
+    }
+
+    .required {
+      color: var(--danger);
+    }
+
+    .actions {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      flex-wrap: wrap;
+      margin-top: 4px;
+    }
+
+    button {
+      border: 0;
+      border-radius: 12px;
+      background: var(--primary);
+      color: #fff;
+      cursor: pointer;
+      font-size: 15px;
+      font-weight: 800;
+      padding: 13px 18px;
+      transition: background 0.15s ease, transform 0.15s ease;
+    }
+
+    button:hover { background: var(--primary-dark); }
+    button:active { transform: translateY(1px); }
+
+    .secondary-link {
+      font-size: 14px;
+      font-weight: 700;
+      text-decoration: none;
+    }
+
+    .secondary-link:hover { text-decoration: underline; }
+
+    .help-boxes {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 14px;
+      margin-top: 26px;
+    }
+
+    .help-box {
+      border: 1px solid var(--border);
+      background: #fbfdff;
+      border-radius: 14px;
+      padding: 16px;
+    }
+
+    .help-box h3 {
+      font-size: 16px;
+      margin: 0 0 6px;
+    }
+
+    .help-box p {
+      margin: 0;
+      font-size: 14px;
+    }
+
+    .status-message {
+      display: none;
+      border-radius: 12px;
+      padding: 13px 15px;
+      font-weight: 700;
+      margin-top: 10px;
+    }
+
+    .status-message.success {
+      display: block;
+      color: var(--success);
+      background: #ecfdf3;
+      border: 1px solid #bbf7d0;
+    }
+
+    .status-message.error {
+      display: block;
+      color: #991b1b;
+      background: #fef2f2;
+      border: 1px solid #fecaca;
+    }
+
+    footer {
+      margin-top: 26px;
+      text-align: center;
+      color: #64748b;
+      font-size: 13px;
+    }
+
+    @media (max-width: 760px) {
+      .grid,
+      .help-boxes {
+        grid-template-columns: 1fr;
+      }
+
+      .topbar {
+        align-items: flex-start;
+        flex-direction: column;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="page">
+    <div class="topbar">
+      <a class="home-link" href="index.html">← Wolfpack Labs Home</a>
+      <a class="home-link" href="mailto:support@wolfpack-labs.com">support@wolfpack-labs.com</a>
+    </div>
+
+    <main class="contact-card">
+      <p class="eyebrow">Contact Wolfpack Labs</p>
+      <h1>How can we help?</h1>
+      <p class="intro">
+        Use this form for Swift Invoice support requests, bug reports, account questions, app feedback, or general questions about Wolfpack Labs.
+      </p>
+
+      <div class="notice">
+        For the fastest help, include the app name, what you were trying to do, what happened, and any steps that can help us reproduce the issue.
+      </div>
+
+      <form id="contactForm">
+        <div class="grid">
+          <div>
+            <label for="name">Name <span class="required">*</span></label>
+            <input id="name" name="name" type="text" autocomplete="name" required />
+          </div>
+
+          <div>
+            <label for="email">Email <span class="required">*</span></label>
+            <input id="email" name="email" type="email" autocomplete="email" required />
+          </div>
+        </div>
+
+        <div class="grid">
+          <div>
+            <label for="requestType">Request Type <span class="required">*</span></label>
+            <select id="requestType" name="requestType" required>
+              <option value="">Select one</option>
+              <option value="Support Request">Support request</option>
+              <option value="Bug Report">Bug report</option>
+              <option value="Other Question">Other question</option>
+            </select>
+          </div>
+
+          <div>
+            <label for="appName">App / Product</label>
+            <select id="appName" name="appName">
+              <option value="Swift Invoice">Swift Invoice</option>
+              <option value="Wolfpack Labs Website">Wolfpack Labs Website</option>
+              <option value="Other">Other</option>
+            </select>
+          </div>
+        </div>
+
+        <div>
+          <label for="subject">Subject <span class="required">*</span></label>
+          <input id="subject" name="subject" type="text" required placeholder="Briefly describe what you need help with" />
+        </div>
+
+        <div>
+          <label for="message">Message <span class="required">*</span></label>
+          <textarea id="message" name="message" required placeholder="Tell us what happened, what you expected, and any steps to reproduce the issue."></textarea>
+          <p class="hint">Please do not include passwords, payment card numbers, or other sensitive information.</p>
+        </div>
+
+        <div class="actions">
+          <button type="submit">Send Message</button>
+          <a class="secondary-link" href="mailto:support@wolfpack-labs.com">Email us directly</a>
+        </div>
+
+        <div id="statusMessage" class="status-message" role="status" aria-live="polite"></div>
+      </form>
+
+      <section class="help-boxes" aria-label="Common contact reasons">
+        <div class="help-box">
+          <h3>Support requests</h3>
+          <p>Questions about accounts, app setup, invoices, estimates, customers, or general app use.</p>
+        </div>
+        <div class="help-box">
+          <h3>Bug reports</h3>
+          <p>Report broken links, app errors, layout issues, crashes, or features that are not working correctly.</p>
+        </div>
+        <div class="help-box">
+          <h3>Other questions</h3>
+          <p>Send feedback, business questions, privacy requests, or general questions for Wolfpack Labs.</p>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      © <span id="year"></span> Wolfpack Labs. All rights reserved.
+    </footer>
+  </div>
+
+  <script>
+    const SUPPORT_EMAIL = 'support@wolfpack-labs.com';
+
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    document.getElementById('contactForm').addEventListener('submit', function (event) {
+      event.preventDefault();
+
+      const form = event.currentTarget;
+      const status = document.getElementById('statusMessage');
+      const formData = new FormData(form);
+
+      const name = String(formData.get('name') || '').trim();
+      const email = String(formData.get('email') || '').trim();
+      const requestType = String(formData.get('requestType') || '').trim();
+      const appName = String(formData.get('appName') || '').trim();
+      const subject = String(formData.get('subject') || '').trim();
+      const message = String(formData.get('message') || '').trim();
+
+      if (!name || !email || !requestType || !subject || !message) {
+        status.className = 'status-message error';
+        status.textContent = 'Please complete all required fields before sending.';
+        return;
+      }
+
+      const emailSubject = encodeURIComponent(`[${requestType}] ${subject}`);
+      const emailBody = encodeURIComponent(
+        `Name: ${name}\n` +
+        `Email: ${email}\n` +
+        `Request Type: ${requestType}\n` +
+        `App / Product: ${appName || 'Not specified'}\n\n` +
+        `Message:\n${message}`
+      );
+
+      status.className = 'status-message success';
+      status.textContent = 'Opening your email app so you can send this message to Wolfpack Labs.';
+
+      window.location.href = `mailto:${SUPPORT_EMAIL}?subject=${emailSubject}&body=${emailBody}`;
+    });
+  </script>
+</body>
+</html>
