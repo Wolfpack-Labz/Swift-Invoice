@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Payment Cancelled | Wolfpack Labz</title>
+  <meta name="description" content="Your payment was cancelled and no charge was completed." />
+  <style>
+    :root {
+      --bg: #0f172a;
+      --card: #111827;
+      --card-light: #1f2937;
+      --text: #f8fafc;
+      --muted: #cbd5e1;
+      --accent: #f59e0b;
+      --accent-dark: #d97706;
+      --border: rgba(255, 255, 255, 0.12);
+      --shadow: 0 24px 80px rgba(0, 0, 0, 0.35);
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      font-family: Arial, Helvetica, sans-serif;
+      background:
+        radial-gradient(circle at top left, rgba(245, 158, 11, 0.16), transparent 35%),
+        linear-gradient(135deg, #020617 0%, var(--bg) 55%, #111827 100%);
+      color: var(--text);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 24px;
+    }
+
+    .page {
+      width: 100%;
+      max-width: 760px;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+      margin-bottom: 28px;
+      color: var(--muted);
+      font-weight: 700;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      font-size: 0.9rem;
+    }
+
+    .brand-mark {
+      width: 36px;
+      height: 36px;
+      border-radius: 12px;
+      background: linear-gradient(135deg, var(--accent), var(--accent-dark));
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #451a03;
+      font-weight: 900;
+    }
+
+    .card {
+      background: rgba(17, 24, 39, 0.86);
+      border: 1px solid var(--border);
+      border-radius: 28px;
+      box-shadow: var(--shadow);
+      padding: 42px;
+      text-align: center;
+      backdrop-filter: blur(14px);
+    }
+
+    .icon {
+      width: 82px;
+      height: 82px;
+      border-radius: 999px;
+      margin: 0 auto 24px;
+      background: rgba(245, 158, 11, 0.14);
+      border: 1px solid rgba(245, 158, 11, 0.35);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--accent);
+      font-size: 42px;
+      line-height: 1;
+    }
+
+    h1 {
+      margin: 0 0 14px;
+      font-size: clamp(2rem, 5vw, 3.2rem);
+      line-height: 1.05;
+    }
+
+    p {
+      margin: 0 auto 18px;
+      max-width: 560px;
+      color: var(--muted);
+      font-size: 1.06rem;
+      line-height: 1.7;
+    }
+
+    .actions {
+      margin-top: 30px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+      justify-content: center;
+    }
+
+    a.button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 48px;
+      padding: 0 22px;
+      border-radius: 999px;
+      text-decoration: none;
+      font-weight: 700;
+      border: 1px solid transparent;
+      transition: transform 160ms ease, opacity 160ms ease, border-color 160ms ease;
+    }
+
+    a.button:hover {
+      transform: translateY(-1px);
+      opacity: 0.94;
+    }
+
+    .primary {
+      background: var(--accent);
+      color: #451a03;
+    }
+
+    .secondary {
+      color: var(--text);
+      border-color: var(--border);
+      background: rgba(255, 255, 255, 0.04);
+    }
+
+    .footer {
+      margin-top: 22px;
+      text-align: center;
+      color: rgba(203, 213, 225, 0.72);
+      font-size: 0.88rem;
+    }
+
+    @media (max-width: 560px) {
+      .card {
+        padding: 32px 22px;
+        border-radius: 22px;
+      }
+
+      .actions {
+        flex-direction: column;
+      }
+
+      a.button {
+        width: 100%;
+      }
+    }
+  </style>
+</head>
+<body>
+  <main class="page">
+    <div class="brand" aria-label="Wolfpack Labz">
+      <div class="brand-mark">W</div>
+      <span>Wolfpack Labz</span>
+    </div>
+
+    <section class="card" aria-labelledby="payment-cancelled-title">
+      <div class="icon" aria-hidden="true">!</div>
+      <h1 id="payment-cancelled-title">Payment cancelled</h1>
+      <p>
+        No payment was completed, and your card was not charged through this checkout session.
+      </p>
+      <p>
+        You can return to the invoice payment link and try again when you are ready.
+      </p>
+
+      <div class="actions">
+        <a class="button primary" href="./index.html">Return to Wolfpack Labz</a>
+        <a class="button secondary" href="mailto:support@wolfpack-labs.com">Contact Support</a>
+      </div>
+    </section>
+
+    <div class="footer">
+      &copy; <span id="year"></span> Wolfpack Labz. All rights reserved.
+    </div>
+  </main>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
