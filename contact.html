@@ -1,128 +1,180 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
   <title>Contact | Wolfpack Labs</title>
-  <meta name="description" content="Contact Wolfpack Labs for support requests, bug reports, and other questions." />
+  <meta
+    name="description"
+    content="Contact Wolfpack Labs for support requests, bug reports, and general questions."
+  />
+
+  <link rel="icon" type="image/png" sizes="32x32" href="favicon.png" />
+  <link rel="icon" type="image/png" sizes="192x192" href="favicon.png" />
+  <link rel="apple-touch-icon" sizes="180x180" href="favicon.png" />
+
   <style>
     :root {
-      --bg: #f6f8fb;
+      --bg: #0f172a;
       --card: #ffffff;
-      --text: #172033;
-      --muted: #5f6b7a;
-      --border: #dbe3ef;
-      --primary: #2563eb;
-      --primary-dark: #1d4ed8;
-      --danger: #dc2626;
+      --card-muted: #f8fafc;
+      --text: #0f172a;
+      --text-soft: #52657f;
+      --white: #ffffff;
+      --accent: #2563eb;
+      --accent-dark: #1d4ed8;
+      --danger: #b91c1c;
       --success: #166534;
-      --shadow: 0 16px 45px rgba(23, 32, 51, 0.08);
+      --border: #e2e8f0;
+      --radius: 22px;
+      --shadow: 0 18px 45px rgba(15, 23, 42, 0.14);
     }
 
-    * { box-sizing: border-box; }
+    * {
+      box-sizing: border-box;
+    }
 
     body {
       margin: 0;
-      background: var(--bg);
-      color: var(--text);
+      min-height: 100vh;
       font-family: Arial, Helvetica, sans-serif;
-      line-height: 1.6;
+      color: var(--text);
+      background: linear-gradient(135deg, #0f172a 0%, #1e293b 44%, #0f172a 100%);
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
     }
 
     .page {
-      max-width: 980px;
+      width: min(980px, calc(100% - 32px));
       margin: 0 auto;
-      padding: 28px 16px 56px;
+      padding: 28px 0 52px;
     }
 
     .topbar {
       display: flex;
       align-items: center;
       justify-content: space-between;
-      gap: 16px;
-      margin-bottom: 18px;
+      gap: 18px;
+      margin-bottom: 28px;
+      color: var(--white);
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      min-width: 0;
+    }
+
+    .brand-logo {
+      width: 52px;
+      height: 52px;
+      flex: 0 0 52px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+      border-radius: 15px;
+      background: rgba(255, 255, 255, 0.08);
+    }
+
+    .brand-logo img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      display: block;
+    }
+
+    .brand h1 {
+      margin: 0;
+      font-size: 22px;
+      line-height: 1.1;
+      letter-spacing: -0.4px;
+    }
+
+    .brand p {
+      margin: 3px 0 0;
+      color: #cbd5e1;
+      font-size: 14px;
+    }
+
+    .nav {
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      gap: 10px;
       flex-wrap: wrap;
     }
 
-    .home-link {
-      color: var(--primary);
-      text-decoration: none;
-      font-weight: 700;
+    .nav a {
+      color: #e2e8f0;
+      font-size: 14px;
+      padding: 10px 14px;
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.08);
+      border: 1px solid rgba(255, 255, 255, 0.12);
     }
 
-    .home-link:hover { text-decoration: underline; }
+    .nav a:hover {
+      background: rgba(255, 255, 255, 0.14);
+    }
 
-    .contact-card {
-      background: var(--card);
-      border: 1px solid var(--border);
-      border-radius: 18px;
-      padding: clamp(22px, 4vw, 44px);
+    .card {
+      background: rgba(255, 255, 255, 0.96);
+      border: 1px solid rgba(255, 255, 255, 0.75);
+      border-radius: var(--radius);
       box-shadow: var(--shadow);
-      overflow-wrap: anywhere;
+      padding: clamp(22px, 4vw, 42px);
     }
 
     .eyebrow {
-      color: var(--primary);
+      display: inline-flex;
+      align-items: center;
+      margin-bottom: 18px;
+      color: var(--accent-dark);
+      background: #eff6ff;
+      border: 1px solid #dbeafe;
+      padding: 8px 12px;
+      border-radius: 999px;
       font-size: 13px;
-      font-weight: 800;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      margin: 0 0 8px;
-    }
-
-    h1, h2, h3 {
-      line-height: 1.25;
-      color: #000;
-    }
-
-    h1 {
-      font-size: clamp(32px, 5vw, 44px);
-      margin: 0 0 10px;
+      font-weight: 700;
     }
 
     h2 {
-      font-size: 22px;
-      margin: 34px 0 12px;
+      margin: 0;
+      font-size: clamp(34px, 5vw, 52px);
+      line-height: 1;
+      letter-spacing: -1.8px;
+      color: #0f172a;
     }
-
-    p, li {
-      color: var(--muted);
-      font-size: 15px;
-    }
-
-    a { color: var(--primary); }
 
     .intro {
       max-width: 720px;
-      margin: 0 0 26px;
-      font-size: 16px;
-    }
-
-    .notice {
-      background: #f1f5ff;
-      border: 1px solid #c7d7fe;
-      padding: 14px 16px;
-      border-radius: 12px;
       margin: 18px 0 28px;
-      color: #334155;
+      color: var(--text-soft);
+      line-height: 1.7;
+      font-size: 16px;
     }
 
     form {
       display: grid;
       gap: 18px;
-      margin-top: 22px;
     }
 
     .grid {
       display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
+      grid-template-columns: 1fr 1fr;
       gap: 18px;
     }
 
     label {
       display: block;
-      font-weight: 700;
-      color: #1f2937;
+      font-weight: 800;
+      color: #0f172a;
       margin-bottom: 7px;
       font-size: 14px;
     }
@@ -131,266 +183,297 @@
     select,
     textarea {
       width: 100%;
-      border: 1px solid #cbd5e1;
-      border-radius: 12px;
-      padding: 12px 13px;
-      font-size: 15px;
-      font-family: inherit;
-      color: var(--text);
-      background: #fff;
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 13px 14px;
+      font: inherit;
+      color: #0f172a;
+      background: #ffffff;
       outline: none;
-      transition: border-color 0.15s ease, box-shadow 0.15s ease;
     }
 
     input:focus,
     select:focus,
     textarea:focus {
-      border-color: var(--primary);
-      box-shadow: 0 0 0 4px rgba(37, 99, 235, 0.14);
+      border-color: #93c5fd;
+      box-shadow: 0 0 0 4px rgba(147, 197, 253, 0.28);
     }
 
     textarea {
-      min-height: 160px;
+      min-height: 170px;
       resize: vertical;
     }
 
-    .hint {
-      margin: 6px 0 0;
-      color: #64748b;
+    .help-text {
+      margin-top: 7px;
+      color: var(--text-soft);
       font-size: 13px;
-    }
-
-    .required {
-      color: var(--danger);
+      line-height: 1.45;
     }
 
     .actions {
       display: flex;
-      align-items: center;
-      gap: 14px;
       flex-wrap: wrap;
+      align-items: center;
+      gap: 12px;
       margin-top: 4px;
     }
 
     button {
       border: 0;
-      border-radius: 12px;
-      background: var(--primary);
-      color: #fff;
       cursor: pointer;
-      font-size: 15px;
-      font-weight: 800;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
       padding: 13px 18px;
-      transition: background 0.15s ease, transform 0.15s ease;
-    }
-
-    button:hover { background: var(--primary-dark); }
-    button:active { transform: translateY(1px); }
-
-    .secondary-link {
-      font-size: 14px;
-      font-weight: 700;
-      text-decoration: none;
-    }
-
-    .secondary-link:hover { text-decoration: underline; }
-
-    .help-boxes {
-      display: grid;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: 14px;
-      margin-top: 26px;
-    }
-
-    .help-box {
-      border: 1px solid var(--border);
-      background: #fbfdff;
       border-radius: 14px;
-      padding: 16px;
+      font-weight: 800;
+      font-size: 14px;
+      background: var(--accent);
+      color: white;
     }
 
-    .help-box h3 {
-      font-size: 16px;
-      margin: 0 0 6px;
+    button:hover {
+      background: var(--accent-dark);
     }
 
-    .help-box p {
-      margin: 0;
+    button:disabled {
+      cursor: not-allowed;
+      opacity: 0.65;
+    }
+
+    .email-link {
+      color: var(--accent-dark);
+      font-weight: 800;
       font-size: 14px;
     }
 
-    .status-message {
+    .notice {
       display: none;
-      border-radius: 12px;
-      padding: 13px 15px;
-      font-weight: 700;
-      margin-top: 10px;
+      border-radius: 14px;
+      padding: 13px 14px;
+      font-size: 14px;
+      line-height: 1.5;
     }
 
-    .status-message.success {
+    .notice.success {
       display: block;
       color: var(--success);
-      background: #ecfdf3;
+      background: #ecfdf5;
       border: 1px solid #bbf7d0;
     }
 
-    .status-message.error {
+    .notice.error {
       display: block;
-      color: #991b1b;
+      color: var(--danger);
       background: #fef2f2;
       border: 1px solid #fecaca;
     }
 
     footer {
-      margin-top: 26px;
+      color: #cbd5e1;
       text-align: center;
-      color: #64748b;
       font-size: 13px;
+      margin-top: 30px;
+      line-height: 1.6;
     }
 
-    @media (max-width: 760px) {
-      .grid,
-      .help-boxes {
-        grid-template-columns: 1fr;
-      }
-
+    @media (max-width: 720px) {
       .topbar {
         align-items: flex-start;
         flex-direction: column;
       }
+
+      .nav {
+        justify-content: flex-start;
+      }
+
+      .grid {
+        grid-template-columns: 1fr;
+      }
+
+      .page {
+        width: min(100% - 22px, 980px);
+        padding-top: 18px;
+      }
+
+      .brand-logo {
+        width: 46px;
+        height: 46px;
+        flex-basis: 46px;
+      }
     }
   </style>
 </head>
-<body>
-  <div class="page">
-    <div class="topbar">
-      <a class="home-link" href="index.html">← Wolfpack Labs Home</a>
-      <a class="home-link" href="mailto:support@wolfpack-labs.com">support@wolfpack-labs.com</a>
-    </div>
 
-    <main class="contact-card">
-      <p class="eyebrow">Contact Wolfpack Labs</p>
-      <h1>How can we help?</h1>
+<body>
+  <main class="page">
+    <header class="topbar">
+      <a class="brand" href="index.html" aria-label="Wolfpack Labs homepage">
+        <div class="brand-logo">
+          <img src="favicon.png" alt="Wolfpack Labs logo" />
+        </div>
+
+        <div>
+          <h1>Wolfpack Labs</h1>
+          <p>Simple apps for everyday people</p>
+        </div>
+      </a>
+
+      <nav class="nav" aria-label="Primary navigation">
+        <a href="index.html#apps">Apps</a>
+        <a href="index.html#legal">Legal Docs</a>
+        <a href="contact.html">Contact</a>
+      </nav>
+    </header>
+
+    <section class="card">
+      <div class="eyebrow">Contact Wolfpack Labs</div>
+      <h2>Support, bug reports, and questions.</h2>
+
       <p class="intro">
-        Use this form for Swift Invoice support requests, bug reports, account questions, app feedback, or general questions about Wolfpack Labs.
+        Use this form to contact Wolfpack Labs about app support, bugs, account issues,
+        legal questions, data requests, or general questions.
       </p>
 
-      <div class="notice">
-        For the fastest help, include the app name, what you were trying to do, what happened, and any steps that can help us reproduce the issue.
-      </div>
+      <div id="formNotice" class="notice" role="status" aria-live="polite"></div>
 
       <form id="contactForm">
         <div class="grid">
           <div>
-            <label for="name">Name <span class="required">*</span></label>
+            <label for="name">Name</label>
             <input id="name" name="name" type="text" autocomplete="name" required />
           </div>
 
           <div>
-            <label for="email">Email <span class="required">*</span></label>
+            <label for="email">Email</label>
             <input id="email" name="email" type="email" autocomplete="email" required />
           </div>
         </div>
 
         <div class="grid">
           <div>
-            <label for="requestType">Request Type <span class="required">*</span></label>
+            <label for="requestType">Request type</label>
             <select id="requestType" name="requestType" required>
               <option value="">Select one</option>
-              <option value="Support Request">Support request</option>
-              <option value="Bug Report">Bug report</option>
-              <option value="Other Question">Other question</option>
+              <option value="Support Request">Support Request</option>
+              <option value="Bug Report">Bug Report</option>
+              <option value="Other Question">Other Question</option>
             </select>
           </div>
 
           <div>
-            <label for="appName">App / Product</label>
-            <select id="appName" name="appName">
+            <label for="appName">App</label>
+            <select id="appName" name="appName" required>
               <option value="Swift Invoice">Swift Invoice</option>
               <option value="Wolfpack Labs Website">Wolfpack Labs Website</option>
-              <option value="Other">Other</option>
+              <option value="Other / Not Sure">Other / Not Sure</option>
             </select>
           </div>
         </div>
 
         <div>
-          <label for="subject">Subject <span class="required">*</span></label>
-          <input id="subject" name="subject" type="text" required placeholder="Briefly describe what you need help with" />
+          <label for="subject">Subject</label>
+          <input id="subject" name="subject" type="text" maxlength="120" required />
         </div>
 
         <div>
-          <label for="message">Message <span class="required">*</span></label>
-          <textarea id="message" name="message" required placeholder="Tell us what happened, what you expected, and any steps to reproduce the issue."></textarea>
-          <p class="hint">Please do not include passwords, payment card numbers, or other sensitive information.</p>
+          <label for="message">Message</label>
+          <textarea
+            id="message"
+            name="message"
+            placeholder="Tell us what happened, what you expected, and any steps to reproduce the issue if this is a bug report."
+            required
+          ></textarea>
+          <div class="help-text">
+            Please do not include passwords, payment card numbers, or other sensitive information.
+          </div>
         </div>
 
         <div class="actions">
-          <button type="submit">Send Message</button>
-          <a class="secondary-link" href="mailto:support@wolfpack-labs.com">Email us directly</a>
+          <button id="submitButton" type="submit">Send Message</button>
+          <a class="email-link" href="mailto:support@wolfpack-labs.com">Or email support@wolfpack-labs.com</a>
         </div>
-
-        <div id="statusMessage" class="status-message" role="status" aria-live="polite"></div>
       </form>
-
-      <section class="help-boxes" aria-label="Common contact reasons">
-        <div class="help-box">
-          <h3>Support requests</h3>
-          <p>Questions about accounts, app setup, invoices, estimates, customers, or general app use.</p>
-        </div>
-        <div class="help-box">
-          <h3>Bug reports</h3>
-          <p>Report broken links, app errors, layout issues, crashes, or features that are not working correctly.</p>
-        </div>
-        <div class="help-box">
-          <h3>Other questions</h3>
-          <p>Send feedback, business questions, privacy requests, or general questions for Wolfpack Labs.</p>
-        </div>
-      </section>
-    </main>
+    </section>
 
     <footer>
-      © <span id="year"></span> Wolfpack Labs. All rights reserved.
+      <div>© 2026 Wolfpack Labs LLC. All rights reserved.</div>
     </footer>
-  </div>
+  </main>
 
   <script>
-    const SUPPORT_EMAIL = 'support@wolfpack-labs.com';
+    const SUPPORT_FUNCTION_URL = "https://gwmckwqxnrnzqmhvodgm.supabase.co/functions/v1/send-support-email";
 
-    document.getElementById('year').textContent = new Date().getFullYear();
+    const form = document.getElementById("contactForm");
+    const notice = document.getElementById("formNotice");
+    const submitButton = document.getElementById("submitButton");
 
-    document.getElementById('contactForm').addEventListener('submit', function (event) {
+    function showNotice(type, message) {
+      notice.className = "notice " + type;
+      notice.textContent = message;
+    }
+
+    form.addEventListener("submit", async (event) => {
       event.preventDefault();
 
-      const form = event.currentTarget;
-      const status = document.getElementById('statusMessage');
-      const formData = new FormData(form);
-
-      const name = String(formData.get('name') || '').trim();
-      const email = String(formData.get('email') || '').trim();
-      const requestType = String(formData.get('requestType') || '').trim();
-      const appName = String(formData.get('appName') || '').trim();
-      const subject = String(formData.get('subject') || '').trim();
-      const message = String(formData.get('message') || '').trim();
-
-      if (!name || !email || !requestType || !subject || !message) {
-        status.className = 'status-message error';
-        status.textContent = 'Please complete all required fields before sending.';
+      if (!SUPPORT_FUNCTION_URL || SUPPORT_FUNCTION_URL.includes("gwmckwqxnrnzqmhvodgm")) {
+        showNotice(
+          "error",
+          "This contact form is not connected yet. Please replace SUPPORT_FUNCTION_URL in contact.html with your deployed Supabase Function URL."
+        );
         return;
       }
 
-      const emailSubject = encodeURIComponent(`[${requestType}] ${subject}`);
-      const emailBody = encodeURIComponent(
-        `Name: ${name}\n` +
-        `Email: ${email}\n` +
-        `Request Type: ${requestType}\n` +
-        `App / Product: ${appName || 'Not specified'}\n\n` +
-        `Message:\n${message}`
-      );
+      const formData = new FormData(form);
 
-      status.className = 'status-message success';
-      status.textContent = 'Opening your email app so you can send this message to Wolfpack Labs.';
+      const requestType = String(formData.get("requestType") || "").trim();
+      const name = String(formData.get("name") || "").trim();
+      const email = String(formData.get("email") || "").trim();
+      const appName = String(formData.get("appName") || "").trim();
+      const subject = String(formData.get("subject") || "").trim();
+      const message = String(formData.get("message") || "").trim();
 
-      window.location.href = `mailto:${SUPPORT_EMAIL}?subject=${emailSubject}&body=${emailBody}`;
+      const payload = {
+        name,
+        email,
+        requestType,
+        appName,
+        subject,
+        message,
+        isBugReport: requestType === "Bug Report"
+      };
+
+      submitButton.disabled = true;
+      submitButton.textContent = "Sending...";
+      showNotice("success", "Sending your message...");
+
+      try {
+        const response = await fetch(SUPPORT_FUNCTION_URL, {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json"
+          },
+          body: JSON.stringify(payload)
+        });
+
+        const result = await response.json().catch(() => ({}));
+
+        if (!response.ok) {
+          throw new Error(result.error || "Unable to send message. Please try again.");
+        }
+
+        showNotice("success", "Thanks — your message has been sent to Wolfpack Labs support.");
+        form.reset();
+      } catch (error) {
+        showNotice(
+          "error",
+          error.message || "Unable to send message. You can also email support@wolfpack-labs.com directly."
+        );
+      } finally {
+        submitButton.disabled = false;
+        submitButton.textContent = "Send Message";
+      }
     });
   </script>
 </body>
