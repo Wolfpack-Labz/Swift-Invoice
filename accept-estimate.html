@@ -1,0 +1,245 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Estimate Response | Wolfpack Labz</title>
+    <style>
+      :root {
+        color-scheme: light;
+        font-family: Arial, Helvetica, sans-serif;
+        color: #111827;
+        background: #f8fafc;
+      }
+
+      body {
+        margin: 0;
+        min-height: 100vh;
+        display: grid;
+        place-items: center;
+        padding: 24px;
+      }
+
+      .card {
+        width: min(100%, 540px);
+        background: #ffffff;
+        border: 1px solid #e5e7eb;
+        border-radius: 18px;
+        box-shadow: 0 20px 45px rgba(15, 23, 42, 0.08);
+        padding: 28px;
+        text-align: center;
+      }
+
+      .eyebrow {
+        color: #6b7280;
+        font-size: 13px;
+        font-weight: 700;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        margin-bottom: 10px;
+      }
+
+      h1 {
+        font-size: 28px;
+        margin: 0 0 10px;
+      }
+
+      p {
+        color: #4b5563;
+        line-height: 1.6;
+        margin: 0 0 18px;
+      }
+
+      .actions {
+        display: grid;
+        gap: 12px;
+      }
+
+      button {
+        appearance: none;
+        border: 0;
+        width: 100%;
+        border-radius: 12px;
+        cursor: pointer;
+        font-size: 16px;
+        font-weight: 700;
+        padding: 14px 18px;
+      }
+
+      button:disabled {
+        cursor: not-allowed;
+        opacity: 0.65;
+      }
+
+      .accept-button {
+        background: #111827;
+        color: #ffffff;
+      }
+
+      .decline-button {
+        background: #ffffff;
+        color: #991b1b;
+        border: 1px solid #991b1b;
+      }
+
+      .message {
+        border-radius: 12px;
+        margin-top: 18px;
+        padding: 14px;
+        font-size: 14px;
+        line-height: 1.5;
+      }
+
+      .message.success {
+        background: #ecfdf5;
+        border: 1px solid #bbf7d0;
+        color: #065f46;
+      }
+
+      .message.error {
+        background: #fef2f2;
+        border: 1px solid #fecaca;
+        color: #991b1b;
+      }
+
+      .message.info {
+        background: #eff6ff;
+        border: 1px solid #bfdbfe;
+        color: #1e40af;
+      }
+
+      .fine-print {
+        font-size: 12px;
+        color: #6b7280;
+        margin-top: 18px;
+      }
+    </style>
+  </head>
+  <body>
+    <main class="card">
+      <div class="eyebrow">Estimate response</div>
+      <h1 id="pageTitle">Respond to this estimate</h1>
+      <p id="pageDescription">
+        Choose an option below. If accepted, the estimate will automatically become an invoice.
+      </p>
+
+      <div class="actions">
+        <button id="acceptButton" class="accept-button" type="button">Accept Estimate</button>
+        <button id="declineButton" class="decline-button" type="button">Decline Estimate</button>
+      </div>
+
+      <div id="message" class="message" style="display: none;"></div>
+
+      <p class="fine-print">
+        This page is powered by Wolfpack Labz. Contact the business directly if this estimate was sent to you by mistake.
+      </p>
+    </main>
+
+    <script>
+      // Replace this with your actual Supabase project URL.
+      const SUPABASE_URL = 'https://gwmckwqxnrnzqmhvodgm.supabase.co';
+      const RESPONSE_FUNCTION_URL = `${SUPABASE_URL}/functions/v1/accept-estimate`;
+
+      const params = new URLSearchParams(window.location.search);
+      const token = params.get('token');
+      const actionFromLink = (params.get('action') || '').toLowerCase();
+
+      const pageTitle = document.getElementById('pageTitle');
+      const pageDescription = document.getElementById('pageDescription');
+      const acceptButton = document.getElementById('acceptButton');
+      const declineButton = document.getElementById('declineButton');
+      const message = document.getElementById('message');
+
+      function showMessage(text, type) {
+        message.textContent = text;
+        message.className = `message ${type}`;
+        message.style.display = 'block';
+      }
+
+      function setButtonsDisabled(disabled) {
+        acceptButton.disabled = disabled;
+        declineButton.disabled = disabled;
+      }
+
+      function applyActionFromLink() {
+        if (actionFromLink === 'accept') {
+          pageTitle.textContent = 'Accept this estimate';
+          pageDescription.textContent =
+            'Click below to approve this estimate. Once accepted, it will automatically become an invoice.';
+          declineButton.style.display = 'none';
+        }
+
+        if (actionFromLink === 'decline') {
+          pageTitle.textContent = 'Decline this estimate';
+          pageDescription.textContent =
+            'Click below to decline this estimate. The business will see that the estimate was declined.';
+          acceptButton.style.display = 'none';
+        }
+      }
+
+      async function respondToEstimate(action) {
+        if (!token) return;
+
+        setButtonsDisabled(true);
+
+        const isAccepting = action === 'accept';
+        const activeButton = isAccepting ? acceptButton : declineButton;
+        const originalText = activeButton.textContent;
+
+        activeButton.textContent = isAccepting ? 'Accepting...' : 'Declining...';
+        showMessage(
+          isAccepting ? 'Processing your acceptance...' : 'Processing your decline response...',
+          'info',
+        );
+
+        try {
+          const response = await fetch(RESPONSE_FUNCTION_URL, {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({ token, action }),
+          });
+
+          const result = await response.json().catch(() => ({}));
+
+          if (!response.ok || !result.success) {
+            throw new Error(result.error || 'Could not process this estimate response.');
+          }
+
+          if (isAccepting) {
+            acceptButton.textContent = 'Estimate Accepted';
+            declineButton.style.display = 'none';
+            showMessage(
+              result.alreadyConverted
+                ? `This estimate was already accepted and converted to Invoice #${result.invoiceNumber}.`
+                : `Success! Estimate #${result.estimateNumber} has been accepted and converted to Invoice #${result.invoiceNumber}.`,
+              'success',
+            );
+          } else {
+            declineButton.textContent = 'Estimate Declined';
+            acceptButton.style.display = 'none';
+            showMessage(
+              `Estimate #${result.estimateNumber} has been declined.`,
+              'success',
+            );
+          }
+        } catch (error) {
+          setButtonsDisabled(false);
+          activeButton.textContent = originalText;
+          showMessage(error.message || 'Something went wrong. Please try again.', 'error');
+        }
+      }
+
+      if (!token) {
+        setButtonsDisabled(true);
+        showMessage('This estimate response link is missing its security token.', 'error');
+      } else {
+        applyActionFromLink();
+      }
+
+      acceptButton.addEventListener('click', () => respondToEstimate('accept'));
+      declineButton.addEventListener('click', () => respondToEstimate('decline'));
+    </script>
+  </body>
+</html>
