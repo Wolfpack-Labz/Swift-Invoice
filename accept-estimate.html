@@ -271,9 +271,9 @@
         }
 
         try {
-          const result = await callRpc('get_estimate_response_details', {
-            p_token: token,
-            p_estimate_id: estimateId,
+          const { data, error } = await supabase.rpc('get_estimate_response_details', {
+            p_estimate_id: estimateId || null,
+            p_token: token || null,
           });
 
           if (!result?.ok) {
@@ -314,11 +314,11 @@
           setBusy(true);
           setMessage('Saving your response...', 'info');
 
-          const result = await callRpc('respond_to_estimate', {
-            p_token: token,
-            p_estimate_id: estimateId,
-            p_action: action,
-          });
+        const { data, error } = await supabase.rpc('respond_to_estimate', {
+          p_estimate_id: estimateId || null,
+          p_token: token || null,
+          p_response: response,
+        });
 
           if (!result?.ok) {
             throw new Error(result?.message || 'Response could not be saved.');
