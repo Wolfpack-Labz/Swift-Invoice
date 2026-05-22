@@ -5,72 +5,328 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Respond to Estimate | Wolfpack Labz</title>
     <style>
-      :root { color-scheme: light; font-family: Arial, Helvetica, sans-serif; background: #f3f4f6; color: #111827; }
-      * { box-sizing: border-box; }
-      body { margin: 0; min-height: 100vh; display: flex; align-items: center; justify-content: center; padding: 24px; }
-      .card { width: 100%; max-width: 620px; background: #fff; border: 1px solid #e5e7eb; border-radius: 18px; box-shadow: 0 20px 40px rgba(15, 23, 42, .08); padding: 28px; }
-      .eyebrow { color: #6b7280; font-size: 13px; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; margin-bottom: 8px; }
-      h1 { margin: 0 0 10px; font-size: 28px; line-height: 1.2; }
-      p { margin: 0 0 16px; color: #4b5563; line-height: 1.6; }
-      .summary { margin: 20px 0; padding: 16px; border-radius: 14px; background: #f9fafb; border: 1px solid #e5e7eb; }
-      .row { display: flex; justify-content: space-between; gap: 16px; padding: 8px 0; border-bottom: 1px solid #e5e7eb; }
-      .row:last-child { border-bottom: 0; }
-      .label { color: #6b7280; }
-      .value { color: #111827; font-weight: 700; text-align: right; }
-      .actions { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-top: 20px; }
-      button { border: 0; border-radius: 12px; padding: 14px 16px; font-size: 16px; font-weight: 700; cursor: pointer; }
-      button:disabled { cursor: not-allowed; opacity: .65; }
-      .accept { background: #111827; color: #fff; }
-      .decline { background: #fff; color: #991b1b; border: 1px solid #991b1b; }
-      .message { margin-top: 18px; padding: 14px; border-radius: 12px; line-height: 1.5; }
-      .info { background: #eff6ff; color: #1e40af; }
-      .success { background: #ecfdf5; color: #047857; }
-      .error { background: #fef2f2; color: #991b1b; }
-      .hidden { display: none; }
-      @media (max-width: 560px) { body { align-items: flex-start; padding: 16px; } .card { padding: 22px; } .actions { grid-template-columns: 1fr; } .row { display: block; } .value { display: block; margin-top: 4px; text-align: left; } }
+      :root {
+        color-scheme: light;
+        --bg: #f3f4f6;
+        --card: #ffffff;
+        --text: #111827;
+        --muted: #6b7280;
+        --border: #e5e7eb;
+        --soft: #f9fafb;
+        --primary: #111827;
+        --danger: #991b1b;
+        --success-bg: #ecfdf5;
+        --success-text: #047857;
+        --info-bg: #eff6ff;
+        --info-text: #1e40af;
+        --error-bg: #fef2f2;
+        --error-text: #991b1b;
+        font-family: Arial, Helvetica, sans-serif;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        margin: 0;
+        min-height: 100vh;
+        background:
+          radial-gradient(circle at top left, rgba(17, 24, 39, 0.08), transparent 30%),
+          var(--bg);
+        color: var(--text);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 24px;
+      }
+
+      main {
+        width: 100%;
+        max-width: 680px;
+      }
+
+      .card {
+        background: var(--card);
+        border: 1px solid var(--border);
+        border-radius: 20px;
+        box-shadow: 0 24px 60px rgba(15, 23, 42, 0.1);
+        padding: 30px;
+      }
+
+      .brand {
+        color: var(--muted);
+        font-size: 13px;
+        font-weight: 800;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        margin-bottom: 10px;
+      }
+
+      h1 {
+        margin: 0 0 10px;
+        font-size: 30px;
+        line-height: 1.15;
+      }
+
+      p {
+        margin: 0 0 16px;
+        color: #4b5563;
+        line-height: 1.6;
+      }
+
+      .summary {
+        margin: 22px 0;
+        padding: 16px;
+        border-radius: 16px;
+        background: var(--soft);
+        border: 1px solid var(--border);
+      }
+
+      .row {
+        display: flex;
+        justify-content: space-between;
+        gap: 16px;
+        padding: 10px 0;
+        border-bottom: 1px solid var(--border);
+      }
+
+      .row:last-child {
+        border-bottom: 0;
+      }
+
+      .label {
+        color: var(--muted);
+      }
+
+      .value {
+        color: var(--text);
+        font-weight: 800;
+        text-align: right;
+        overflow-wrap: anywhere;
+      }
+
+      .actions {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 12px;
+        margin-top: 20px;
+      }
+
+      button {
+        border: 0;
+        border-radius: 14px;
+        padding: 15px 16px;
+        font-size: 16px;
+        font-weight: 800;
+        cursor: pointer;
+        transition: transform 0.12s ease, opacity 0.12s ease;
+      }
+
+      button:hover:not(:disabled) {
+        transform: translateY(-1px);
+      }
+
+      button:disabled {
+        cursor: not-allowed;
+        opacity: 0.65;
+      }
+
+      .accept {
+        background: var(--primary);
+        color: #ffffff;
+      }
+
+      .decline {
+        background: #ffffff;
+        color: var(--danger);
+        border: 1px solid var(--danger);
+      }
+
+      .message {
+        margin-top: 18px;
+        padding: 14px;
+        border-radius: 14px;
+        line-height: 1.5;
+        overflow-wrap: anywhere;
+      }
+
+      .info {
+        background: var(--info-bg);
+        color: var(--info-text);
+      }
+
+      .success {
+        background: var(--success-bg);
+        color: var(--success-text);
+      }
+
+      .error {
+        background: var(--error-bg);
+        color: var(--error-text);
+      }
+
+      .debug {
+        margin-top: 14px;
+        font-size: 13px;
+        color: var(--muted);
+      }
+
+      .debug code {
+        display: block;
+        margin-top: 6px;
+        padding: 10px;
+        border-radius: 10px;
+        background: #f3f4f6;
+        color: #374151;
+        overflow-wrap: anywhere;
+      }
+
+      .hidden {
+        display: none;
+      }
+
+      @media (max-width: 560px) {
+        body {
+          align-items: flex-start;
+          padding: 16px;
+        }
+
+        .card {
+          padding: 22px;
+        }
+
+        h1 {
+          font-size: 26px;
+        }
+
+        .actions {
+          grid-template-columns: 1fr;
+        }
+
+        .row {
+          display: block;
+        }
+
+        .value {
+          display: block;
+          margin-top: 4px;
+          text-align: left;
+        }
+      }
     </style>
   </head>
+
   <body>
-    <main class="card">
-      <div class="eyebrow">Wolfpack Labz</div>
-      <h1>Estimate Response</h1>
-      <p id="intro">Loading estimate details...</p>
+    <main>
+      <section class="card" aria-live="polite">
+        <div class="brand">Wolfpack Labz</div>
+        <h1>Estimate Response</h1>
+        <p id="intro">Loading estimate details...</p>
 
-      <section id="summary" class="summary hidden" aria-label="Estimate summary">
-        <div class="row"><span class="label">Estimate</span><span id="estimateNumber" class="value">—</span></div>
-        <div class="row"><span class="label">Customer</span><span id="customerName" class="value">—</span></div>
-        <div class="row"><span class="label">Estimated total</span><span id="estimateTotal" class="value">—</span></div>
-        <div class="row"><span class="label">Status</span><span id="estimateStatus" class="value">—</span></div>
+        <section id="summary" class="summary hidden" aria-label="Estimate summary">
+          <div class="row">
+            <span class="label">Estimate</span>
+            <span id="estimateNumber" class="value">—</span>
+          </div>
+          <div class="row">
+            <span class="label">Customer</span>
+            <span id="customerName" class="value">—</span>
+          </div>
+          <div class="row">
+            <span class="label">Business</span>
+            <span id="businessName" class="value">—</span>
+          </div>
+          <div class="row">
+            <span class="label">Estimated total</span>
+            <span id="estimateTotal" class="value">—</span>
+          </div>
+          <div class="row">
+            <span class="label">Status</span>
+            <span id="estimateStatus" class="value">—</span>
+          </div>
+        </section>
+
+        <section id="actions" class="actions hidden" aria-label="Estimate response actions">
+          <button id="acceptButton" class="accept" type="button">Accept Estimate</button>
+          <button id="declineButton" class="decline" type="button">Decline Estimate</button>
+        </section>
+
+        <div id="message" class="message info">Please wait while we load the estimate.</div>
+
+        <details id="debug" class="debug hidden">
+          <summary>Troubleshooting details</summary>
+          <code id="debugText"></code>
+        </details>
       </section>
-
-      <section id="actions" class="actions hidden" aria-label="Estimate response actions">
-        <button id="acceptButton" class="accept" type="button">Accept Estimate</button>
-        <button id="declineButton" class="decline" type="button">Decline Estimate</button>
-      </section>
-
-      <div id="message" class="message info">Please wait while we load the estimate.</div>
     </main>
 
     <script>
-      // Public Supabase project settings. The anon key is safe to expose in a public webpage
-      // as long as your database access is protected by RLS/RPC policies.
+      // These values must match the same Supabase project used by your app.
       const SUPABASE_URL = 'https://gwmckwqxnrnzqmhvodgm.supabase.co';
       const SUPABASE_ANON_KEY = 'sb_publishable__tJuY11O2GoJ3dn3SPLtgA_MXh_mPCf';
 
-      const params = new URLSearchParams(window.location.search);
-      const token = params.get('token') || null;
-      const estimateId = params.get('estimate_id') || params.get('id') || null;
+      const $ = (id) => document.getElementById(id);
 
-      const intro = document.getElementById('intro');
-      const summary = document.getElementById('summary');
-      const actions = document.getElementById('actions');
-      const message = document.getElementById('message');
-      const acceptButton = document.getElementById('acceptButton');
-      const declineButton = document.getElementById('declineButton');
+      const intro = $('intro');
+      const summary = $('summary');
+      const actions = $('actions');
+      const message = $('message');
+      const acceptButton = $('acceptButton');
+      const declineButton = $('declineButton');
+      const debug = $('debug');
+      const debugText = $('debugText');
+
+      function cleanParam(value) {
+        if (!value) return null;
+        const cleaned = String(value).trim();
+        if (!cleaned || cleaned === 'null' || cleaned === 'undefined') return null;
+        return cleaned;
+      }
+
+      function getQueryValue(names) {
+        const params = new URLSearchParams(window.location.search);
+
+        for (const name of names) {
+          const value = cleanParam(params.get(name));
+          if (value) return value;
+        }
+
+        // Some PDFs/email clients can encode & as &amp;, creating keys like amp;estimate_id.
+        for (const name of names) {
+          const value = cleanParam(params.get(`amp;${name}`));
+          if (value) return value;
+        }
+
+        return null;
+      }
+
+      function isUuid(value) {
+        return /^[0-9a-f]{8}-[0-9a-f]{4}-[1-5][0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$/i.test(value || '');
+      }
+
+      const token = getQueryValue(['token', 'acceptance_token', 'acceptanceToken', 't']);
+      const rawEstimateId = getQueryValue(['estimate_id', 'estimateId', 'estimate', 'id']);
+      const estimateId = isUuid(rawEstimateId) ? rawEstimateId : null;
 
       function setMessage(text, type = 'info') {
         message.textContent = text;
         message.className = `message ${type}`;
+      }
+
+      function showDebug(extra = {}) {
+        const details = {
+          page_url: window.location.href,
+          token_present: Boolean(token),
+          token_preview: token ? `${token.slice(0, 8)}...` : null,
+          raw_estimate_id: rawEstimateId,
+          estimate_id_used: estimateId,
+          supabase_url: SUPABASE_URL,
+          ...extra,
+        };
+
+        debugText.textContent = JSON.stringify(details, null, 2);
+        debug.classList.remove('hidden');
       }
 
       function setBusy(isBusy) {
@@ -80,7 +336,15 @@
 
       function formatMoney(value) {
         const amount = Number(value || 0);
-        return amount.toLocaleString(undefined, { style: 'currency', currency: 'USD' });
+        return amount.toLocaleString(undefined, {
+          style: 'currency',
+          currency: 'USD',
+        });
+      }
+
+      function formatStatus(value) {
+        if (!value) return 'Sent';
+        return String(value).charAt(0).toUpperCase() + String(value).slice(1);
       }
 
       async function callRpc(functionName, body) {
@@ -94,28 +358,41 @@
           body: JSON.stringify(body),
         });
 
-        const text = await response.text();
+        const rawText = await response.text();
         let data = null;
 
         try {
-          data = text ? JSON.parse(text) : null;
-        } catch (_) {
-          throw new Error(text || 'Unexpected server response.');
+          data = rawText ? JSON.parse(rawText) : null;
+        } catch (_error) {
+          throw new Error(rawText || 'Supabase returned an unreadable response.');
         }
 
         if (!response.ok) {
-          throw new Error(data?.message || data?.error || data?.hint || 'Request failed.');
+          const message = data?.message || data?.error || data?.hint || data?.details || 'Supabase request failed.';
+          throw new Error(message);
         }
 
-        // Supabase can return a JSON object directly or an array depending on the function.
         return Array.isArray(data) ? data[0] : data;
+      }
+
+      function fillEstimate(result) {
+        $('estimateNumber').textContent = result.estimate_number ? `#${result.estimate_number}` : '—';
+        $('customerName').textContent = result.customer_name || 'Customer';
+        $('businessName').textContent = result.business_name || 'Wolfpack Labz';
+        $('estimateTotal').textContent = formatMoney(result.total);
+        $('estimateStatus').textContent = formatStatus(result.status || 'sent');
       }
 
       async function loadEstimate() {
         if (!token && !estimateId) {
-          intro.textContent = 'This response link is missing its estimate identifier.';
+          intro.textContent = 'This response link is missing its estimate information.';
           setMessage('Please ask the sender for a new estimate link.', 'error');
+          showDebug({ reason: 'missing_token_and_estimate_id' });
           return;
+        }
+
+        if (rawEstimateId && !estimateId) {
+          setMessage('This link contains an invalid estimate ID. Trying the token instead...', 'info');
         }
 
         try {
@@ -124,35 +401,34 @@
             p_token: token,
           });
 
-          if (!result?.ok) {
+          if (!result || result.ok !== true) {
             intro.textContent = 'We could not load this estimate.';
             setMessage(result?.message || 'Estimate not found. Please ask the sender for a new link.', 'error');
+            showDebug({ rpc_result: result || null });
             return;
           }
 
-          document.getElementById('estimateNumber').textContent = `#${result.estimate_number}`;
-          document.getElementById('customerName').textContent = result.customer_name || 'Customer';
-          document.getElementById('estimateTotal').textContent = formatMoney(result.total);
-          document.getElementById('estimateStatus').textContent = result.status || 'sent';
-
-          intro.textContent = 'Review the estimate response options below.';
+          fillEstimate(result);
+          intro.textContent = 'Ready to move forward? Choose an option below.';
           summary.classList.remove('hidden');
 
-          if (result.can_respond) {
+          if (result.can_respond === true) {
             actions.classList.remove('hidden');
-            setMessage('Choose Accept Estimate or Decline Estimate below.', 'info');
+            setMessage('You can accept or decline this estimate below.', 'info');
           } else {
-            setMessage(result.message || 'This estimate has already been responded to.', 'success');
+            actions.classList.add('hidden');
+            setMessage(result.message || `This estimate is already marked as ${formatStatus(result.status)}.`, 'success');
           }
         } catch (error) {
           intro.textContent = 'Load failed.';
           setMessage(error.message || 'Unable to load the estimate. Please try again later.', 'error');
+          showDebug({ caught_error: error.message || String(error) });
         }
       }
 
-      async function respond(action) {
-        const responseStatus = action === 'accept' ? 'accepted' : 'declined';
-        const confirmed = window.confirm(`Are you sure you want to ${action} this estimate?`);
+      async function respond(responseStatus) {
+        const label = responseStatus === 'accepted' ? 'accept' : 'decline';
+        const confirmed = window.confirm(`Are you sure you want to ${label} this estimate?`);
         if (!confirmed) return;
 
         try {
@@ -165,22 +441,24 @@
             p_response: responseStatus,
           });
 
-          if (!result?.ok) {
-            throw new Error(result?.message || 'Response could not be saved.');
+          if (!result || result.ok !== true) {
+            throw new Error(result?.message || 'Your response could not be saved.');
           }
 
           actions.classList.add('hidden');
-          document.getElementById('estimateStatus').textContent = result.status;
+          $('estimateStatus').textContent = formatStatus(result.status);
           setMessage(result.message || 'Your response was saved.', 'success');
         } catch (error) {
           setMessage(error.message || 'Response failed. Please try again later.', 'error');
+          showDebug({ caught_error: error.message || String(error) });
         } finally {
           setBusy(false);
         }
       }
 
-      acceptButton.addEventListener('click', () => respond('accept'));
-      declineButton.addEventListener('click', () => respond('decline'));
+      acceptButton.addEventListener('click', () => respond('accepted'));
+      declineButton.addEventListener('click', () => respond('declined'));
+
       loadEstimate();
     </script>
   </body>
