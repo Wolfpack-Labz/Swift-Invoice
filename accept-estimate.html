@@ -208,7 +208,8 @@
       const SUPABASE_ANON_KEY = 'sb_publishable__tJuY11O2GoJ3dn3SPLtgA_MXh_mPCf';
 
       const params = new URLSearchParams(window.location.search);
-      const token = params.get('token');
+      const token = params.get('token') || '';
+      const estimateId = params.get('estimate_id') || params.get('id') || '';
 
       const intro = document.getElementById('intro');
       const summary = document.getElementById('summary');
@@ -263,8 +264,8 @@
       }
 
       async function loadEstimate() {
-        if (!token) {
-          intro.textContent = 'This response link is missing its estimate token.';
+        if (!token && !estimateId) {
+          intro.textContent = 'This response link is missing its estimate identifier.';
           setMessage('Please ask the sender for a new estimate link.', 'error');
           return;
         }
@@ -272,6 +273,7 @@
         try {
           const result = await callRpc('get_estimate_response_details', {
             p_token: token,
+            p_estimate_id: estimateId,
           });
 
           if (!result?.ok) {
@@ -314,6 +316,7 @@
 
           const result = await callRpc('respond_to_estimate', {
             p_token: token,
+            p_estimate_id: estimateId,
             p_action: action,
           });
 
