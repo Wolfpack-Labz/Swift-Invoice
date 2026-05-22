@@ -306,6 +306,7 @@
       }
 
       const token = getQueryValue(['token', 'acceptance_token', 'acceptanceToken', 't']);
+      const responseCode = getQueryValue(['e', 'code', 'response_code', 'responseCode']);
       const rawEstimateId = getQueryValue(['estimate_id', 'estimateId', 'estimate', 'id']);
       const estimateId = isUuid(rawEstimateId) ? rawEstimateId : null;
 
@@ -319,6 +320,7 @@
           page_url: window.location.href,
           token_present: Boolean(token),
           token_preview: token ? `${token.slice(0, 8)}...` : null,
+          response_code: responseCode,
           raw_estimate_id: rawEstimateId,
           estimate_id_used: estimateId,
           supabase_url: SUPABASE_URL,
@@ -376,18 +378,22 @@
       }
 
       function fillEstimate(result) {
-        $('estimateNumber').textContent = result.estimate_number ? `#${result.estimate_number}` : '—';
-        $('customerName').textContent = result.customer_name || 'Customer';
-        $('businessName').textContent = result.business_name || 'Wolfpack Labz';
-        $('estimateTotal').textContent = formatMoney(result.total);
-        $('estimateStatus').textContent = formatStatus(result.status || 'sent');
+        const estimate = result.estimate || result;
+        const customer = result.customer || {};
+        const business = result.business || {};
+
+        $('estimateNumber').textContent = estimate.estimate_number ? `#${estimate.estimate_number}` : '—';
+        $('customerName').textContent = result.customer_name || customer.name || 'Customer';
+        $('businessName').textContent = result.business_name || business.business_name || 'Wolfpack Labz';
+        $('estimateTotal').textContent = formatMoney(estimate.total || result.total);
+        $('estimateStatus').textContent = formatStatus(estimate.status || result.status || 'sent');
       }
 
       async function loadEstimate() {
-        if (!token && !estimateId) {
+        if (!token && !estimateId && !responseCode) {
           intro.textContent = 'This response link is missing its estimate information.';
           setMessage('Please ask the sender for a new estimate link.', 'error');
-          showDebug({ reason: 'missing_token_and_estimate_id' });
+          showDebug({ reason: 'missing_token_response_code_and_estimate_id' });
           return;
         }
 
@@ -399,6 +405,7 @@
           const result = await callRpc('get_estimate_response_details', {
             p_estimate_id: estimateId,
             p_token: token,
+            p_response_code: responseCode,
           });
 
           if (!result || result.ok !== true) {
@@ -438,6 +445,7 @@
           const result = await callRpc('respond_to_estimate', {
             p_estimate_id: estimateId,
             p_token: token,
+            p_response_code: responseCode,
             p_response: responseStatus,
           });
 
