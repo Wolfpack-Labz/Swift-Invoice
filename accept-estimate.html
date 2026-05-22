@@ -3,31 +3,36 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Estimate Response | Wolfpack Labz</title>
+    <title>Respond to Estimate | Wolfpack Labz</title>
     <style>
       :root {
         color-scheme: light;
         font-family: Arial, Helvetica, sans-serif;
+        background: #f3f4f6;
         color: #111827;
-        background: #f8fafc;
+      }
+
+      * {
+        box-sizing: border-box;
       }
 
       body {
         margin: 0;
         min-height: 100vh;
-        display: grid;
-        place-items: center;
+        display: flex;
+        align-items: center;
+        justify-content: center;
         padding: 24px;
       }
 
       .card {
-        width: min(100%, 540px);
+        width: 100%;
+        max-width: 620px;
         background: #ffffff;
         border: 1px solid #e5e7eb;
         border-radius: 18px;
-        box-shadow: 0 20px 45px rgba(15, 23, 42, 0.08);
+        box-shadow: 0 20px 40px rgba(15, 23, 42, 0.08);
         padding: 28px;
-        text-align: center;
       }
 
       .eyebrow {
@@ -36,34 +41,65 @@
         font-weight: 700;
         letter-spacing: 0.08em;
         text-transform: uppercase;
-        margin-bottom: 10px;
+        margin-bottom: 8px;
       }
 
       h1 {
-        font-size: 28px;
         margin: 0 0 10px;
+        font-size: 28px;
+        line-height: 1.2;
       }
 
       p {
+        margin: 0 0 16px;
         color: #4b5563;
         line-height: 1.6;
-        margin: 0 0 18px;
+      }
+
+      .summary {
+        margin: 20px 0;
+        padding: 16px;
+        border-radius: 14px;
+        background: #f9fafb;
+        border: 1px solid #e5e7eb;
+      }
+
+      .row {
+        display: flex;
+        justify-content: space-between;
+        gap: 16px;
+        padding: 8px 0;
+        border-bottom: 1px solid #e5e7eb;
+      }
+
+      .row:last-child {
+        border-bottom: 0;
+      }
+
+      .label {
+        color: #6b7280;
+      }
+
+      .value {
+        color: #111827;
+        font-weight: 700;
+        text-align: right;
       }
 
       .actions {
         display: grid;
+        grid-template-columns: 1fr 1fr;
         gap: 12px;
+        margin-top: 20px;
       }
 
       button {
-        appearance: none;
         border: 0;
-        width: 100%;
         border-radius: 12px;
-        cursor: pointer;
+        padding: 14px 16px;
         font-size: 16px;
         font-weight: 700;
-        padding: 14px 18px;
+        cursor: pointer;
       }
 
       button:disabled {
@@ -71,175 +107,234 @@
         opacity: 0.65;
       }
 
-      .accept-button {
+      .accept {
         background: #111827;
         color: #ffffff;
       }
 
-      .decline-button {
+      .decline {
         background: #ffffff;
         color: #991b1b;
         border: 1px solid #991b1b;
       }
 
       .message {
-        border-radius: 12px;
         margin-top: 18px;
         padding: 14px;
-        font-size: 14px;
+        border-radius: 12px;
         line-height: 1.5;
       }
 
-      .message.success {
-        background: #ecfdf5;
-        border: 1px solid #bbf7d0;
-        color: #065f46;
-      }
-
-      .message.error {
-        background: #fef2f2;
-        border: 1px solid #fecaca;
-        color: #991b1b;
-      }
-
-      .message.info {
+      .info {
         background: #eff6ff;
-        border: 1px solid #bfdbfe;
         color: #1e40af;
       }
 
-      .fine-print {
-        font-size: 12px;
-        color: #6b7280;
-        margin-top: 18px;
+      .success {
+        background: #ecfdf5;
+        color: #047857;
+      }
+
+      .error {
+        background: #fef2f2;
+        color: #991b1b;
+      }
+
+      .hidden {
+        display: none;
+      }
+
+      @media (max-width: 560px) {
+        body {
+          align-items: flex-start;
+          padding: 16px;
+        }
+
+        .card {
+          padding: 22px;
+        }
+
+        .actions {
+          grid-template-columns: 1fr;
+        }
+
+        .row {
+          display: block;
+        }
+
+        .value {
+          display: block;
+          margin-top: 4px;
+          text-align: left;
+        }
       }
     </style>
   </head>
   <body>
     <main class="card">
-      <div class="eyebrow">Estimate response</div>
-      <h1 id="pageTitle">Respond to this estimate</h1>
-      <p id="pageDescription">
-        Choose an option below. If accepted, the estimate will automatically become an invoice.
-      </p>
+      <div class="eyebrow">Wolfpack Labz</div>
+      <h1>Estimate Response</h1>
+      <p id="intro">Loading estimate details...</p>
 
-      <div class="actions">
-        <button id="acceptButton" class="accept-button" type="button">Accept Estimate</button>
-        <button id="declineButton" class="decline-button" type="button">Decline Estimate</button>
-      </div>
+      <section id="summary" class="summary hidden" aria-label="Estimate summary">
+        <div class="row">
+          <span class="label">Estimate</span>
+          <span id="estimateNumber" class="value">—</span>
+        </div>
+        <div class="row">
+          <span class="label">Customer</span>
+          <span id="customerName" class="value">—</span>
+        </div>
+        <div class="row">
+          <span class="label">Estimated total</span>
+          <span id="estimateTotal" class="value">—</span>
+        </div>
+        <div class="row">
+          <span class="label">Status</span>
+          <span id="estimateStatus" class="value">—</span>
+        </div>
+      </section>
 
-      <div id="message" class="message" style="display: none;"></div>
+      <section id="actions" class="actions hidden" aria-label="Estimate response actions">
+        <button id="acceptButton" class="accept" type="button">Accept Estimate</button>
+        <button id="declineButton" class="decline" type="button">Decline Estimate</button>
+      </section>
 
-      <p class="fine-print">
-        This page is powered by Wolfpack Labz. Contact the business directly if this estimate was sent to you by mistake.
-      </p>
+      <div id="message" class="message info">Please wait while we load the estimate.</div>
     </main>
 
     <script>
-      // Replace this with your actual Supabase project URL.
       const SUPABASE_URL = 'https://gwmckwqxnrnzqmhvodgm.supabase.co';
-      const RESPONSE_FUNCTION_URL = `${SUPABASE_URL}/functions/v1/accept-estimate`;
+      const SUPABASE_ANON_KEY = 'sb_publishable__tJuY11O2GoJ3dn3SPLtgA_MXh_mPCf';
 
       const params = new URLSearchParams(window.location.search);
       const token = params.get('token');
-      const actionFromLink = (params.get('action') || '').toLowerCase();
 
-      const pageTitle = document.getElementById('pageTitle');
-      const pageDescription = document.getElementById('pageDescription');
+      const intro = document.getElementById('intro');
+      const summary = document.getElementById('summary');
+      const actions = document.getElementById('actions');
+      const message = document.getElementById('message');
       const acceptButton = document.getElementById('acceptButton');
       const declineButton = document.getElementById('declineButton');
-      const message = document.getElementById('message');
 
-      function showMessage(text, type) {
+      function setMessage(text, type = 'info') {
         message.textContent = text;
         message.className = `message ${type}`;
-        message.style.display = 'block';
       }
 
-      function setButtonsDisabled(disabled) {
-        acceptButton.disabled = disabled;
-        declineButton.disabled = disabled;
+      function setBusy(isBusy) {
+        acceptButton.disabled = isBusy;
+        declineButton.disabled = isBusy;
       }
 
-      function applyActionFromLink() {
-        if (actionFromLink === 'accept') {
-          pageTitle.textContent = 'Accept this estimate';
-          pageDescription.textContent =
-            'Click below to approve this estimate. Once accepted, it will automatically become an invoice.';
-          declineButton.style.display = 'none';
-        }
-
-        if (actionFromLink === 'decline') {
-          pageTitle.textContent = 'Decline this estimate';
-          pageDescription.textContent =
-            'Click below to decline this estimate. The business will see that the estimate was declined.';
-          acceptButton.style.display = 'none';
-        }
+      function formatMoney(value) {
+        const amount = Number(value || 0);
+        return amount.toLocaleString(undefined, {
+          style: 'currency',
+          currency: 'USD',
+        });
       }
 
-      async function respondToEstimate(action) {
-        if (!token) return;
+      async function callRpc(functionName, body) {
+        const response = await fetch(`${SUPABASE_URL}/rest/v1/rpc/${functionName}`, {
+          method: 'POST',
+          headers: {
+            apikey: SUPABASE_ANON_KEY,
+            Authorization: `Bearer ${SUPABASE_ANON_KEY}`,
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify(body),
+        });
 
-        setButtonsDisabled(true);
-
-        const isAccepting = action === 'accept';
-        const activeButton = isAccepting ? acceptButton : declineButton;
-        const originalText = activeButton.textContent;
-
-        activeButton.textContent = isAccepting ? 'Accepting...' : 'Declining...';
-        showMessage(
-          isAccepting ? 'Processing your acceptance...' : 'Processing your decline response...',
-          'info',
-        );
+        const text = await response.text();
+        let data = null;
 
         try {
-          const response = await fetch(RESPONSE_FUNCTION_URL, {
-            method: 'POST',
-            headers: {
-              'Content-Type': 'application/json',
-            },
-            body: JSON.stringify({ token, action }),
+          data = text ? JSON.parse(text) : null;
+        } catch (error) {
+          throw new Error(text || 'Unexpected server response.');
+        }
+
+        if (!response.ok) {
+          throw new Error(data?.message || data?.error || 'Request failed.');
+        }
+
+        return data;
+      }
+
+      async function loadEstimate() {
+        if (!token) {
+          intro.textContent = 'This response link is missing its estimate token.';
+          setMessage('Please ask the sender for a new estimate link.', 'error');
+          return;
+        }
+
+        try {
+          const result = await callRpc('get_estimate_response_details', {
+            p_token: token,
           });
 
-          const result = await response.json().catch(() => ({}));
-
-          if (!response.ok || !result.success) {
-            throw new Error(result.error || 'Could not process this estimate response.');
+          if (!result?.ok) {
+            intro.textContent = 'We could not load this estimate.';
+            setMessage(result?.message || 'This estimate link is invalid or expired.', 'error');
+            return;
           }
 
-          if (isAccepting) {
-            acceptButton.textContent = 'Estimate Accepted';
-            declineButton.style.display = 'none';
-            showMessage(
-              result.alreadyConverted
-                ? `This estimate was already accepted and converted to Invoice #${result.invoiceNumber}.`
-                : `Success! Estimate #${result.estimateNumber} has been accepted and converted to Invoice #${result.invoiceNumber}.`,
-              'success',
-            );
+          document.getElementById('estimateNumber').textContent = `#${result.estimate_number}`;
+          document.getElementById('customerName').textContent = result.customer_name || 'Customer';
+          document.getElementById('estimateTotal').textContent = formatMoney(result.total);
+          document.getElementById('estimateStatus').textContent = result.status || 'sent';
+
+          intro.textContent = 'Review the estimate response options below.';
+          summary.classList.remove('hidden');
+
+          if (result.can_respond) {
+            actions.classList.remove('hidden');
+            setMessage('Choose Accept Estimate or Decline Estimate below.', 'info');
           } else {
-            declineButton.textContent = 'Estimate Declined';
-            acceptButton.style.display = 'none';
-            showMessage(
-              `Estimate #${result.estimateNumber} has been declined.`,
-              'success',
-            );
+            setMessage(result.message || 'This estimate has already been responded to.', 'success');
           }
         } catch (error) {
-          setButtonsDisabled(false);
-          activeButton.textContent = originalText;
-          showMessage(error.message || 'Something went wrong. Please try again.', 'error');
+          intro.textContent = 'Load failed.';
+          setMessage(error.message || 'Unable to load the estimate. Please try again later.', 'error');
         }
       }
 
-      if (!token) {
-        setButtonsDisabled(true);
-        showMessage('This estimate response link is missing its security token.', 'error');
-      } else {
-        applyActionFromLink();
+      async function respond(action) {
+        const label = action === 'accept' ? 'accept' : 'decline';
+        const confirmed = window.confirm(`Are you sure you want to ${label} this estimate?`);
+
+        if (!confirmed) {
+          return;
+        }
+
+        try {
+          setBusy(true);
+          setMessage('Saving your response...', 'info');
+
+          const result = await callRpc('respond_to_estimate', {
+            p_token: token,
+            p_action: action,
+          });
+
+          if (!result?.ok) {
+            throw new Error(result?.message || 'Response could not be saved.');
+          }
+
+          actions.classList.add('hidden');
+          document.getElementById('estimateStatus').textContent = result.status;
+          setMessage(result.message || 'Your response was saved.', 'success');
+        } catch (error) {
+          setMessage(error.message || 'Response failed. Please try again later.', 'error');
+        } finally {
+          setBusy(false);
+        }
       }
 
-      acceptButton.addEventListener('click', () => respondToEstimate('accept'));
-      declineButton.addEventListener('click', () => respondToEstimate('decline'));
+      acceptButton.addEventListener('click', () => respond('accept'));
+      declineButton.addEventListener('click', () => respond('decline'));
+
+      loadEstimate();
     </script>
   </body>
 </html>
