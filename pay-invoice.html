@@ -1,0 +1,238 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Pay Invoice | Wolfpack Labz</title>
+  <style>
+    :root {
+      color-scheme: light;
+      --bg: #f8fafc;
+      --card: #ffffff;
+      --border: #d1d5db;
+      --text: #111827;
+      --muted: #6b7280;
+      --link: #2563eb;
+      --danger: #b91c1c;
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      background: var(--bg);
+      color: var(--text);
+      font-family: Arial, Helvetica, sans-serif;
+      padding: 24px;
+    }
+
+    .wrap {
+      max-width: 720px;
+      margin: 0 auto;
+    }
+
+    .brand {
+      font-weight: 800;
+      letter-spacing: -0.03em;
+      font-size: 24px;
+      margin-bottom: 20px;
+    }
+
+    .card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 24px;
+      box-shadow: 0 10px 30px rgba(15, 23, 42, 0.08);
+    }
+
+    h1 {
+      font-size: 26px;
+      margin: 0 0 10px;
+    }
+
+    p {
+      color: var(--muted);
+      font-size: 16px;
+      line-height: 1.55;
+      margin: 0 0 16px;
+    }
+
+    .button {
+      display: inline-block;
+      background: #111827;
+      color: #ffffff;
+      text-decoration: none;
+      font-weight: 700;
+      border-radius: 10px;
+      padding: 12px 18px;
+      margin-top: 8px;
+    }
+
+    .link {
+      color: var(--link);
+      overflow-wrap: anywhere;
+    }
+
+    .error {
+      color: var(--danger);
+      font-weight: 700;
+    }
+
+    .details {
+      display: none;
+      margin-top: 18px;
+      padding: 12px;
+      background: #f9fafb;
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      color: #374151;
+      font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+      font-size: 12px;
+      white-space: pre-wrap;
+      overflow-wrap: anywhere;
+    }
+  </style>
+</head>
+<body>
+  <main class="wrap">
+    <div class="brand">Wolfpack Labz</div>
+
+    <section class="card">
+      <h1 id="title">Preparing payment link...</h1>
+      <p id="message">Please wait while we open the secure checkout page.</p>
+      <div id="action"></div>
+      <pre id="details" class="details"></pre>
+    </section>
+  </main>
+
+  <script>
+    const SUPABASE_URL = 'https://gwmckwqxnrnzqmhvodgm.supabase.co';
+    const SUPABASE_ANON_KEY = 'sb_publishable__tJuY11O2GoJ3dn3SPLtgA_MXh_mPCf';
+
+    const titleEl = document.getElementById('title');
+    const messageEl = document.getElementById('message');
+    const actionEl = document.getElementById('action');
+    const detailsEl = document.getElementById('details');
+
+    function escapeHtml(value) {
+      return String(value || '')
+        .replaceAll('&', '&amp;')
+        .replaceAll('<', '&lt;')
+        .replaceAll('>', '&gt;')
+        .replaceAll('"', '&quot;')
+        .replaceAll("'", '&#39;');
+    }
+
+    function setError(message, details) {
+      titleEl.textContent = 'Payment link unavailable';
+      messageEl.innerHTML = '<span class="error">' + escapeHtml(message) + '</span>';
+      actionEl.innerHTML = '';
+
+      if (details) {
+        detailsEl.style.display = 'block';
+        detailsEl.textContent = JSON.stringify(details, null, 2);
+      }
+    }
+
+    function isValidUrl(value) {
+      try {
+        const url = new URL(value);
+        return url.protocol === 'https:' || url.protocol === 'http:';
+      } catch {
+        return false;
+      }
+    }
+
+    function isUuid(value) {
+      return /^[0-9a-f]{8}-[0-9a-f]{4}-[1-5][0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$/i.test(value || '');
+    }
+
+    async function callRpc(name, body) {
+      const response = await fetch(`${SUPABASE_URL}/rest/v1/rpc/${name}`, {
+        method: 'POST',
+        headers: {
+          apikey: SUPABASE_ANON_KEY,
+          Authorization: `Bearer ${SUPABASE_ANON_KEY}`,
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(body),
+      });
+
+      const text = await response.text();
+      let data = null;
+
+      try {
+        data = text ? JSON.parse(text) : null;
+      } catch {
+        data = text;
+      }
+
+      if (!response.ok) {
+        throw new Error(data?.message || data?.hint || data?.details || text || 'Request failed.');
+      }
+
+      return data;
+    }
+
+    async function lookupPaymentUrlByCode(code) {
+      const data = await callRpc('get_invoice_payment_redirect', { p_code: code });
+      const row = Array.isArray(data) ? data[0] : data;
+      return row?.payment_url || '';
+    }
+
+    async function lookupPaymentUrlByInvoiceId(invoiceId) {
+      const data = await callRpc('get_invoice_payment_url', { p_invoice_id: invoiceId });
+      const row = Array.isArray(data) ? data[0] : data;
+      return row?.payment_url || '';
+    }
+
+    async function init() {
+      const params = new URLSearchParams(window.location.search);
+      const code = (params.get('p') || params.get('code') || '').trim();
+      const rawInvoiceId = (params.get('invoice_id') || params.get('invoiceId') || params.get('id') || '').trim();
+      const invoiceId = isUuid(rawInvoiceId) ? rawInvoiceId : '';
+
+      if (!code && !invoiceId) {
+        setError('Missing payment code. Please ask the sender for a new invoice link.', {
+          page_url: window.location.href,
+          code_present: false,
+          raw_invoice_id: rawInvoiceId || null,
+        });
+        return;
+      }
+
+      try {
+        const paymentUrl = code
+          ? await lookupPaymentUrlByCode(code)
+          : await lookupPaymentUrlByInvoiceId(invoiceId);
+
+        if (!paymentUrl || !isValidUrl(paymentUrl)) {
+          setError('This payment link could not be found. Please ask the sender for a new invoice link.', {
+            page_url: window.location.href,
+            code: code || null,
+            invoice_id: invoiceId || null,
+          });
+          return;
+        }
+
+        titleEl.textContent = 'Opening secure checkout...';
+        messageEl.textContent = 'If checkout does not open automatically, use the button below.';
+        actionEl.innerHTML = `<a class="button" href="${escapeHtml(paymentUrl)}">Pay Invoice</a><p style="margin-top:16px;"><a class="link" href="${escapeHtml(paymentUrl)}">Open checkout manually</a></p>`;
+
+        window.location.replace(paymentUrl);
+      } catch (error) {
+        setError(error.message || 'Could not load the payment link.', {
+          page_url: window.location.href,
+          code: code || null,
+          invoice_id: invoiceId || null,
+          supabase_url: SUPABASE_URL,
+        });
+      }
+    }
+
+    init();
+  </script>
+</body>
+</html>
