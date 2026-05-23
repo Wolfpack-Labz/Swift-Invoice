@@ -393,10 +393,14 @@
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(180px, 210px));
       gap: 16px;
-      justify-content: flex-start;
+      justify-content: center;
+      justify-items: center;
     }
 
     .screenshot-card {
+      width: 100%;
+      max-width: 210px;
+      margin: 0;
       overflow: hidden;
       border: 1px solid var(--border);
       border-radius: 22px;
@@ -418,6 +422,7 @@
       width: 100%;
       aspect-ratio: 9 / 19.5;
       object-fit: cover;
+      object-position: center top;
       border-bottom: 1px solid var(--border);
       background: #e2e8f0;
       display: block;
@@ -686,6 +691,10 @@
         gap: 10px;
       }
 
+      .screenshot-card {
+        max-width: 100%;
+      }
+
       .screenshot-card figcaption {
         padding: 9px 10px 11px;
         font-size: 12px;
@@ -846,6 +855,12 @@
                 </div>
               </div>
 
+              <!--
+                Replace these placeholder files with real screenshots when ready:
+                images/screenshots/swift-dashboard.jpg
+                images/screenshots/swift-create-invoice.jpg
+                images/screenshots/swift-reports.jpg
+              -->
               <div class="screenshots-grid">
                 <figure class="screenshot-card">
                   <button
@@ -862,6 +877,7 @@
                   </button>
                   <figcaption>
                     <span>Dashboard overview</span>
+                    <span>Click to expand</span>
                   </figcaption>
                 </figure>
 
@@ -880,6 +896,7 @@
                   </button>
                   <figcaption>
                     <span>Create invoices</span>
+                    <span>Click to expand</span>
                   </figcaption>
                 </figure>
 
@@ -898,6 +915,7 @@
                   </button>
                   <figcaption>
                     <span>Reports</span>
+                    <span>Click to expand</span>
                   </figcaption>
                 </figure>
 
@@ -915,7 +933,8 @@
                     />
                   </button>
                   <figcaption>
-                    <span>Add images to invoices</span>
+                    <span>Add images</span>
+                    <span>Click to expand</span>
                   </figcaption>
                 </figure>
               </div>
