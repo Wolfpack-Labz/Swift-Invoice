@@ -391,29 +391,122 @@
 
     .screenshots-grid {
       display: grid;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: 14px;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 210px));
+      gap: 16px;
+      justify-content: flex-start;
     }
 
     .screenshot-card {
       overflow: hidden;
       border: 1px solid var(--border);
-      border-radius: 18px;
+      border-radius: 22px;
       background: #f8fafc;
+      box-shadow: 0 12px 30px rgba(15, 23, 42, 0.08);
     }
 
-    .screenshot-card img {
+    .screenshot-trigger {
+      display: block;
       width: 100%;
-      aspect-ratio: 16 / 10;
+      padding: 0;
+      border: none;
+      background: transparent;
+      cursor: pointer;
+      text-align: left;
+    }
+
+    .screenshot-trigger img {
+      width: 100%;
+      aspect-ratio: 9 / 19.5;
       object-fit: cover;
       border-bottom: 1px solid var(--border);
       background: #e2e8f0;
+      display: block;
+      transition: transform 0.22s ease;
+    }
+
+    .screenshot-trigger:hover img,
+    .screenshot-trigger:focus-visible img {
+      transform: scale(1.02);
+    }
+
+    .screenshot-trigger:focus-visible {
+      outline: 3px solid rgba(37, 99, 235, 0.24);
+      outline-offset: 2px;
+      border-radius: 22px;
     }
 
     .screenshot-card figcaption {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
       padding: 11px 12px 13px;
       color: #334155;
       font-size: 13px;
+      font-weight: 700;
+    }
+
+    .screenshot-card figcaption span:last-child {
+      color: var(--accent-dark);
+      font-size: 12px;
+      white-space: nowrap;
+    }
+
+    .lightbox {
+      position: fixed;
+      inset: 0;
+      background: rgba(15, 23, 42, 0.82);
+      display: grid;
+      place-items: center;
+      padding: 24px;
+      z-index: 1000;
+    }
+
+    .lightbox[hidden] {
+      display: none;
+    }
+
+    .lightbox-dialog {
+      position: relative;
+      width: min(100%, 520px);
+    }
+
+    .lightbox-close {
+      position: absolute;
+      top: -12px;
+      right: -12px;
+      width: 40px;
+      height: 40px;
+      border: none;
+      border-radius: 999px;
+      background: #ffffff;
+      color: #0f172a;
+      font-size: 24px;
+      line-height: 1;
+      cursor: pointer;
+      box-shadow: 0 12px 30px rgba(15, 23, 42, 0.18);
+    }
+
+    .lightbox-figure {
+      margin: 0;
+      background: #ffffff;
+      border-radius: 28px;
+      overflow: hidden;
+      box-shadow: 0 30px 80px rgba(15, 23, 42, 0.28);
+    }
+
+    .lightbox-figure img {
+      display: block;
+      width: 100%;
+      max-height: 82vh;
+      object-fit: contain;
+      background: #e2e8f0;
+    }
+
+    .lightbox-figure figcaption {
+      padding: 14px 18px 18px;
+      color: #334155;
+      font-size: 14px;
       font-weight: 700;
     }
 
@@ -671,33 +764,72 @@
               <div class="screenshots-header">
                 <div>
                   <h5 id="swift-screenshots-title">App screenshots</h5>
-                  <p>Preview key Swift Invoice screens and workflow features.</p>
+                  <p>Preview key Swift Invoice screens and workflow features. Click any screenshot to enlarge it.</p>
                 </div>
               </div>
 
+              <!--
+                Replace these placeholder files with real screenshots when ready:
+                images/screenshots/swift-dashboard.jpg
+                images/screenshots/swift-create-invoice.jpg
+                images/screenshots/swift-reports.jpg
+              -->
               <div class="screenshots-grid">
                 <figure class="screenshot-card">
-                  <img
-                    src="images/screenshots/swift-dashboard.jpg"
-                    alt="Swift Invoice dashboard screenshot"
-                  />
-                  <figcaption>Dashboard overview</figcaption>
+                  <button
+                    type="button"
+                    class="screenshot-trigger"
+                    data-image="images/screenshots/swift-dashboard.jpg"
+                    data-title="Dashboard overview"
+                    aria-label="Open enlarged screenshot: Dashboard overview"
+                  >
+                    <img
+                      src="images/screenshots/swift-dashboard.jpg"
+                      alt="Swift Invoice dashboard screenshot"
+                    />
+                  </button>
+                  <figcaption>
+                    <span>Dashboard overview</span>
+                    <span>Click to expand</span>
+                  </figcaption>
                 </figure>
 
                 <figure class="screenshot-card">
-                  <img
-                    src="images/screenshots/swift-create-invoice.jpg"
-                    alt="Swift Invoice create invoice screenshot"
-                  />
-                  <figcaption>Create invoices</figcaption>
+                  <button
+                    type="button"
+                    class="screenshot-trigger"
+                    data-image="images/screenshots/swift-create-invoice.jpg"
+                    data-title="Create invoices"
+                    aria-label="Open enlarged screenshot: Create invoices"
+                  >
+                    <img
+                      src="images/screenshots/swift-create-invoice.jpg"
+                      alt="Swift Invoice create invoice screenshot"
+                    />
+                  </button>
+                  <figcaption>
+                    <span>Create invoices</span>
+                    <span>Click to expand</span>
+                  </figcaption>
                 </figure>
 
                 <figure class="screenshot-card">
-                  <img
-                    src="images/screenshots/swift-reports.jpg"
-                    alt="Swift Reports dashboard"
-                  />
-                  <figcaption>Reports</figcaption>
+                  <button
+                    type="button"
+                    class="screenshot-trigger"
+                    data-image="images/screenshots/swift-reports.jpg"
+                    data-title="Reports"
+                    aria-label="Open enlarged screenshot: Reports"
+                  >
+                    <img
+                      src="images/screenshots/swift-reports.jpg"
+                      alt="Swift Invoice reports screenshot"
+                    />
+                  </button>
+                  <figcaption>
+                    <span>Reports</span>
+                    <span>Click to expand</span>
+                  </figcaption>
                 </figure>
               </div>
             </section>
@@ -762,5 +894,60 @@
       <div>© 2026 Wolfpack Labs LLC. All rights reserved.</div>
     </footer>
   </main>
+  <div class="lightbox" id="screenshot-lightbox" hidden aria-hidden="true">
+    <div class="lightbox-dialog" role="dialog" aria-modal="true" aria-labelledby="lightbox-caption">
+      <button type="button" class="lightbox-close" id="lightbox-close" aria-label="Close enlarged screenshot">×</button>
+      <figure class="lightbox-figure">
+        <img id="lightbox-image" src="" alt="" />
+        <figcaption id="lightbox-caption"></figcaption>
+      </figure>
+    </div>
+  </div>
+
+  <script>
+    const lightbox = document.getElementById('screenshot-lightbox');
+    const lightboxImage = document.getElementById('lightbox-image');
+    const lightboxCaption = document.getElementById('lightbox-caption');
+    const lightboxClose = document.getElementById('lightbox-close');
+    const screenshotTriggers = document.querySelectorAll('.screenshot-trigger');
+
+    function openLightbox(imageSrc, title, altText) {
+      lightboxImage.src = imageSrc;
+      lightboxImage.alt = altText || title;
+      lightboxCaption.textContent = title;
+      lightbox.hidden = false;
+      lightbox.setAttribute('aria-hidden', 'false');
+      document.body.style.overflow = 'hidden';
+      lightboxClose.focus();
+    }
+
+    function closeLightbox() {
+      lightbox.hidden = true;
+      lightbox.setAttribute('aria-hidden', 'true');
+      lightboxImage.src = '';
+      document.body.style.overflow = '';
+    }
+
+    screenshotTriggers.forEach((trigger) => {
+      trigger.addEventListener('click', () => {
+        const image = trigger.querySelector('img');
+        openLightbox(trigger.dataset.image, trigger.dataset.title, image ? image.alt : trigger.dataset.title);
+      });
+    });
+
+    lightboxClose.addEventListener('click', closeLightbox);
+
+    lightbox.addEventListener('click', (event) => {
+      if (event.target === lightbox) {
+        closeLightbox();
+      }
+    });
+
+    document.addEventListener('keydown', (event) => {
+      if (event.key === 'Escape' && !lightbox.hidden) {
+        closeLightbox();
+      }
+    });
+  </script>
 </body>
 </html>
