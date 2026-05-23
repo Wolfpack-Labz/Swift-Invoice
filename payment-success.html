@@ -1,233 +1,26 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Payment Successful | Wolfpack Labs</title>
-  <meta name="description" content="Your payment was completed successfully." />
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Payment Successful | Wolfpack Labz</title>
   <style>
-    :root {
-      --bg: #0f172a;
-      --card: #111827;
-      --card-light: #1f2937;
-      --text: #f8fafc;
-      --muted: #cbd5e1;
-      --accent: #22c55e;
-      --accent-dark: #16a34a;
-      --border: rgba(255, 255, 255, 0.12);
-      --shadow: 0 24px 80px rgba(0, 0, 0, 0.35);
-    }
-
-    * {
-      box-sizing: border-box;
-    }
-
-    body {
-      margin: 0;
-      min-height: 100vh;
-      font-family: Arial, Helvetica, sans-serif;
-      background:
-        radial-gradient(circle at top left, rgba(34, 197, 94, 0.18), transparent 35%),
-        linear-gradient(135deg, #020617 0%, var(--bg) 55%, #111827 100%);
-      color: var(--text);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      padding: 24px;
-    }
-
-    .page {
-      width: 100%;
-      max-width: 760px;
-    }
-
-    .brand {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 12px;
-      margin-bottom: 28px;
-      color: var(--muted);
-      font-weight: 700;
-      letter-spacing: 0.04em;
-      text-transform: uppercase;
-      font-size: 0.9rem;
-    }
-
-    .brand-mark {
-      width: 36px;
-      height: 36px;
-      border-radius: 12px;
-      background: linear-gradient(135deg, var(--accent), var(--accent-dark));
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: #052e16;
-      font-weight: 900;
-    }
-
-    .card {
-      background: rgba(17, 24, 39, 0.86);
-      border: 1px solid var(--border);
-      border-radius: 28px;
-      box-shadow: var(--shadow);
-      padding: 42px;
-      text-align: center;
-      backdrop-filter: blur(14px);
-    }
-
-    .icon {
-      width: 82px;
-      height: 82px;
-      border-radius: 999px;
-      margin: 0 auto 24px;
-      background: rgba(34, 197, 94, 0.14);
-      border: 1px solid rgba(34, 197, 94, 0.35);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: var(--accent);
-      font-size: 46px;
-      line-height: 1;
-    }
-
-    h1 {
-      margin: 0 0 14px;
-      font-size: clamp(2rem, 5vw, 3.2rem);
-      line-height: 1.05;
-    }
-
-    p {
-      margin: 0 auto 18px;
-      max-width: 560px;
-      color: var(--muted);
-      font-size: 1.06rem;
-      line-height: 1.7;
-    }
-
-    .session-box {
-      display: none;
-      margin: 26px auto 0;
-      max-width: 560px;
-      padding: 16px;
-      border-radius: 16px;
-      background: rgba(31, 41, 55, 0.8);
-      border: 1px solid var(--border);
-      text-align: left;
-      color: var(--muted);
-      overflow-wrap: anywhere;
-      font-size: 0.92rem;
-    }
-
-    .session-box strong {
-      color: var(--text);
-      display: block;
-      margin-bottom: 6px;
-    }
-
-    .actions {
-      margin-top: 30px;
-      display: flex;
-      flex-wrap: wrap;
-      gap: 14px;
-      justify-content: center;
-    }
-
-    a.button {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      min-height: 48px;
-      padding: 0 22px;
-      border-radius: 999px;
-      text-decoration: none;
-      font-weight: 700;
-      border: 1px solid transparent;
-      transition: transform 160ms ease, opacity 160ms ease, border-color 160ms ease;
-    }
-
-    a.button:hover {
-      transform: translateY(-1px);
-      opacity: 0.94;
-    }
-
-    .primary {
-      background: var(--accent);
-      color: #052e16;
-    }
-
-    .secondary {
-      color: var(--text);
-      border-color: var(--border);
-      background: rgba(255, 255, 255, 0.04);
-    }
-
-    .footer {
-      margin-top: 22px;
-      text-align: center;
-      color: rgba(203, 213, 225, 0.72);
-      font-size: 0.88rem;
-    }
-
-    @media (max-width: 560px) {
-      .card {
-        padding: 32px 22px;
-        border-radius: 22px;
-      }
-
-      .actions {
-        flex-direction: column;
-      }
-
-      a.button {
-        width: 100%;
-      }
-    }
+    body { margin: 0; min-height: 100vh; background: #f8fafc; color: #111827; font-family: Arial, Helvetica, sans-serif; padding: 24px; }
+    .wrap { max-width: 720px; margin: 0 auto; }
+    .brand { font-weight: 800; font-size: 24px; margin-bottom: 20px; letter-spacing: -0.03em; }
+    .card { background: #fff; border: 1px solid #d1d5db; border-radius: 16px; padding: 24px; box-shadow: 0 10px 30px rgba(15,23,42,.08); }
+    h1 { margin: 0 0 10px; font-size: 26px; }
+    p { color: #6b7280; font-size: 16px; line-height: 1.55; margin: 0 0 14px; }
   </style>
 </head>
 <body>
-  <main class="page">
-    <div class="brand" aria-label="Wolfpack Labs">
-      <div class="brand-mark">W</div>
-      <span>Wolfpack Labs</span>
-    </div>
-
-    <section class="card" aria-labelledby="payment-success-title">
-      <div class="icon" aria-hidden="true">✓</div>
-      <h1 id="payment-success-title">Payment successful</h1>
-      <p>
-        Thank you. Your payment was completed successfully. You may now close this page.
-      </p>
-      <p>
-        Your invoice status will be updated automatically once the payment confirmation is processed.
-      </p>
-
-      <div id="sessionBox" class="session-box">
-        <strong>Checkout Session</strong>
-        <span id="sessionId"></span>
-      </div>
-
-      <div class="actions">
-        <a class="button primary" href="./index.html">Return to Wolfpack Labs</a>
-        <a class="button secondary" href="mailto:support@wolfpack-labs.com">Contact Support</a>
-      </div>
+  <main class="wrap">
+    <div class="brand">Wolfpack Labz</div>
+    <section class="card">
+      <h1>Payment successful</h1>
+      <p>Thank you. Your payment was processed securely.</p>
+      <p>The invoice status will update automatically after Stripe sends the payment confirmation. This usually happens within a few seconds.</p>
     </section>
-
-    <div class="footer">
-      &copy; <span id="year"></span> Wolfpack Labs. All rights reserved.
-    </div>
   </main>
-
-  <script>
-    document.getElementById('year').textContent = new Date().getFullYear();
-
-    const params = new URLSearchParams(window.location.search);
-    const sessionId = params.get('session_id');
-
-    if (sessionId) {
-      document.getElementById('sessionId').textContent = sessionId;
-      document.getElementById('sessionBox').style.display = 'block';
-    }
-  </script>
 </body>
 </html>

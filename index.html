@@ -10,9 +10,9 @@
     content="Wolfpack Labs legal documentation hub for privacy policies, terms, data requests, and support information for our apps."
   />
 
-  <link rel="icon" type="image/png" sizes="32x32" href="favicon.png" />
-  <link rel="icon" type="image/png" sizes="192x192" href="favicon.png" />
-  <link rel="apple-touch-icon" sizes="180x180" href="favicon.png" />
+  <link rel="icon" type="image/png" sizes="32x32" href="images/favicon.png" />
+  <link rel="icon" type="image/png" sizes="192x192" href="images/favicon.png" />
+  <link rel="apple-touch-icon" sizes="180x180" href="images/favicon.png" />
 
   <style>
     :root {
@@ -295,12 +295,16 @@
       grid-template-columns: 112px 1fr;
       align-items: start;
       gap: 22px;
-      max-width: 760px;
-      min-height: 210px;
       padding: 22px;
       background: #ffffff;
       border: 1px solid var(--border);
       border-radius: 20px;
+    }
+
+    .app-details {
+      display: flex;
+      flex-direction: column;
+      gap: 18px;
     }
 
     .app-logo {
@@ -356,6 +360,61 @@
       background: #eff6ff;
       border-color: #bfdbfe;
       color: var(--accent-dark);
+    }
+
+    .screenshots-section {
+      border-top: 1px solid var(--border);
+      padding-top: 18px;
+    }
+
+    .screenshots-header {
+      display: flex;
+      align-items: flex-end;
+      justify-content: space-between;
+      gap: 12px;
+      margin-bottom: 14px;
+    }
+
+    .screenshots-header h5 {
+      margin: 0;
+      color: #0f172a;
+      font-size: 16px;
+      letter-spacing: -0.2px;
+    }
+
+    .screenshots-header p {
+      margin: 4px 0 0;
+      color: var(--text-soft);
+      font-size: 13px;
+      line-height: 1.5;
+    }
+
+    .screenshots-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 14px;
+    }
+
+    .screenshot-card {
+      overflow: hidden;
+      border: 1px solid var(--border);
+      border-radius: 18px;
+      background: #f8fafc;
+    }
+
+    .screenshot-card img {
+      width: 100%;
+      aspect-ratio: 16 / 10;
+      object-fit: cover;
+      border-bottom: 1px solid var(--border);
+      background: #e2e8f0;
+    }
+
+    .screenshot-card figcaption {
+      padding: 11px 12px 13px;
+      color: #334155;
+      font-size: 13px;
+      font-weight: 700;
     }
 
     .utility-grid {
@@ -459,7 +518,8 @@
         grid-template-columns: 1fr;
       }
 
-      .utility-grid {
+      .utility-grid,
+      .screenshots-grid {
         grid-template-columns: 1fr;
       }
 
@@ -492,7 +552,6 @@
 
       .app-card {
         grid-template-columns: 1fr;
-        max-width: none;
       }
 
       .app-logo {
@@ -508,7 +567,7 @@
     <header class="topbar">
       <a class="brand" href="./" aria-label="Wolfpack Labs homepage">
         <div class="brand-logo">
-          <img src="favicon.png" alt="Wolfpack Labs logo" />
+          <img src="images/favicon.png" alt="Wolfpack Labs logo" />
         </div>
 
         <div>
@@ -583,28 +642,71 @@
       <div class="app-grid">
         <article class="app-card">
           <div class="app-logo">
-            <img src="swift.png" alt="Swift Invoice logo" />
+            <img src="images/swift.png" alt="Swift Invoice logo" />
           </div>
 
-          <div class="app-content">
-            <h4>Swift Invoice</h4>
-            <p>
-              A simple invoicing and estimate app for small businesses,
-              freelancers, contractors, and self-employed professionals.
-            </p>
+          <div class="app-details">
+            <div class="app-content">
+              <h4>Swift Invoice</h4>
+              <p>
+                A simple invoicing and estimate app for small businesses,
+                freelancers, contractors, and self-employed professionals.
+              </p>
 
-            <div class="doc-links">
-              <a href="privacy-policy.html">Privacy Policy</a>
-              <a href="terms.html">Terms & Conditions</a>
-              <a
-                href="https://app.termly.io/dsar/868c4685-0469-4ee9-91f1-e5a8645af737"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                Data Request
-              </a>
-              <a href="contact.html">Support</a>
+              <div class="doc-links">
+                <a href="privacy-policy.html">Privacy Policy</a>
+                <a href="terms.html">Terms & Conditions</a>
+                <a
+                  href="https://app.termly.io/dsar/868c4685-0469-4ee9-91f1-e5a8645af737"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  Data Request
+                </a>
+                <a href="contact.html">Support</a>
+              </div>
             </div>
+
+            <section class="screenshots-section" aria-labelledby="swift-screenshots-title">
+              <div class="screenshots-header">
+                <div>
+                  <h5 id="swift-screenshots-title">App screenshots</h5>
+                  <p>Preview key Swift Invoice screens and workflow features.</p>
+                </div>
+              </div>
+
+              <!--
+                Replace these placeholder files with real screenshots when ready:
+                images/screenshots/swift-dashboard.svg
+                images/screenshots/swift-create-invoice.svg
+                images/screenshots/swift-payment.svg
+              -->
+              <div class="screenshots-grid">
+                <figure class="screenshot-card">
+                  <img
+                    src="images/screenshots/swift-dashboard.svg"
+                    alt="Swift Invoice dashboard screenshot"
+                  />
+                  <figcaption>Dashboard overview</figcaption>
+                </figure>
+
+                <figure class="screenshot-card">
+                  <img
+                    src="images/screenshots/swift-create-invoice.svg"
+                    alt="Swift Invoice create invoice screenshot"
+                  />
+                  <figcaption>Create invoices</figcaption>
+                </figure>
+
+                <figure class="screenshot-card">
+                  <img
+                    src="images/screenshots/swift-payment.svg"
+                    alt="Swift Invoice payment tracking screenshot"
+                  />
+                  <figcaption>Payment tracking</figcaption>
+                </figure>
+              </div>
+            </section>
           </div>
         </article>
       </div>
