@@ -611,9 +611,33 @@
         grid-template-columns: 1fr;
       }
 
-      .utility-grid,
-      .screenshots-grid {
+      .utility-grid {
         grid-template-columns: 1fr;
+      }
+
+      .screenshots-grid {
+        grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+        gap: 12px;
+      }
+
+      .screenshot-card {
+        border-radius: 18px;
+      }
+
+      .screenshot-trigger img {
+        aspect-ratio: 9 / 18;
+      }
+
+      .lightbox {
+        padding: 18px;
+      }
+
+      .lightbox-dialog {
+        width: min(100%, 420px);
+      }
+
+      .lightbox-figure img {
+        max-height: 78vh;
       }
 
       .nav {
@@ -645,11 +669,65 @@
 
       .app-card {
         grid-template-columns: 1fr;
+        padding: 18px;
       }
 
       .app-logo {
         width: 96px;
         height: 96px;
+      }
+
+      .screenshots-header {
+        align-items: flex-start;
+      }
+
+      .screenshots-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 10px;
+      }
+
+      .screenshot-card figcaption {
+        padding: 9px 10px 11px;
+        font-size: 12px;
+      }
+
+      .screenshot-card figcaption span:last-child {
+        display: none;
+      }
+
+      .lightbox {
+        padding: 12px;
+      }
+
+      .lightbox-dialog {
+        width: min(100%, 340px);
+      }
+
+      .lightbox-close {
+        top: 8px;
+        right: 8px;
+        width: 36px;
+        height: 36px;
+        z-index: 2;
+      }
+
+      .lightbox-figure {
+        border-radius: 22px;
+      }
+
+      .lightbox-figure img {
+        max-height: 76vh;
+      }
+    }
+
+    @media (max-width: 380px) {
+      .screenshots-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 8px;
+      }
+
+      .screenshot-card figcaption {
+        font-size: 11px;
       }
     }
   </style>
@@ -836,17 +914,17 @@
                   <button
                     type="button"
                     class="screenshot-trigger"
-                    data-image="images/screenshots/swift-reports.jpg"
-                    data-title="Reports"
-                    aria-label="Open enlarged screenshot: Reports"
+                    data-image="images/screenshots/swift-images.jpg"
+                    data-title="Add images"
+                    aria-label="Open enlarged screenshot: Add images"
                   >
                     <img
-                      src="images/screenshots/swift-reports.jpg"
-                      alt="Swift Invoice reports screenshot"
+                      src="images/screenshots/swift-images.jpg"
+                      alt="Swift Invoice add images to PDF screenshot"
                     />
                   </button>
                   <figcaption>
-                    <span>Reports</span>
+                    <span>Add images</span>
                     <span>Click to expand</span>
                   </figcaption>
                 </figure>
