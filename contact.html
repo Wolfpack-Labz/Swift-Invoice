@@ -417,13 +417,13 @@
     form.addEventListener("submit", async (event) => {
       event.preventDefault();
 
-      if (!SUPPORT_FUNCTION_URL || SUPPORT_FUNCTION_URL.includes("gwmckwqxnrnzqmhvodgm")) {
-        showNotice(
-          "error",
-          "This contact form is not connected yet. Please replace SUPPORT_FUNCTION_URL in contact.html with your deployed Supabase Function URL."
-        );
-        return;
-      }
+        if (!SUPPORT_FUNCTION_URL) {
+          showNotice(
+            "error",
+            "Support form is currently unavailable. Please try again later."
+          );
+          return;
+        }
 
       const formData = new FormData(form);
 
