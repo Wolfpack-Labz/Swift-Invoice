@@ -1373,23 +1373,33 @@
           return;
         }
 
-        try {
-          const response = await fetch(subscribeEndpoint, {
-            method: 'POST',
-            headers: {
-              'Content-Type': 'application/json',
-            },
-            body: JSON.stringify({ email, app }),
-          });
+    try {
+      const response = await fetch(subscribeEndpoint, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          email,
+          app: 'Swift Invoice',
+        }),
+      });
 
-          if (!response.ok) {
-            throw new Error('Subscription request failed.');
-          }
+      const data = await response.json();
 
-          subscribeForm.reset();
-          subscribeMessage.textContent =
-            'Thanks — you are on the update list for Swift Invoice.';
-        } catch (error) {
+      if (!response.ok || !data.success) {
+        throw new Error(data.error || 'Unable to subscribe.');
+      }
+
+      subscribeMessage.textContent =
+        'Thanks — you are on the update list for Swift Invoice.';
+      subscribeMessage.className = 'subscribe-message success';
+      subscribeForm.reset();
+    } catch (error) {
+      subscribeMessage.textContent =
+        'Something went wrong. Please try again or contact support@wolfpack-labs.com.';
+      subscribeMessage.className = 'subscribe-message error';
+    } catch (error) {
           subscribeMessage.textContent =
             'Something went wrong. Please try again or contact support@wolfpack-labs.com.';
           subscribeMessage.classList.add('error');
