@@ -1366,8 +1366,9 @@
           return;
         }
 
-        if (subscribeEndpoint === 'https://gwmckwqxnrnzqmhvodgm.supabase.co/functions/v1/subscribe-email') {
+        if (subscribeEndpoint === 'SUBSCRIBE_FUNCTION_URL') {
           subscribeMessage.textContent =
+            'Subscription form added. Replace SUBSCRIBE_FUNCTION_URL with your deployed signup function URL to start collecting emails.';
           subscribeMessage.classList.add('error');
           return;
         }
