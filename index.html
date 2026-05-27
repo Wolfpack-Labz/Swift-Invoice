@@ -5,56 +5,57 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
   <title>Wolfpack Labs | Swift Invoice, Legal Docs & App Support</title>
-    <meta
-      name="description"
-      content="Wolfpack Labs provides simple SaaS tools and mobile apps including Swift Invoice. Access privacy policies, legal documents, support resources, and data request forms."
-    />
+  <meta
+    name="description"
+    content="Wolfpack Labs provides simple SaaS tools and mobile apps including Swift Invoice. Access privacy policies, legal documents, support resources, and data request forms."
+  />
+
   <!-- SEO Meta Tags -->
-    <meta
-      name="keywords"
-      content="Wolfpack Labs, Swift Invoice, invoice app, invoicing software, freelancer invoice app, contractor invoicing, estimate app, small business invoicing, SaaS tools, invoice generator"
-    />
+  <meta
+    name="keywords"
+    content="Wolfpack Labs, Swift Invoice, invoice app, invoicing software, freelancer invoice app, contractor invoicing, estimate app, small business invoicing, SaaS tools, invoice generator"
+  />
+  <meta name="author" content="Wolfpack Labs LLC" />
+  <meta name="robots" content="index, follow" />
+  <meta name="theme-color" content="#0f172a" />
 
-    <meta name="author" content="Wolfpack Labs LLC" />
-    <meta name="robots" content="index, follow" />
-    <meta name="theme-color" content="#0f172a" />
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Wolfpack Labs | Legal Documentation Hub" />
+  <meta
+    property="og:description"
+    content="Privacy policies, legal documents, support resources, and app information for Wolfpack Labs products including Swift Invoice."
+  />
+  <meta property="og:image" content="https://wolfpack-labs.com/images/favicon.png" />
+  <meta property="og:url" content="https://wolfpack-labs.com/" />
+  <meta property="og:site_name" content="Wolfpack Labs" />
 
-    <!-- Open Graph / Facebook -->
-    <meta property="og:type" content="website" />
-    <meta property="og:title" content="Wolfpack Labs | Legal Documentation Hub" />
-    <meta
-      property="og:description"
-      content="Privacy policies, legal documents, support resources, and app information for Wolfpack Labs products including Swift Invoice."
-    />
-    <meta property="og:image" content="images/favicon.png" />
-    <meta property="og:url" content="https://wolfpack-labs.com/" />
-    <meta property="og:site_name" content="Wolfpack Labs" />
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Wolfpack Labs | Legal Documentation Hub" />
+  <meta
+    name="twitter:description"
+    content="Legal documentation, privacy policies, support resources, and app information for Wolfpack Labs."
+  />
+  <meta name="twitter:image" content="https://wolfpack-labs.com/images/favicon.png" />
 
-    <!-- Twitter -->
-    <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="Wolfpack Labs | Legal Documentation Hub" />
-    <meta
-      name="twitter:description"
-      content="Legal documentation, privacy policies, support resources, and app information for Wolfpack Labs."
-    />
-    <meta name="twitter:image" content="images/favicon.png" />
+  <!-- Canonical -->
+  <link rel="canonical" href="https://wolfpack-labs.com/" />
 
-    <!-- Canonical -->
-    <link rel="canonical" href="https://wolfpack-labs.com/" />
+  <!-- Structured Data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "Wolfpack Labs LLC",
+    "url": "https://wolfpack-labs.com",
+    "logo": "https://wolfpack-labs.com/images/favicon.png",
+    "email": "support@wolfpack-labs.com",
+    "sameAs": [],
+    "description": "Wolfpack Labs builds simple SaaS tools and mobile apps for everyday users."
+  }
+  </script>
 
-    <!-- Structured Data -->
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "Organization",
-      "name": "Wolfpack Labs LLC",
-      "url": "https://wolfpack-labs.com",
-      "logo": "https://wolfpack-labs.com/images/favicon.png",
-      "email": "support@wolfpack-labs.com",
-      "sameAs": [],
-      "description": "Wolfpack Labs builds simple SaaS tools and mobile apps for everyday users."
-    }
-    </script>
   <link rel="icon" type="image/png" sizes="32x32" href="images/favicon.png" />
   <link rel="icon" type="image/png" sizes="192x192" href="images/favicon.png" />
   <link rel="apple-touch-icon" sizes="180x180" href="images/favicon.png" />
@@ -329,6 +330,127 @@
       white-space: nowrap;
     }
 
+    .subscribe-card {
+      display: grid;
+      grid-template-columns: 1.05fr 0.95fr;
+      gap: 24px;
+      align-items: center;
+      background:
+        radial-gradient(circle at top right, rgba(37, 99, 235, 0.18), transparent 38%),
+        linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+      color: white;
+      border-radius: 22px;
+      padding: 28px;
+      overflow: hidden;
+    }
+
+    .subscribe-copy .eyebrow {
+      margin-bottom: 14px;
+      color: #bfdbfe;
+      background: rgba(37, 99, 235, 0.16);
+      border-color: rgba(191, 219, 254, 0.28);
+    }
+
+    .subscribe-copy h3 {
+      margin: 0;
+      color: white;
+      font-size: clamp(26px, 4vw, 40px);
+      line-height: 1.05;
+      letter-spacing: -1.2px;
+    }
+
+    .subscribe-copy p {
+      margin: 14px 0 0;
+      color: #cbd5e1;
+      font-size: 15px;
+      line-height: 1.7;
+      max-width: 600px;
+    }
+
+    .subscribe-form {
+      background: rgba(255, 255, 255, 0.96);
+      border: 1px solid rgba(255, 255, 255, 0.7);
+      border-radius: 20px;
+      padding: 20px;
+      box-shadow: 0 20px 50px rgba(0, 0, 0, 0.18);
+    }
+
+    .subscribe-form label {
+      display: block;
+      margin-bottom: 8px;
+      color: #0f172a;
+      font-size: 14px;
+      font-weight: 800;
+    }
+
+    .subscribe-form-row {
+      display: flex;
+      gap: 10px;
+    }
+
+    .subscribe-form input[type='email'] {
+      width: 100%;
+      min-height: 48px;
+      padding: 0 14px;
+      color: #0f172a;
+      background: #ffffff;
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      font-size: 15px;
+      outline: none;
+    }
+
+    .subscribe-form input[type='email']:focus {
+      border-color: #93c5fd;
+      box-shadow: 0 0 0 4px rgba(37, 99, 235, 0.12);
+    }
+
+    .subscribe-form button {
+      min-height: 48px;
+      padding: 0 18px;
+      border: none;
+      border-radius: 14px;
+      background: var(--accent);
+      color: white;
+      font-size: 14px;
+      font-weight: 800;
+      cursor: pointer;
+      white-space: nowrap;
+    }
+
+    .subscribe-form button:hover {
+      background: var(--accent-dark);
+    }
+
+    .subscribe-form button:disabled {
+      cursor: not-allowed;
+      opacity: 0.7;
+    }
+
+    .subscribe-consent {
+      margin: 12px 0 0;
+      color: #64748b;
+      font-size: 12px;
+      line-height: 1.55;
+    }
+
+    .subscribe-consent a {
+      color: var(--accent-dark);
+      font-weight: 800;
+    }
+
+    .subscribe-message {
+      margin: 12px 0 0;
+      color: #166534;
+      font-size: 13px;
+      font-weight: 800;
+      line-height: 1.45;
+    }
+
+    .subscribe-message.error {
+      color: #b91c1c;
+    }
+
     .app-grid {
       display: grid;
       grid-template-columns: 1fr;
@@ -502,6 +624,78 @@
       white-space: nowrap;
     }
 
+    .utility-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 14px;
+    }
+
+    .utility-card {
+      border: 1px solid var(--border);
+      background: #ffffff;
+      border-radius: 18px;
+      padding: 18px;
+    }
+
+    .utility-card .icon {
+      width: 42px;
+      height: 42px;
+      display: grid;
+      place-items: center;
+      border-radius: 14px;
+      background: #eff6ff;
+      margin-bottom: 14px;
+      font-size: 20px;
+    }
+
+    .utility-card h4 {
+      margin: 0 0 7px;
+      font-size: 17px;
+      color: #0f172a;
+    }
+
+    .utility-card p {
+      margin: 0 0 14px;
+      color: var(--text-soft);
+      font-size: 14px;
+      line-height: 1.55;
+    }
+
+    .utility-card a {
+      color: var(--accent-dark);
+      font-size: 14px;
+      font-weight: 800;
+    }
+
+    .contact-box {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 18px;
+      background: #0f172a;
+      color: white;
+      border-radius: 20px;
+      padding: 22px;
+    }
+
+    .contact-box h3 {
+      margin: 0 0 6px;
+      font-size: 22px;
+    }
+
+    .contact-box p {
+      margin: 0;
+      color: #cbd5e1;
+      line-height: 1.6;
+      font-size: 14px;
+    }
+
+    .contact-box .button {
+      background: white;
+      color: #0f172a;
+      white-space: nowrap;
+    }
+
     .lightbox {
       position: fixed;
       inset: 0;
@@ -560,195 +754,6 @@
       font-weight: 700;
     }
 
-    .utility-grid {
-      display: grid;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: 14px;
-    }
-
-    .utility-card {
-      border: 1px solid var(--border);
-      background: #ffffff;
-      border-radius: 18px;
-      padding: 18px;
-    }
-
-    .utility-card .icon {
-      width: 42px;
-      height: 42px;
-      display: grid;
-      place-items: center;
-      border-radius: 14px;
-      background: #eff6ff;
-      margin-bottom: 14px;
-      font-size: 20px;
-    }
-
-    .utility-card h4 {
-      margin: 0 0 7px;
-      font-size: 17px;
-      color: #0f172a;
-    }
-
-    .utility-card p {
-      margin: 0 0 14px;
-      color: var(--text-soft);
-      font-size: 14px;
-      line-height: 1.55;
-    }
-
-    .utility-card a {
-      color: var(--accent-dark);
-      font-size: 14px;
-      font-weight: 800;
-    }
-
-
-    .subscribe-card {
-      display: grid;
-      grid-template-columns: 1.05fr 0.95fr;
-      gap: 24px;
-      align-items: center;
-      background:
-        radial-gradient(circle at top right, rgba(37, 99, 235, 0.18), transparent 38%),
-        linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
-      color: white;
-      border-radius: 22px;
-      padding: 28px;
-      overflow: hidden;
-    }
-
-    .subscribe-copy .eyebrow {
-      margin-bottom: 14px;
-      color: #bfdbfe;
-      background: rgba(37, 99, 235, 0.16);
-      border-color: rgba(191, 219, 254, 0.28);
-    }
-
-    .subscribe-copy h3 {
-      margin: 0;
-      color: white;
-      font-size: clamp(26px, 4vw, 40px);
-      line-height: 1.05;
-      letter-spacing: -1.2px;
-    }
-
-    .subscribe-copy p {
-      margin: 14px 0 0;
-      color: #cbd5e1;
-      font-size: 15px;
-      line-height: 1.7;
-      max-width: 600px;
-    }
-
-    .subscribe-form {
-      background: rgba(255, 255, 255, 0.96);
-      border: 1px solid rgba(255, 255, 255, 0.7);
-      border-radius: 20px;
-      padding: 20px;
-      box-shadow: 0 20px 50px rgba(0, 0, 0, 0.18);
-    }
-
-    .subscribe-form label {
-      display: block;
-      margin-bottom: 8px;
-      color: #0f172a;
-      font-size: 14px;
-      font-weight: 800;
-    }
-
-    .subscribe-form-row {
-      display: flex;
-      gap: 10px;
-    }
-
-    .subscribe-form input[type='email'] {
-      width: 100%;
-      min-height: 48px;
-      padding: 0 14px;
-      color: #0f172a;
-      background: #ffffff;
-      border: 1px solid var(--border);
-      border-radius: 14px;
-      font-size: 15px;
-      outline: none;
-    }
-
-    .subscribe-form input[type='email']:focus {
-      border-color: #93c5fd;
-      box-shadow: 0 0 0 4px rgba(37, 99, 235, 0.12);
-    }
-
-    .subscribe-form button {
-      min-height: 48px;
-      padding: 0 18px;
-      border: none;
-      border-radius: 14px;
-      background: var(--accent);
-      color: white;
-      font-size: 14px;
-      font-weight: 800;
-      cursor: pointer;
-      white-space: nowrap;
-    }
-
-    .subscribe-form button:hover {
-      background: var(--accent-dark);
-    }
-
-    .subscribe-consent {
-      margin: 12px 0 0;
-      color: #64748b;
-      font-size: 12px;
-      line-height: 1.55;
-    }
-
-    .subscribe-consent a {
-      color: var(--accent-dark);
-      font-weight: 800;
-    }
-
-    .subscribe-message {
-      margin: 12px 0 0;
-      color: #166534;
-      font-size: 13px;
-      font-weight: 800;
-      line-height: 1.45;
-    }
-
-    .subscribe-message.error {
-      color: #b91c1c;
-    }
-
-    .contact-box {
-      display: flex;
-      flex-direction: column;
-      align-items: flex-start;
-      gap: 18px;
-      background: #0f172a;
-      color: white;
-      border-radius: 20px;
-      padding: 22px;
-    }
-
-    .contact-box h3 {
-      margin: 0 0 6px;
-      font-size: 22px;
-    }
-
-    .contact-box p {
-      margin: 0;
-      color: #cbd5e1;
-      line-height: 1.6;
-      font-size: 14px;
-    }
-
-    .contact-box .button {
-      background: white;
-      color: #0f172a;
-      white-space: nowrap;
-    }
-
     footer {
       color: #cbd5e1;
       text-align: center;
@@ -769,137 +774,17 @@
     @media (max-width: 860px) {
       .topbar,
       .section-header,
-  
-    .subscribe-card {
-      display: grid;
-      grid-template-columns: 1.05fr 0.95fr;
-      gap: 24px;
-      align-items: center;
-      background:
-        radial-gradient(circle at top right, rgba(37, 99, 235, 0.18), transparent 38%),
-        linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
-      color: white;
-      border-radius: 22px;
-      padding: 28px;
-      overflow: hidden;
-    }
-
-    .subscribe-copy .eyebrow {
-      margin-bottom: 14px;
-      color: #bfdbfe;
-      background: rgba(37, 99, 235, 0.16);
-      border-color: rgba(191, 219, 254, 0.28);
-    }
-
-    .subscribe-copy h3 {
-      margin: 0;
-      color: white;
-      font-size: clamp(26px, 4vw, 40px);
-      line-height: 1.05;
-      letter-spacing: -1.2px;
-    }
-
-    .subscribe-copy p {
-      margin: 14px 0 0;
-      color: #cbd5e1;
-      font-size: 15px;
-      line-height: 1.7;
-      max-width: 600px;
-    }
-
-    .subscribe-form {
-      background: rgba(255, 255, 255, 0.96);
-      border: 1px solid rgba(255, 255, 255, 0.7);
-      border-radius: 20px;
-      padding: 20px;
-      box-shadow: 0 20px 50px rgba(0, 0, 0, 0.18);
-    }
-
-    .subscribe-form label {
-      display: block;
-      margin-bottom: 8px;
-      color: #0f172a;
-      font-size: 14px;
-      font-weight: 800;
-    }
-
-    .subscribe-form-row {
-      display: flex;
-      gap: 10px;
-    }
-
-    .subscribe-form input[type='email'] {
-      width: 100%;
-      min-height: 48px;
-      padding: 0 14px;
-      color: #0f172a;
-      background: #ffffff;
-      border: 1px solid var(--border);
-      border-radius: 14px;
-      font-size: 15px;
-      outline: none;
-    }
-
-    .subscribe-form input[type='email']:focus {
-      border-color: #93c5fd;
-      box-shadow: 0 0 0 4px rgba(37, 99, 235, 0.12);
-    }
-
-    .subscribe-form button {
-      min-height: 48px;
-      padding: 0 18px;
-      border: none;
-      border-radius: 14px;
-      background: var(--accent);
-      color: white;
-      font-size: 14px;
-      font-weight: 800;
-      cursor: pointer;
-      white-space: nowrap;
-    }
-
-    .subscribe-form button:hover {
-      background: var(--accent-dark);
-    }
-
-    .subscribe-consent {
-      margin: 12px 0 0;
-      color: #64748b;
-      font-size: 12px;
-      line-height: 1.55;
-    }
-
-    .subscribe-consent a {
-      color: var(--accent-dark);
-      font-weight: 800;
-    }
-
-    .subscribe-message {
-      margin: 12px 0 0;
-      color: #166534;
-      font-size: 13px;
-      font-weight: 800;
-      line-height: 1.45;
-    }
-
-    .subscribe-message.error {
-      color: #b91c1c;
-    }
-
-    .contact-box {
+      .contact-box {
         align-items: flex-start;
         flex-direction: column;
       }
 
-      .hero {
+      .hero,
+      .subscribe-card {
         grid-template-columns: 1fr;
       }
 
       .utility-grid {
-        grid-template-columns: 1fr;
-      }
-
-      .subscribe-card {
         grid-template-columns: 1fr;
       }
 
@@ -965,10 +850,6 @@
         height: 96px;
       }
 
-      .screenshots-header {
-        align-items: flex-start;
-      }
-
       .subscribe-card {
         padding: 20px;
       }
@@ -979,6 +860,10 @@
 
       .subscribe-form button {
         width: 100%;
+      }
+
+      .screenshots-header {
+        align-items: flex-start;
       }
 
       .screenshots-grid {
@@ -1102,7 +987,6 @@
       </aside>
     </section>
 
-
     <section id="updates" class="section">
       <div class="subscribe-card">
         <div class="subscribe-copy">
@@ -1128,7 +1012,7 @@
               required
             />
 
-            <button type="submit">Notify Me</button>
+            <button type="submit" id="subscribe-button">Notify Me</button>
           </div>
 
           <input type="hidden" name="app" value="Swift Invoice" />
@@ -1188,12 +1072,6 @@
                 </div>
               </div>
 
-              <!--
-                Replace these placeholder files with real screenshots when ready:
-                images/screenshots/swift-dashboard.jpg
-                images/screenshots/swift-create-invoice.jpg
-                images/screenshots/swift-reports.jpg
-              -->
               <div class="screenshots-grid">
                 <figure class="screenshot-card">
                   <button
@@ -1333,6 +1211,7 @@
       <div>© 2026 Wolfpack Labs LLC. All rights reserved.</div>
     </footer>
   </main>
+
   <div class="lightbox" id="screenshot-lightbox" hidden aria-hidden="true">
     <div class="lightbox-dialog" role="dialog" aria-modal="true" aria-labelledby="lightbox-caption">
       <button type="button" class="lightbox-close" id="lightbox-close" aria-label="Close enlarged screenshot">×</button>
@@ -1344,10 +1223,11 @@
   </div>
 
   <script>
-
     const subscribeForm = document.getElementById('subscribe-form');
     const subscribeMessage = document.getElementById('subscribe-message');
-    const subscribeEndpoint = 'https://gwmckwqxnrnzqmhvodgm.supabase.co/functions/v1/subscribe-email';
+    const subscribeButton = document.getElementById('subscribe-button');
+    const subscribeEndpoint =
+      'https://gwmckwqxnrnzqmhvodgm.supabase.co/functions/v1/subscribe-email';
 
     if (subscribeForm) {
       subscribeForm.addEventListener('submit', async (event) => {
@@ -1358,7 +1238,7 @@
         const app = String(formData.get('app') || 'Swift Invoice');
 
         subscribeMessage.hidden = false;
-        subscribeMessage.classList.remove('error');
+        subscribeMessage.className = 'subscribe-message';
 
         if (!email) {
           subscribeMessage.textContent = 'Please enter your email address.';
@@ -1366,43 +1246,46 @@
           return;
         }
 
-        if (subscribeEndpoint === 'SUBSCRIBE_FUNCTION_URL') {
+        try {
+          subscribeButton.disabled = true;
+          subscribeButton.textContent = 'Saving...';
+          subscribeMessage.textContent = 'Saving your email...';
+
+          const response = await fetch(subscribeEndpoint, {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({
+              email,
+              app,
+            }),
+          });
+
+          let data = {};
+
+          try {
+            data = await response.json();
+          } catch {
+            data = {};
+          }
+
+          if (!response.ok || !data.success) {
+            throw new Error(data.error || 'Unable to subscribe.');
+          }
+
           subscribeMessage.textContent =
-            'Subscription form added. Replace SUBSCRIBE_FUNCTION_URL with your deployed signup function URL to start collecting emails.';
-          subscribeMessage.classList.add('error');
-          return;
-        }
-
-    try {
-      const response = await fetch(subscribeEndpoint, {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({
-          email,
-          app: 'Swift Invoice',
-        }),
-      });
-
-      const data = await response.json();
-
-      if (!response.ok || !data.success) {
-        throw new Error(data.error || 'Unable to subscribe.');
-      }
-
-      subscribeMessage.textContent =
-        'Thanks — you are on the update list for Swift Invoice.';
-      subscribeMessage.className = 'subscribe-message success';
-      subscribeForm.reset();
-    } catch (error) {
-      subscribeMessage.textContent =
-        'Something went wrong. Please try again or contact support@wolfpack-labs.com.';
-      subscribeMessage.className = 'subscribe-message error';
-    } catch (error) {
+            'Thanks — you are on the update list for Swift Invoice.';
+          subscribeMessage.className = 'subscribe-message';
+          subscribeForm.reset();
+        } catch (error) {
+          console.error('Subscription error:', error);
           subscribeMessage.textContent =
             'Something went wrong. Please try again or contact support@wolfpack-labs.com.';
-          subscribeMessage.classList.add('error');
+          subscribeMessage.className = 'subscribe-message error';
+        } finally {
+          subscribeButton.disabled = false;
+          subscribeButton.textContent = 'Notify Me';
         }
       });
     }
@@ -1433,7 +1316,11 @@
     screenshotTriggers.forEach((trigger) => {
       trigger.addEventListener('click', () => {
         const image = trigger.querySelector('img');
-        openLightbox(trigger.dataset.image, trigger.dataset.title, image ? image.alt : trigger.dataset.title);
+        openLightbox(
+          trigger.dataset.image,
+          trigger.dataset.title,
+          image ? image.alt : trigger.dataset.title
+        );
       });
     });
 
