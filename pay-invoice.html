@@ -93,6 +93,20 @@
       white-space: pre-wrap;
       overflow-wrap: anywhere;
     }
+
+    .legal-links {
+      margin-top: 18px;
+      color: #6b7280;
+      font-size: 13px;
+      line-height: 1.5;
+      text-align: center;
+    }
+
+    .legal-links a {
+      color: #2563eb;
+      font-weight: 700;
+      text-decoration: none;
+    }
   </style>
 </head>
 <body>
@@ -105,6 +119,11 @@
       <div id="action"></div>
       <pre id="details" class="details"></pre>
     </section>
+      <div class="legal-links">
+        <a href="customer-privacy-notice.html">Customer / Invoice Recipient Privacy Notice</a>
+        · <a href="privacy-policy.html">Privacy Policy</a>
+        · <a href="payment-disclosure.html">Payment Disclosure</a>
+      </div>
   </main>
 
   <script>
@@ -145,6 +164,10 @@
       }
     }
 
+    function isUuid(value) {
+      return /^[0-9a-f]{8}-[0-9a-f]{4}-[1-5][0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$/i.test(value || '');
+    }
+
     async function callRpc(name, body) {
       const response = await fetch(`${SUPABASE_URL}/rest/v1/rpc/${name}`, {
         method: 'POST',
@@ -178,26 +201,37 @@
       return row?.payment_url || '';
     }
 
+    async function lookupPaymentUrlByInvoiceId(invoiceId) {
+      const data = await callRpc('get_invoice_payment_url', { p_invoice_id: invoiceId });
+      const row = Array.isArray(data) ? data[0] : data;
+      return row?.payment_url || '';
+    }
+
     async function init() {
       const params = new URLSearchParams(window.location.search);
       const code = (params.get('p') || params.get('code') || '').trim();
+      const rawInvoiceId = (params.get('invoice_id') || params.get('invoiceId') || params.get('id') || '').trim();
+      const invoiceId = isUuid(rawInvoiceId) ? rawInvoiceId : '';
 
-      if (!code || code.length < 20) {
-        setError('Missing or invalid payment code. Please ask the sender for a new invoice link.', {
+      if (!code && !invoiceId) {
+        setError('Missing payment code. Please ask the sender for a new invoice link.', {
           page_url: window.location.href,
-          code_present: Boolean(code),
+          code_present: false,
+          raw_invoice_id: rawInvoiceId || null,
         });
         return;
       }
 
       try {
-        const paymentUrl = await lookupPaymentUrlByCode(code);
+        const paymentUrl = code
+          ? await lookupPaymentUrlByCode(code)
+          : await lookupPaymentUrlByInvoiceId(invoiceId);
 
         if (!paymentUrl || !isValidUrl(paymentUrl)) {
           setError('This payment link could not be found. Please ask the sender for a new invoice link.', {
             page_url: window.location.href,
             code: code || null,
-
+            invoice_id: invoiceId || null,
           });
           return;
         }
@@ -211,6 +245,7 @@
         setError(error.message || 'Could not load the payment link.', {
           page_url: window.location.href,
           code: code || null,
+          invoice_id: invoiceId || null,
           supabase_url: SUPABASE_URL,
         });
       }
