@@ -265,6 +265,7 @@
       // These values must match the same Supabase project used by your app.
       const SUPABASE_URL = 'https://gwmckwqxnrnzqmhvodgm.supabase.co';
       const SUPABASE_ANON_KEY = 'sb_publishable__tJuY11O2GoJ3dn3SPLtgA_MXh_mPCf';
+      const ESTIMATE_FUNCTION_URL = `${SUPABASE_URL}/functions/v1/accept-estimate`;
 
       const $ = (id) => document.getElementById(id);
 
@@ -292,7 +293,6 @@
           if (value) return value;
         }
 
-        // Some PDFs/email clients can encode & as &amp;, creating keys like amp;estimate_id.
         for (const name of names) {
           const value = cleanParam(params.get(`amp;${name}`));
           if (value) return value;
@@ -301,14 +301,7 @@
         return null;
       }
 
-      function isUuid(value) {
-        return /^[0-9a-f]{8}-[0-9a-f]{4}-[1-5][0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$/i.test(value || '');
-      }
-
       const token = getQueryValue(['token', 'acceptance_token', 'acceptanceToken', 't']);
-      const responseCode = getQueryValue(['e', 'code', 'response_code', 'responseCode']);
-      const rawEstimateId = getQueryValue(['estimate_id', 'estimateId', 'estimate', 'id']);
-      const estimateId = isUuid(rawEstimateId) ? rawEstimateId : null;
 
       function setMessage(text, type = 'info') {
         message.textContent = text;
@@ -320,10 +313,7 @@
           page_url: window.location.href,
           token_present: Boolean(token),
           token_preview: token ? `${token.slice(0, 8)}...` : null,
-          response_code: responseCode,
-          raw_estimate_id: rawEstimateId,
-          estimate_id_used: estimateId,
-          supabase_url: SUPABASE_URL,
+          function_url: ESTIMATE_FUNCTION_URL,
           ...extra,
         };
 
@@ -349,15 +339,15 @@
         return String(value).charAt(0).toUpperCase() + String(value).slice(1);
       }
 
-      async function callRpc(functionName, body) {
-        const response = await fetch(`${SUPABASE_URL}/rest/v1/rpc/${functionName}`, {
+      async function callEstimateFunction(action) {
+        const response = await fetch(ESTIMATE_FUNCTION_URL, {
           method: 'POST',
           headers: {
             apikey: SUPABASE_ANON_KEY,
             Authorization: `Bearer ${SUPABASE_ANON_KEY}`,
             'Content-Type': 'application/json',
           },
-          body: JSON.stringify(body),
+          body: JSON.stringify({ token, action }),
         });
 
         const rawText = await response.text();
@@ -366,52 +356,39 @@
         try {
           data = rawText ? JSON.parse(rawText) : null;
         } catch (_error) {
-          throw new Error(rawText || 'Supabase returned an unreadable response.');
+          throw new Error(rawText || 'Server returned an unreadable response.');
         }
 
         if (!response.ok) {
-          const message = data?.message || data?.error || data?.hint || data?.details || 'Supabase request failed.';
-          throw new Error(message);
+          throw new Error(data?.error || data?.message || 'Request failed.');
         }
 
-        return Array.isArray(data) ? data[0] : data;
+        return data;
       }
 
       function fillEstimate(result) {
-        const estimate = result.estimate || result;
-        const customer = result.customer || {};
-        const business = result.business || {};
-
-        $('estimateNumber').textContent = estimate.estimate_number ? `#${estimate.estimate_number}` : '—';
-        $('customerName').textContent = result.customer_name || customer.name || 'Customer';
-        $('businessName').textContent = result.business_name || business.business_name || 'Wolfpack Labz';
-        $('estimateTotal').textContent = formatMoney(estimate.total || result.total);
-        $('estimateStatus').textContent = formatStatus(estimate.status || result.status || 'sent');
+        $('estimateNumber').textContent = result.estimateNumber ? `#${result.estimateNumber}` : '—';
+        $('customerName').textContent = result.customerName || 'Customer';
+        $('businessName').textContent = result.businessName || 'Swift Invoice user';
+        $('estimateTotal').textContent = formatMoney(result.total);
+        $('estimateStatus').textContent = formatStatus(result.status || 'sent');
       }
 
       async function loadEstimate() {
-        if (!token && !estimateId && !responseCode) {
-          intro.textContent = 'This response link is missing its estimate information.';
+        if (!token || token.length < 48) {
+          intro.textContent = 'This response link is missing a valid secure token.';
           setMessage('Please ask the sender for a new estimate link.', 'error');
-          showDebug({ reason: 'missing_token_response_code_and_estimate_id' });
+          showDebug({ reason: 'missing_or_short_token' });
           return;
         }
 
-        if (rawEstimateId && !estimateId) {
-          setMessage('This link contains an invalid estimate ID. Trying the token instead...', 'info');
-        }
-
         try {
-          const result = await callRpc('get_estimate_response_details', {
-            p_estimate_id: estimateId,
-            p_token: token,
-            p_response_code: responseCode,
-          });
+          const result = await callEstimateFunction('details');
 
           if (!result || result.ok !== true) {
             intro.textContent = 'We could not load this estimate.';
             setMessage(result?.message || 'Estimate not found. Please ask the sender for a new link.', 'error');
-            showDebug({ rpc_result: result || null });
+            showDebug({ function_result: result || null });
             return;
           }
 
@@ -419,7 +396,7 @@
           intro.textContent = 'Ready to move forward? Choose an option below.';
           summary.classList.remove('hidden');
 
-          if (result.can_respond === true) {
+          if (result.canRespond === true) {
             actions.classList.remove('hidden');
             setMessage('You can accept or decline this estimate below.', 'info');
           } else {
@@ -434,7 +411,7 @@
       }
 
       async function respond(responseStatus) {
-        const label = responseStatus === 'accepted' ? 'accept' : 'decline';
+        const label = responseStatus === 'accept' ? 'accept' : 'decline';
         const confirmed = window.confirm(`Are you sure you want to ${label} this estimate?`);
         if (!confirmed) return;
 
@@ -442,20 +419,15 @@
           setBusy(true);
           setMessage('Saving your response...', 'info');
 
-          const result = await callRpc('respond_to_estimate', {
-            p_estimate_id: estimateId,
-            p_token: token,
-            p_response_code: responseCode,
-            p_response: responseStatus,
-          });
+          const result = await callEstimateFunction(responseStatus);
 
-          if (!result || result.ok !== true) {
-            throw new Error(result?.message || 'Your response could not be saved.');
+          if (!result || result.success !== true) {
+            throw new Error(result?.message || result?.error || 'Your response could not be saved.');
           }
 
           actions.classList.add('hidden');
-          $('estimateStatus').textContent = formatStatus(result.status);
-          setMessage(result.message || 'Your response was saved.', 'success');
+          $('estimateStatus').textContent = responseStatus === 'accept' ? 'Accepted' : 'Declined';
+          setMessage(responseStatus === 'accept' ? 'Estimate accepted. The sender has been notified.' : 'Estimate declined. The sender has been notified.', 'success');
         } catch (error) {
           setMessage(error.message || 'Response failed. Please try again later.', 'error');
           showDebug({ caught_error: error.message || String(error) });
@@ -464,8 +436,8 @@
         }
       }
 
-      acceptButton.addEventListener('click', () => respond('accepted'));
-      declineButton.addEventListener('click', () => respond('declined'));
+      acceptButton.addEventListener('click', () => respond('accept'));
+      declineButton.addEventListener('click', () => respond('decline'));
 
       loadEstimate();
     </script>
