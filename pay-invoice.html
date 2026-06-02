@@ -164,10 +164,6 @@
       }
     }
 
-    function isUuid(value) {
-      return /^[0-9a-f]{8}-[0-9a-f]{4}-[1-5][0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$/i.test(value || '');
-    }
-
     async function callRpc(name, body) {
       const response = await fetch(`${SUPABASE_URL}/rest/v1/rpc/${name}`, {
         method: 'POST',
@@ -201,37 +197,25 @@
       return row?.payment_url || '';
     }
 
-    async function lookupPaymentUrlByInvoiceId(invoiceId) {
-      const data = await callRpc('get_invoice_payment_url', { p_invoice_id: invoiceId });
-      const row = Array.isArray(data) ? data[0] : data;
-      return row?.payment_url || '';
-    }
-
     async function init() {
       const params = new URLSearchParams(window.location.search);
       const code = (params.get('p') || params.get('code') || '').trim();
-      const rawInvoiceId = (params.get('invoice_id') || params.get('invoiceId') || params.get('id') || '').trim();
-      const invoiceId = isUuid(rawInvoiceId) ? rawInvoiceId : '';
 
-      if (!code && !invoiceId) {
+      if (!code) {
         setError('Missing payment code. Please ask the sender for a new invoice link.', {
           page_url: window.location.href,
           code_present: false,
-          raw_invoice_id: rawInvoiceId || null,
         });
         return;
       }
 
       try {
-        const paymentUrl = code
-          ? await lookupPaymentUrlByCode(code)
-          : await lookupPaymentUrlByInvoiceId(invoiceId);
+        const paymentUrl = await lookupPaymentUrlByCode(code);
 
         if (!paymentUrl || !isValidUrl(paymentUrl)) {
           setError('This payment link could not be found. Please ask the sender for a new invoice link.', {
             page_url: window.location.href,
             code: code || null,
-            invoice_id: invoiceId || null,
           });
           return;
         }
@@ -245,7 +229,6 @@
         setError(error.message || 'Could not load the payment link.', {
           page_url: window.location.href,
           code: code || null,
-          invoice_id: invoiceId || null,
           supabase_url: SUPABASE_URL,
         });
       }
