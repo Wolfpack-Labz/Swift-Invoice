@@ -395,6 +395,17 @@
           <button id="submitButton" type="submit">Send Message</button>
           <a class="email-link" href="mailto:support@wolfpack-labs.com">Or email support@wolfpack-labs.com</a>
         </div>
+
+        <div style="position:absolute; left:-9999px; top:auto; width:1px; height:1px; overflow:hidden;" aria-hidden="true">
+          <label for="company_website">Company Website</label>
+          <input
+            type="text"
+            id="company_website"
+            name="company_website"
+            tabindex="-1"
+            autocomplete="off"
+          />
+        </div>
       </form>
     </section>
 
@@ -455,7 +466,15 @@
           headers: {
             "Content-Type": "application/json"
           },
-          body: JSON.stringify(payload)
+          body: JSON.stringify({
+            name: formData.get('name'),
+            email: formData.get('email'),
+            requestType: formData.get('requestType'),
+            appName: formData.get('appName'),
+            subject: formData.get('subject'),
+            message: formData.get('message'),
+            company_website: formData.get('company_website') || '',
+          }),
         });
 
         const result = await response.json().catch(() => ({}));

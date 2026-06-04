@@ -1024,6 +1024,17 @@
             <button type="submit" id="subscribe-button">Notify Me</button>
           </div>
 
+          <div style="position:absolute; left:-9999px; top:auto; width:1px; height:1px; overflow:hidden;" aria-hidden="true">
+            <label for="subscribe_company">Company</label>
+            <input
+              type="text"
+              id="subscribe_company"
+              name="subscribe_company"
+              tabindex="-1"
+              autocomplete="off"
+            />
+          </div>
+
           <input type="hidden" name="app" value="Swift Invoice" />
 
           <p class="subscribe-consent">
@@ -1279,7 +1290,8 @@
             },
             body: JSON.stringify({
               email,
-              app,
+              app: 'Swift Invoice',
+              subscribe_company: formData.get('subscribe_company') || '',
             }),
           });
 
