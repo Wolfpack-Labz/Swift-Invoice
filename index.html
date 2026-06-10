@@ -748,6 +748,46 @@
       box-shadow: 0 12px 30px rgba(15, 23, 42, 0.18);
     }
 
+    .lightbox-nav {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 46px;
+      height: 46px;
+      border: none;
+      border-radius: 999px;
+      background: #ffffff;
+      color: #0f172a;
+      font-size: 30px;
+      line-height: 1;
+      cursor: pointer;
+      display: grid;
+      place-items: center;
+      box-shadow: 0 12px 30px rgba(15, 23, 42, 0.2);
+      z-index: 2;
+    }
+
+    .lightbox-nav:hover,
+    .lightbox-close:hover {
+      background: #eff6ff;
+    }
+
+    .lightbox-prev {
+      left: -70px;
+    }
+
+    .lightbox-next {
+      right: -70px;
+    }
+
+    .lightbox-counter {
+      display: block;
+      margin-top: 4px;
+      color: #64748b;
+      font-size: 12px;
+      font-weight: 700;
+    }
+
     .lightbox-figure {
       margin: 0;
       background: #ffffff;
@@ -915,6 +955,21 @@
         width: 36px;
         height: 36px;
         z-index: 2;
+      }
+
+
+      .lightbox-nav {
+        width: 40px;
+        height: 40px;
+        font-size: 26px;
+      }
+
+      .lightbox-prev {
+        left: 8px;
+      }
+
+      .lightbox-next {
+        right: 8px;
       }
 
       .lightbox-figure {
@@ -1247,6 +1302,8 @@
   <div class="lightbox" id="screenshot-lightbox" hidden aria-hidden="true">
     <div class="lightbox-dialog" role="dialog" aria-modal="true" aria-labelledby="lightbox-caption">
       <button type="button" class="lightbox-close" id="lightbox-close" aria-label="Close enlarged screenshot">×</button>
+      <button type="button" class="lightbox-nav lightbox-prev" id="lightbox-prev" aria-label="View previous screenshot">‹</button>
+      <button type="button" class="lightbox-nav lightbox-next" id="lightbox-next" aria-label="View next screenshot">›</button>
       <figure class="lightbox-figure">
         <img id="lightbox-image" src="" alt="" />
         <figcaption id="lightbox-caption"></figcaption>
@@ -1327,12 +1384,38 @@
     const lightboxImage = document.getElementById('lightbox-image');
     const lightboxCaption = document.getElementById('lightbox-caption');
     const lightboxClose = document.getElementById('lightbox-close');
-    const screenshotTriggers = document.querySelectorAll('.screenshot-trigger');
+    const lightboxPrev = document.getElementById('lightbox-prev');
+    const lightboxNext = document.getElementById('lightbox-next');
+    const screenshotTriggers = Array.from(document.querySelectorAll('.screenshot-trigger'));
+    let currentScreenshotIndex = 0;
 
-    function openLightbox(imageSrc, title, altText) {
-      lightboxImage.src = imageSrc;
-      lightboxImage.alt = altText || title;
-      lightboxCaption.textContent = title;
+    const screenshots = screenshotTriggers.map((trigger) => {
+      const image = trigger.querySelector('img');
+
+      return {
+        src: trigger.dataset.image,
+        title: trigger.dataset.title,
+        alt: image ? image.alt : trigger.dataset.title,
+      };
+    });
+
+    function updateLightbox(index) {
+      const totalScreenshots = screenshots.length;
+
+      if (!totalScreenshots) {
+        return;
+      }
+
+      currentScreenshotIndex = (index + totalScreenshots) % totalScreenshots;
+      const screenshot = screenshots[currentScreenshotIndex];
+
+      lightboxImage.src = screenshot.src;
+      lightboxImage.alt = screenshot.alt || screenshot.title;
+      lightboxCaption.innerHTML = `${screenshot.title}<span class="lightbox-counter">${currentScreenshotIndex + 1} of ${totalScreenshots}</span>`;
+    }
+
+    function openLightbox(index) {
+      updateLightbox(index);
       lightbox.hidden = false;
       lightbox.setAttribute('aria-hidden', 'false');
       document.body.style.overflow = 'hidden';
@@ -1346,18 +1429,23 @@
       document.body.style.overflow = '';
     }
 
-    screenshotTriggers.forEach((trigger) => {
+    function showPreviousScreenshot() {
+      updateLightbox(currentScreenshotIndex - 1);
+    }
+
+    function showNextScreenshot() {
+      updateLightbox(currentScreenshotIndex + 1);
+    }
+
+    screenshotTriggers.forEach((trigger, index) => {
       trigger.addEventListener('click', () => {
-        const image = trigger.querySelector('img');
-        openLightbox(
-          trigger.dataset.image,
-          trigger.dataset.title,
-          image ? image.alt : trigger.dataset.title
-        );
+        openLightbox(index);
       });
     });
 
     lightboxClose.addEventListener('click', closeLightbox);
+    lightboxPrev.addEventListener('click', showPreviousScreenshot);
+    lightboxNext.addEventListener('click', showNextScreenshot);
 
     lightbox.addEventListener('click', (event) => {
       if (event.target === lightbox) {
@@ -1366,8 +1454,20 @@
     });
 
     document.addEventListener('keydown', (event) => {
-      if (event.key === 'Escape' && !lightbox.hidden) {
+      if (lightbox.hidden) {
+        return;
+      }
+
+      if (event.key === 'Escape') {
         closeLightbox();
+      }
+
+      if (event.key === 'ArrowLeft') {
+        showPreviousScreenshot();
+      }
+
+      if (event.key === 'ArrowRight') {
+        showNextScreenshot();
       }
     });
   </script>
