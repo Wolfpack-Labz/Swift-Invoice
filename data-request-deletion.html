@@ -106,6 +106,58 @@
       margin: 10px 0 4px;
     }
     .small { font-size: 13px; color: #7f7f7f; }
+
+
+    .back-to-top {
+      position: fixed;
+      right: 20px;
+      bottom: 20px;
+      z-index: 999;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      min-height: 44px;
+      padding: 10px 14px;
+      border: 1px solid #bfdbfe;
+      border-radius: 999px;
+      background: #2563eb;
+      color: #ffffff;
+      font-size: 14px;
+      font-weight: 800;
+      font-family: Arial, Helvetica, sans-serif;
+      cursor: pointer;
+      box-shadow: 0 14px 34px rgba(15, 23, 42, 0.2);
+      opacity: 0;
+      visibility: hidden;
+      transform: translateY(10px);
+      transition: opacity 0.2s ease, transform 0.2s ease, visibility 0.2s ease, background 0.2s ease;
+    }
+
+    .back-to-top:hover {
+      background: #1d4ed8;
+    }
+
+    .back-to-top.is-visible {
+      opacity: 1;
+      visibility: visible;
+      transform: translateY(0);
+    }
+
+    .back-to-top:focus-visible {
+      outline: 3px solid rgba(37, 99, 235, 0.28);
+      outline-offset: 3px;
+    }
+
+    @media (max-width: 620px) {
+      .back-to-top {
+        right: 14px;
+        bottom: 14px;
+        min-height: 42px;
+        padding: 9px 12px;
+        font-size: 13px;
+      }
+    }
   </style>
 </head>
 <body>
@@ -222,5 +274,31 @@
       <p class="small">This page is provided for informational purposes and does not replace the Swift Invoice Privacy Policy or Terms of Use. If there is a conflict between this page and a more specific legal document, the more specific document may control where permitted by law.</p>
     </main>
   </div>
+
+
+  <button type="button" class="back-to-top" id="back-to-top" aria-label="Back to top">
+    ↑ Back to top
+  </button>
+
+  <script>
+    const backToTopButton = document.getElementById('back-to-top');
+
+    function toggleBackToTopButton() {
+      if (window.scrollY > 500) {
+        backToTopButton.classList.add('is-visible');
+      } else {
+        backToTopButton.classList.remove('is-visible');
+      }
+    }
+
+    window.addEventListener('scroll', toggleBackToTopButton, { passive: true });
+
+    backToTopButton.addEventListener('click', () => {
+      window.scrollTo({
+        top: 0,
+        behavior: 'smooth',
+      });
+    });
+  </script>
 </body>
 </html>
