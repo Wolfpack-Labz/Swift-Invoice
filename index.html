@@ -991,6 +991,41 @@
         font-size: 11px;
       }
     }
+  
+
+    .site-footer {
+      margin: 30px auto 0;
+      color: #cbd5e1;
+      text-align: center;
+      font-size: 13px;
+      line-height: 1.6;
+    }
+
+    .footer-nav {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 10px 14px;
+      margin-bottom: 10px;
+    }
+
+    .footer-nav a {
+      color: #e2e8f0;
+      font-weight: 700;
+      text-decoration: none;
+    }
+
+    .footer-nav a:hover,
+    .footer-nav a:focus-visible {
+      color: #ffffff;
+      text-decoration: underline;
+    }
+
+    .footer-meta {
+      color: #cbd5e1;
+    }
+
   </style>
 </head>
 
@@ -1279,10 +1314,19 @@
         <a class="button" href="https://wolfpack-labs.com/contact.html">Contact Wolfpack Labs</a>
       </div>
     </section>
-
-    <footer>
-      <div>© 2026 Wolfpack Labs LLC. All rights reserved.</div>
-    </footer>
+  <footer class="site-footer" aria-label="Footer navigation">
+    <nav class="footer-nav" aria-label="Footer navigation">
+      <a href="index.html">Home</a>
+      <a href="privacy-policy.html">Privacy Policy</a>
+      <a href="terms.html">Terms</a>
+      <a href="disclosures.html">Disclosures</a>
+      <a href="payment-disclosure.html">Payment Disclosure</a>
+      <a href="customer-privacy-notice.html">Recipient Privacy Notice</a>
+      <a href="data-request-deletion.html">Data Request</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+    <div class="footer-meta">© 2026 Wolfpack Labs LLC. All rights reserved.</div>
+  </footer>
   </main>
 
   <div class="lightbox" id="screenshot-lightbox" hidden aria-hidden="true">
