@@ -85,10 +85,8 @@
       }
 
       .row {
-        display: flex;
-        justify-content: space-between;
-        gap: 16px;
-        padding: 10px 0;
+        display: block;
+        padding: 12px 0;
         border-bottom: 1px solid var(--border);
       }
 
@@ -101,15 +99,17 @@
       }
 
       .value {
+        display: block;
+        margin-top: 4px;
         color: var(--text);
         font-weight: 800;
-        text-align: right;
+        text-align: left;
         overflow-wrap: anywhere;
       }
 
       .actions {
         display: grid;
-        grid-template-columns: 1fr 1fr;
+        grid-template-columns: 1fr;
         gap: 12px;
         margin-top: 20px;
       }
