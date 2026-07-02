@@ -170,11 +170,6 @@
   <footer class="site-footer" aria-label="Footer navigation">
     <nav class="footer-nav" aria-label="Footer navigation">
       <a href="index.html">Home</a>
-      <a href="privacy-policy.html">Privacy Policy</a>
-      <a href="terms.html">Terms</a>
-      <a href="disclosures.html">Disclosures</a>
-      <a href="payment-disclosure.html">Payment Disclosure</a>
-      <a href="customer-privacy-notice.html">Recipient Privacy Notice</a>
       <a href="data-request-deletion.html">Data Request</a>
       <a href="contact.html">Contact</a>
     </nav>
@@ -214,6 +209,24 @@
       try {
         const url = new URL(value);
         return url.protocol === 'https:' || url.protocol === 'http:';
+      } catch {
+        return false;
+      }
+    }
+
+    function isValidPaymentUrl(value) {
+      try {
+        const url = new URL(value);
+
+        const allowedHosts = [
+          'checkout.stripe.com',
+          'buy.stripe.com'
+        ];
+
+        return (
+          url.protocol === 'https:' &&
+          allowedHosts.includes(url.hostname)
+        );
       } catch {
         return false;
       }
@@ -267,7 +280,7 @@
       try {
         const paymentUrl = await lookupPaymentUrlByCode(code);
 
-        if (!paymentUrl || !isValidUrl(paymentUrl)) {
+        if (!paymentUrl || !isValidPaymentUrl(paymentUrl)) {
           setError('This payment link could not be found. Please ask the sender for a new invoice link.', {
             page_url: window.location.href,
             code: code || null,
