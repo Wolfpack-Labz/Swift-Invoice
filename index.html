@@ -85,7 +85,6 @@
 
     body {
       margin: 0;
-      overflow-x: hidden;
       min-height: 100vh;
       font-family: Arial, Helvetica, sans-serif;
       color: var(--text);
@@ -476,71 +475,86 @@
     }
 
     .app-card {
-      display: grid;
-      grid-template-columns: minmax(0, 1fr);
-      align-items: start;
-      gap: 18px;
-      padding: 22px;
-      background: #ffffff;
+      position: relative;
+      display: block;
+      padding: 28px;
+      background:
+        radial-gradient(circle at top left, rgba(37, 99, 235, 0.1), transparent 32%),
+        #ffffff;
       border: 1px solid var(--border);
-      border-radius: 20px;
-      width: 100%;
-      max-width: 100%;
+      border-radius: 24px;
       overflow: hidden;
     }
 
-    .app-details {
-      display: flex;
-      flex-direction: column;
-      gap: 18px;
-      min-width: 0;
-      max-width: 100%;
+    .app-card::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      background: linear-gradient(135deg, rgba(37, 99, 235, 0.08), transparent 46%);
+      opacity: 0.8;
     }
 
-    .app-content,
-    .screenshots-section,
-    .screenshots-header,
-    .screenshots-carousel,
-    .screenshots-track {
-      min-width: 0;
-      max-width: 100%;
+    .app-details {
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      gap: 22px;
+      z-index: 1;
     }
 
     .app-logo {
-      width: 112px;
-      height: 112px;
-      border-radius: 26px;
-      background: #e8f1ff;
+      width: 86px;
+      height: 86px;
+      margin-bottom: 16px;
+      border-radius: 24px;
+      background:
+        radial-gradient(circle at 30% 20%, rgba(255, 255, 255, 0.95), rgba(219, 234, 254, 0.72)),
+        #e8f1ff;
       border: 1px solid #bfdbfe;
       display: flex;
       align-items: center;
       justify-content: center;
       overflow: hidden;
       flex-shrink: 0;
+      box-shadow: 0 16px 35px rgba(37, 99, 235, 0.16);
     }
 
     .app-logo img {
-      width: 82%;
-      height: 82%;
+      width: 78%;
+      height: 78%;
       object-fit: contain;
     }
 
-    .app-card > .app-logo {
-      display: none;
+    .app-kicker {
+      display: inline-flex;
+      align-items: center;
+      width: fit-content;
+      margin-bottom: 8px;
+      padding: 7px 10px;
+      border-radius: 999px;
+      color: var(--accent-dark);
+      background: #eff6ff;
+      border: 1px solid #bfdbfe;
+      font-size: 12px;
+      font-weight: 800;
+      letter-spacing: 0.02em;
+      text-transform: uppercase;
     }
 
     .app-content h4 {
       margin: 0;
-      font-size: 20px;
+      font-size: clamp(24px, 4vw, 34px);
+      letter-spacing: -0.8px;
       color: #0f172a;
     }
 
     .app-content p {
       max-width: 760px;
-      margin: 8px 0 18px;
+      margin: 10px 0 18px;
       color: var(--text-soft);
-      font-size: 14px;
-      line-height: 1.55;
+      font-size: 15px;
+      line-height: 1.65;
     }
 
     .doc-links {
@@ -592,79 +606,23 @@
       line-height: 1.5;
     }
 
-    .screenshots-carousel {
-      position: relative;
-      width: 100%;
-      margin: 0;
-      overflow: hidden;
-    }
-
-    .screenshots-track {
-      width: 100%;
-      overflow-x: auto;
-      overflow-y: visible;
-      scroll-snap-type: x mandatory;
-      scroll-behavior: smooth;
-      scrollbar-width: none;
-      -ms-overflow-style: none;
-      padding: 10px 6px 22px;
-      -webkit-mask-image: linear-gradient(
-        to right,
-        transparent 0,
-        #000 28px,
-        #000 calc(100% - 28px),
-        transparent 100%
-      );
-      mask-image: linear-gradient(
-        to right,
-        transparent 0,
-        #000 28px,
-        #000 calc(100% - 28px),
-        transparent 100%
-      );
-    }
-
-    .screenshots-track::-webkit-scrollbar {
-      display: none;
-    }
-
     .screenshots-grid {
-      display: flex;
-      align-items: flex-start;
-      gap: 20px;
-      width: max-content;
-      padding: 0 22px;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 210px));
+      gap: 16px;
+      justify-content: center;
+      justify-items: center;
     }
 
     .screenshot-card {
-      flex: 0 0 190px;
-      width: 190px;
+      width: 100%;
+      max-width: 210px;
       margin: 0;
       overflow: hidden;
       border: 1px solid var(--border);
       border-radius: 22px;
-      background: linear-gradient(160deg, #ffffff 0%, #f8fafc 100%);
-      box-shadow: 0 10px 26px rgba(15, 23, 42, 0.08);
-      scroll-snap-align: start;
-      transform: rotate(var(--tilt, 0deg));
-      transition: transform 0.32s cubic-bezier(0.22, 1, 0.36, 1),
-        box-shadow 0.32s ease, border-color 0.32s ease;
-    }
-
-    .screenshot-card:nth-child(odd) {
-      --tilt: -1.6deg;
-    }
-
-    .screenshot-card:nth-child(even) {
-      --tilt: 1.6deg;
-    }
-
-    .screenshot-card:hover,
-    .screenshot-card:focus-within {
-      transform: rotate(0deg) translateY(-8px) scale(1.035);
-      box-shadow: 0 22px 40px rgba(37, 99, 235, 0.22);
-      border-color: #bfdbfe;
-      z-index: 2;
+      background: #f8fafc;
+      box-shadow: 0 12px 30px rgba(15, 23, 42, 0.08);
     }
 
     .screenshot-trigger {
@@ -675,22 +633,6 @@
       background: transparent;
       cursor: pointer;
       text-align: left;
-      position: relative;
-    }
-
-    .screenshot-trigger::after {
-      content: '';
-      position: absolute;
-      inset: 0;
-      background: linear-gradient(180deg, rgba(37, 99, 235, 0) 55%, rgba(37, 99, 235, 0.16) 100%);
-      opacity: 0;
-      transition: opacity 0.25s ease;
-      pointer-events: none;
-    }
-
-    .screenshot-card:hover .screenshot-trigger::after,
-    .screenshot-trigger:focus-visible::after {
-      opacity: 1;
     }
 
     .screenshot-trigger img {
@@ -701,12 +643,12 @@
       border-bottom: 1px solid var(--border);
       background: #e2e8f0;
       display: block;
-      transition: transform 0.32s ease;
+      transition: transform 0.22s ease;
     }
 
-    .screenshot-card:hover .screenshot-trigger img,
+    .screenshot-trigger:hover img,
     .screenshot-trigger:focus-visible img {
-      transform: scale(1.04);
+      transform: scale(1.02);
     }
 
     .screenshot-trigger:focus-visible {
@@ -726,95 +668,10 @@
       font-weight: 700;
     }
 
-    .screenshot-card figcaption span:first-child {
-      display: inline-flex;
-      align-items: center;
-      gap: 7px;
-    }
-
-    .screenshot-card figcaption span:first-child::before {
-      content: '';
-      width: 7px;
-      height: 7px;
-      border-radius: 50%;
-      background: var(--accent);
-      flex-shrink: 0;
-    }
-
     .screenshot-card figcaption span:last-child {
       color: var(--accent-dark);
       font-size: 12px;
       white-space: nowrap;
-    }
-
-    .carousel-arrow {
-      position: absolute;
-      top: 46%;
-      transform: translateY(-50%);
-      width: 42px;
-      height: 42px;
-      border-radius: 50%;
-      border: 1px solid var(--border);
-      background: rgba(255, 255, 255, 0.95);
-      color: var(--accent-dark);
-      font-size: 20px;
-      line-height: 1;
-      cursor: pointer;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      box-shadow: 0 10px 24px rgba(15, 23, 42, 0.14);
-      z-index: 3;
-      transition: transform 0.2s ease, background 0.2s ease, opacity 0.2s ease;
-    }
-
-    .carousel-arrow:hover {
-      background: var(--accent);
-      color: #fff;
-      transform: translateY(-50%) scale(1.08);
-    }
-
-    .carousel-arrow[disabled] {
-      opacity: 0.35;
-      cursor: default;
-    }
-
-    .carousel-arrow[disabled]:hover {
-      background: rgba(255, 255, 255, 0.95);
-      color: var(--accent-dark);
-      transform: translateY(-50%);
-    }
-
-    .carousel-arrow--prev {
-      left: 4px;
-    }
-
-    .carousel-arrow--next {
-      right: 4px;
-    }
-
-    .screenshots-dots {
-      display: flex;
-      justify-content: center;
-      gap: 7px;
-      margin-top: 2px;
-    }
-
-    .screenshots-dot {
-      width: 8px;
-      height: 8px;
-      border-radius: 50%;
-      border: none;
-      padding: 0;
-      background: var(--border);
-      cursor: pointer;
-      transition: width 0.25s ease, background 0.25s ease;
-    }
-
-    .screenshots-dot.is-active {
-      width: 22px;
-      border-radius: 5px;
-      background: var(--accent);
     }
 
     .utility-grid {
@@ -903,9 +760,14 @@
       display: none;
     }
 
+    .lightbox:not([hidden]) {
+      animation: lightboxFadeIn 0.22s ease;
+    }
+
     .lightbox-dialog {
       position: relative;
       width: min(100%, 520px);
+      animation: lightboxZoomIn 0.24s ease;
     }
 
     .lightbox-close {
@@ -1022,24 +884,16 @@
       }
 
       .screenshots-grid {
-        gap: 14px;
-        padding: 0 16px;
+        grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+        gap: 12px;
       }
 
       .screenshot-card {
-        flex-basis: 158px;
-        width: 158px;
         border-radius: 18px;
       }
 
       .screenshot-trigger img {
         aspect-ratio: 9 / 18;
-      }
-
-      .carousel-arrow {
-        width: 36px;
-        height: 36px;
-        font-size: 18px;
       }
 
       .lightbox {
@@ -1082,13 +936,13 @@
       }
 
       .app-card {
-        grid-template-columns: minmax(0, 1fr);
-        padding: 18px;
+        padding: 20px;
       }
 
       .app-logo {
-        width: 96px;
-        height: 96px;
+        width: 74px;
+        height: 74px;
+        border-radius: 20px;
       }
 
       .subscribe-card {
@@ -1108,13 +962,12 @@
       }
 
       .screenshots-grid {
-        gap: 12px;
-        padding: 0 4px;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 10px;
       }
 
       .screenshot-card {
-        flex-basis: 132px;
-        width: 132px;
+        max-width: 100%;
       }
 
       .screenshot-card figcaption {
@@ -1124,15 +977,6 @@
 
       .screenshot-card figcaption span:last-child {
         display: none;
-      }
-
-      .carousel-arrow {
-        display: none;
-      }
-
-      .screenshots-track {
-        -webkit-mask-image: none;
-        mask-image: none;
       }
 
       .lightbox {
@@ -1176,9 +1020,9 @@
     }
 
     @media (max-width: 380px) {
-      .screenshot-card {
-        flex-basis: 118px;
-        width: 118px;
+      .screenshots-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 8px;
       }
 
       .screenshot-card figcaption {
@@ -1220,13 +1064,414 @@
       color: #64748b;
     }
 
+
+    @keyframes lightboxFadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+
+    @keyframes lightboxZoomIn {
+      from {
+        opacity: 0;
+        transform: scale(0.96);
+      }
+      to {
+        opacity: 1;
+        transform: scale(1);
+      }
+    }
+
+
+    /* Enhanced app screenshot gallery */
+    .screenshots-section {
+      position: relative;
+      overflow: hidden;
+      border-top: 1px solid var(--border);
+      padding-top: 22px;
+    }
+
+    .screenshots-header {
+      align-items: center;
+      margin-bottom: 16px;
+    }
+
+    .gallery-controls {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      flex-shrink: 0;
+    }
+
+    .gallery-control {
+      width: 42px;
+      height: 42px;
+      border: 1px solid var(--border);
+      border-radius: 999px;
+      background: #ffffff;
+      color: #0f172a;
+      font-size: 26px;
+      line-height: 1;
+      display: grid;
+      place-items: center;
+      cursor: pointer;
+      box-shadow: 0 10px 24px rgba(15, 23, 42, 0.08);
+      transition: transform 0.18s ease, background 0.18s ease, border-color 0.18s ease, opacity 0.18s ease;
+    }
+
+    .gallery-control:hover,
+    .gallery-control:focus-visible {
+      transform: translateY(-1px);
+      background: #eff6ff;
+      border-color: #bfdbfe;
+      outline: none;
+    }
+
+    .gallery-control:disabled {
+      cursor: not-allowed;
+      opacity: 0.45;
+      transform: none;
+    }
+
+    .screenshots-gallery {
+      position: relative;
+      isolation: isolate;
+      margin-top: 4px;
+    }
+
+    .screenshots-gallery::before,
+    .screenshots-gallery::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      bottom: 48px;
+      width: 64px;
+      z-index: 2;
+      pointer-events: none;
+    }
+
+    .screenshots-gallery::before {
+      left: 0;
+      background: linear-gradient(90deg, #ffffff 0%, rgba(255, 255, 255, 0) 100%);
+    }
+
+    .screenshots-gallery::after {
+      right: 0;
+      background: linear-gradient(270deg, #ffffff 0%, rgba(255, 255, 255, 0) 100%);
+    }
+
+    .gallery-viewport {
+      border-radius: 24px;
+      background:
+        radial-gradient(circle at top left, rgba(37, 99, 235, 0.10), transparent 34%),
+        linear-gradient(135deg, #f8fafc 0%, #ffffff 56%, #eff6ff 100%);
+      border: 1px solid var(--border);
+      padding: 18px;
+      overflow: hidden;
+    }
+
+    .screenshots-grid {
+      display: flex;
+      grid-template-columns: none;
+      gap: 18px;
+      justify-content: flex-start;
+      justify-items: stretch;
+      overflow-x: auto;
+      overflow-y: hidden;
+      scroll-snap-type: x mandatory;
+      scroll-padding: 8px;
+      padding: 6px 6px 16px;
+      cursor: grab;
+      scrollbar-width: thin;
+      scrollbar-color: #bfdbfe #e2e8f0;
+      -webkit-overflow-scrolling: touch;
+    }
+
+    .screenshots-grid::-webkit-scrollbar {
+      height: 10px;
+    }
+
+    .screenshots-grid::-webkit-scrollbar-track {
+      background: #e2e8f0;
+      border-radius: 999px;
+    }
+
+    .screenshots-grid::-webkit-scrollbar-thumb {
+      background: #bfdbfe;
+      border-radius: 999px;
+      border: 2px solid #e2e8f0;
+    }
+
+    .screenshots-grid.is-dragging {
+      cursor: grabbing;
+      scroll-snap-type: none;
+      user-select: none;
+    }
+
+    .screenshot-card {
+      position: relative;
+      width: clamp(128px, 14.5vw, 165px);
+      max-width: none;
+      min-width: clamp(128px, 14.5vw, 165px);
+      scroll-snap-align: start;
+      border-radius: 24px;
+      border: 1px solid rgba(148, 163, 184, 0.38);
+      background: #ffffff;
+      box-shadow: 0 16px 34px rgba(15, 23, 42, 0.12);
+      transform: translateZ(0);
+      transition: transform 0.22s ease, box-shadow 0.22s ease, border-color 0.22s ease;
+    }
+
+    .screenshot-card:hover,
+    .screenshot-card:focus-within {
+      transform: translateY(-4px);
+      box-shadow: 0 24px 50px rgba(15, 23, 42, 0.18);
+      border-color: #bfdbfe;
+    }
+
+    .screenshot-trigger {
+      position: relative;
+      overflow: hidden;
+      border-radius: 24px 24px 0 0;
+    }
+
+    .screenshot-trigger::after {
+      content: 'Preview';
+      position: absolute;
+      left: 14px;
+      right: 14px;
+      bottom: 14px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 40px;
+      color: #ffffff;
+      background: rgba(15, 23, 42, 0.72);
+      border: 1px solid rgba(255, 255, 255, 0.22);
+      border-radius: 999px;
+      font-size: 13px;
+      font-weight: 800;
+      letter-spacing: 0.02em;
+      opacity: 0;
+      transform: translateY(8px);
+      transition: opacity 0.18s ease, transform 0.18s ease;
+      backdrop-filter: blur(10px);
+    }
+
+    .screenshot-trigger:hover::after,
+    .screenshot-trigger:focus-visible::after {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .screenshot-badge {
+      position: absolute;
+      top: 12px;
+      left: 12px;
+      z-index: 1;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-width: 38px;
+      height: 30px;
+      padding: 0 10px;
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.9);
+      color: #1d4ed8;
+      border: 1px solid rgba(191, 219, 254, 0.9);
+      font-size: 12px;
+      font-weight: 900;
+      box-shadow: 0 10px 24px rgba(15, 23, 42, 0.12);
+    }
+
+    .screenshot-trigger img {
+      width: 100%;
+      aspect-ratio: 9 / 19.5;
+      min-height: 258px;
+      object-fit: cover;
+      object-position: center top;
+      transition: transform 0.26s ease, filter 0.26s ease;
+    }
+
+    .screenshot-trigger:hover img,
+    .screenshot-trigger:focus-visible img {
+      transform: scale(1.035);
+      filter: saturate(1.08) contrast(1.02);
+    }
+
+    .screenshot-card figcaption {
+      flex-direction: column;
+      align-items: flex-start;
+      padding: 12px 12px 13px;
+      background: #ffffff;
+    }
+
+    .screenshot-card figcaption span:first-child {
+      color: #0f172a;
+      font-size: 13px;
+      line-height: 1.35;
+    }
+
+    .screenshot-card figcaption span:last-child {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      margin-top: 4px;
+      color: #64748b;
+      font-size: 11px;
+      font-weight: 800;
+    }
+
+    .gallery-footer {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 14px;
+      margin-top: 14px;
+    }
+
+    .gallery-hint {
+      margin: 0;
+      color: #64748b;
+      font-size: 13px;
+      line-height: 1.45;
+    }
+
+    .gallery-dots {
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+
+    .gallery-dot {
+      width: 9px;
+      height: 9px;
+      padding: 0;
+      border: none;
+      border-radius: 999px;
+      background: #cbd5e1;
+      cursor: pointer;
+      transition: width 0.18s ease, background 0.18s ease;
+    }
+
+    .gallery-dot.is-active {
+      width: 26px;
+      background: var(--accent);
+    }
+
+    .gallery-dot:focus-visible {
+      outline: 3px solid rgba(37, 99, 235, 0.25);
+      outline-offset: 3px;
+    }
+
+    @media (max-width: 860px) {
+      .gallery-controls {
+        display: none;
+      }
+
+      .screenshots-gallery::before,
+      .screenshots-gallery::after {
+        width: 34px;
+        bottom: 52px;
+      }
+
+      .gallery-viewport {
+        padding: 14px;
+      }
+
+      .screenshot-card {
+        width: clamp(120px, 21vw, 155px);
+        min-width: clamp(120px, 21vw, 155px);
+      }
+
+      .screenshot-trigger img {
+        min-height: 238px;
+      }
+    }
+
+    @media (max-width: 620px) {
+      .screenshots-header {
+        gap: 10px;
+      }
+
+      .gallery-viewport {
+        border-radius: 20px;
+        padding: 10px;
+      }
+
+      .screenshots-grid {
+        gap: 10px;
+        padding: 4px 4px 12px;
+      }
+
+      .screenshot-card {
+        width: clamp(112px, 34vw, 145px);
+        min-width: clamp(112px, 34vw, 145px);
+        border-radius: 22px;
+      }
+
+      .screenshot-trigger {
+        border-radius: 22px 22px 0 0;
+      }
+
+      .screenshot-trigger img {
+        min-height: 220px;
+        aspect-ratio: 9 / 18.8;
+      }
+
+      .screenshot-card figcaption span:last-child {
+        display: inline-flex;
+      }
+
+      .gallery-footer {
+        align-items: flex-start;
+        flex-direction: column;
+      }
+
+      .gallery-dots {
+        justify-content: flex-start;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .gallery-viewport {
+        padding: 8px;
+      }
+
+      .screenshots-grid {
+        gap: 8px;
+      }
+
+      .screenshot-card {
+        width: clamp(106px, 38vw, 136px);
+        min-width: clamp(106px, 38vw, 136px);
+      }
+
+      .screenshot-trigger img {
+        min-height: 206px;
+      }
+    }
+
+    @media (max-width: 380px) {
+      .screenshot-card {
+        width: 42vw;
+        min-width: 42vw;
+      }
+
+      .screenshot-trigger img {
+        min-height: 188px;
+      }
+    }
+
+
   </style>
 </head>
 
 <body>
   <main class="page">
     <header class="topbar">
-      <a class="brand" href="https://wolfpack-labs.com/" aria-label="Wolfpack Labs homepage">
+      <a class="brand" href="./" aria-label="Wolfpack Labs homepage">
         <div class="brand-logo">
           <img src="images/favicon.png" alt="Wolfpack Labs logo" />
         </div>
@@ -1349,6 +1594,11 @@
         <article class="app-card">
           <div class="app-details">
             <div class="app-content">
+              <div class="app-logo" aria-hidden="true">
+                <img src="images/swift.png" alt="" />
+              </div>
+
+              <div class="app-kicker">Featured app</div>
               <h4>Swift Invoice</h4>
               <p>
                 A simple invoicing and estimate app for small businesses,
@@ -1372,116 +1622,105 @@
               <div class="screenshots-header">
                 <div>
                   <h5 id="swift-screenshots-title">App screenshots</h5>
-                  <p>Preview key Swift Invoice screens and workflow features. Scroll or click any screenshot to enlarge it.</p>
+                  <p>Preview key Swift Invoice screens and workflow features. Scroll or swipe through the smaller previews, then tap or click any screenshot to expand it.</p>
+                </div>
+
+                <div class="gallery-controls" aria-label="Screenshot gallery controls">
+                  <button type="button" class="gallery-control" data-gallery-action="previous" aria-label="Scroll to previous screenshot">‹</button>
+                  <button type="button" class="gallery-control" data-gallery-action="next" aria-label="Scroll to next screenshot">›</button>
                 </div>
               </div>
 
-              <div class="screenshots-carousel">
-                <button type="button" class="carousel-arrow carousel-arrow--prev" id="carousel-prev" aria-label="Scroll to previous screenshots">‹</button>
+              <div class="screenshots-gallery" aria-label="Swift Invoice screenshot carousel">
+                <div class="gallery-viewport">
+                  <div class="screenshots-grid" id="swift-screenshot-gallery" tabindex="0" aria-label="Scrollable Swift Invoice screenshots">
+                <figure class="screenshot-card">
+                  <button
+                    type="button"
+                    class="screenshot-trigger"
+                    data-image="images/screenshots/swift-dashboard.jpg"
+                    data-title="Dashboard overview"
+                    aria-label="Open enlarged screenshot: Dashboard overview"
+                  >
+                    <span class="screenshot-badge">01</span>
+                    <img
+                      src="images/screenshots/swift-dashboard.jpg"
+                      alt="Swift Invoice dashboard screenshot"
+                    />
+                  </button>
+                  <figcaption>
+                    <span>Dashboard overview</span>
+                    <span>Click to expand</span>
+                  </figcaption>
+                </figure>
 
-                <div class="screenshots-track" id="screenshots-track">
-                  <div class="screenshots-grid">
-                    <figure class="screenshot-card">
-                      <button
-                        type="button"
-                        class="screenshot-trigger"
-                        data-image="images/screenshots/login.jpg"
-                        data-title="Login"
-                        aria-label="Open enlarged screenshot: Login"
-                      >
-                        <img
-                          src="images/screenshots/login.jpg"
-                          alt="Swift Invoice login screenshot"
-                        />
-                      </button>
-                      <figcaption>
-                        <span>Login Screenshot</span>
-                        <span>Click to expand</span>
-                      </figcaption>
-                    </figure>
+                <figure class="screenshot-card">
+                  <button
+                    type="button"
+                    class="screenshot-trigger"
+                    data-image="images/screenshots/swift-create-invoice.jpg"
+                    data-title="Create invoices"
+                    aria-label="Open enlarged screenshot: Create invoices"
+                  >
+                    <span class="screenshot-badge">02</span>
+                    <img
+                      src="images/screenshots/swift-create-invoice.jpg"
+                      alt="Swift Invoice create invoice screenshot"
+                    />
+                  </button>
+                  <figcaption>
+                    <span>Create invoices</span>
+                    <span>Click to expand</span>
+                  </figcaption>
+                </figure>
 
-                    <figure class="screenshot-card">
-                      <button
-                        type="button"
-                        class="screenshot-trigger"
-                        data-image="images/screenshots/swift-dashboard.jpg"
-                        data-title="Dashboard overview"
-                        aria-label="Open enlarged screenshot: Dashboard overview"
-                      >
-                        <img
-                          src="images/screenshots/swift-dashboard.jpg"
-                          alt="Swift Invoice dashboard screenshot"
-                        />
-                      </button>
-                      <figcaption>
-                        <span>Dashboard overview</span>
-                        <span>Click to expand</span>
-                      </figcaption>
-                    </figure>
+                <figure class="screenshot-card">
+                  <button
+                    type="button"
+                    class="screenshot-trigger"
+                    data-image="images/screenshots/swift-reports.jpg"
+                    data-title="Reports"
+                    aria-label="Open enlarged screenshot: Reports"
+                  >
+                    <span class="screenshot-badge">03</span>
+                    <img
+                      src="images/screenshots/swift-reports.jpg"
+                      alt="Swift Invoice reports screenshot"
+                    />
+                  </button>
+                  <figcaption>
+                    <span>Reports</span>
+                    <span>Click to expand</span>
+                  </figcaption>
+                </figure>
 
-                    <figure class="screenshot-card">
-                      <button
-                        type="button"
-                        class="screenshot-trigger"
-                        data-image="images/screenshots/swift-create-invoice.jpg"
-                        data-title="Create invoices"
-                        aria-label="Open enlarged screenshot: Create invoices"
-                      >
-                        <img
-                          src="images/screenshots/swift-create-invoice.jpg"
-                          alt="Swift Invoice create invoice screenshot"
-                        />
-                      </button>
-                      <figcaption>
-                        <span>Create invoices</span>
-                        <span>Click to expand</span>
-                      </figcaption>
-                    </figure>
-
-                    <figure class="screenshot-card">
-                      <button
-                        type="button"
-                        class="screenshot-trigger"
-                        data-image="images/screenshots/swift-reports.jpg"
-                        data-title="Reports"
-                        aria-label="Open enlarged screenshot: Reports"
-                      >
-                        <img
-                          src="images/screenshots/swift-reports.jpg"
-                          alt="Swift Invoice reports screenshot"
-                        />
-                      </button>
-                      <figcaption>
-                        <span>Reports</span>
-                        <span>Click to expand</span>
-                      </figcaption>
-                    </figure>
-
-                    <figure class="screenshot-card">
-                      <button
-                        type="button"
-                        class="screenshot-trigger"
-                        data-image="images/screenshots/swift-images.jpg"
-                        data-title="Add images"
-                        aria-label="Open enlarged screenshot: Add images"
-                      >
-                        <img
-                          src="images/screenshots/swift-images.jpg"
-                          alt="Swift Invoice add images to PDF screenshot"
-                        />
-                      </button>
-                      <figcaption>
-                        <span>Add images</span>
-                        <span>Click to expand</span>
-                      </figcaption>
-                    </figure>
+                <figure class="screenshot-card">
+                  <button
+                    type="button"
+                    class="screenshot-trigger"
+                    data-image="images/screenshots/swift-images.jpg"
+                    data-title="Add images"
+                    aria-label="Open enlarged screenshot: Add images"
+                  >
+                    <span class="screenshot-badge">04</span>
+                    <img
+                      src="images/screenshots/swift-images.jpg"
+                      alt="Swift Invoice add images to PDF screenshot"
+                    />
+                  </button>
+                  <figcaption>
+                    <span>Add images</span>
+                    <span>Click to expand</span>
+                  </figcaption>
+                </figure>
                   </div>
                 </div>
 
-                <button type="button" class="carousel-arrow carousel-arrow--next" id="carousel-next" aria-label="Scroll to next screenshots">›</button>
+                <div class="gallery-footer">
+                  <p class="gallery-hint">Tip: the gallery is optimized for desktop, tablets, and phones — swipe or scroll through the smaller previews, then open any screenshot in the full-size viewer.</p>
+                  <div class="gallery-dots" id="swift-screenshot-dots" aria-label="Screenshot gallery navigation"></div>
+                </div>
               </div>
-
-              <div class="screenshots-dots" id="screenshots-dots" role="tablist" aria-label="Screenshot navigation"></div>
             </section>
           </div>
         </article>
@@ -1535,7 +1774,7 @@
     </section>
   <footer class="site-footer" aria-label="Footer navigation">
     <nav class="footer-nav" aria-label="Footer navigation">
-      <a href="https://wolfpack-labs.com/">Home</a>
+      <a href="index.html">Home</a>
       <a href="data-request-deletion.html">Data Request</a>
       <a href="contact.html">Contact</a>
     </nav>
@@ -1624,78 +1863,6 @@
       });
     }
 
-    const screenshotsTrack = document.getElementById('screenshots-track');
-    const carouselPrev = document.getElementById('carousel-prev');
-    const carouselNext = document.getElementById('carousel-next');
-    const screenshotsDots = document.getElementById('screenshots-dots');
-
-    if (screenshotsTrack && carouselPrev && carouselNext && screenshotsDots) {
-      const carouselCards = Array.from(screenshotsTrack.querySelectorAll('.screenshot-card'));
-
-      carouselCards.forEach((card, index) => {
-        const dot = document.createElement('button');
-        dot.type = 'button';
-        dot.className = 'screenshots-dot';
-        dot.setAttribute('role', 'tab');
-        dot.setAttribute('aria-label', `Go to screenshot ${index + 1}`);
-        dot.addEventListener('click', () => {
-          card.scrollIntoView({ behavior: 'smooth', inline: 'start', block: 'nearest' });
-        });
-        screenshotsDots.appendChild(dot);
-      });
-
-      const carouselDots = Array.from(screenshotsDots.querySelectorAll('.screenshots-dot'));
-
-      function getActiveCardIndex() {
-        const trackRect = screenshotsTrack.getBoundingClientRect();
-        let closestIndex = 0;
-        let closestDistance = Infinity;
-
-        carouselCards.forEach((card, index) => {
-          const cardRect = card.getBoundingClientRect();
-          const distance = Math.abs(cardRect.left - trackRect.left);
-
-          if (distance < closestDistance) {
-            closestDistance = distance;
-            closestIndex = index;
-          }
-        });
-
-        return closestIndex;
-      }
-
-      function updateCarouselState() {
-        const activeIndex = getActiveCardIndex();
-
-        carouselDots.forEach((dot, index) => {
-          dot.classList.toggle('is-active', index === activeIndex);
-        });
-
-        const maxScrollLeft = screenshotsTrack.scrollWidth - screenshotsTrack.clientWidth - 2;
-        carouselPrev.disabled = screenshotsTrack.scrollLeft <= 2;
-        carouselNext.disabled = screenshotsTrack.scrollLeft >= maxScrollLeft;
-      }
-
-      function scrollByCard(direction) {
-        const step = (carouselCards[0]?.getBoundingClientRect().width || 190) + 20;
-        screenshotsTrack.scrollBy({ left: direction * step * 2, behavior: 'smooth' });
-      }
-
-      carouselPrev.addEventListener('click', () => scrollByCard(-1));
-      carouselNext.addEventListener('click', () => scrollByCard(1));
-
-      let scrollUpdateFrame;
-      screenshotsTrack.addEventListener('scroll', () => {
-        if (scrollUpdateFrame) {
-          window.cancelAnimationFrame(scrollUpdateFrame);
-        }
-        scrollUpdateFrame = window.requestAnimationFrame(updateCarouselState);
-      });
-
-      window.addEventListener('resize', updateCarouselState);
-      updateCarouselState();
-    }
-
     const lightbox = document.getElementById('screenshot-lightbox');
     const lightboxImage = document.getElementById('lightbox-image');
     const lightboxCaption = document.getElementById('lightbox-caption');
@@ -1703,7 +1870,12 @@
     const lightboxPrev = document.getElementById('lightbox-prev');
     const lightboxNext = document.getElementById('lightbox-next');
     const screenshotTriggers = Array.from(document.querySelectorAll('.screenshot-trigger'));
+    const galleryScroller = document.getElementById('swift-screenshot-gallery');
+    const galleryPrevButton = document.querySelector('[data-gallery-action="previous"]');
+    const galleryNextButton = document.querySelector('[data-gallery-action="next"]');
+    const galleryDots = document.getElementById('swift-screenshot-dots');
     let currentScreenshotIndex = 0;
+    let galleryDragStarted = false;
 
     const screenshots = screenshotTriggers.map((trigger) => {
       const image = trigger.querySelector('img');
@@ -1753,8 +1925,170 @@
       updateLightbox(currentScreenshotIndex + 1);
     }
 
+    function getGalleryCardStep() {
+      if (!galleryScroller) {
+        return 260;
+      }
+
+      const firstCard = galleryScroller.querySelector('.screenshot-card');
+
+      if (!firstCard) {
+        return 260;
+      }
+
+      const styles = window.getComputedStyle(galleryScroller);
+      const gap = Number.parseFloat(styles.columnGap || styles.gap || '18') || 18;
+      return firstCard.getBoundingClientRect().width + gap;
+    }
+
+    function getActiveGalleryIndex() {
+      if (!galleryScroller || !screenshots.length) {
+        return 0;
+      }
+
+      const step = getGalleryCardStep();
+      return Math.max(0, Math.min(screenshots.length - 1, Math.round(galleryScroller.scrollLeft / step)));
+    }
+
+    function updateGalleryControls() {
+      if (!galleryScroller) {
+        return;
+      }
+
+      const activeIndex = getActiveGalleryIndex();
+      const maxScroll = galleryScroller.scrollWidth - galleryScroller.clientWidth - 4;
+
+      if (galleryPrevButton) {
+        galleryPrevButton.disabled = galleryScroller.scrollLeft <= 4;
+      }
+
+      if (galleryNextButton) {
+        galleryNextButton.disabled = galleryScroller.scrollLeft >= maxScroll;
+      }
+
+      if (galleryDots) {
+        Array.from(galleryDots.children).forEach((dot, index) => {
+          dot.classList.toggle('is-active', index === activeIndex);
+          dot.setAttribute('aria-current', index === activeIndex ? 'true' : 'false');
+        });
+      }
+    }
+
+    function scrollGallery(direction) {
+      if (!galleryScroller) {
+        return;
+      }
+
+      galleryScroller.scrollBy({
+        left: direction * getGalleryCardStep(),
+        behavior: 'smooth',
+      });
+    }
+
+    if (galleryDots) {
+      screenshots.forEach((screenshot, index) => {
+        const dot = document.createElement('button');
+        dot.type = 'button';
+        dot.className = 'gallery-dot';
+        dot.setAttribute('aria-label', `View screenshot ${index + 1}: ${screenshot.title}`);
+        dot.addEventListener('click', () => {
+          const targetCard = galleryScroller ? galleryScroller.children[index] : null;
+
+          if (targetCard) {
+            targetCard.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'start' });
+          }
+        });
+        galleryDots.appendChild(dot);
+      });
+    }
+
+    if (galleryPrevButton) {
+      galleryPrevButton.addEventListener('click', () => scrollGallery(-1));
+    }
+
+    if (galleryNextButton) {
+      galleryNextButton.addEventListener('click', () => scrollGallery(1));
+    }
+
+    if (galleryScroller) {
+      let isPointerDown = false;
+      let startX = 0;
+      let scrollLeft = 0;
+      let dragDistance = 0;
+      let scrollUpdateFrame;
+
+      galleryScroller.addEventListener('scroll', () => {
+        window.cancelAnimationFrame(scrollUpdateFrame);
+        scrollUpdateFrame = window.requestAnimationFrame(updateGalleryControls);
+      });
+
+      galleryScroller.addEventListener('keydown', (event) => {
+        if (event.key === 'ArrowLeft') {
+          event.preventDefault();
+          scrollGallery(-1);
+        }
+
+        if (event.key === 'ArrowRight') {
+          event.preventDefault();
+          scrollGallery(1);
+        }
+      });
+
+      galleryScroller.addEventListener('pointerdown', (event) => {
+        isPointerDown = true;
+        startX = event.clientX;
+        scrollLeft = galleryScroller.scrollLeft;
+        dragDistance = 0;
+        galleryDragStarted = false;
+        galleryScroller.classList.add('is-dragging');
+        galleryScroller.setPointerCapture(event.pointerId);
+      });
+
+      galleryScroller.addEventListener('pointermove', (event) => {
+        if (!isPointerDown) {
+          return;
+        }
+
+        dragDistance = event.clientX - startX;
+
+        if (Math.abs(dragDistance) > 6) {
+          galleryDragStarted = true;
+        }
+
+        galleryScroller.scrollLeft = scrollLeft - dragDistance;
+      });
+
+      function stopGalleryDrag(event) {
+        if (!isPointerDown) {
+          return;
+        }
+
+        isPointerDown = false;
+        galleryScroller.classList.remove('is-dragging');
+
+        if (event && galleryScroller.hasPointerCapture(event.pointerId)) {
+          galleryScroller.releasePointerCapture(event.pointerId);
+        }
+
+        window.setTimeout(() => {
+          galleryDragStarted = false;
+        }, 80);
+      }
+
+      galleryScroller.addEventListener('pointerup', stopGalleryDrag);
+      galleryScroller.addEventListener('pointercancel', stopGalleryDrag);
+      galleryScroller.addEventListener('pointerleave', stopGalleryDrag);
+      window.addEventListener('resize', updateGalleryControls);
+      updateGalleryControls();
+    }
+
     screenshotTriggers.forEach((trigger, index) => {
-      trigger.addEventListener('click', () => {
+      trigger.addEventListener('click', (event) => {
+        if (galleryDragStarted) {
+          event.preventDefault();
+          return;
+        }
+
         openLightbox(index);
       });
     });
