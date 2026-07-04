@@ -573,23 +573,76 @@
       line-height: 1.5;
     }
 
+    .screenshots-carousel {
+      position: relative;
+      margin: 0 -6px;
+    }
+
+    .screenshots-track {
+      overflow-x: auto;
+      overflow-y: visible;
+      scroll-snap-type: x mandatory;
+      scroll-behavior: smooth;
+      scrollbar-width: none;
+      -ms-overflow-style: none;
+      padding: 10px 6px 22px;
+      -webkit-mask-image: linear-gradient(
+        to right,
+        transparent 0,
+        #000 28px,
+        #000 calc(100% - 28px),
+        transparent 100%
+      );
+      mask-image: linear-gradient(
+        to right,
+        transparent 0,
+        #000 28px,
+        #000 calc(100% - 28px),
+        transparent 100%
+      );
+    }
+
+    .screenshots-track::-webkit-scrollbar {
+      display: none;
+    }
+
     .screenshots-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(180px, 210px));
-      gap: 16px;
-      justify-content: center;
-      justify-items: center;
+      display: flex;
+      align-items: flex-start;
+      gap: 20px;
+      width: max-content;
+      padding: 0 22px;
     }
 
     .screenshot-card {
-      width: 100%;
-      max-width: 210px;
+      flex: 0 0 190px;
+      width: 190px;
       margin: 0;
       overflow: hidden;
       border: 1px solid var(--border);
       border-radius: 22px;
-      background: #f8fafc;
-      box-shadow: 0 12px 30px rgba(15, 23, 42, 0.08);
+      background: linear-gradient(160deg, #ffffff 0%, #f8fafc 100%);
+      box-shadow: 0 10px 26px rgba(15, 23, 42, 0.08);
+      scroll-snap-align: start;
+      transform: rotate(var(--tilt, 0deg));
+      transition: transform 0.32s cubic-bezier(0.22, 1, 0.36, 1),
+        box-shadow 0.32s ease, border-color 0.32s ease;
+    }
+
+    .screenshot-card:nth-child(odd) {
+      --tilt: -1.6deg;
+    }
+
+    .screenshot-card:nth-child(even) {
+      --tilt: 1.6deg;
+    }
+
+    .screenshot-card:hover,
+    .screenshot-card:focus-within {
+      transform: rotate(0deg) translateY(-8px) scale(1.035);
+      box-shadow: 0 22px 40px rgba(37, 99, 235, 0.22);
+      border-color: #bfdbfe;
+      z-index: 2;
     }
 
     .screenshot-trigger {
@@ -600,6 +653,22 @@
       background: transparent;
       cursor: pointer;
       text-align: left;
+      position: relative;
+    }
+
+    .screenshot-trigger::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(180deg, rgba(37, 99, 235, 0) 55%, rgba(37, 99, 235, 0.16) 100%);
+      opacity: 0;
+      transition: opacity 0.25s ease;
+      pointer-events: none;
+    }
+
+    .screenshot-card:hover .screenshot-trigger::after,
+    .screenshot-trigger:focus-visible::after {
+      opacity: 1;
     }
 
     .screenshot-trigger img {
@@ -610,12 +679,12 @@
       border-bottom: 1px solid var(--border);
       background: #e2e8f0;
       display: block;
-      transition: transform 0.22s ease;
+      transition: transform 0.32s ease;
     }
 
-    .screenshot-trigger:hover img,
+    .screenshot-card:hover .screenshot-trigger img,
     .screenshot-trigger:focus-visible img {
-      transform: scale(1.02);
+      transform: scale(1.04);
     }
 
     .screenshot-trigger:focus-visible {
@@ -635,10 +704,95 @@
       font-weight: 700;
     }
 
+    .screenshot-card figcaption span:first-child {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+    }
+
+    .screenshot-card figcaption span:first-child::before {
+      content: '';
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: var(--accent);
+      flex-shrink: 0;
+    }
+
     .screenshot-card figcaption span:last-child {
       color: var(--accent-dark);
       font-size: 12px;
       white-space: nowrap;
+    }
+
+    .carousel-arrow {
+      position: absolute;
+      top: 46%;
+      transform: translateY(-50%);
+      width: 42px;
+      height: 42px;
+      border-radius: 50%;
+      border: 1px solid var(--border);
+      background: rgba(255, 255, 255, 0.95);
+      color: var(--accent-dark);
+      font-size: 20px;
+      line-height: 1;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 10px 24px rgba(15, 23, 42, 0.14);
+      z-index: 3;
+      transition: transform 0.2s ease, background 0.2s ease, opacity 0.2s ease;
+    }
+
+    .carousel-arrow:hover {
+      background: var(--accent);
+      color: #fff;
+      transform: translateY(-50%) scale(1.08);
+    }
+
+    .carousel-arrow[disabled] {
+      opacity: 0.35;
+      cursor: default;
+    }
+
+    .carousel-arrow[disabled]:hover {
+      background: rgba(255, 255, 255, 0.95);
+      color: var(--accent-dark);
+      transform: translateY(-50%);
+    }
+
+    .carousel-arrow--prev {
+      left: -6px;
+    }
+
+    .carousel-arrow--next {
+      right: -6px;
+    }
+
+    .screenshots-dots {
+      display: flex;
+      justify-content: center;
+      gap: 7px;
+      margin-top: 2px;
+    }
+
+    .screenshots-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      border: none;
+      padding: 0;
+      background: var(--border);
+      cursor: pointer;
+      transition: width 0.25s ease, background 0.25s ease;
+    }
+
+    .screenshots-dot.is-active {
+      width: 22px;
+      border-radius: 5px;
+      background: var(--accent);
     }
 
     .utility-grid {
@@ -846,16 +1000,24 @@
       }
 
       .screenshots-grid {
-        grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
-        gap: 12px;
+        gap: 14px;
+        padding: 0 16px;
       }
 
       .screenshot-card {
+        flex-basis: 158px;
+        width: 158px;
         border-radius: 18px;
       }
 
       .screenshot-trigger img {
         aspect-ratio: 9 / 18;
+      }
+
+      .carousel-arrow {
+        width: 36px;
+        height: 36px;
+        font-size: 18px;
       }
 
       .lightbox {
@@ -924,12 +1086,13 @@
       }
 
       .screenshots-grid {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-        gap: 10px;
+        gap: 12px;
+        padding: 0 4px;
       }
 
       .screenshot-card {
-        max-width: 100%;
+        flex-basis: 132px;
+        width: 132px;
       }
 
       .screenshot-card figcaption {
@@ -939,6 +1102,15 @@
 
       .screenshot-card figcaption span:last-child {
         display: none;
+      }
+
+      .carousel-arrow {
+        display: none;
+      }
+
+      .screenshots-track {
+        -webkit-mask-image: none;
+        mask-image: none;
       }
 
       .lightbox {
@@ -982,9 +1154,9 @@
     }
 
     @media (max-width: 380px) {
-      .screenshots-grid {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-        gap: 8px;
+      .screenshot-card {
+        flex-basis: 118px;
+        width: 118px;
       }
 
       .screenshot-card figcaption {
@@ -1032,7 +1204,7 @@
 <body>
   <main class="page">
     <header class="topbar">
-      <a class="brand" href="./" aria-label="Wolfpack Labs homepage">
+      <a class="brand" href="https://wolfpack-labs.com/" aria-label="Wolfpack Labs homepage">
         <div class="brand-logo">
           <img src="images/favicon.png" alt="Wolfpack Labs logo" />
         </div>
@@ -1182,87 +1354,97 @@
               <div class="screenshots-header">
                 <div>
                   <h5 id="swift-screenshots-title">App screenshots</h5>
-                  <p>Preview key Swift Invoice screens and workflow features. Click any screenshot to enlarge it.</p>
+                  <p>Preview key Swift Invoice screens and workflow features. Scroll or click any screenshot to enlarge it.</p>
                 </div>
               </div>
 
-              <div class="screenshots-grid">
-                <figure class="screenshot-card">
-                  <button
-                    type="button"
-                    class="screenshot-trigger"
-                    data-image="images/screenshots/swift-dashboard.jpg"
-                    data-title="Dashboard overview"
-                    aria-label="Open enlarged screenshot: Dashboard overview"
-                  >
-                    <img
-                      src="images/screenshots/swift-dashboard.jpg"
-                      alt="Swift Invoice dashboard screenshot"
-                    />
-                  </button>
-                  <figcaption>
-                    <span>Dashboard overview</span>
-                    <span>Click to expand</span>
-                  </figcaption>
-                </figure>
+              <div class="screenshots-carousel">
+                <button type="button" class="carousel-arrow carousel-arrow--prev" id="carousel-prev" aria-label="Scroll to previous screenshots">‹</button>
 
-                <figure class="screenshot-card">
-                  <button
-                    type="button"
-                    class="screenshot-trigger"
-                    data-image="images/screenshots/swift-create-invoice.jpg"
-                    data-title="Create invoices"
-                    aria-label="Open enlarged screenshot: Create invoices"
-                  >
-                    <img
-                      src="images/screenshots/swift-create-invoice.jpg"
-                      alt="Swift Invoice create invoice screenshot"
-                    />
-                  </button>
-                  <figcaption>
-                    <span>Create invoices</span>
-                    <span>Click to expand</span>
-                  </figcaption>
-                </figure>
+                <div class="screenshots-track" id="screenshots-track">
+                  <div class="screenshots-grid">
+                    <figure class="screenshot-card">
+                      <button
+                        type="button"
+                        class="screenshot-trigger"
+                        data-image="images/screenshots/swift-dashboard.jpg"
+                        data-title="Dashboard overview"
+                        aria-label="Open enlarged screenshot: Dashboard overview"
+                      >
+                        <img
+                          src="images/screenshots/swift-dashboard.jpg"
+                          alt="Swift Invoice dashboard screenshot"
+                        />
+                      </button>
+                      <figcaption>
+                        <span>Dashboard overview</span>
+                        <span>Click to expand</span>
+                      </figcaption>
+                    </figure>
 
-                <figure class="screenshot-card">
-                  <button
-                    type="button"
-                    class="screenshot-trigger"
-                    data-image="images/screenshots/swift-reports.jpg"
-                    data-title="Reports"
-                    aria-label="Open enlarged screenshot: Reports"
-                  >
-                    <img
-                      src="images/screenshots/swift-reports.jpg"
-                      alt="Swift Invoice reports screenshot"
-                    />
-                  </button>
-                  <figcaption>
-                    <span>Reports</span>
-                    <span>Click to expand</span>
-                  </figcaption>
-                </figure>
+                    <figure class="screenshot-card">
+                      <button
+                        type="button"
+                        class="screenshot-trigger"
+                        data-image="images/screenshots/swift-create-invoice.jpg"
+                        data-title="Create invoices"
+                        aria-label="Open enlarged screenshot: Create invoices"
+                      >
+                        <img
+                          src="images/screenshots/swift-create-invoice.jpg"
+                          alt="Swift Invoice create invoice screenshot"
+                        />
+                      </button>
+                      <figcaption>
+                        <span>Create invoices</span>
+                        <span>Click to expand</span>
+                      </figcaption>
+                    </figure>
 
-                <figure class="screenshot-card">
-                  <button
-                    type="button"
-                    class="screenshot-trigger"
-                    data-image="images/screenshots/swift-images.jpg"
-                    data-title="Add images"
-                    aria-label="Open enlarged screenshot: Add images"
-                  >
-                    <img
-                      src="images/screenshots/swift-images.jpg"
-                      alt="Swift Invoice add images to PDF screenshot"
-                    />
-                  </button>
-                  <figcaption>
-                    <span>Add images</span>
-                    <span>Click to expand</span>
-                  </figcaption>
-                </figure>
+                    <figure class="screenshot-card">
+                      <button
+                        type="button"
+                        class="screenshot-trigger"
+                        data-image="images/screenshots/swift-reports.jpg"
+                        data-title="Reports"
+                        aria-label="Open enlarged screenshot: Reports"
+                      >
+                        <img
+                          src="images/screenshots/swift-reports.jpg"
+                          alt="Swift Invoice reports screenshot"
+                        />
+                      </button>
+                      <figcaption>
+                        <span>Reports</span>
+                        <span>Click to expand</span>
+                      </figcaption>
+                    </figure>
+
+                    <figure class="screenshot-card">
+                      <button
+                        type="button"
+                        class="screenshot-trigger"
+                        data-image="images/screenshots/swift-images.jpg"
+                        data-title="Add images"
+                        aria-label="Open enlarged screenshot: Add images"
+                      >
+                        <img
+                          src="images/screenshots/swift-images.jpg"
+                          alt="Swift Invoice add images to PDF screenshot"
+                        />
+                      </button>
+                      <figcaption>
+                        <span>Add images</span>
+                        <span>Click to expand</span>
+                      </figcaption>
+                    </figure>
+                  </div>
+                </div>
+
+                <button type="button" class="carousel-arrow carousel-arrow--next" id="carousel-next" aria-label="Scroll to next screenshots">›</button>
               </div>
+
+              <div class="screenshots-dots" id="screenshots-dots" role="tablist" aria-label="Screenshot navigation"></div>
             </section>
           </div>
         </article>
@@ -1316,7 +1498,7 @@
     </section>
   <footer class="site-footer" aria-label="Footer navigation">
     <nav class="footer-nav" aria-label="Footer navigation">
-      <a href="index.html">Home</a>
+      <a href="https://wolfpack-labs.com/">Home</a>
       <a href="data-request-deletion.html">Data Request</a>
       <a href="contact.html">Contact</a>
     </nav>
@@ -1403,6 +1585,78 @@
           subscribeButton.textContent = 'Notify Me';
         }
       });
+    }
+
+    const screenshotsTrack = document.getElementById('screenshots-track');
+    const carouselPrev = document.getElementById('carousel-prev');
+    const carouselNext = document.getElementById('carousel-next');
+    const screenshotsDots = document.getElementById('screenshots-dots');
+
+    if (screenshotsTrack && carouselPrev && carouselNext && screenshotsDots) {
+      const carouselCards = Array.from(screenshotsTrack.querySelectorAll('.screenshot-card'));
+
+      carouselCards.forEach((card, index) => {
+        const dot = document.createElement('button');
+        dot.type = 'button';
+        dot.className = 'screenshots-dot';
+        dot.setAttribute('role', 'tab');
+        dot.setAttribute('aria-label', `Go to screenshot ${index + 1}`);
+        dot.addEventListener('click', () => {
+          card.scrollIntoView({ behavior: 'smooth', inline: 'start', block: 'nearest' });
+        });
+        screenshotsDots.appendChild(dot);
+      });
+
+      const carouselDots = Array.from(screenshotsDots.querySelectorAll('.screenshots-dot'));
+
+      function getActiveCardIndex() {
+        const trackRect = screenshotsTrack.getBoundingClientRect();
+        let closestIndex = 0;
+        let closestDistance = Infinity;
+
+        carouselCards.forEach((card, index) => {
+          const cardRect = card.getBoundingClientRect();
+          const distance = Math.abs(cardRect.left - trackRect.left);
+
+          if (distance < closestDistance) {
+            closestDistance = distance;
+            closestIndex = index;
+          }
+        });
+
+        return closestIndex;
+      }
+
+      function updateCarouselState() {
+        const activeIndex = getActiveCardIndex();
+
+        carouselDots.forEach((dot, index) => {
+          dot.classList.toggle('is-active', index === activeIndex);
+        });
+
+        const maxScrollLeft = screenshotsTrack.scrollWidth - screenshotsTrack.clientWidth - 2;
+        carouselPrev.disabled = screenshotsTrack.scrollLeft <= 2;
+        carouselNext.disabled = screenshotsTrack.scrollLeft >= maxScrollLeft;
+      }
+
+      function scrollByCard(direction) {
+        const step = (carouselCards[0]?.getBoundingClientRect().width || 190) + 20;
+        screenshotsTrack.scrollBy({ left: direction * step * 2, behavior: 'smooth' });
+      }
+
+      carouselPrev.addEventListener('click', () => scrollByCard(-1));
+      carouselNext.addEventListener('click', () => scrollByCard(1));
+
+      let scrollUpdateFrame;
+      screenshotsTrack.addEventListener('scroll', () => {
+        if (scrollUpdateFrame) {
+          window.cancelAnimationFrame(scrollUpdateFrame);
+        }
+        scrollUpdateFrame = window.requestAnimationFrame(updateCarouselState);
+      });
+
+      window.addEventListener('resize', updateCarouselState);
+      updateCarouselState();
     }
 
     const lightbox = document.getElementById('screenshot-lightbox');
