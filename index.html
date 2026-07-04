@@ -85,6 +85,7 @@
 
     body {
       margin: 0;
+      overflow-x: hidden;
       min-height: 100vh;
       font-family: Arial, Helvetica, sans-serif;
       color: var(--text);
@@ -476,19 +477,33 @@
 
     .app-card {
       display: grid;
-      grid-template-columns: 112px 1fr;
+      grid-template-columns: 112px minmax(0, 1fr);
       align-items: start;
       gap: 22px;
       padding: 22px;
       background: #ffffff;
       border: 1px solid var(--border);
       border-radius: 20px;
+      width: 100%;
+      max-width: 100%;
+      overflow: hidden;
     }
 
     .app-details {
       display: flex;
       flex-direction: column;
       gap: 18px;
+      min-width: 0;
+      max-width: 100%;
+    }
+
+    .app-content,
+    .screenshots-section,
+    .screenshots-header,
+    .screenshots-carousel,
+    .screenshots-track {
+      min-width: 0;
+      max-width: 100%;
     }
 
     .app-logo {
@@ -575,10 +590,13 @@
 
     .screenshots-carousel {
       position: relative;
-      margin: 0 -6px;
+      width: 100%;
+      margin: 0;
+      overflow: hidden;
     }
 
     .screenshots-track {
+      width: 100%;
       overflow-x: auto;
       overflow-y: visible;
       scroll-snap-type: x mandatory;
@@ -764,11 +782,11 @@
     }
 
     .carousel-arrow--prev {
-      left: -6px;
+      left: 4px;
     }
 
     .carousel-arrow--next {
-      right: -6px;
+      right: 4px;
     }
 
     .screenshots-dots {
@@ -1060,7 +1078,7 @@
       }
 
       .app-card {
-        grid-template-columns: 1fr;
+        grid-template-columns: minmax(0, 1fr);
         padding: 18px;
       }
 
