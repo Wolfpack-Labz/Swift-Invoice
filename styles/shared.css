@@ -1,0 +1,298 @@
+/* Shared Wolfpack Labs styles.
+   Edit this file for brand-wide colors, spacing, buttons, cards, footer, and reusable layout rules.
+   Page-specific overrides live in styles/pages/*.css. */
+
+* {
+        box-sizing: border-box;
+      }
+
+button:disabled {
+        cursor: not-allowed;
+        opacity: 0.65;
+      }
+
+.footer-nav {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 10px 14px;
+      margin-bottom: 10px;
+    }
+
+.footer-nav a {
+      color: #2563eb;
+      font-weight: 700;
+      text-decoration: none;
+    }
+
+.footer-nav a:hover,
+    .footer-nav a:focus-visible {
+      color: #1d4ed8;
+      text-decoration: underline;
+    }
+
+.footer-meta {
+      color: #64748b;
+    }
+
+body {
+      margin: 0;
+      min-height: 100vh;
+      font-family: Arial, Helvetica, sans-serif;
+      color: var(--text);
+      background: linear-gradient(135deg, #0f172a 0%, #1e293b 44%, #0f172a 100%);
+    }
+
+a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+.brand {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      min-width: 0;
+    }
+
+.brand-logo {
+      width: 52px;
+      height: 52px;
+      flex: 0 0 52px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+      border-radius: 15px;
+      background: rgba(255, 255, 255, 0.08);
+    }
+
+.brand h1 {
+      margin: 0;
+      font-size: 22px;
+      line-height: 1.1;
+      letter-spacing: -0.4px;
+    }
+
+.brand p {
+      margin: 3px 0 0;
+      color: #cbd5e1;
+      font-size: 14px;
+    }
+
+.nav {
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+
+.nav a {
+      color: #e2e8f0;
+      font-size: 14px;
+      padding: 10px 14px;
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.08);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+    }
+
+.nav a:hover {
+      background: rgba(255, 255, 255, 0.14);
+    }
+
+.eyebrow {
+      display: inline-flex;
+      align-items: center;
+      margin-bottom: 18px;
+      color: var(--accent-dark);
+      background: #eff6ff;
+      border: 1px solid #dbeafe;
+      padding: 8px 12px;
+      border-radius: 999px;
+      font-size: 13px;
+      font-weight: 700;
+    }
+
+footer {
+      color: #cbd5e1;
+      text-align: center;
+      font-size: 13px;
+      margin-top: 30px;
+      line-height: 1.6;
+    }
+
+.site-footer {
+      margin: 30px auto 0;
+      color: #cbd5e1;
+      text-align: center;
+      font-size: 13px;
+      line-height: 1.6;
+    }
+
+.footer-nav a {
+      color: #e2e8f0;
+      font-weight: 700;
+      text-decoration: none;
+    }
+
+.footer-nav a:hover,
+    .footer-nav a:focus-visible {
+      color: #ffffff;
+      text-decoration: underline;
+    }
+
+body {
+      margin: 0;
+      background: #f6f8fb;
+      color: #222;
+      font-family: Arial, Helvetica, sans-serif;
+      line-height: 1.6;
+    }
+
+.page {
+      max-width: 980px;
+      margin: 0 auto;
+      padding: 28px 16px 56px;
+    }
+
+.topbar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      margin-bottom: 18px;
+    }
+
+.home-link {
+      color: #2563eb;
+      text-decoration: none;
+      font-weight: 700;
+    }
+
+.policy-card {
+      background: #fff;
+      border: 1px solid #dbe3ef;
+      border-radius: 18px;
+      padding: clamp(22px, 4vw, 44px);
+      box-shadow: 0 16px 45px rgba(23, 32, 51, 0.08);
+      overflow-wrap: anywhere;
+    }
+
+h1, h2, h3 { line-height: 1.25; color: #000; }
+
+h1 { font-size: 32px; margin: 0 0 8px; }
+
+h2 { font-size: 22px; margin-top: 34px; }
+
+h3 { font-size: 18px; margin-top: 24px; }
+
+p, li { color: #595959; font-size: 15px; }
+
+a { color: #3030f1; }
+
+ul { list-style-type: square; }
+
+.muted { color: #7f7f7f; font-weight: 700; }
+
+.notice { background: #f1f5ff; border: 1px solid #c7d7fe; padding: 14px 16px; border-radius: 12px; margin: 18px 0 28px; color: #334155; }
+
+.back-to-top {
+      position: fixed;
+      right: 20px;
+      bottom: 20px;
+      z-index: 999;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      min-height: 44px;
+      padding: 10px 14px;
+      border: 1px solid #bfdbfe;
+      border-radius: 999px;
+      background: #2563eb;
+      color: #ffffff;
+      font-size: 14px;
+      font-weight: 800;
+      font-family: Arial, Helvetica, sans-serif;
+      cursor: pointer;
+      box-shadow: 0 14px 34px rgba(15, 23, 42, 0.2);
+      opacity: 0;
+      visibility: hidden;
+      transform: translateY(10px);
+      transition: opacity 0.2s ease, transform 0.2s ease, visibility 0.2s ease, background 0.2s ease;
+    }
+
+.back-to-top:hover {
+      background: #1d4ed8;
+    }
+
+.back-to-top.is-visible {
+      opacity: 1;
+      visibility: visible;
+      transform: translateY(0);
+    }
+
+.back-to-top:focus-visible {
+      outline: 3px solid rgba(37, 99, 235, 0.28);
+      outline-offset: 3px;
+    }
+
+@media (max-width: 620px) {
+      .back-to-top {
+        right: 14px;
+        bottom: 14px;
+        min-height: 42px;
+        padding: 9px 12px;
+        font-size: 13px;
+      }
+    }
+
+.site-footer {
+      margin: 30px auto 0;
+      padding: 22px 16px 0;
+      color: #64748b;
+      text-align: center;
+      font-size: 13px;
+      line-height: 1.6;
+    }
+
+table { width: 100%; border-collapse: collapse; margin: 18px 0; font-size: 14px; }
+
+th, td { border: 1px solid #000; padding: 10px; vertical-align: top; }
+
+th { text-align: left; color: #595959; }
+
+.wrap {
+      max-width: 720px;
+      margin: 0 auto;
+    }
+
+.legal-links {
+      margin-top: 18px;
+      color: #6b7280;
+      font-size: 13px;
+      line-height: 1.5;
+      text-align: center;
+    }
+
+.legal-links a {
+      color: #2563eb;
+      font-weight: 700;
+      text-decoration: none;
+    }
+
+.site-footer {
+      max-width: 760px;
+    }
+
+body { margin: 0; min-height: 100vh; background: #f8fafc; color: #111827; font-family: Arial, Helvetica, sans-serif; padding: 24px; }
+
+.brand { font-weight: 800; font-size: 24px; margin-bottom: 20px; letter-spacing: -0.03em; }
+
+.card { background: #fff; border: 1px solid #d1d5db; border-radius: 16px; padding: 24px; box-shadow: 0 10px 30px rgba(15,23,42,.08); }
+
+h1 { margin: 0 0 10px; font-size: 26px; }
+
+p { color: #6b7280; font-size: 16px; line-height: 1.55; margin: 0 0 14px; }
