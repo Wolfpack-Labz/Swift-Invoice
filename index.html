@@ -1823,6 +1823,914 @@
       }
     }
 
+
+    /* App icon preview card + smaller mobile gallery previews */
+    .app-hero-panel {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) minmax(190px, 250px);
+      gap: 22px;
+      align-items: center;
+    }
+
+    .app-store-preview {
+      position: relative;
+      z-index: 1;
+      justify-self: end;
+      width: min(100%, 245px);
+      margin: 30px 34px 30px 0;
+      padding: 18px;
+      border-radius: 28px;
+      color: #0f172a;
+      background:
+        linear-gradient(180deg, rgba(255, 255, 255, 0.98), rgba(248, 250, 252, 0.94));
+      border: 1px solid rgba(255, 255, 255, 0.76);
+      box-shadow: 0 24px 55px rgba(15, 23, 42, 0.24);
+    }
+
+    .app-store-preview-label {
+      display: inline-flex;
+      margin-bottom: 12px;
+      padding: 7px 10px;
+      border-radius: 999px;
+      color: #1d4ed8;
+      background: #eff6ff;
+      border: 1px solid #bfdbfe;
+      font-size: 11px;
+      font-weight: 900;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+    }
+
+    .app-store-icon-wrap {
+      width: 92px;
+      height: 92px;
+      margin-bottom: 14px;
+      display: grid;
+      place-items: center;
+      border-radius: 24px;
+      background:
+        radial-gradient(circle at 30% 20%, #ffffff 0%, #e0f2fe 54%, #dbeafe 100%);
+      border: 1px solid #bfdbfe;
+      box-shadow: 0 16px 36px rgba(37, 99, 235, 0.20);
+      overflow: hidden;
+    }
+
+    .app-store-icon-wrap img {
+      width: 78%;
+      height: 78%;
+      object-fit: contain;
+    }
+
+    .app-store-preview strong {
+      display: block;
+      margin-bottom: 6px;
+      font-size: 18px;
+      letter-spacing: -0.25px;
+    }
+
+    .app-store-preview p {
+      margin: 0;
+      color: #52657f;
+      font-size: 13px;
+      line-height: 1.5;
+    }
+
+    @media (max-width: 860px) {
+      .app-hero-panel {
+        grid-template-columns: 1fr;
+      }
+
+      .app-store-preview {
+        justify-self: start;
+        width: min(100%, 320px);
+        margin: 0 28px 28px;
+      }
+    }
+
+    @media (max-width: 620px) {
+      .app-store-preview {
+        width: 100%;
+        margin: 0 24px 24px;
+        padding: 14px;
+        border-radius: 22px;
+      }
+
+      .app-store-icon-wrap {
+        width: 68px;
+        height: 68px;
+        border-radius: 18px;
+      }
+
+      .app-gallery-card .screenshot-card {
+        flex-basis: clamp(108px, 32vw, 132px);
+        width: clamp(108px, 32vw, 132px);
+        min-width: clamp(108px, 32vw, 132px);
+      }
+
+      .app-gallery-card .screenshot-trigger img {
+        min-height: 204px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .app-gallery-card .gallery-viewport {
+        padding: 8px;
+      }
+
+      .app-gallery-card .screenshots-grid {
+        gap: 8px;
+      }
+
+      .app-gallery-card .screenshot-card {
+        flex-basis: 40vw;
+        width: 40vw;
+        min-width: 40vw;
+      }
+
+      .app-gallery-card .screenshot-trigger img {
+        min-height: 188px;
+      }
+
+      .app-gallery-card .screenshot-card figcaption {
+        padding: 9px 9px 10px;
+      }
+    }
+
+    @media (max-width: 420px) {
+      .app-gallery-card .screenshot-card {
+        flex-basis: 42vw;
+        width: 42vw;
+        min-width: 42vw;
+      }
+
+      .app-gallery-card .screenshot-trigger img {
+        min-height: 184px;
+      }
+    }
+
+    @media (max-width: 380px) {
+      .app-gallery-card .screenshot-card {
+        flex-basis: 44vw;
+        width: 44vw;
+        min-width: 44vw;
+      }
+
+      .app-gallery-card .screenshot-trigger img {
+        min-height: 176px;
+      }
+    }
+
+
+
+    /* Retry redesign: colorful Wolfpack background + floating pill menu + polished app showcase */
+    :root {
+      --app-navy: #0f172a;
+      --app-navy-2: #111827;
+      --app-blue: #2563eb;
+      --app-blue-2: #1d4ed8;
+      --app-sky: #dbeafe;
+      --app-green: #16a34a;
+      --surface: rgba(255, 255, 255, 0.96);
+      --surface-soft: rgba(248, 250, 252, 0.92);
+      --ring: rgba(148, 163, 184, 0.28);
+    }
+
+    body {
+      background:
+        radial-gradient(circle at 12% 4%, rgba(37, 99, 235, 0.38) 0, transparent 28%),
+        radial-gradient(circle at 86% 18%, rgba(14, 165, 233, 0.26) 0, transparent 24%),
+        radial-gradient(circle at 72% 82%, rgba(22, 163, 74, 0.16) 0, transparent 28%),
+        linear-gradient(135deg, #0b1220 0%, #111827 46%, #0f172a 100%);
+      background-attachment: fixed;
+    }
+
+    .page {
+      width: min(1160px, calc(100% - 32px));
+    }
+
+    .topbar {
+      margin-bottom: 28px;
+    }
+
+    .brand {
+      color: #ffffff;
+    }
+
+    .brand-logo {
+      background: rgba(255, 255, 255, 0.10);
+      border: 1px solid rgba(255, 255, 255, 0.18);
+      box-shadow: 0 14px 30px rgba(2, 6, 23, 0.24);
+    }
+
+    .nav {
+      gap: 9px;
+    }
+
+    .nav a {
+      color: #eff6ff;
+      background: rgba(255, 255, 255, 0.10);
+      border: 1px solid rgba(255, 255, 255, 0.18);
+      box-shadow: 0 12px 26px rgba(2, 6, 23, 0.18);
+      backdrop-filter: blur(12px);
+    }
+
+    .nav a:hover,
+    .nav a:focus-visible {
+      background: rgba(37, 99, 235, 0.96);
+      border-color: rgba(191, 219, 254, 0.75);
+      color: #ffffff;
+      outline: none;
+      transform: translateY(-1px);
+    }
+
+    .hero-main,
+    .hero-side,
+    .section {
+      background: var(--surface);
+      border-color: rgba(255, 255, 255, 0.72);
+      box-shadow: 0 24px 70px rgba(2, 6, 23, 0.24);
+    }
+
+    .hero-main {
+      background:
+        radial-gradient(circle at top left, rgba(37, 99, 235, 0.12), transparent 42%),
+        rgba(255, 255, 255, 0.97);
+    }
+
+    .button.primary,
+    .subscribe-form button {
+      background: #2563eb;
+      box-shadow: 0 12px 28px rgba(37, 99, 235, 0.28);
+    }
+
+    .button.primary:hover,
+    .subscribe-form button:hover {
+      background: #1d4ed8;
+    }
+
+    .app-showcase-section {
+      padding: 0;
+      overflow: hidden;
+      background:
+        linear-gradient(180deg, rgba(255, 255, 255, 0.96) 0%, rgba(248, 250, 252, 0.96) 100%);
+      border: 1px solid rgba(255, 255, 255, 0.76);
+      box-shadow: 0 28px 80px rgba(2, 6, 23, 0.26);
+    }
+
+    .app-section-shell {
+      padding: clamp(22px, 3vw, 34px);
+    }
+
+    .app-section-header {
+      margin-bottom: 20px;
+      padding-bottom: 0;
+    }
+
+    .section-kicker {
+      display: inline-flex;
+      align-items: center;
+      width: fit-content;
+      margin-bottom: 8px;
+      padding: 7px 10px;
+      border-radius: 999px;
+      color: #1d4ed8;
+      background: #eff6ff;
+      border: 1px solid #bfdbfe;
+      font-size: 11px;
+      font-weight: 900;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+    }
+
+    .app-section-header h3 {
+      font-size: clamp(27px, 4vw, 42px);
+      letter-spacing: -1.2px;
+    }
+
+    .app-section-header p {
+      max-width: 720px;
+      font-size: 15px;
+    }
+
+    .app-grid,
+    .app-card,
+    .app-details {
+      min-width: 0;
+    }
+
+    .app-feature-card {
+      padding: 0;
+      border: none;
+      background: transparent;
+      box-shadow: none;
+      overflow: visible;
+    }
+
+    .app-feature-card::before {
+      display: none;
+    }
+
+    .app-details {
+      gap: 18px;
+    }
+
+    .swift-hero-card {
+      position: relative;
+      display: grid;
+      grid-template-columns: minmax(0, 1.25fr) minmax(280px, 0.75fr);
+      gap: 0;
+      overflow: hidden;
+      color: #ffffff;
+      border-radius: 30px;
+      background:
+        radial-gradient(circle at 14% 10%, rgba(96, 165, 250, 0.34), transparent 34%),
+        radial-gradient(circle at 85% 18%, rgba(14, 165, 233, 0.22), transparent 28%),
+        linear-gradient(135deg, #0b1220 0%, #111827 50%, #0f172a 100%);
+      border: 1px solid rgba(191, 219, 254, 0.18);
+      box-shadow: 0 24px 70px rgba(15, 23, 42, 0.34);
+      isolation: isolate;
+    }
+
+    .swift-hero-card::after {
+      content: '';
+      position: absolute;
+      inset: auto -80px -120px auto;
+      width: 360px;
+      height: 360px;
+      border-radius: 999px;
+      background: rgba(37, 99, 235, 0.22);
+      filter: blur(8px);
+      pointer-events: none;
+      z-index: -1;
+    }
+
+    .swift-hero-copy {
+      padding: clamp(26px, 4vw, 44px);
+    }
+
+    .app-kicker {
+      color: #bfdbfe;
+      background: rgba(37, 99, 235, 0.16);
+      border-color: rgba(191, 219, 254, 0.28);
+      margin-bottom: 14px;
+    }
+
+    .swift-hero-copy h4 {
+      margin: 0;
+      max-width: 760px;
+      color: #ffffff;
+      font-size: clamp(32px, 5vw, 54px);
+      line-height: 0.98;
+      letter-spacing: -1.8px;
+    }
+
+    .swift-hero-copy p {
+      max-width: 680px;
+      margin: 16px 0 0;
+      color: #cbd5e1;
+      font-size: 16px;
+      line-height: 1.7;
+    }
+
+    .app-action-row {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 12px;
+      margin-top: 22px;
+    }
+
+    .swift-hero-copy .launch-note {
+      margin: 0;
+      background: #16a34a;
+      border-color: rgba(187, 247, 208, 0.48);
+      box-shadow: 0 14px 34px rgba(22, 163, 74, 0.26);
+    }
+
+    .mini-note {
+      display: inline-flex;
+      align-items: center;
+      padding: 8px 12px;
+      border-radius: 999px;
+      color: #dbeafe;
+      background: rgba(255, 255, 255, 0.08);
+      border: 1px solid rgba(255, 255, 255, 0.14);
+      font-size: 13px;
+      font-weight: 700;
+    }
+
+    .app-feature-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 12px;
+      margin-top: 26px;
+    }
+
+    .app-feature-item {
+      min-height: 118px;
+      padding: 16px;
+      border-radius: 20px;
+      background: rgba(255, 255, 255, 0.09);
+      border: 1px solid rgba(255, 255, 255, 0.14);
+      box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.08);
+      backdrop-filter: blur(14px);
+    }
+
+    .feature-icon {
+      display: grid;
+      place-items: center;
+      width: 34px;
+      height: 34px;
+      margin-bottom: 12px;
+      border-radius: 12px;
+      background: rgba(37, 99, 235, 0.95);
+      color: #ffffff;
+      font-size: 16px;
+      font-weight: 900;
+      box-shadow: 0 12px 26px rgba(37, 99, 235, 0.32);
+    }
+
+    .app-feature-item strong {
+      display: block;
+      color: #ffffff;
+      font-size: 15px;
+      margin-bottom: 6px;
+    }
+
+    .app-feature-item span {
+      display: block;
+      color: #cbd5e1;
+      font-size: 13px;
+      line-height: 1.45;
+    }
+
+    .swift-visual-panel {
+      position: relative;
+      min-width: 0;
+      padding: clamp(22px, 3vw, 34px);
+      display: grid;
+      align-content: center;
+      gap: 18px;
+      background:
+        radial-gradient(circle at 50% 10%, rgba(255, 255, 255, 0.10), transparent 40%),
+        rgba(255, 255, 255, 0.035);
+      border-left: 1px solid rgba(255, 255, 255, 0.10);
+    }
+
+    .app-icon-preview {
+      justify-self: end;
+      width: min(100%, 280px);
+      padding: 18px;
+      border-radius: 24px;
+      background: rgba(255, 255, 255, 0.94);
+      color: #0f172a;
+      border: 1px solid rgba(255, 255, 255, 0.70);
+      box-shadow: 0 22px 50px rgba(2, 6, 23, 0.28);
+    }
+
+    .app-store-preview-label {
+      display: inline-flex;
+      margin-bottom: 12px;
+      padding: 7px 10px;
+      border-radius: 999px;
+      color: #1d4ed8;
+      background: #eff6ff;
+      border: 1px solid #bfdbfe;
+      font-size: 11px;
+      font-weight: 900;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+    }
+
+    .app-store-icon-wrap {
+      width: 88px;
+      height: 88px;
+      margin-bottom: 12px;
+      display: grid;
+      place-items: center;
+      border-radius: 24px;
+      background:
+        radial-gradient(circle at 30% 20%, #ffffff 0%, #e0f2fe 54%, #dbeafe 100%);
+      border: 1px solid #bfdbfe;
+      box-shadow: 0 16px 36px rgba(37, 99, 235, 0.20);
+      overflow: hidden;
+    }
+
+    .app-store-icon-wrap img {
+      width: 78%;
+      height: 78%;
+      object-fit: contain;
+    }
+
+    .app-icon-preview strong {
+      display: block;
+      font-size: 18px;
+      margin-bottom: 6px;
+    }
+
+    .app-icon-preview p {
+      margin: 0;
+      color: #52657f;
+      font-size: 13px;
+      line-height: 1.5;
+    }
+
+    .phone-peek-stack {
+      display: flex;
+      align-items: flex-end;
+      justify-content: flex-end;
+      gap: 12px;
+      padding-right: 6px;
+    }
+
+    .phone-peek {
+      width: 92px;
+      overflow: hidden;
+      border-radius: 22px;
+      background: #ffffff;
+      border: 1px solid rgba(255, 255, 255, 0.48);
+      box-shadow: 0 18px 40px rgba(2, 6, 23, 0.28);
+    }
+
+    .phone-peek img {
+      width: 100%;
+      height: 178px;
+      object-fit: cover;
+      object-position: center top;
+      display: block;
+    }
+
+    .phone-peek:nth-child(1) {
+      transform: rotate(-4deg) translateY(10px);
+      opacity: 0.86;
+    }
+
+    .phone-peek:nth-child(2) {
+      width: 112px;
+      transform: translateY(-2px);
+    }
+
+    .phone-peek:nth-child(2) img {
+      height: 220px;
+    }
+
+    .phone-peek:nth-child(3) {
+      transform: rotate(4deg) translateY(16px);
+      opacity: 0.86;
+    }
+
+    .app-doc-panel {
+      display: grid;
+      grid-template-columns: minmax(220px, 0.45fr) minmax(0, 1fr);
+      gap: 18px;
+      align-items: start;
+      padding: 22px;
+      border-radius: 26px;
+      background: #ffffff;
+      border: 1px solid var(--border);
+      box-shadow: 0 18px 44px rgba(15, 23, 42, 0.08);
+    }
+
+    .app-doc-panel h5 {
+      margin: 0 0 6px;
+      font-size: 19px;
+      color: #0f172a;
+      letter-spacing: -0.3px;
+    }
+
+    .app-doc-panel p {
+      margin: 0;
+      color: #52657f;
+      font-size: 14px;
+      line-height: 1.5;
+    }
+
+    .app-doc-links {
+      justify-content: flex-start;
+    }
+
+    .app-doc-links a {
+      background: #f8fafc;
+      transition: transform 0.18s ease, background 0.18s ease, border-color 0.18s ease;
+    }
+
+    .app-doc-links a:hover,
+    .app-doc-links a:focus-visible {
+      transform: translateY(-1px);
+      outline: none;
+    }
+
+    .app-gallery-card {
+      padding: 22px;
+      border-radius: 26px;
+      background:
+        radial-gradient(circle at top left, rgba(37, 99, 235, 0.10), transparent 34%),
+        #ffffff;
+      border: 1px solid var(--border);
+      box-shadow: 0 18px 44px rgba(15, 23, 42, 0.08);
+    }
+
+    .app-gallery-card .screenshots-header {
+      padding: 0 2px 0;
+      align-items: flex-start;
+      border-bottom: none;
+    }
+
+    .gallery-kicker {
+      margin-bottom: 6px;
+      font-size: 10px;
+    }
+
+    .app-gallery-card h5 {
+      margin: 0;
+      font-size: 22px;
+      letter-spacing: -0.4px;
+    }
+
+    .app-gallery-card .gallery-viewport {
+      border-radius: 24px;
+      background:
+        linear-gradient(135deg, #f8fafc 0%, #ffffff 52%, #eff6ff 100%);
+      border: 1px solid rgba(226, 232, 240, 0.92);
+      padding: 16px;
+      overflow: hidden;
+    }
+
+    .app-gallery-card .screenshots-grid {
+      display: flex;
+      grid-template-columns: none;
+      gap: 16px;
+      justify-content: flex-start;
+      overflow-x: auto;
+      overflow-y: hidden;
+      scroll-snap-type: x mandatory;
+      padding: 5px 5px 14px;
+    }
+
+    .app-gallery-card .screenshot-card {
+      flex: 0 0 clamp(132px, 14vw, 170px);
+      width: clamp(132px, 14vw, 170px);
+      min-width: clamp(132px, 14vw, 170px);
+      max-width: none;
+      border-radius: 22px;
+      background: #ffffff;
+      box-shadow: 0 16px 34px rgba(15, 23, 42, 0.12);
+      scroll-snap-align: start;
+    }
+
+    .app-gallery-card .screenshot-trigger img {
+      min-height: 250px;
+      aspect-ratio: 9 / 19.5;
+    }
+
+    .gallery-footer {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 14px;
+      margin-top: 12px;
+    }
+
+    .gallery-hint {
+      max-width: 720px;
+    }
+
+    @media (max-width: 960px) {
+      .swift-hero-card {
+        grid-template-columns: 1fr;
+      }
+
+      .swift-visual-panel {
+        border-left: none;
+        border-top: 1px solid rgba(255, 255, 255, 0.10);
+        grid-template-columns: minmax(0, 280px) minmax(0, 1fr);
+        align-items: center;
+      }
+
+      .app-icon-preview {
+        justify-self: start;
+      }
+
+      .phone-peek-stack {
+        justify-content: flex-end;
+      }
+    }
+
+    @media (max-width: 860px) {
+      .app-feature-grid,
+      .app-doc-panel {
+        grid-template-columns: 1fr;
+      }
+
+      .swift-visual-panel {
+        grid-template-columns: 1fr;
+      }
+
+      .phone-peek-stack {
+        justify-content: flex-start;
+      }
+
+      .gallery-controls {
+        display: none;
+      }
+    }
+
+    @media (max-width: 620px) {
+      .page {
+        width: min(100% - 22px, 1160px);
+      }
+
+      .app-section-shell {
+        padding: 18px;
+      }
+
+      .app-section-header h3 {
+        font-size: 28px;
+      }
+
+      .swift-hero-card {
+        border-radius: 24px;
+      }
+
+      .swift-hero-copy {
+        padding: 24px;
+      }
+
+      .swift-hero-copy h4 {
+        font-size: clamp(29px, 10vw, 38px);
+        letter-spacing: -1.1px;
+      }
+
+      .swift-hero-copy p {
+        font-size: 14px;
+      }
+
+      .app-feature-item {
+        min-height: 0;
+      }
+
+      .swift-visual-panel {
+        padding: 0 24px 24px;
+        background: transparent;
+        border-top: none;
+      }
+
+      .app-icon-preview {
+        width: 100%;
+        padding: 14px;
+        border-radius: 20px;
+      }
+
+      .app-store-icon-wrap {
+        width: 64px;
+        height: 64px;
+        border-radius: 18px;
+      }
+
+      .phone-peek-stack {
+        display: none;
+      }
+
+      .app-doc-panel,
+      .app-gallery-card {
+        padding: 16px;
+        border-radius: 22px;
+      }
+
+      .app-gallery-card .gallery-viewport {
+        padding: 8px;
+        border-radius: 20px;
+      }
+
+      .app-gallery-card .screenshots-grid {
+        gap: 9px;
+        padding: 4px 4px 10px;
+      }
+
+      .app-gallery-card .screenshot-card {
+        flex-basis: clamp(96px, 31vw, 122px);
+        width: clamp(96px, 31vw, 122px);
+        min-width: clamp(96px, 31vw, 122px);
+        border-radius: 18px;
+      }
+
+      .app-gallery-card .screenshot-trigger {
+        border-radius: 18px 18px 0 0;
+      }
+
+      .app-gallery-card .screenshot-trigger img {
+        min-height: 176px;
+        aspect-ratio: 9 / 18.8;
+      }
+
+      .app-gallery-card .screenshot-badge {
+        top: 8px;
+        left: 8px;
+        min-width: 30px;
+        height: 24px;
+        font-size: 10px;
+        padding: 0 7px;
+      }
+
+      .app-gallery-card .screenshot-card figcaption {
+        padding: 8px;
+      }
+
+      .app-gallery-card .screenshot-card figcaption span:first-child {
+        font-size: 11px;
+      }
+
+      .app-gallery-card .screenshot-card figcaption span:last-child {
+        display: none;
+      }
+
+      .gallery-footer {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+    }
+
+    @media (max-width: 430px) {
+      .app-gallery-card .screenshot-card {
+        flex-basis: 32vw;
+        width: 32vw;
+        min-width: 32vw;
+      }
+
+      .app-gallery-card .screenshot-trigger img {
+        min-height: 160px;
+      }
+    }
+
+
+    /* Full-width Swift Invoice hero update */
+    .app-header-actions {
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .app-icon-chip {
+      display: inline-flex;
+      align-items: center;
+      gap: 9px;
+      padding: 7px 12px 7px 7px;
+      border-radius: 999px;
+      color: #0f172a;
+      background: rgba(255, 255, 255, 0.96);
+      border: 1px solid #bfdbfe;
+      font-size: 12px;
+      font-weight: 900;
+      box-shadow: 0 12px 26px rgba(15, 23, 42, 0.10);
+      white-space: nowrap;
+    }
+
+    .app-icon-chip img {
+      width: 32px;
+      height: 32px;
+      border-radius: 10px;
+      background: #eff6ff;
+      border: 1px solid #dbeafe;
+      padding: 4px;
+      object-fit: contain;
+    }
+
+    .swift-hero-card {
+      display: block;
+      grid-template-columns: 1fr;
+    }
+
+    .swift-hero-copy {
+      width: 100%;
+    }
+
+    .swift-hero-copy h4 {
+      max-width: 980px;
+    }
+
+    .swift-hero-copy p {
+      max-width: 920px;
+    }
+
+    .swift-hero-card .app-feature-grid {
+      max-width: 100%;
+    }
+
+    @media (max-width: 860px) {
+      .app-header-actions {
+        justify-content: flex-start;
+      }
+    }
+
+    @media (max-width: 620px) {
+      .app-icon-chip {
+        width: 100%;
+        justify-content: flex-start;
+      }
+    }
+
   </style>
 </head>
 
@@ -1936,178 +2844,193 @@
     </section>
 
     <section id="apps" class="section app-showcase-section">
-      <div class="section-header app-section-header">
-        <div>
-          <span class="section-kicker">App spotlight</span>
-          <h3>Swift Invoice</h3>
-          <p>
-            A cleaner product section for the app, screenshots, and customer-facing
-            documentation — designed to feel more like a polished app landing page.
-          </p>
+      <div class="app-section-shell">
+        <div class="section-header app-section-header">
+          <div>
+            <span class="section-kicker">App spotlight</span>
+            <h3>Swift Invoice</h3>
+            <p>
+              A polished product area for Swift Invoice that keeps the Wolfpack Labs
+              color background, floating menu feel, and app-style blue/navy accents.
+            </p>
+          </div>
+
+          <div class="app-header-actions">
+            <span class="status-pill">Active documentation</span>
+            <span class="app-icon-chip" aria-label="Swift Invoice app icon preview">
+              <img src="images/swift.png" alt="" aria-hidden="true" />
+              <span>App icon preview</span>
+            </span>
+          </div>
         </div>
 
-        <span class="status-pill">Active documentation</span>
-      </div>
+        <div class="app-grid">
+          <article class="app-card app-feature-card">
+            <div class="app-details">
+              <div class="swift-hero-card">
+                <div class="swift-hero-copy">
+                  <div class="app-kicker">Featured app</div>
+                  <h4>Invoices, estimates, payments, and job photos in one simple app.</h4>
+                  <p>
+                    Swift Invoice helps small businesses, freelancers, contractors, and
+                    self-employed professionals create polished invoices and estimates,
+                    send them to customers, track payments, and keep job details organized.
+                  </p>
 
-      <div class="app-grid">
-        <article class="app-card app-feature-card">
-          <div class="app-hero-panel">
-            <div class="app-hero-copy">
-              <div class="app-kicker">Featured app</div>
-              <h4>Invoices, estimates, payments, and job photos in one simple app.</h4>
-              <p>
-                Swift Invoice helps small businesses, freelancers, contractors, and
-                self-employed professionals create polished invoices and estimates,
-                track payments, and keep job details organized from their phone.
-              </p>
+                  <div class="app-action-row">
+                    <span class="launch-note">Coming Fall 2026</span>
+                    <span class="mini-note">Built for fast field-to-customer workflows</span>
+                  </div>
 
-              <div class="app-action-row">
-                <span class="launch-note">Coming Fall 2026</span>
-                <span class="mini-note">Built for fast, simple field-to-customer workflows.</span>
-              </div>
-
-              <div class="app-feature-grid" aria-label="Swift Invoice features">
-                <div class="app-feature-item">
-                  <strong>Invoices</strong>
-                  <span>Create, send, and track customer invoices.</span>
+                  <div class="app-feature-grid" aria-label="Swift Invoice features">
+                    <div class="app-feature-item">
+                      <span class="feature-icon">$</span>
+                      <strong>Invoices</strong>
+                      <span>Create, send, and track customer invoices without extra clutter.</span>
+                    </div>
+                    <div class="app-feature-item">
+                      <span class="feature-icon">✓</span>
+                      <strong>Estimates</strong>
+                      <span>Share estimates and let customers accept or decline online.</span>
+                    </div>
+                    <div class="app-feature-item">
+                      <span class="feature-icon">+</span>
+                      <strong>Photos</strong>
+                      <span>Add job images to invoices, estimates, and customer emails.</span>
+                    </div>
+                  </div>
                 </div>
-                <div class="app-feature-item">
-                  <strong>Estimates</strong>
-                  <span>Share estimates and let customers respond online.</span>
+
+              </div>
+
+              <div class="app-doc-panel">
+                <div>
+                  <h5>Documentation & support</h5>
+                  <p>Quick access to the current Swift Invoice legal pages, privacy resources, and support options.</p>
                 </div>
-                <div class="app-feature-item">
-                  <strong>Photos</strong>
-                  <span>Attach job images to invoices and estimates.</span>
-                </div>
-              </div>
-            </div>
-          </div>
 
-          <div class="app-doc-panel">
-            <div>
-              <h5>Documentation & support</h5>
-              <p>Quick access to the current Swift Invoice legal pages and help links.</p>
-            </div>
-
-            <div class="doc-links app-doc-links">
-              <a href="privacy-policy.html">Privacy Policy</a>
-              <a href="terms.html">Terms & Conditions</a>
-              <a href="disclosures.html">Disclosures</a>
-              <a href="payment-disclosure.html">Payment Disclosure</a>
-              <a href="customer-privacy-notice.html">Recipient Privacy Notice</a>
-              <a href="data-request-deletion.html">Data Request</a>
-              <a href="contact.html">Support</a>
-            </div>
-          </div>
-
-          <section class="screenshots-section app-gallery-card" aria-labelledby="swift-screenshots-title">
-            <div class="screenshots-header">
-              <div>
-                <span class="section-kicker gallery-kicker">Product preview</span>
-                <h5 id="swift-screenshots-title">App screenshots</h5>
-                <p>Swipe, scroll, or use the arrows to browse the smaller previews. Tap any screenshot to open the full-size viewer.</p>
-              </div>
-
-              <div class="gallery-controls" aria-label="Screenshot gallery controls">
-                <button type="button" class="gallery-control" data-gallery-action="previous" aria-label="Scroll to previous screenshot">‹</button>
-                <button type="button" class="gallery-control" data-gallery-action="next" aria-label="Scroll to next screenshot">›</button>
-              </div>
-            </div>
-
-            <div class="screenshots-gallery" aria-label="Swift Invoice screenshot carousel">
-              <div class="gallery-viewport">
-                <div class="screenshots-grid" id="swift-screenshot-gallery" tabindex="0" aria-label="Scrollable Swift Invoice screenshots">
-                  <figure class="screenshot-card">
-                    <button
-                      type="button"
-                      class="screenshot-trigger"
-                      data-image="images/screenshots/swift-dashboard.jpg"
-                      data-title="Dashboard overview"
-                      aria-label="Open enlarged screenshot: Dashboard overview"
-                    >
-                      <span class="screenshot-badge">01</span>
-                      <img
-                        src="images/screenshots/swift-dashboard.jpg"
-                        alt="Swift Invoice dashboard screenshot"
-                      />
-                    </button>
-                    <figcaption>
-                      <span>Dashboard overview</span>
-                      <span>Click to expand</span>
-                    </figcaption>
-                  </figure>
-
-                  <figure class="screenshot-card">
-                    <button
-                      type="button"
-                      class="screenshot-trigger"
-                      data-image="images/screenshots/swift-create-invoice.jpg"
-                      data-title="Create invoices"
-                      aria-label="Open enlarged screenshot: Create invoices"
-                    >
-                      <span class="screenshot-badge">02</span>
-                      <img
-                        src="images/screenshots/swift-create-invoice.jpg"
-                        alt="Swift Invoice create invoice screenshot"
-                      />
-                    </button>
-                    <figcaption>
-                      <span>Create invoices</span>
-                      <span>Click to expand</span>
-                    </figcaption>
-                  </figure>
-
-                  <figure class="screenshot-card">
-                    <button
-                      type="button"
-                      class="screenshot-trigger"
-                      data-image="images/screenshots/swift-reports.jpg"
-                      data-title="Reports"
-                      aria-label="Open enlarged screenshot: Reports"
-                    >
-                      <span class="screenshot-badge">03</span>
-                      <img
-                        src="images/screenshots/swift-reports.jpg"
-                        alt="Swift Invoice reports screenshot"
-                      />
-                    </button>
-                    <figcaption>
-                      <span>Reports</span>
-                      <span>Click to expand</span>
-                    </figcaption>
-                  </figure>
-
-                  <figure class="screenshot-card">
-                    <button
-                      type="button"
-                      class="screenshot-trigger"
-                      data-image="images/screenshots/swift-images.jpg"
-                      data-title="Add images"
-                      aria-label="Open enlarged screenshot: Add images"
-                    >
-                      <span class="screenshot-badge">04</span>
-                      <img
-                        src="images/screenshots/swift-images.jpg"
-                        alt="Swift Invoice add images to PDF screenshot"
-                      />
-                    </button>
-                    <figcaption>
-                      <span>Add images</span>
-                      <span>Click to expand</span>
-                    </figcaption>
-                  </figure>
+                <div class="doc-links app-doc-links">
+                  <a href="privacy-policy.html">Privacy Policy</a>
+                  <a href="terms.html">Terms & Conditions</a>
+                  <a href="disclosures.html">Disclosures</a>
+                  <a href="payment-disclosure.html">Payment Disclosure</a>
+                  <a href="customer-privacy-notice.html">Recipient Privacy Notice</a>
+                  <a href="data-request-deletion.html">Data Request</a>
+                  <a href="contact.html">Support</a>
                 </div>
               </div>
 
-              <div class="gallery-footer">
-                <p class="gallery-hint">Open any preview to view the screen at full size.</p>
-                <div class="gallery-dots" id="swift-screenshot-dots" aria-label="Screenshot gallery navigation"></div>
-              </div>
+              <section class="screenshots-section app-gallery-card" aria-labelledby="swift-screenshots-title">
+                <div class="screenshots-header">
+                  <div>
+                    <span class="section-kicker gallery-kicker">Product preview</span>
+                    <h5 id="swift-screenshots-title">App screenshots</h5>
+                    <p>Swipe, scroll, or use the arrows to browse smaller previews. Tap any screenshot to open the full-size viewer.</p>
+                  </div>
+
+                  <div class="gallery-controls" aria-label="Screenshot gallery controls">
+                    <button type="button" class="gallery-control" data-gallery-action="previous" aria-label="Scroll to previous screenshot">‹</button>
+                    <button type="button" class="gallery-control" data-gallery-action="next" aria-label="Scroll to next screenshot">›</button>
+                  </div>
+                </div>
+
+                <div class="screenshots-gallery" aria-label="Swift Invoice screenshot carousel">
+                  <div class="gallery-viewport">
+                    <div class="screenshots-grid" id="swift-screenshot-gallery" tabindex="0" aria-label="Scrollable Swift Invoice screenshots">
+                      <figure class="screenshot-card">
+                        <button
+                          type="button"
+                          class="screenshot-trigger"
+                          data-image="images/screenshots/swift-dashboard.jpg"
+                          data-title="Dashboard overview"
+                          aria-label="Open enlarged screenshot: Dashboard overview"
+                        >
+                          <span class="screenshot-badge">01</span>
+                          <img
+                            src="images/screenshots/swift-dashboard.jpg"
+                            alt="Swift Invoice dashboard screenshot"
+                          />
+                        </button>
+                        <figcaption>
+                          <span>Dashboard overview</span>
+                          <span>Click to expand</span>
+                        </figcaption>
+                      </figure>
+
+                      <figure class="screenshot-card">
+                        <button
+                          type="button"
+                          class="screenshot-trigger"
+                          data-image="images/screenshots/swift-create-invoice.jpg"
+                          data-title="Create invoices"
+                          aria-label="Open enlarged screenshot: Create invoices"
+                        >
+                          <span class="screenshot-badge">02</span>
+                          <img
+                            src="images/screenshots/swift-create-invoice.jpg"
+                            alt="Swift Invoice create invoice screenshot"
+                          />
+                        </button>
+                        <figcaption>
+                          <span>Create invoices</span>
+                          <span>Click to expand</span>
+                        </figcaption>
+                      </figure>
+
+                      <figure class="screenshot-card">
+                        <button
+                          type="button"
+                          class="screenshot-trigger"
+                          data-image="images/screenshots/swift-reports.jpg"
+                          data-title="Reports"
+                          aria-label="Open enlarged screenshot: Reports"
+                        >
+                          <span class="screenshot-badge">03</span>
+                          <img
+                            src="images/screenshots/swift-reports.jpg"
+                            alt="Swift Invoice reports screenshot"
+                          />
+                        </button>
+                        <figcaption>
+                          <span>Reports</span>
+                          <span>Click to expand</span>
+                        </figcaption>
+                      </figure>
+
+                      <figure class="screenshot-card">
+                        <button
+                          type="button"
+                          class="screenshot-trigger"
+                          data-image="images/screenshots/swift-images.jpg"
+                          data-title="Add images"
+                          aria-label="Open enlarged screenshot: Add images"
+                        >
+                          <span class="screenshot-badge">04</span>
+                          <img
+                            src="images/screenshots/swift-images.jpg"
+                            alt="Swift Invoice add images to PDF screenshot"
+                          />
+                        </button>
+                        <figcaption>
+                          <span>Add images</span>
+                          <span>Click to expand</span>
+                        </figcaption>
+                      </figure>
+                    </div>
+                  </div>
+
+                  <div class="gallery-footer">
+                    <p class="gallery-hint">The gallery stays compact on phones and opens screenshots in the full-size viewer when selected.</p>
+                    <div class="gallery-dots" id="swift-screenshot-dots" aria-label="Screenshot gallery navigation"></div>
+                  </div>
+                </div>
+              </section>
             </div>
-          </section>
-        </article>
+          </article>
+        </div>
       </div>
     </section>
+
 
     <section id="legal" class="section">
       <div class="section-header">
