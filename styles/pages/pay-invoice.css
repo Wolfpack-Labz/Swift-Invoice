@@ -1,0 +1,83 @@
+/* Page-specific styles for pay-invoice.html. */
+
+:root {
+      color-scheme: light;
+      --bg: #f8fafc;
+      --card: #ffffff;
+      --border: #d1d5db;
+      --text: #111827;
+      --muted: #6b7280;
+      --link: #2563eb;
+      --danger: #b91c1c;
+    }
+
+body {
+      margin: 0;
+      min-height: 100vh;
+      background: var(--bg);
+      color: var(--text);
+      font-family: Arial, Helvetica, sans-serif;
+      padding: 24px;
+    }
+
+.brand {
+      font-weight: 800;
+      letter-spacing: -0.03em;
+      font-size: 24px;
+      margin-bottom: 20px;
+    }
+
+.card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 24px;
+      box-shadow: 0 10px 30px rgba(15, 23, 42, 0.08);
+    }
+
+h1 {
+      font-size: 26px;
+      margin: 0 0 10px;
+    }
+
+p {
+      color: var(--muted);
+      font-size: 16px;
+      line-height: 1.55;
+      margin: 0 0 16px;
+    }
+
+.button {
+      display: inline-block;
+      background: #111827;
+      color: #ffffff;
+      text-decoration: none;
+      font-weight: 700;
+      border-radius: 10px;
+      padding: 12px 18px;
+      margin-top: 8px;
+    }
+
+.link {
+      color: var(--link);
+      overflow-wrap: anywhere;
+    }
+
+.error {
+      color: var(--danger);
+      font-weight: 700;
+    }
+
+.details {
+      display: none;
+      margin-top: 18px;
+      padding: 12px;
+      background: #f9fafb;
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      color: #374151;
+      font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+      font-size: 12px;
+      white-space: pre-wrap;
+      overflow-wrap: anywhere;
+    }
