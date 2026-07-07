@@ -2727,3 +2727,14 @@
         height: 20px;
       }
     }
+
+/* App spotlight border removal */
+.section.app-showcase-section,
+.app-showcase-section {
+  border: 0 !important;
+  border-color: transparent !important;
+}
+
+.app-showcase-section::before {
+  display: none !important;
+}
