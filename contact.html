@@ -1,163 +1,123 @@
 <!DOCTYPE html>
+
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
-  <title>Contact | Wolfpack Labs</title>
-
-  <meta
-    name="description"
-    content="Contact Wolfpack Labs for support requests, bug reports, and general questions."
-  />
-
-  <meta name="author" content="Wolfpack Labs LLC" />
-  <meta name="robots" content="index, follow" />
-  <meta name="theme-color" content="#0f172a" />
-
-  <link rel="canonical" href="https://wolfpack-labs.com/contact.html" />
-
-  <!-- Open Graph / Facebook / LinkedIn -->
-  <meta property="og:type" content="website" />
-  <meta property="og:title" content="Contact | Wolfpack Labs" />
-  <meta
-    property="og:description"
-    content="Contact Wolfpack Labs for support requests, bug reports, and general questions."
-  />
-  <meta property="og:url" content="https://wolfpack-labs.com/contact.html" />
-  <meta property="og:image" content="https://wolfpack-labs.com/images/favicon.png" />
-  <meta property="og:site_name" content="Wolfpack Labs" />
-
-  <!-- Twitter / X -->
-  <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="Contact | Wolfpack Labs" />
-  <meta
-    name="twitter:description"
-    content="Contact Wolfpack Labs for support requests, bug reports, and general questions."
-  />
-  <meta name="twitter:image" content="https://wolfpack-labs.com/images/favicon.png" />
-
-  <!-- Favicons -->
-  <link rel="icon" type="image/png" sizes="32x32" href="images/favicon.png" />
-  <link rel="icon" type="image/png" sizes="192x192" href="images/favicon.png" />
-  <link rel="apple-touch-icon" sizes="180x180" href="images/favicon.png" />
-  <link rel="stylesheet" href="styles/shared.css" />
-  <link rel="stylesheet" href="styles/pages/contact.css" />
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Contact | Wolfpack Labs</title>
+<meta content="Contact Wolfpack Labs for support requests, bug reports, and general questions." name="description"/>
+<meta content="Wolfpack Labs LLC" name="author"/>
+<meta content="index, follow" name="robots"/>
+<meta content="#0f172a" name="theme-color"/>
+<link href="https://wolfpack-labs.com/contact.html" rel="canonical"/>
+<!-- Open Graph / Facebook / LinkedIn -->
+<meta content="website" property="og:type"/>
+<meta content="Contact | Wolfpack Labs" property="og:title"/>
+<meta content="Contact Wolfpack Labs for support requests, bug reports, and general questions." property="og:description"/>
+<meta content="https://wolfpack-labs.com/contact.html" property="og:url"/>
+<meta content="https://wolfpack-labs.com/images/favicon.png" property="og:image"/>
+<meta content="Wolfpack Labs" property="og:site_name"/>
+<!-- Twitter / X -->
+<meta content="summary_large_image" name="twitter:card"/>
+<meta content="Contact | Wolfpack Labs" name="twitter:title"/>
+<meta content="Contact Wolfpack Labs for support requests, bug reports, and general questions." name="twitter:description"/>
+<meta content="https://wolfpack-labs.com/images/favicon.png" name="twitter:image"/>
+<!-- Favicons -->
+<link href="images/favicon.png" rel="icon" sizes="32x32" type="image/png"/>
+<link href="images/favicon.png" rel="icon" sizes="192x192" type="image/png"/>
+<link href="images/favicon.png" rel="apple-touch-icon" sizes="180x180"/>
+<link href="styles/shared.css" rel="stylesheet"/>
+<link href="styles/pages/contact.css" rel="stylesheet"/>
 </head>
-
 <body>
-  <main class="page contact-page">
-    <header class="topbar">
-      <a class="brand" href="index.html" aria-label="Wolfpack Labs homepage">
-        <div class="brand-logo">
-          <img src="images/favicon.png" alt="Wolfpack Labs logo" />
-        </div>
-
-        <div>
-          <h1>Wolfpack Labs</h1>
-          <p>Simple apps for everyday people</p>
-        </div>
-      </a>
-
-      <nav class="nav" aria-label="Primary navigation">
-        <a href="index.html#apps">Apps</a>
-        <a href="index.html#legal">Legal Docs</a>
-        <a href="contact.html">Contact</a>
-      </nav>
-    </header>
-
-    <section class="card">
-      <div class="eyebrow">Contact Wolfpack Labs</div>
-      <h2>Support, bug reports, and questions.</h2>
-
-      <p class="intro">
+<main class="page contact-page">
+<header class="topbar">
+<a aria-label="Wolfpack Labs homepage" class="brand" href="index.html">
+<div class="brand-logo">
+<img alt="Wolfpack Labs logo" src="images/favicon.png"/>
+</div>
+<div>
+<h1>Wolfpack Labs</h1>
+<p>Simple apps for everyday people</p>
+</div>
+</a>
+<nav aria-label="Primary navigation" class="nav">
+<a href="index.html#apps">Apps</a>
+<a href="index.html#legal">Legal Docs</a>
+<a href="index.html#updates">Updates</a>
+<a href="contact.html">Contact</a>
+</nav>
+</header>
+<section class="card">
+<div class="eyebrow">Contact Wolfpack Labs</div>
+<h2>Support, bug reports, and questions.</h2>
+<p class="intro">
         Use this form to contact Wolfpack Labs about app support, bugs, account issues,
         legal questions, data requests, or general questions.
       </p>
-
-      <div id="formNotice" class="notice" role="status" aria-live="polite"></div>
-
-      <form id="contactForm">
-        <div class="grid">
-          <div>
-            <label for="name">Name</label>
-            <input id="name" name="name" type="text" autocomplete="name" required />
-          </div>
-
-          <div>
-            <label for="email">Email</label>
-            <input id="email" name="email" type="email" autocomplete="email" required />
-          </div>
-        </div>
-
-        <div class="grid">
-          <div>
-            <label for="requestType">Request type</label>
-            <select id="requestType" name="requestType" required>
-              <option value="">Select one</option>
-              <option value="Support Request">Support Request</option>
-              <option value="Bug Report">Bug Report</option>
-              <option value="Data Deletion">Data Deletion</option>
-              <option value="Other Question">Other Question</option>
-            </select>
-          </div>
-
-          <div>
-            <label for="appName">App</label>
-            <select id="appName" name="appName" required>
-              <option value="Swift Invoice">Swift Invoice</option>
-              <option value="Wolfpack Labs Website">Wolfpack Labs Website</option>
-              <option value="Other / Not Sure">Other / Not Sure</option>
-            </select>
-          </div>
-        </div>
-
-        <div>
-          <label for="subject">Subject</label>
-          <input id="subject" name="subject" type="text" maxlength="120" required />
-        </div>
-
-        <div>
-          <label for="message">Message</label>
-          <textarea
-            id="message"
-            name="message"
-            placeholder="Tell us what happened, what you expected, and any steps to reproduce the issue if this is a bug report."
-            required
-          ></textarea>
-          <div class="help-text">
+<div aria-live="polite" class="notice" id="formNotice" role="status"></div>
+<form id="contactForm">
+<div class="grid">
+<div>
+<label for="name">Name</label>
+<input autocomplete="name" id="name" name="name" required="" type="text"/>
+</div>
+<div>
+<label for="email">Email</label>
+<input autocomplete="email" id="email" name="email" required="" type="email"/>
+</div>
+</div>
+<div class="grid">
+<div>
+<label for="requestType">Request type</label>
+<select id="requestType" name="requestType" required="">
+<option value="">Select one</option>
+<option value="Support Request">Support Request</option>
+<option value="Bug Report">Bug Report</option>
+<option value="Data Deletion">Data Deletion</option>
+<option value="Other Question">Other Question</option>
+</select>
+</div>
+<div>
+<label for="appName">App</label>
+<select id="appName" name="appName" required="">
+<option value="Swift Invoice">Swift Invoice</option>
+<option value="Wolfpack Labs Website">Wolfpack Labs Website</option>
+<option value="Other / Not Sure">Other / Not Sure</option>
+</select>
+</div>
+</div>
+<div>
+<label for="subject">Subject</label>
+<input id="subject" maxlength="120" name="subject" required="" type="text"/>
+</div>
+<div>
+<label for="message">Message</label>
+<textarea id="message" name="message" placeholder="Tell us what happened, what you expected, and any steps to reproduce the issue if this is a bug report." required=""></textarea>
+<div class="help-text">
             Please do not include passwords, payment card numbers, or other sensitive information.
           </div>
-        </div>
-
-        <div class="actions">
-          <button id="submitButton" type="submit">Send Message</button>
-          <a href="contact.html">Or email support@wolfpack-labs.com</a>
-        </div>
-
-        <div style="position:absolute; left:-9999px; top:auto; width:1px; height:1px; overflow:hidden;" aria-hidden="true">
-          <label for="company_website">Company Website</label>
-          <input
-            type="text"
-            id="company_website"
-            name="company_website"
-            tabindex="-1"
-            autocomplete="off"
-          />
-        </div>
-      </form>
-    </section>
-  <footer class="site-footer" aria-label="Footer navigation">
-    <nav class="footer-nav" aria-label="Footer navigation">
-      <a href="index.html">Home</a>
-      <a href="data-request-deletion.html">Data Request</a>
-      <a href="contact.html">Contact</a>
-    </nav>
-    <div class="footer-meta">© 2026 Wolfpack Labs LLC. All rights reserved.</div>
-  </footer>
-  </main>
-
-  <script>
+</div>
+<div class="actions">
+<button id="submitButton" type="submit">Send Message</button>
+<a href="contact.html">Or email support@wolfpack-labs.com</a>
+</div>
+<div aria-hidden="true" style="position:absolute; left:-9999px; top:auto; width:1px; height:1px; overflow:hidden;">
+<label for="company_website">Company Website</label>
+<input autocomplete="off" id="company_website" name="company_website" tabindex="-1" type="text"/>
+</div>
+</form>
+</section>
+<footer aria-label="Footer navigation" class="site-footer">
+<nav aria-label="Footer navigation" class="footer-nav">
+<a href="index.html">Home</a>
+<a href="data-request-deletion.html">Data Request</a>
+<a href="contact.html">Contact</a>
+</nav>
+<div class="footer-meta">© 2026 Wolfpack Labs LLC. All rights reserved.</div>
+</footer>
+</main>
+<script>
     const SUPPORT_FUNCTION_URL = "https://gwmckwqxnrnzqmhvodgm.supabase.co/functions/v1/contact-form";
 
     const form = document.getElementById("contactForm");

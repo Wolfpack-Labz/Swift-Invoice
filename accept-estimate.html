@@ -1,85 +1,79 @@
-<!doctype html>
+<!DOCTYPE html>
+
 <html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="robots" content="noindex, nofollow" />
-    <title>Respond to Estimate | Swift Invoice</title>
-  <link rel="stylesheet" href="styles/shared.css" />
-  <link rel="stylesheet" href="styles/pages/accept-estimate.css" />
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1" name="viewport"/>
+<meta content="noindex, nofollow" name="robots"/>
+<title>Respond to Estimate | Swift Invoice</title>
+<link href="styles/shared.css" rel="stylesheet"/>
+<link href="styles/pages/accept-estimate.css" rel="stylesheet"/>
 </head>
-
-  <body>
-    <main class="page public-page estimate-response-page">
-    <header class="topbar">
-      <a class="brand" href="index.html" aria-label="Wolfpack Labs homepage">
-        <div class="brand-logo">
-          <img src="images/favicon.png" alt="Wolfpack Labs logo" />
-        </div>
-        <div>
-          <h1>Wolfpack Labs</h1>
-          <p>Simple apps for everyday people</p>
-        </div>
-      </a>
-      <nav class="nav" aria-label="Primary navigation">
-        <a href="index.html#apps">Apps</a>
-        <a href="index.html#updates">Updates</a>
-        <a href="contact.html">Contact</a>
-      </nav>
-    </header>
-
-      <section class="card" aria-live="polite">
-        <div class="brand">Swift Invoice</div>
-        <h1>Estimate Response</h1>
-        <p id="intro">Loading estimate details...</p>
-
-        <section id="summary" class="summary hidden" aria-label="Estimate summary">
-          <div class="row">
-            <span class="label">Estimate</span>
-            <span id="estimateNumber" class="value">—</span>
-          </div>
-          <div class="row">
-            <span class="label">Customer</span>
-            <span id="customerName" class="value">—</span>
-          </div>
-          <div class="row">
-            <span class="label">Business</span>
-            <span id="businessName" class="value">—</span>
-          </div>
-          <div class="row">
-            <span class="label">Estimated total</span>
-            <span id="estimateTotal" class="value">—</span>
-          </div>
-          <div class="row">
-            <span class="label">Status</span>
-            <span id="estimateStatus" class="value">—</span>
-          </div>
-        </section>
-
-        <section id="actions" class="actions hidden" aria-label="Estimate response actions">
-          <button id="acceptButton" class="accept" type="button">Accept Estimate</button>
-          <button id="declineButton" class="decline" type="button">Decline Estimate</button>
-        </section>
-
-        <div id="message" class="message info">Please wait while we load the estimate.</div>
-
-        <details id="debug" class="debug hidden">
-          <summary>Troubleshooting details</summary>
-          <code id="debugText"></code>
-        </details>
-      </section>
-    </main>
-
-  <footer class="site-footer" aria-label="Footer navigation">
-    <nav class="footer-nav" aria-label="Footer navigation">
-      <a href="index.html">Home</a>
-      <a href="data-request-deletion.html">Data Request</a>
-      <a href="contact.html">Contact</a>
-    </nav>
-    <div class="footer-meta">© 2026 Wolfpack Labs LLC. All rights reserved.</div>
-  </footer>
-
-    <script>
+<body>
+<main class="page public-page estimate-response-page">
+<header class="topbar">
+<a aria-label="Wolfpack Labs homepage" class="brand" href="index.html">
+<div class="brand-logo">
+<img alt="Wolfpack Labs logo" src="images/favicon.png"/>
+</div>
+<div>
+<h1>Wolfpack Labs</h1>
+<p>Simple apps for everyday people</p>
+</div>
+</a>
+<nav aria-label="Primary navigation" class="nav">
+<a href="index.html#apps">Apps</a>
+<a href="index.html#legal">Legal Docs</a>
+<a href="index.html#updates">Updates</a>
+<a href="contact.html">Contact</a>
+</nav>
+</header>
+<section aria-live="polite" class="card">
+<div class="brand">Swift Invoice</div>
+<h1>Estimate Response</h1>
+<p id="intro">Loading estimate details...</p>
+<section aria-label="Estimate summary" class="summary hidden" id="summary">
+<div class="row">
+<span class="label">Estimate</span>
+<span class="value" id="estimateNumber">—</span>
+</div>
+<div class="row">
+<span class="label">Customer</span>
+<span class="value" id="customerName">—</span>
+</div>
+<div class="row">
+<span class="label">Business</span>
+<span class="value" id="businessName">—</span>
+</div>
+<div class="row">
+<span class="label">Estimated total</span>
+<span class="value" id="estimateTotal">—</span>
+</div>
+<div class="row">
+<span class="label">Status</span>
+<span class="value" id="estimateStatus">—</span>
+</div>
+</section>
+<section aria-label="Estimate response actions" class="actions hidden" id="actions">
+<button class="accept" id="acceptButton" type="button">Accept Estimate</button>
+<button class="decline" id="declineButton" type="button">Decline Estimate</button>
+</section>
+<div class="message info" id="message">Please wait while we load the estimate.</div>
+<details class="debug hidden" id="debug">
+<summary>Troubleshooting details</summary>
+<code id="debugText"></code>
+</details>
+</section>
+</main>
+<footer aria-label="Footer navigation" class="site-footer">
+<nav aria-label="Footer navigation" class="footer-nav">
+<a href="index.html">Home</a>
+<a href="data-request-deletion.html">Data Request</a>
+<a href="contact.html">Contact</a>
+</nav>
+<div class="footer-meta">© 2026 Wolfpack Labs LLC. All rights reserved.</div>
+</footer>
+<script>
       const SUPABASE_URL = 'https://gwmckwqxnrnzqmhvodgm.supabase.co';
       const ACCEPT_ESTIMATE_FUNCTION_URL = `${SUPABASE_URL}/functions/v1/accept-estimate`;
 
