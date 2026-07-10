@@ -113,3 +113,18 @@
   .public-page .public-card { padding: 24px 20px; border-radius: 22px; }
   .public-page .row { grid-template-columns: 1fr; gap: 4px; }
 }
+
+/* Keep the shared site header readable on the estimate response page.
+   Earlier public-page heading rules were broad enough to override .brand h1. */
+.public-page .topbar .brand h1 {
+  color: #ffffff;
+}
+
+.public-page .topbar .brand p {
+  color: #cbd5e1;
+}
+
+.public-page .topbar .brand:hover h1,
+.public-page .topbar .brand:focus-visible h1 {
+  color: #ffffff;
+}
