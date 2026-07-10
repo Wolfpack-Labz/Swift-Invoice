@@ -8,8 +8,10 @@
   padding: clamp(24px, 4vw, 42px);
 }
 .public-page .card > .brand,
+.public-page .card > .eyebrow,
 .public-page .public-brand {
   display: inline-flex;
+  align-items: center;
   width: fit-content;
   margin-bottom: 16px;
   padding: 8px 12px;
@@ -19,15 +21,15 @@
   border: 1px solid #bfdbfe;
   font-size: 12px;
   font-weight: 900;
-  letter-spacing: 0.05em;
+  letter-spacing: 0.04em;
   text-transform: uppercase;
 }
 .public-page h1 {
   margin: 0;
   color: #0f172a;
-  font-size: clamp(30px, 5vw, 48px);
-  line-height: 1;
-  letter-spacing: -1.4px;
+  font-size: clamp(32px, 5vw, 52px);
+  line-height: 0.98;
+  letter-spacing: -1.6px;
 }
 .public-page p {
   color: var(--text-soft);
