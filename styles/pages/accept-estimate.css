@@ -1,3 +1,28 @@
+    .brand-logo {
+      width: 52px;
+      height: 52px;
+      flex: 0 0 52px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+      border-radius: 15px;
+      background: rgba(255, 255, 255, 0.08);
+    }
+
+    .brand-logo img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+    }
+
+    .brand h1 {
+      margin: 0;
+      font-size: 22px;
+      line-height: 1.1;
+      letter-spacing: -0.4px;
+    }
+    
 .public-page {
   min-height: calc(100vh - 120px);
 }
@@ -127,4 +152,38 @@
 .public-page .topbar .brand:hover h1,
 .public-page .topbar .brand:focus-visible h1 {
   color: #ffffff;
+}
+
+/* Match the homepage/index header logo styling.
+   accept-estimate.css loads after shared.css, so this page-specific override
+   must keep the same final .brand-logo values used on the index page. */
+.public-page .topbar .brand-logo,
+.estimate-response-page .topbar .brand-logo {
+  width: 52px;
+  height: 52px;
+  flex: 0 0 52px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  border-radius: 15px;
+  background: rgba(255, 255, 255, 0.10);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  box-shadow: 0 14px 30px rgba(2, 6, 23, 0.24);
+}
+
+.public-page .topbar .brand-logo img,
+.estimate-response-page .topbar .brand-logo img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+@media (max-width: 620px) {
+  .public-page .topbar .brand-logo,
+  .estimate-response-page .topbar .brand-logo {
+    width: 46px;
+    height: 46px;
+    flex-basis: 46px;
+  }
 }
