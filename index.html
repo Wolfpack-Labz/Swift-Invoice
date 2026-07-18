@@ -43,6 +43,192 @@
 <link href="images/favicon.png" rel="apple-touch-icon" sizes="180x180"/>
 <link href="styles/shared.css" rel="stylesheet"/>
 <link href="styles/pages/index.css" rel="stylesheet"/>
+
+<style>
+  /* Swift Invoice video + screenshot preview */
+  .product-preview-layout {
+    display: grid;
+    grid-template-columns: minmax(260px, 320px) minmax(0, 1fr);
+    align-items: start;
+    gap: clamp(20px, 3vw, 34px);
+    margin-top: 22px;
+  }
+
+  .product-preview-layout > .screenshots-gallery {
+    min-width: 0;
+    margin: 0;
+  }
+
+  .walkthrough-card {
+    width: 100%;
+    max-width: 320px;
+    margin: 0;
+    overflow: hidden;
+    justify-self: start;
+    border: 1px solid rgba(148, 163, 184, 0.22);
+    border-radius: 24px;
+    background: rgba(15, 23, 42, 0.72);
+    box-shadow: 0 18px 42px rgba(2, 8, 23, 0.2);
+  }
+
+  .walkthrough-toolbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+    padding: 12px;
+  }
+
+  .walkthrough-heading {
+    display: flex;
+    align-items: center;
+    gap: 9px;
+    min-width: 0;
+  }
+
+  .walkthrough-play-icon {
+    display: grid;
+    flex: 0 0 auto;
+    width: 34px;
+    height: 34px;
+    place-items: center;
+    border-radius: 10px;
+    background: rgba(59, 130, 246, 0.16);
+    color: #93c5fd;
+  }
+
+  .walkthrough-play-icon svg {
+    width: 17px;
+    height: 17px;
+    fill: currentColor;
+  }
+
+  .walkthrough-title {
+    display: block;
+    margin: 0;
+    color: #f8fafc;
+    font-size: 0.9rem;
+    font-weight: 750;
+    line-height: 1.25;
+  }
+
+  .walkthrough-subtitle {
+    display: none;
+  }
+
+  .walkthrough-toggle {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+    flex: 0 0 auto;
+    min-height: 32px;
+    padding: 6px 9px;
+    border: 1px solid rgba(148, 163, 184, 0.28);
+    border-radius: 999px;
+    background: rgba(15, 23, 42, 0.58);
+    color: #e2e8f0;
+    font: inherit;
+    font-size: 0.76rem;
+    font-weight: 700;
+    cursor: pointer;
+  }
+
+  .walkthrough-toggle:hover {
+    border-color: rgba(147, 197, 253, 0.62);
+    background: rgba(30, 41, 59, 0.92);
+  }
+
+  .walkthrough-toggle:focus-visible {
+    outline: 3px solid rgba(96, 165, 250, 0.42);
+    outline-offset: 2px;
+  }
+
+  .walkthrough-toggle-icon {
+    font-size: 0.95rem;
+    line-height: 1;
+    transition: transform 180ms ease;
+  }
+
+  .walkthrough-toggle[aria-expanded="false"] .walkthrough-toggle-icon {
+    transform: rotate(180deg);
+  }
+
+  .walkthrough-player-wrap {
+    padding: 0 10px 10px;
+  }
+
+  .walkthrough-player {
+    display: block;
+    width: 100%;
+    aspect-ratio: 9 / 19.5;
+    border: 7px solid #020617;
+    border-radius: 38px;
+    background: #020617;
+    box-shadow:
+      0 0 0 1px rgba(148, 163, 184, 0.24),
+      0 14px 34px rgba(2, 8, 23, 0.36);
+    object-fit: contain;
+  }
+
+  .walkthrough-note {
+    margin: 9px 3px 1px;
+    color: #94a3b8;
+    font-size: 0.72rem;
+    line-height: 1.4;
+    overflow-wrap: anywhere;
+  }
+
+  @media (max-width: 900px) {
+    .product-preview-layout {
+      grid-template-columns: minmax(0, 1fr);
+    }
+
+    .walkthrough-card {
+      width: min(100%, 340px);
+      max-width: 340px;
+      justify-self: center;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .product-preview-layout {
+      gap: 18px;
+      margin-top: 18px;
+    }
+
+    .walkthrough-card {
+      width: min(100%, 320px);
+      border-radius: 20px;
+    }
+
+    .walkthrough-toolbar {
+      padding: 10px;
+    }
+
+    .walkthrough-toggle-label {
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      padding: 0;
+      margin: -1px;
+      overflow: hidden;
+      clip: rect(0, 0, 0, 0);
+      white-space: nowrap;
+      border: 0;
+    }
+
+    .walkthrough-toggle {
+      width: 32px;
+      padding: 0;
+    }
+
+    .walkthrough-player {
+      border-width: 6px;
+      border-radius: 34px;
+    }
+  }
+</style>
 </head>
 <body>
 <main class="page">
@@ -135,6 +321,10 @@
             </p>
 </div>
 <div class="app-header-actions">
+<span class="app-icon-chip">
+<img alt="" aria-hidden="true" src="images/swift.png"/>
+              App icon preview
+            </span>
 <span class="status-pill">Active documentation</span>
 </div>
 </div>
@@ -211,12 +401,41 @@
 <div class="screenshots-header">
 <div>
 <span class="section-kicker gallery-kicker">Product preview</span>
-<h5 id="swift-screenshots-title">App screenshots</h5>
-<p>Swipe, scroll, or use the arrows to browse smaller previews. Tap any screenshot to open the full-size viewer.</p>
+<h5 id="swift-screenshots-title">Video walkthrough &amp; app screenshots</h5>
+<p>Watch the walkthrough, then swipe, scroll, or use the arrows to browse the app screens.</p>
 </div>
 <div aria-label="Screenshot gallery controls" class="gallery-controls">
 <button aria-label="Scroll to previous screenshot" class="gallery-control" data-gallery-action="previous" type="button">‹</button>
 <button aria-label="Scroll to next screenshot" class="gallery-control" data-gallery-action="next" type="button">›</button>
+</div>
+</div>
+
+<div class="product-preview-layout">
+<div class="walkthrough-card" id="swift-walkthrough">
+<div class="walkthrough-toolbar">
+<div class="walkthrough-heading">
+<span aria-hidden="true" class="walkthrough-play-icon">
+<svg focusable="false" viewBox="0 0 24 24">
+<path d="M8 5.5v13l10-6.5-10-6.5Z"></path>
+</svg>
+</span>
+<div>
+<span class="walkthrough-title">Swift Invoice video walkthrough</span>
+<span class="walkthrough-subtitle">See the main invoice workflow before browsing the screenshots.</span>
+</div>
+</div>
+<button aria-controls="swift-walkthrough-player" aria-expanded="true" class="walkthrough-toggle" id="walkthrough-toggle" type="button">
+<span class="walkthrough-toggle-label">Minimize</span>
+<span aria-hidden="true" class="walkthrough-toggle-icon">⌃</span>
+</button>
+</div>
+<div class="walkthrough-player-wrap" id="swift-walkthrough-player">
+<video class="walkthrough-player" controls="" playsinline="" poster="images/screenshots/swift-dashboard.jpg" preload="metadata">
+<source src="videos/swift-invoice-walkthrough.mp4" type="video/mp4"/>
+Your browser does not support embedded video. Add the walkthrough file at
+<a href="videos/swift-invoice-walkthrough.mp4">videos/swift-invoice-walkthrough.mp4</a>.
+</video>
+<p class="walkthrough-note">Replace <code>videos/swift-invoice-walkthrough.mp4</code> with your final video filename if needed.</p>
 </div>
 </div>
 <div aria-label="Swift Invoice screenshot carousel" class="screenshots-gallery">
@@ -286,6 +505,7 @@
 </div>
 <div class="gallery-footer">
 <div aria-label="Screenshot gallery navigation" class="gallery-dots" id="swift-screenshot-dots"></div>
+</div>
 </div>
 </div>
 </section>
@@ -419,6 +639,33 @@
         } finally {
           subscribeButton.disabled = false;
           subscribeButton.textContent = 'Notify Me';
+        }
+      });
+    }
+
+
+
+    const walkthroughToggle = document.getElementById('walkthrough-toggle');
+    const walkthroughPlayerWrap = document.getElementById('swift-walkthrough-player');
+    const walkthroughVideo = walkthroughPlayerWrap
+      ? walkthroughPlayerWrap.querySelector('video')
+      : null;
+
+    if (walkthroughToggle && walkthroughPlayerWrap) {
+      walkthroughToggle.addEventListener('click', () => {
+        const isExpanded = walkthroughToggle.getAttribute('aria-expanded') === 'true';
+        const nextExpandedState = !isExpanded;
+        const label = walkthroughToggle.querySelector('.walkthrough-toggle-label');
+
+        walkthroughToggle.setAttribute('aria-expanded', String(nextExpandedState));
+        walkthroughPlayerWrap.hidden = !nextExpandedState;
+
+        if (label) {
+          label.textContent = nextExpandedState ? 'Minimize' : 'Expand video';
+        }
+
+        if (!nextExpandedState && walkthroughVideo) {
+          walkthroughVideo.pause();
         }
       });
     }
