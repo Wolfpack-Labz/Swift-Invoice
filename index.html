@@ -48,7 +48,7 @@
   /* Swift Invoice video + screenshot preview */
   .product-preview-layout {
     display: grid;
-    grid-template-columns: minmax(260px, 320px) minmax(0, 1fr);
+    grid-template-columns: minmax(208px, 256px) minmax(0, 1fr);
     align-items: start;
     gap: clamp(20px, 3vw, 34px);
     margin-top: 22px;
@@ -61,7 +61,7 @@
 
   .walkthrough-card {
     width: 100%;
-    max-width: 320px;
+    max-width: 256px;
     margin: 0;
     overflow: hidden;
     justify-self: start;
@@ -185,8 +185,8 @@
     }
 
     .walkthrough-card {
-      width: min(100%, 340px);
-      max-width: 340px;
+      width: min(100%, 272px);
+      max-width: 272px;
       justify-self: center;
     }
   }
@@ -198,7 +198,7 @@
     }
 
     .walkthrough-card {
-      width: min(100%, 320px);
+      width: min(100%, 256px);
       border-radius: 20px;
     }
 
@@ -430,31 +430,30 @@
 </button>
 </div>
 <div class="walkthrough-player-wrap" id="swift-walkthrough-player">
-<video class="walkthrough-player" autoplay="" muted="" controls="" playsinline="" poster="images/screenshots/swift-invoice-walkthrough.mp4" preload="auto">
-<source src="images/screenshots/swift-invoice-walkthrough.mp4" type="video/mp4"/>
-Your browser does not support embedded video. Add the walkthrough file at
-<a href="images/screenshots/swift-invoice-walkthrough.mp4">videos/swift-invoice-walkthrough.mp4</a>.
+<video class="walkthrough-player" autoplay="" muted="" controls="" playsinline="" poster="images/screenshots/swift-dashboard.jpeg" preload="metadata">
+<source src="images/swift_invoice_demo.mp4" type="video/mp4"/>
+Your browser does not support embedded video.
+<a href="images/swift_invoice_demo.mp4">Open the Swift Invoice walkthrough video.</a>
 </video>
-<p class="walkthrough-note">Replace <code>videos/swift-invoice-walkthrough.mp4</code> with your final video filename if needed.</p>
 </div>
 </div>
 <div aria-label="Swift Invoice screenshot carousel" class="screenshots-gallery">
 <div class="gallery-viewport">
 <div aria-label="Scrollable Swift Invoice screenshots" class="screenshots-grid" id="swift-screenshot-gallery" tabindex="0">
 <figure class="screenshot-card">
-<button aria-label="Open enlarged screenshot: Login screen" class="screenshot-trigger" data-image="images/screenshots/login.jpeg" data-title="Login screen" type="button">
+<button aria-label="Open enlarged screenshot: Secure sign in" class="screenshot-trigger" data-image="images/screenshots/swift-login.jpeg" data-title="Secure sign in" type="button">
 <span class="screenshot-badge">01</span>
-<img alt="Swift Invoice login screenshot" src="images/screenshots/login.jpeg"/>
+<img alt="Swift Invoice secure sign-in screen" src="images/screenshots/swift-login.jpeg"/>
 </button>
 <figcaption>
-<span>Login screen</span>
+<span>Secure sign in</span>
 <span>Click to expand</span>
 </figcaption>
 </figure>
 <figure class="screenshot-card">
-<button aria-label="Open enlarged screenshot: Dashboard overview" class="screenshot-trigger" data-image="images/screenshots/swift-dashboard.jpg" data-title="Dashboard overview" type="button">
+<button aria-label="Open enlarged screenshot: Dashboard overview" class="screenshot-trigger" data-image="images/screenshots/swift-dashboard.jpeg" data-title="Dashboard overview" type="button">
 <span class="screenshot-badge">02</span>
-<img alt="Swift Invoice dashboard screenshot" src="images/screenshots/swift-dashboard.jpeg"/>
+<img alt="Swift Invoice dashboard overview" src="images/screenshots/swift-dashboard.jpeg"/>
 </button>
 <figcaption>
 <span>Dashboard overview</span>
@@ -462,42 +461,52 @@ Your browser does not support embedded video. Add the walkthrough file at
 </figcaption>
 </figure>
 <figure class="screenshot-card">
-<button aria-label="Open enlarged screenshot: Create invoices" class="screenshot-trigger" data-image="images/screenshots/swift-create-invoice.jpeg" data-title="Create invoices" type="button">
+<button aria-label="Open enlarged screenshot: Invoices &amp; payments" class="screenshot-trigger" data-image="images/screenshots/swift-invoice.jpeg" data-title="Invoices &amp; payments" type="button">
 <span class="screenshot-badge">03</span>
-<img alt="Swift Invoice create invoice screenshot" src="images/screenshots/swift-invoice.jpeg"/>
+<img alt="Swift Invoice invoice and payment tracking screen" src="images/screenshots/swift-invoice.jpeg"/>
 </button>
 <figcaption>
-<span>Create invoices</span>
+<span>Invoices &amp; payments</span>
 <span>Click to expand</span>
 </figcaption>
 </figure>
 <figure class="screenshot-card">
-<button aria-label="Open enlarged screenshot: Customer details" class="screenshot-trigger" data-image="images/screenshots/swift-customer-details.jpeg" data-title="Customer details" type="button">
+<button aria-label="Open enlarged screenshot: Custom branding" class="screenshot-trigger" data-image="images/screenshots/swift-custom.jpeg" data-title="Custom branding" type="button">
 <span class="screenshot-badge">04</span>
-<img alt="Swift Invoice customer details screenshot" src="images/screenshots/swift-custom.jpeg"/>
+<img alt="Swift Invoice custom branding screen" src="images/screenshots/swift-custom.jpeg"/>
 </button>
 <figcaption>
-<span>Customer details</span>
+<span>Custom branding</span>
 <span>Click to expand</span>
 </figcaption>
 </figure>
 <figure class="screenshot-card">
-<button aria-label="Open enlarged screenshot: Reports" class="screenshot-trigger" data-image="images/screenshots/swift-reports.jpeg" data-title="Reports" type="button">
+<button aria-label="Open enlarged screenshot: Job tracking" class="screenshot-trigger" data-image="images/screenshots/swift-jobs.jpeg" data-title="Job tracking" type="button">
 <span class="screenshot-badge">05</span>
-<img alt="Swift Invoice reports screenshot" src="images/screenshots/swift-jobs.jpeg"/>
+<img alt="Swift Invoice job tracking screen" src="images/screenshots/swift-jobs.jpeg"/>
 </button>
 <figcaption>
-<span>Reports</span>
+<span>Job tracking</span>
 <span>Click to expand</span>
 </figcaption>
 </figure>
 <figure class="screenshot-card">
-<button aria-label="Open enlarged screenshot: Add images" class="screenshot-trigger" data-image="images/screenshots/swift-images.jpeg" data-title="Add images" type="button">
+<button aria-label="Open enlarged screenshot: Notifications" class="screenshot-trigger" data-image="images/screenshots/swift-notification.jpeg" data-title="Notifications" type="button">
 <span class="screenshot-badge">06</span>
-<img alt="Swift Invoice add images to PDF screenshot" src="images/screenshots/swift-notification.jpeg"/>
+<img alt="Swift Invoice notification settings screen" src="images/screenshots/swift-notification.jpeg"/>
 </button>
 <figcaption>
-<span>Add images</span>
+<span>Notifications</span>
+<span>Click to expand</span>
+</figcaption>
+</figure>
+<figure class="screenshot-card">
+<button aria-label="Open enlarged screenshot: Saved items &amp; templates" class="screenshot-trigger" data-image="images/screenshots/swift-template.jpeg" data-title="Saved items &amp; templates" type="button">
+<span class="screenshot-badge">07</span>
+<img alt="Swift Invoice saved items and templates screen" src="images/screenshots/swift-template.jpeg"/>
+</button>
+<figcaption>
+<span>Saved items &amp; templates</span>
 <span>Click to expand</span>
 </figcaption>
 </figure>
