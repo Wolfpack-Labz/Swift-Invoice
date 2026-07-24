@@ -112,6 +112,12 @@ button, input, textarea, select { font: inherit; }
   transition: transform 0.18s ease, background 0.18s ease, border-color 0.18s ease;
 }
 
+.nav a[aria-current="page"] {
+  color: #ffffff;
+  background: rgba(37, 99, 235, 0.96);
+  border-color: rgba(191, 219, 254, 0.75);
+}
+
 .nav a:hover,
 .nav a:focus-visible {
   background: rgba(37, 99, 235, 0.96);
