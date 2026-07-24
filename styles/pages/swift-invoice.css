@@ -27,6 +27,8 @@
 
 .swift-screen-card {
   flex: 0 0 clamp(132px, 14vw, 170px);
+  align-self: flex-start;
+  height: fit-content;
   width: clamp(132px, 14vw, 170px);
   min-width: clamp(132px, 14vw, 170px);
   max-width: 170px;
@@ -39,12 +41,16 @@
 }
 
 .swift-screen-card img {
+  display: block;
   width: 100%;
-  min-height: 250px;
-  aspect-ratio: 9 / 19.5;
-  object-fit: cover;
-  object-position: top center;
+  height: auto;
+  min-height: 0;
+  max-height: none;
+  aspect-ratio: auto;
+  object-fit: contain;
+  object-position: center;
   border-radius: 0;
+  background: #ffffff;
   box-shadow: none;
 }
 
@@ -97,7 +103,7 @@
 
 .swift-screen-row {
   display: flex;
-  align-items: stretch;
+  align-items: flex-start;
   gap: 16px;
   padding: 5px 5px 14px;
   overflow-x: auto;
@@ -152,8 +158,10 @@
   }
 
   .swift-screen-card img {
-    min-height: 176px;
-    aspect-ratio: 9 / 18.8;
+    height: auto;
+    min-height: 0;
+    aspect-ratio: auto;
+    object-fit: contain;
   }
 
   .swift-screen-card figcaption {
@@ -186,6 +194,7 @@
   }
 
   .swift-screen-card img {
-    min-height: 160px;
+    height: auto;
+    min-height: 0;
   }
 }
