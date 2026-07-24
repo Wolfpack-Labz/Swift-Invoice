@@ -2,90 +2,27 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
   <url>
     <loc>https://wolfpack-labs.com/</loc>
-    <lastmod>2026-07-23</lastmod>
-    <image:image>
-      <image:loc>https://wolfpack-labs.com/images/link-preview.png</image:loc>
-      <image:title>Swift Invoice mobile invoicing app for contractors and freelancers</image:title>
-    </image:image>
-    <image:image>
-      <image:loc>https://wolfpack-labs.com/images/screenshots/swift-dashboard.jpeg</image:loc>
-      <image:title>Swift Invoice dashboard showing invoices, estimates, jobs, and payments</image:title>
-    </image:image>
-    <image:image>
-      <image:loc>https://wolfpack-labs.com/images/screenshots/swift-invoice.jpeg</image:loc>
-      <image:title>Swift Invoice invoice and payment tracking screen</image:title>
-    </image:image>
-    <image:image>
-      <image:loc>https://wolfpack-labs.com/images/screenshots/swift-jobs.jpeg</image:loc>
-      <image:title>Swift Invoice job tracking screen</image:title>
-    </image:image>
-    <image:image>
-      <image:loc>https://wolfpack-labs.com/images/screenshots/swift-custom.jpeg</image:loc>
-      <image:title>Swift Invoice custom business branding screen</image:title>
-    </image:image>
+    <lastmod>2026-07-24</lastmod>
+    <image:image><image:loc>https://wolfpack-labs.com/images/link-preview.png</image:loc><image:title>Swift Invoice mobile invoicing app for contractors and freelancers</image:title></image:image>
+    <image:image><image:loc>https://wolfpack-labs.com/images/screenshots/swift-dashboard.jpeg</image:loc><image:title>Swift Invoice dashboard showing invoices estimates jobs and payments</image:title></image:image>
   </url>
   <url>
-    <loc>https://wolfpack-labs.com/invoice-app-for-contractors.html</loc>
-    <lastmod>2026-07-23</lastmod>
-    <image:image>
-      <image:loc>https://wolfpack-labs.com/images/screenshots/swift-jobs.jpeg</image:loc>
-      <image:title>Contractor job tracking in Swift Invoice</image:title>
-    </image:image>
-    <image:image>
-      <image:loc>https://wolfpack-labs.com/images/screenshots/swift-invoice.jpeg</image:loc>
-      <image:title>Contractor invoice and payment tracking in Swift Invoice</image:title>
-    </image:image>
-  </url>
-  <url>
-    <loc>https://wolfpack-labs.com/invoice-app-for-freelancers.html</loc>
-    <lastmod>2026-07-23</lastmod>
-    <image:image>
-      <image:loc>https://wolfpack-labs.com/images/screenshots/swift-custom.jpeg</image:loc>
-      <image:title>Custom branding for freelance estimates and invoices</image:title>
-    </image:image>
-    <image:image>
-      <image:loc>https://wolfpack-labs.com/images/screenshots/swift-customer-details.jpeg</image:loc>
-      <image:title>Freelance client and customer details in Swift Invoice</image:title>
-    </image:image>
+    <loc>https://wolfpack-labs.com/swift-invoice.html</loc>
+    <lastmod>2026-07-24</lastmod>
+    <image:image><image:loc>https://wolfpack-labs.com/images/screenshots/swift-jobs.jpeg</image:loc><image:title>Contractor job tracking in Swift Invoice</image:title></image:image>
+    <image:image><image:loc>https://wolfpack-labs.com/images/screenshots/swift-custom.jpeg</image:loc><image:title>Custom branding for freelance estimates and invoices</image:title></image:image>
+    <image:image><image:loc>https://wolfpack-labs.com/images/screenshots/swift-invoice.jpeg</image:loc><image:title>Invoice and payment tracking in Swift Invoice</image:title></image:image>
   </url>
   <url>
     <loc>https://wolfpack-labs.com/invoice-vs-estimate.html</loc>
-    <lastmod>2026-07-23</lastmod>
-    <image:image>
-      <image:loc>https://wolfpack-labs.com/images/screenshots/swift-template.jpeg</image:loc>
-      <image:title>Saved invoice and estimate items and templates</image:title>
-    </image:image>
-    <image:image>
-      <image:loc>https://wolfpack-labs.com/images/screenshots/swift-invoice.jpeg</image:loc>
-      <image:title>Invoice and payment status screen in Swift Invoice</image:title>
-    </image:image>
+    <lastmod>2026-07-24</lastmod>
+    <image:image><image:loc>https://wolfpack-labs.com/images/screenshots/swift-template.jpeg</image:loc><image:title>Saved invoice and estimate items and templates</image:title></image:image>
   </url>
-  <url>
-    <loc>https://wolfpack-labs.com/contact.html</loc>
-    <lastmod>2026-07-23</lastmod>
-  </url>
-  <url>
-    <loc>https://wolfpack-labs.com/privacy-policy.html</loc>
-    <lastmod>2026-05-31</lastmod>
-  </url>
-  <url>
-    <loc>https://wolfpack-labs.com/terms.html</loc>
-    <lastmod>2026-05-31</lastmod>
-  </url>
-  <url>
-    <loc>https://wolfpack-labs.com/disclosures.html</loc>
-    <lastmod>2026-05-31</lastmod>
-  </url>
-  <url>
-    <loc>https://wolfpack-labs.com/payment-disclosure.html</loc>
-    <lastmod>2026-05-31</lastmod>
-  </url>
-  <url>
-    <loc>https://wolfpack-labs.com/customer-privacy-notice.html</loc>
-    <lastmod>2026-06-01</lastmod>
-  </url>
-  <url>
-    <loc>https://wolfpack-labs.com/data-request-deletion.html</loc>
-    <lastmod>2026-05-26</lastmod>
-  </url>
+  <url><loc>https://wolfpack-labs.com/contact.html</loc><lastmod>2026-07-24</lastmod></url>
+  <url><loc>https://wolfpack-labs.com/privacy-policy.html</loc><lastmod>2026-05-31</lastmod></url>
+  <url><loc>https://wolfpack-labs.com/terms.html</loc><lastmod>2026-05-31</lastmod></url>
+  <url><loc>https://wolfpack-labs.com/disclosures.html</loc><lastmod>2026-05-31</lastmod></url>
+  <url><loc>https://wolfpack-labs.com/payment-disclosure.html</loc><lastmod>2026-05-31</lastmod></url>
+  <url><loc>https://wolfpack-labs.com/customer-privacy-notice.html</loc><lastmod>2026-06-01</lastmod></url>
+  <url><loc>https://wolfpack-labs.com/data-request-deletion.html</loc><lastmod>2026-05-26</lastmod></url>
 </urlset>

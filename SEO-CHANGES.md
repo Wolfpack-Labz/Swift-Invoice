@@ -29,3 +29,12 @@ These changes improve crawlability, relevance, search-result presentation, inter
 
 - Restored the homepage video and screenshot gallery markup to the previous layout so card sizes and responsive behavior match the original site.
 - Kept the optimized screenshot files and all SEO landing pages, metadata, schema, sitemap, and crawlability improvements.
+
+
+## Navigation and product-page consolidation — 2026-07-24
+
+- Restored the simple four-item primary navigation: **Apps, Legal Docs, Updates, Contact**.
+- Consolidated the separate contractor and freelancer landing pages into `swift-invoice.html`.
+- Preserved audience-specific SEO content with dedicated `#contractors` and `#freelancers` sections.
+- Converted the former contractor and freelancer URLs into `noindex` compatibility redirects so old links still reach the correct section.
+- Updated internal links, footer navigation, and `sitemap.xml`.
