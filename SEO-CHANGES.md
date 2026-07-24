@@ -25,3 +25,7 @@ Updated July 23, 2026.
 ## Important
 
 These changes improve crawlability, relevance, search-result presentation, internal linking, and page performance. Search engines still decide whether and where pages rank. Organic growth will also depend on indexing, useful first-hand content, external mentions/links, product demand, and user engagement after deployment.
+## Gallery sizing correction
+
+- Restored the homepage video and screenshot gallery markup to the previous layout so card sizes and responsive behavior match the original site.
+- Kept the optimized screenshot files and all SEO landing pages, metadata, schema, sitemap, and crawlability improvements.
