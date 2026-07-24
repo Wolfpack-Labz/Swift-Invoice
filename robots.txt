@@ -1,11 +1,4 @@
-# Allow all search engines
 User-agent: *
 Allow: /
 
-# Block sensitive/system folders if added later
-Disallow: /admin/
-Disallow: /private/
-Disallow: /api/
-
-# Sitemap
 Sitemap: https://wolfpack-labs.com/sitemap.xml
