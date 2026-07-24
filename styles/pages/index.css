@@ -78,7 +78,8 @@
       object-fit: contain;
     }
 
-    .brand h1 {
+    .brand h1,
+.brand-name {
       margin: 0;
       font-size: 22px;
       line-height: 1.1;
@@ -257,6 +258,7 @@
       margin-bottom: 24px;
     }
 
+    .section-header h2,
     .section-header h3 {
       margin: 0;
       font-size: 24px;
@@ -305,6 +307,7 @@
       border-color: rgba(191, 219, 254, 0.28);
     }
 
+    .subscribe-copy h2,
     .subscribe-copy h3 {
       margin: 0;
       color: white;
@@ -529,6 +532,7 @@
       margin-bottom: 14px;
     }
 
+    .screenshots-header h3,
     .screenshots-header h5 {
       margin: 0;
       color: #0f172a;
@@ -635,6 +639,7 @@
       font-size: 20px;
     }
 
+    .utility-card h3,
     .utility-card h4 {
       margin: 0 0 7px;
       font-size: 17px;
@@ -665,6 +670,7 @@
       padding: 22px;
     }
 
+    .contact-box h2,
     .contact-box h3 {
       margin: 0 0 6px;
       font-size: 22px;
@@ -1594,6 +1600,7 @@
       box-shadow: 0 14px 34px rgba(15, 23, 42, 0.07);
     }
 
+    .app-doc-panel h3,
     .app-doc-panel h5 {
       margin: 0;
       color: #0f172a;
@@ -1635,7 +1642,8 @@
       font-size: 11px;
     }
 
-    .app-gallery-card .screenshots-header h5 {
+    .app-gallery-card .screenshots-header h3,
+    .screenshots-header h5 {
       font-size: 20px;
       letter-spacing: -0.4px;
     }
@@ -2039,6 +2047,7 @@
       text-transform: uppercase;
     }
 
+    .app-section-header h2,
     .app-section-header h3 {
       font-size: clamp(27px, 4vw, 42px);
       letter-spacing: -1.2px;
@@ -2112,6 +2121,7 @@
       margin-bottom: 14px;
     }
 
+    .swift-hero-copy h3,
     .swift-hero-copy h4 {
       margin: 0;
       max-width: 760px;
@@ -2328,6 +2338,7 @@
       box-shadow: 0 18px 44px rgba(15, 23, 42, 0.08);
     }
 
+    .app-doc-panel h3,
     .app-doc-panel h5 {
       margin: 0 0 6px;
       font-size: 19px;
@@ -2481,7 +2492,8 @@
         padding: 18px;
       }
 
-      .app-section-header h3 {
+      .app-section-header h2,
+    .app-section-header h3 {
         font-size: 28px;
       }
 
@@ -2493,7 +2505,8 @@
         padding: 24px;
       }
 
-      .swift-hero-copy h4 {
+      .swift-hero-copy h3,
+    .swift-hero-copy h4 {
         font-size: clamp(29px, 10vw, 38px);
         letter-spacing: -1.1px;
       }
@@ -2643,6 +2656,7 @@
       width: 100%;
     }
 
+    .swift-hero-copy h3,
     .swift-hero-copy h4 {
       max-width: 980px;
     }
