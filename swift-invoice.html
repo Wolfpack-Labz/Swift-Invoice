@@ -30,7 +30,7 @@
 <link href="images/icons/apple-touch-icon.png" rel="apple-touch-icon" sizes="180x180"/>
 <link href="site.webmanifest" rel="manifest"/>
 <link href="styles/shared.css" rel="stylesheet"/>
-<link href="styles/pages/seo-landing.css" rel="stylesheet"/>
+<link href="styles/pages/seo-landing.css" rel="stylesheet"/><link href="styles/pages/swift-invoice.css" rel="stylesheet"/>
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -76,14 +76,14 @@
 }
 </script>
 </head>
-<body>
+<body class="swift-page">
 <main class="seo-page">
 <header class="topbar">
 <a aria-label="Wolfpack Labs home" class="brand" href="index.html">
 <div class="brand-logo"><img alt="Wolfpack Labs logo" height="192" src="images/icons/favicon-192.png" width="192"/></div>
 <div><span class="brand-name">Wolfpack Labs</span><p>Simple apps for everyday people</p></div>
 </a>
-<nav aria-label="Primary navigation" class="nav"><a href="index.html#product">Apps</a><a href="index.html#legal">Legal Docs</a><a href="index.html#waitlist">Updates</a><a href="contact.html">Contact</a></nav>
+<nav aria-label="Primary navigation" class="nav"><a href="index.html#product">Apps</a><a aria-current="page" href="swift-invoice.html">Swift Invoice</a><a href="index.html#legal">Legal Docs</a><a href="index.html#waitlist">Updates</a><a href="contact.html">Contact</a></nav>
 </header>
 <nav aria-label="Breadcrumb" class="seo-breadcrumbs"><a href="index.html">Home</a> / Swift Invoice</nav>
 <section class="seo-hero">
@@ -93,7 +93,7 @@
 <p class="seo-lead">Swift Invoice brings estimates, invoices, customers, payments, and job documentation into one focused mobile workflow for contractors, freelancers, consultants, and other self-employed professionals.</p>
 <div class="seo-actions"><a class="button" href="index.html#waitlist">Get launch updates</a><a class="seo-button-secondary" href="#who-it-helps">See who it helps</a></div>
 </div>
-<div class="seo-visual"><img alt="Swift Invoice dashboard for contractors and freelancers" fetchpriority="high" height="1500" src="images/screenshots/swift-dashboard.jpeg" width="1200"/><div class="seo-proof-strip"><span>Estimates</span><span>Invoices</span><span>Payments</span></div></div>
+<div class="seo-visual"><figure class="swift-screen-card swift-screen-card-featured"><img alt="Swift Invoice dashboard for contractors and freelancers" fetchpriority="high" height="1500" src="images/screenshots/swift-dashboard.jpeg" width="1200"/><figcaption><strong>Dashboard overview</strong><span>Customers, documents, and payment status</span></figcaption></figure><div class="seo-proof-strip"><span>Estimates</span><span>Invoices</span><span>Payments</span></div></div>
 </section>
 <section class="seo-section" id="features">
 <div class="seo-section-header"><span class="seo-kicker">Everything connected</span><h2>Move from customer request to paid invoice</h2><p>Keep the information behind the work connected instead of rebuilding it across notes, messages, spreadsheets, and separate finance tools.</p></div>
@@ -102,6 +102,30 @@
 <article class="seo-step"><h3>Prepare the estimate</h3><p>List services, labor, materials, quantities, rates, notes, and expected totals.</p></article>
 <article class="seo-step"><h3>Document the work</h3><p>Keep job photos and useful context connected to the customer and document.</p></article>
 <article class="seo-step"><h3>Send and track</h3><p>Review the final invoice, share it with the customer, and follow payment status.</p></article>
+</div>
+</section><section class="seo-section swift-preview-section" id="app-preview">
+<div class="seo-section-header">
+<span class="seo-kicker">App preview</span>
+<h2>Take a closer look at Swift Invoice</h2>
+<p>These compact previews use the same phone-card dimensions as the homepage image gallery.</p>
+</div>
+<div aria-label="Swift Invoice app screenshots" class="swift-screen-row">
+<figure class="swift-screen-card">
+<img alt="Swift Invoice secure sign-in screen" decoding="async" height="1500" loading="lazy" src="images/screenshots/swift-login.jpeg" width="1200"/>
+<figcaption><strong>Secure sign in</strong><span>Access your business workspace</span></figcaption>
+</figure>
+<figure class="swift-screen-card">
+<img alt="Swift Invoice invoice and payment tracking screen" decoding="async" height="1500" loading="lazy" src="images/screenshots/swift-invoice.jpeg" width="1200"/>
+<figcaption><strong>Invoices</strong><span>Create, send, and track documents</span></figcaption>
+</figure>
+<figure class="swift-screen-card">
+<img alt="Swift Invoice customer details screen" decoding="async" height="1500" loading="lazy" src="images/screenshots/swift-customer-details.jpeg" width="1200"/>
+<figcaption><strong>Customers</strong><span>Keep contact and job details together</span></figcaption>
+</figure>
+<figure class="swift-screen-card">
+<img alt="Swift Invoice saved items and templates screen" decoding="async" height="1500" loading="lazy" src="images/screenshots/swift-template.jpeg" width="1200"/>
+<figcaption><strong>Saved items</strong><span>Reuse common services and pricing</span></figcaption>
+</figure>
 </div>
 </section>
 <section class="seo-section" id="who-it-helps">
@@ -114,12 +138,12 @@
 <section class="seo-section" id="contractor-workflow">
 <div class="seo-split">
 <div class="seo-copy"><span class="seo-kicker">Contractor workflow</span><h2>Useful wherever the job happens</h2><p>Field-service work often starts with a site visit or customer request, not an invoice. Swift Invoice keeps the estimate, job documentation, customer information, and final bill in the same workflow.</p><ul class="seo-list"><li>Build a professional estimate before beginning work.</li><li>Reuse common labor, materials, and service items.</li><li>Add photos that explain scope or completed work.</li><li>Create the final invoice without recreating customer details.</li><li>Keep payment status tied to the correct job document.</li></ul></div>
-<img alt="Swift Invoice job tracking screen for contractors" decoding="async" height="1500" loading="lazy" src="images/screenshots/swift-jobs.jpeg" width="1200"/>
+<figure class="swift-screen-card"><img alt="Swift Invoice job tracking screen for contractors" decoding="async" height="1500" loading="lazy" src="images/screenshots/swift-jobs.jpeg" width="1200"/><figcaption><strong>Job tracking</strong><span>Keep customer work and job details organized</span></figcaption></figure>
 </div>
 </section>
 <section class="seo-section" id="freelancer-workflow">
 <div class="seo-split">
-<img alt="Swift Invoice branding and document customization for freelancers" decoding="async" height="1500" loading="lazy" src="images/screenshots/swift-custom.jpeg" width="1200"/>
+<figure class="swift-screen-card"><img alt="Swift Invoice branding and document customization for freelancers" decoding="async" height="1500" loading="lazy" src="images/screenshots/swift-custom.jpeg" width="1200"/><figcaption><strong>Custom branding</strong><span>Create polished, consistent client documents</span></figcaption></figure>
 <div class="seo-copy"><span class="seo-kicker">Freelancer workflow</span><h2>Professional client billing without extra complexity</h2><p>Freelancers need clear documents that communicate scope, pricing, and payment expectations. Swift Invoice is designed to keep that client-facing workflow polished and easy to review.</p><ul class="seo-list"><li>Present services, deliverables, milestones, rates, and totals.</li><li>Use business branding across customer-facing documents.</li><li>Save repeat work instead of retyping common services.</li><li>Preview customer details before sending an estimate or invoice.</li><li>Track outstanding and paid documents in one place.</li></ul></div>
 </div>
 </section>
