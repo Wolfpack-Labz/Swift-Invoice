@@ -4,34 +4,51 @@
 <head>
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>Invoice App for Contractors &amp; Freelancers | Swift Invoice</title>
-<meta content="Explore Swift Invoice for contractors and freelancers: create estimates and invoices, track payments, and attach job photos. Planned for Fall 2026." name="description"/>
+<title>Wolfpack Labs | Swift Invoice, Legal Docs &amp; App Support</title>
+<meta content="Wolfpack Labs provides simple SaaS tools and mobile apps including Swift Invoice. Access privacy policies, legal documents, support resources, and data request forms." name="description"/>
 <!-- SEO Meta Tags -->
+<meta content="Wolfpack Labs, Swift Invoice, invoice app, invoicing software, freelancer invoice app, contractor invoicing, estimate app, small business invoicing, SaaS tools, invoice generator" name="keywords"/>
 <meta content="Wolfpack Labs LLC" name="author"/>
-<meta content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" name="robots"/>
+<meta content="index, follow" name="robots"/>
 <meta content="#0f172a" name="theme-color"/>
 <!-- Open Graph / Facebook -->
 <meta content="website" property="og:type"/>
-<meta content="Swift Invoice | Invoice App for Contractors &amp; Freelancers" property="og:title"/>
-<meta content="Explore Swift Invoice for contractors and freelancers: create estimates and invoices, track payments, and attach job photos. Planned for Fall 2026." property="og:description"/>
+<meta content="Wolfpack Labs | Legal Documentation Hub" property="og:title"/>
+<meta content="Privacy policies, legal documents, support resources, and app information for Wolfpack Labs products including Swift Invoice." property="og:description"/>
 <meta content="https://wolfpack-labs.com/images/link-preview.png" property="og:image"/>
 <meta content="https://wolfpack-labs.com/" property="og:url"/>
 <meta content="Wolfpack Labs" property="og:site_name"/>
 <!-- Twitter -->
 <meta content="summary_large_image" name="twitter:card"/>
-<meta content="Swift Invoice | Mobile Invoicing for Independent Work" name="twitter:title"/>
-<meta content="Explore Swift Invoice for contractors and freelancers: create estimates and invoices, track payments, and attach job photos. Planned for Fall 2026." name="twitter:description"/>
+<meta content="Wolfpack Labs | Legal Documentation Hub" name="twitter:title"/>
+<meta content="Legal documentation, privacy policies, support resources, and app information for Wolfpack Labs." name="twitter:description"/>
 <meta content="https://wolfpack-labs.com/images/link-preview.png" name="twitter:image"/>
 <!-- Canonical -->
 <link href="https://wolfpack-labs.com/" rel="canonical"/>
 <!-- Structured Data -->
+<script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "Wolfpack Labs LLC",
+    "url": "https://wolfpack-labs.com",
+    "logo": "https://wolfpack-labs.com/images/link-preview.png",
+    "email": "support@wolfpack-labs.com",
+    "sameAs": [],
+    "description": "Wolfpack Labs builds simple SaaS tools and mobile apps for everyday users."
+  }
+  </script>
+<link href="images/favicon.png" rel="icon" sizes="32x32" type="image/png"/>
+<link href="images/favicon.png" rel="icon" sizes="192x192" type="image/png"/>
+<link href="images/favicon.png" rel="apple-touch-icon" sizes="180x180"/>
 <link href="styles/shared.css" rel="stylesheet"/>
-<link href="styles/pages/index.css" rel="stylesheet"/><link href="styles/pages/seo-landing.css" rel="stylesheet"/>
+<link href="styles/pages/index.css" rel="stylesheet"/>
+
 <style>
   /* Swift Invoice video + screenshot preview */
   .product-preview-layout {
     display: grid;
-    grid-template-columns: minmax(208px, 256px) minmax(0, 1fr);
+    grid-template-columns: minmax(260px, 320px) minmax(0, 1fr);
     align-items: start;
     gap: clamp(20px, 3vw, 34px);
     margin-top: 22px;
@@ -44,7 +61,7 @@
 
   .walkthrough-card {
     width: 100%;
-    max-width: 256px;
+    max-width: 320px;
     margin: 0;
     overflow: hidden;
     justify-self: start;
@@ -151,8 +168,7 @@
     box-shadow:
       0 0 0 1px rgba(148, 163, 184, 0.24),
       0 14px 34px rgba(2, 8, 23, 0.36);
-    object-fit: cover;
-    object-position: center center;
+    object-fit: contain;
   }
 
   .walkthrough-note {
@@ -169,8 +185,8 @@
     }
 
     .walkthrough-card {
-      width: min(100%, 272px);
-      max-width: 272px;
+      width: min(100%, 340px);
+      max-width: 340px;
       justify-self: center;
     }
   }
@@ -182,7 +198,7 @@
     }
 
     .walkthrough-card {
-      width: min(100%, 256px);
+      width: min(100%, 320px);
       border-radius: 20px;
     }
 
@@ -213,92 +229,65 @@
     }
   }
 </style>
-<meta content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" name="googlebot"/><meta content="1200" property="og:image:width"/><meta content="630" property="og:image:height"/><link href="images/icons/favicon-32.png" rel="icon" sizes="32x32" type="image/png"/><link href="images/icons/favicon-192.png" rel="icon" sizes="192x192" type="image/png"/><link href="images/icons/apple-touch-icon.png" rel="apple-touch-icon" sizes="180x180"/><script type="application/ld+json">{
-  "@context": "https://schema.org",
-  "@graph": [
-    {
-      "@type": "Organization",
-      "@id": "https://wolfpack-labs.com/#organization",
-      "name": "Wolfpack Labs LLC",
-      "url": "https://wolfpack-labs.com/",
-      "logo": {
-        "@type": "ImageObject",
-        "url": "https://wolfpack-labs.com/images/icons/favicon-192.png",
-        "width": 192,
-        "height": 192
-      },
-      "email": "support@wolfpack-labs.com",
-      "description": "Wolfpack Labs builds practical mobile software for contractors, freelancers, self-employed professionals, and small service businesses."
-    },
-    {
-      "@type": "WebSite",
-      "@id": "https://wolfpack-labs.com/#website",
-      "url": "https://wolfpack-labs.com/",
-      "name": "Wolfpack Labs",
-      "publisher": {
-        "@id": "https://wolfpack-labs.com/#organization"
-      },
-      "inLanguage": "en-US",
-      "alternateName": "Wolfpack Labs LLC"
-    },
-    {
-      "@type": "SoftwareApplication",
-      "@id": "https://wolfpack-labs.com/#swift-invoice",
-      "name": "Swift Invoice",
-      "applicationCategory": "BusinessApplication",
-      "applicationSubCategory": "Invoice and estimate software",
-      "operatingSystem": "iOS",
-      "url": "https://wolfpack-labs.com/#product",
-      "image": "https://wolfpack-labs.com/images/link-preview.png",
-      "publisher": {
-        "@id": "https://wolfpack-labs.com/#organization"
-      },
-      "description": "A mobile invoice and estimate app for contractors, freelancers, self-employed professionals, and small service businesses. Swift Invoice supports invoices, estimates, payment tracking, customer details, and job photos."
-    }
-  ]
-}</script><link href="site.webmanifest" rel="manifest"/><meta content="Swift Invoice mobile invoicing app by Wolfpack Labs for contractors, freelancers, and small businesses." property="og:image:alt"/><meta content="Swift Invoice mobile invoicing app by Wolfpack Labs for contractors, freelancers, and small businesses." name="twitter:image:alt"/><link href="styles/mobile-nav.css?v=20260726" rel="stylesheet"/></head>
+</head>
 <body>
 <main class="page">
 <header class="topbar">
 <a aria-label="Wolfpack Labs homepage" class="brand" href="./">
 <div class="brand-logo">
-<img alt="Wolfpack Labs logo" height="192" src="images/icons/favicon-192.png" width="192"/>
+<img alt="Wolfpack Labs logo" src="images/favicon.png"/>
 </div>
 <div>
-<span class="brand-name">Wolfpack Labs</span>
+<h1>Wolfpack Labs</h1>
 <p>Simple apps for everyday people</p>
 </div>
 </a>
-<details class="nav-accordion">
-<summary aria-label="Toggle primary navigation">
-<span class="nav-menu-label">Menu</span>
-<span aria-hidden="true" class="nav-menu-icon"><span></span><span></span><span></span></span>
-</summary>
-<nav aria-label="Primary navigation" class="nav"><a href="#product">Apps</a><a href="swift-invoice.html">Swift Invoice</a><a href="#legal">Legal Docs</a><a href="#waitlist">Updates</a><a href="contact.html">Contact</a></nav>
-</details>
+<nav aria-label="Primary navigation" class="nav">
+<a href="#apps">Apps</a>
+<a href="#legal">Legal Docs</a>
+<a href="#updates">Updates</a>
+<a href="contact.html">Contact</a>
+</nav>
 </header>
 <section class="hero">
 <div class="hero-main">
-<div class="eyebrow">Mobile invoice and estimate app</div>
-<h1>Create professional invoices, estimates, and payment-ready documents from anywhere.</h1>
-<p>Swift Invoice helps contractors, freelancers, self-employed professionals, and small service businesses turn customer and job details into polished documents—without a complicated accounting system.</p>
+<div class="eyebrow">Legal Documentation Hub</div>
+<h2>One place for app policies, data requests, and support.</h2>
+<p>
+          Wolfpack Labs builds straightforward SaaS tools and mobile apps that help
+          everyday people manage common tasks with less stress. This site hosts
+          legal documentation, privacy policies, terms, data request forms, and
+          contact information for our apps.
+        </p>
 <div class="hero-actions">
-<a class="button primary" href="#product">Explore Swift Invoice</a>
-<a class="button secondary" href="#waitlist">Join the launch list</a>
+<a class="button primary" href="#apps">View App Documents</a>
 </div>
 </div>
-<aside aria-label="Swift Invoice capabilities" class="hero-side">
-<div class="metric"><strong>Invoices</strong><span>Create, review, send, and track customer invoices.</span></div>
-<div class="metric"><strong>Estimates</strong><span>Share professional estimates and record customer responses.</span></div>
-<div class="metric"><strong>Job Photos</strong><span>Keep visual job documentation connected to customer work.</span></div>
+<aside aria-label="Company overview" class="hero-side">
+<div class="metric">
+<strong>SaaS</strong>
+<span>Simple software tools built for practical, everyday use.</span>
+</div>
+<div class="metric">
+<strong>Legal Hub</strong>
+<span>Policies and documents for current and future Wolfpack Labs apps.</span>
+</div>
+<div class="metric">
+<strong>Support</strong>
+<span>Contact Wolfpack Labs for app support, legal questions, or data requests.</span>
+</div>
 </aside>
 </section>
-<section class="section" id="waitlist">
+<section class="section" id="updates">
 <div class="subscribe-card">
 <div class="subscribe-copy">
-<div class="eyebrow">Swift Invoice launch updates</div>
-<h2>Be first to know when Swift Invoice is available.</h2>
-<p>Join the Wolfpack Labs update list for the public release, App Store availability, and useful product announcements. No daily marketing emails.</p>
+<div class="eyebrow">Swift Invoice Launch Updates</div>
+<h3>Get notified when Swift Invoice is released publicly.</h3>
+<p>
+            Join the Wolfpack Labs update list for launch announcements, app release
+            news, and important Swift Invoice availability updates. No spam — just
+            product updates when there is something useful to share.
+          </p>
 </div>
 <form class="subscribe-form" id="subscribe-form">
 <label for="subscriber-email">Email address</label>
@@ -320,16 +309,22 @@
 </form>
 </div>
 </section>
-<section class="section app-showcase-section" id="product">
+<section class="section app-showcase-section" id="apps">
 <div class="app-section-shell">
 <div class="section-header app-section-header">
 <div>
-<span class="section-kicker">Mobile invoicing product</span>
-<h2>Swift Invoice for independent professionals and service businesses</h2>
-<p>A focused mobile workflow for creating estimates, sending invoices, documenting jobs, and following payment status.</p>
+<span class="section-kicker">App spotlight</span>
+<h3>Swift Invoice</h3>
+<p>
+              A polished product area for Swift Invoice that keeps the Wolfpack Labs
+              color background, floating menu feel, and app-style blue/navy accents.
+            </p>
 </div>
 <div class="app-header-actions">
-<span class="app-icon-chip"><img alt="" aria-hidden="true" decoding="async" height="512" src="images/swift.png" width="512"/> Swift Invoice</span>
+<span class="app-icon-chip">
+<img alt="" aria-hidden="true" src="images/swift.png"/>
+              App icon preview
+            </span>
 <span class="status-pill">Active documentation</span>
 </div>
 </div>
@@ -339,8 +334,12 @@
 <div class="swift-hero-card">
 <div class="swift-hero-copy">
 <div class="app-kicker">Featured app</div>
-<h3>Send invoices faster and keep every estimate, customer, payment, and job photo organized.</h3>
-<p>Built for contractors, freelancers, and self-employed service providers who need professional documents without enterprise accounting complexity. Create customer-ready estimates and invoices, attach job photos, and keep payment information connected to the work.</p>
+<h4>Invoices, estimates, payments, and job photos in one simple app.</h4>
+<p>
+                    Swift Invoice helps small businesses, freelancers, contractors, and
+                    self-employed professionals create polished invoices and estimates,
+                    send them to customers, track payments, and keep job details organized.
+                  </p>
 <div class="app-action-row">
 <span class="launch-note">Coming Fall 2026</span>
 <span class="mini-note">Built for fast field-to-customer workflows</span>
@@ -385,7 +384,7 @@
 </div>
 <div class="app-doc-panel">
 <div>
-<h3>Documentation &amp; support</h3>
+<h5>Documentation &amp; support</h5>
 <p>Quick access to the current Swift Invoice legal pages, privacy resources, and support options.</p>
 </div>
 <div class="doc-links app-doc-links">
@@ -410,12 +409,13 @@
 <button aria-label="Scroll to next screenshot" class="gallery-control" data-gallery-action="next" type="button">›</button>
 </div>
 </div>
+
 <div class="product-preview-layout">
 <div class="walkthrough-card" id="swift-walkthrough">
 <div class="walkthrough-toolbar">
 <div class="walkthrough-heading">
 <span aria-hidden="true" class="walkthrough-play-icon">
-<svg focusable="false" viewbox="0 0 24 24">
+<svg focusable="false" viewBox="0 0 24 24">
 <path d="M8 5.5v13l10-6.5-10-6.5Z"></path>
 </svg>
 </span>
@@ -430,30 +430,31 @@
 </button>
 </div>
 <div class="walkthrough-player-wrap" id="swift-walkthrough-player">
-<video autoplay="" class="walkthrough-player" controls="" muted="" playsinline="" poster="images/screenshots/swift-dashboard.jpeg" preload="metadata">
-<source src="images/swift_invoice_demo.mp4" type="video/mp4"/>
-Your browser does not support embedded video.
-<a href="images/swift_invoice_demo.mp4">Open the Swift Invoice walkthrough video.</a>
+<video class="walkthrough-player" controls="" playsinline="" poster="images/screenshots/swift-dashboard.jpeg" preload="metadata">
+<source src="videos/swift-invoice-demo.mp4" type="video/mp4"/>
+Your browser does not support embedded video. Add the walkthrough file at
+<a href="videos/swift-invoice-walkthrough.mp4">videos/swift-invoice-walkthrough.mp4</a>.
 </video>
+<p class="walkthrough-note">Replace <code>videos/swift-invoice-walkthrough.mp4</code> with your final video filename if needed.</p>
 </div>
 </div>
 <div aria-label="Swift Invoice screenshot carousel" class="screenshots-gallery">
 <div class="gallery-viewport">
 <div aria-label="Scrollable Swift Invoice screenshots" class="screenshots-grid" id="swift-screenshot-gallery" tabindex="0">
 <figure class="screenshot-card">
-<button aria-label="Open enlarged screenshot: Secure sign in" class="screenshot-trigger" data-image="images/screenshots/swift-login.jpeg" data-title="Secure sign in" type="button">
+<button aria-label="Open enlarged screenshot: Login screen" class="screenshot-trigger" data-image="images/screenshots/login.jpeg" data-title="Login screen" type="button">
 <span class="screenshot-badge">01</span>
-<img alt="Swift Invoice secure sign-in screen" src="images/screenshots/swift-login.jpeg"/>
+<img alt="Swift Invoice login screenshot" src="images/screenshots/login.jpeg"/>
 </button>
 <figcaption>
-<span>Secure sign in</span>
+<span>Login screen</span>
 <span>Click to expand</span>
 </figcaption>
 </figure>
 <figure class="screenshot-card">
-<button aria-label="Open enlarged screenshot: Dashboard overview" class="screenshot-trigger" data-image="images/screenshots/swift-dashboard.jpeg" data-title="Dashboard overview" type="button">
+<button aria-label="Open enlarged screenshot: Dashboard overview" class="screenshot-trigger" data-image="images/screenshots/swift-dashboard.jpg" data-title="Dashboard overview" type="button">
 <span class="screenshot-badge">02</span>
-<img alt="Swift Invoice dashboard overview" src="images/screenshots/swift-dashboard.jpeg"/>
+<img alt="Swift Invoice dashboard screenshot" src="images/screenshots/swift-dashboard.jpeg"/>
 </button>
 <figcaption>
 <span>Dashboard overview</span>
@@ -461,39 +462,19 @@ Your browser does not support embedded video.
 </figcaption>
 </figure>
 <figure class="screenshot-card">
-<button aria-label="Open enlarged screenshot: Invoices &amp; payments" class="screenshot-trigger" data-image="images/screenshots/swift-invoice.jpeg" data-title="Invoices &amp; payments" type="button">
+<button aria-label="Open enlarged screenshot: Create invoices" class="screenshot-trigger" data-image="images/screenshots/swift-create-invoice.jpeg" data-title="Create invoices" type="button">
 <span class="screenshot-badge">03</span>
-<img alt="Swift Invoice invoice and payment tracking screen" src="images/screenshots/swift-invoice.jpeg"/>
+<img alt="Swift Invoice create invoice screenshot" src="images/screenshots/swift-invoice.jpeg"/>
 </button>
 <figcaption>
-<span>Invoices &amp; payments</span>
-<span>Click to expand</span>
-</figcaption>
-</figure>
-<figure class="screenshot-card">
-<button aria-label="Open enlarged screenshot: Custom branding" class="screenshot-trigger" data-image="images/screenshots/swift-custom.jpeg" data-title="Custom branding" type="button">
-<span class="screenshot-badge">04</span>
-<img alt="Swift Invoice custom branding screen" src="images/screenshots/swift-custom.jpeg"/>
-</button>
-<figcaption>
-<span>Custom branding</span>
-<span>Click to expand</span>
-</figcaption>
-</figure>
-<figure class="screenshot-card">
-<button aria-label="Open enlarged screenshot: Job tracking" class="screenshot-trigger" data-image="images/screenshots/swift-jobs.jpeg" data-title="Job tracking" type="button">
-<span class="screenshot-badge">05</span>
-<img alt="Swift Invoice job tracking screen" src="images/screenshots/swift-jobs.jpeg"/>
-</button>
-<figcaption>
-<span>Job tracking</span>
+<span>Create invoices</span>
 <span>Click to expand</span>
 </figcaption>
 </figure>
 <figure class="screenshot-card">
 <button aria-label="Open enlarged screenshot: Customer details" class="screenshot-trigger" data-image="images/screenshots/swift-customer-details.jpeg" data-title="Customer details" type="button">
-<span class="screenshot-badge">05</span>
-<img alt="Swift Invoice customer details screen" src="images/screenshots/swift-customer-details.jpeg"/>
+<span class="screenshot-badge">04</span>
+<img alt="Swift Invoice customer details screenshot" src="images/screenshots/swift-custom.jpeg"/>
 </button>
 <figcaption>
 <span>Customer details</span>
@@ -501,22 +482,22 @@ Your browser does not support embedded video.
 </figcaption>
 </figure>
 <figure class="screenshot-card">
-<button aria-label="Open enlarged screenshot: Notifications" class="screenshot-trigger" data-image="images/screenshots/swift-notification.jpeg" data-title="Notifications" type="button">
-<span class="screenshot-badge">06</span>
-<img alt="Swift Invoice notification settings screen" src="images/screenshots/swift-notification.jpeg"/>
+<button aria-label="Open enlarged screenshot: Reports" class="screenshot-trigger" data-image="images/screenshots/swift-reports.jpeg" data-title="Reports" type="button">
+<span class="screenshot-badge">05</span>
+<img alt="Swift Invoice reports screenshot" src="images/screenshots/swift-jobs.jpeg"/>
 </button>
 <figcaption>
-<span>Notifications</span>
+<span>Reports</span>
 <span>Click to expand</span>
 </figcaption>
 </figure>
 <figure class="screenshot-card">
-<button aria-label="Open enlarged screenshot: Saved items &amp; templates" class="screenshot-trigger" data-image="images/screenshots/swift-template.jpeg" data-title="Saved items &amp; templates" type="button">
-<span class="screenshot-badge">07</span>
-<img alt="Swift Invoice saved items and templates screen" src="images/screenshots/swift-template.jpeg"/>
+<button aria-label="Open enlarged screenshot: Add images" class="screenshot-trigger" data-image="images/screenshots/swift-images.jpeg" data-title="Add images" type="button">
+<span class="screenshot-badge">06</span>
+<img alt="Swift Invoice add images to PDF screenshot" src="images/screenshots/swift-notification.jpeg"/>
 </button>
 <figcaption>
-<span>Saved items &amp; templates</span>
+<span>Add images</span>
 <span>Click to expand</span>
 </figcaption>
 </figure>
@@ -533,55 +514,29 @@ Your browser does not support embedded video.
 </div>
 </div>
 </section>
-<section class="section" id="features">
-<div class="section-header">
-<div><span class="section-kicker">Built around real client work</span><h2>Everything needed between the estimate and the paid invoice</h2><p>Swift Invoice keeps the most important steps of a small service job in one connected workflow.</p></div>
-</div>
-<div class="utility-grid">
-<article class="utility-card"><div class="icon">🧾</div><h3>Professional documents</h3><p>Create clear invoices and estimates with customer details, line items, totals, notes, and your business branding.</p></article>
-<article class="utility-card"><div class="icon">📷</div><h3>Job documentation</h3><p>Attach job photos to invoices, estimates, and customer communications so important visual context stays with the work.</p></article>
-<article class="utility-card"><div class="icon">💳</div><h3>Payment visibility</h3><p>Keep payment status and customer-facing payment information connected to each invoice instead of tracking it across separate tools.</p></article>
-</div>
-</section><section class="section" id="use-cases">
-<div class="section-header">
-<div><span class="section-kicker">Choose your workflow</span><h2>Mobile invoicing for the way you work</h2><p>Explore focused use cases and practical guidance for different types of independent professionals.</p></div>
-</div>
-<div class="utility-grid">
-<article class="utility-card"><div class="icon">🛠️</div><h3>Contractors and field services</h3><p>Move from estimate to job documentation to invoice while customer details, line items, and photos stay organized.</p><a href="swift-invoice.html#contractors">See Swift Invoice for contractors →</a></article>
-<article class="utility-card"><div class="icon">💼</div><h3>Freelancers and consultants</h3><p>Present professional estimates, organize repeat services, customize branding, and track what each client owes.</p><a href="swift-invoice.html#freelancers">See Swift Invoice for freelancers →</a></article>
-<article class="utility-card"><div class="icon">📘</div><h3>Invoice or estimate?</h3><p>Learn which document to send, what information each should contain, and how the two fit into a clean client workflow.</p><a href="invoice-vs-estimate.html">Read the invoice vs. estimate guide →</a></article>
-</div>
-</section><section class="section" id="faq">
-<div class="section-header"><div><span class="section-kicker">Common questions</span><h2>About Swift Invoice</h2></div></div>
-<div class="seo-faq">
-<details><summary>Who is Swift Invoice designed for?</summary><p>Swift Invoice is designed for contractors, freelancers, self-employed professionals, and small service businesses that need a simpler way to create invoices and estimates, track payment status, and organize customer work.</p></details>
-<details><summary>Can I create both estimates and invoices?</summary><p>Yes. The app includes workflows for preparing estimates, recording customer responses, creating invoices, and keeping related customer and job details organized.</p></details>
-<details><summary>Can I attach job photos?</summary><p>Yes. Job images can be connected to invoices, estimates, and customer emails, helping service providers preserve visual context and document completed work.</p></details>
-<details><summary>When will Swift Invoice be available?</summary><p>The public launch is planned for Fall 2026. Join the launch update list for App Store availability and release announcements.</p></details>
-</div>
-</section><section class="section" id="legal">
+<section class="section" id="legal">
 <div class="section-header">
 <div>
-<h2>Privacy, terms, and support documents</h2>
-<p>Review the policies and support resources associated with Wolfpack Labs and Swift Invoice.</p>
+<h3>General Legal &amp; Support Links</h3>
+<p>Use these links for company-wide requests, support, or documentation.</p>
 </div>
 </div>
 <div class="utility-grid">
 <article class="utility-card">
 <div class="icon">📄</div>
-<h3>Privacy Policies</h3>
+<h4>Privacy Policies</h4>
 <p>View privacy policies for Wolfpack Labs apps and services.</p>
-<a href="#product">Browse app policies →</a>
+<a href="#apps">Browse app policies →</a>
 </article>
 <article class="utility-card">
 <div class="icon">🛡️</div>
-<h3>Data Requests</h3>
+<h4>Data Requests</h4>
 <p>Submit a request to review, update, or delete personal information.</p>
 <a href="data-request-deletion.html">Open request page →</a>
 </article>
 <article class="utility-card">
 <div class="icon">✉️</div>
-<h3>Contact</h3>
+<h4>Contact</h4>
 <p>Reach out for support, legal questions, or app-related issues.</p>
 <a href="mailto:support@wolfpack-labs.com">support@wolfpack-labs.com →</a>
 </article>
@@ -590,7 +545,7 @@ Your browser does not support embedded video.
 <section class="section" id="contact">
 <div class="contact-box">
 <div>
-<h2>Need help with a Wolfpack Labs app?</h2>
+<h3>Need help with a Wolfpack Labs app?</h3>
 <p>
             Contact us for support, documentation questions, account deletion
             requests, or privacy-related concerns.
@@ -600,7 +555,11 @@ Your browser does not support embedded video.
 </div>
 </section>
 <footer aria-label="Footer navigation" class="site-footer">
-<nav aria-label="Footer navigation" class="footer-nav"><a href="index.html">Home</a><a href="swift-invoice.html">Swift Invoice</a><a href="invoice-vs-estimate.html">Invoice Guide</a><a href="privacy-policy.html">Privacy</a><a href="terms.html">Terms</a><a href="contact.html">Contact</a></nav>
+<nav aria-label="Footer navigation" class="footer-nav">
+<a href="index.html">Home</a>
+<a href="data-request-deletion.html">Data Request</a>
+<a href="contact.html">Contact</a>
+</nav>
 <div class="footer-meta">© 2026 Wolfpack Labs LLC. All rights reserved.</div>
 </footer>
 </main>
@@ -977,5 +936,5 @@ Your browser does not support embedded video.
       }
     });
   </script>
-<script defer src="scripts/mobile-nav.js?v=20260726"></script></body>
+</body>
 </html>
