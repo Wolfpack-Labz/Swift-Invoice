@@ -75,7 +75,41 @@
   ]
 }
 </script>
-<link href="styles/mobile-nav.css?v=20260726" rel="stylesheet"/></head>
+<link href="styles/mobile-nav.css?v=20260726" rel="stylesheet"/><style data-combined-page="true">
+.audience-jump-nav{
+  display:flex;
+  flex-wrap:wrap;
+  gap:.65rem;
+  margin:1rem 0 0;
+}
+.audience-jump-nav a{
+  display:inline-flex;
+  align-items:center;
+  min-height:40px;
+  padding:.55rem .85rem;
+  border:1px solid rgba(148,163,184,.35);
+  border-radius:999px;
+  background:rgba(15,23,42,.55);
+  color:inherit;
+  text-decoration:none;
+  font-weight:700;
+}
+.audience-jump-nav a:hover,
+.audience-jump-nav a:focus-visible{
+  border-color:currentColor;
+  transform:translateY(-1px);
+}
+@media (max-width:640px){
+  .audience-jump-nav{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+  }
+  .audience-jump-nav a{
+    justify-content:center;
+    text-align:center;
+  }
+}
+</style></head>
 <body class="swift-page">
 <main class="seo-page">
 <header class="topbar">
@@ -91,7 +125,12 @@
 <nav aria-label="Primary navigation" class="nav"><a href="index.html#product">Apps</a><a aria-current="page" href="swift-invoice.html">Swift Invoice</a><a href="index.html#legal">Legal Docs</a><a href="index.html#waitlist">Updates</a><a href="contact.html">Contact</a></nav>
 </details>
 </header>
-<nav aria-label="Breadcrumb" class="seo-breadcrumbs"><a href="index.html">Home</a> / Swift Invoice</nav>
+<nav aria-label="Breadcrumb" class="seo-breadcrumbs"><a href="index.html">Home</a> / Swift Invoice</nav><nav aria-label="Swift Invoice audience sections" class="audience-jump-nav">
+<a href="#contractors">For Contractors</a>
+<a href="#freelancers">For Freelancers</a>
+<a href="#features">Features</a>
+<a href="#app-preview">App Preview</a>
+</nav>
 <section class="seo-hero">
 <div>
 <span class="seo-kicker">Mobile invoicing for independent work</span>
@@ -174,5 +213,5 @@
 <section class="seo-cta"><div><h2>A simpler way to manage estimates and invoices</h2><p>Join the Swift Invoice update list for launch and App Store availability announcements.</p></div><a class="button" href="index.html#waitlist">Join the update list</a></section>
 <footer aria-label="Footer navigation" class="site-footer"><nav aria-label="Footer navigation" class="footer-nav"><a href="index.html">Home</a><a href="swift-invoice.html">Swift Invoice</a><a href="privacy-policy.html">Privacy</a><a href="terms.html">Terms</a><a href="contact.html">Contact</a></nav><div class="footer-meta">© 2026 Wolfpack Labs LLC. All rights reserved.</div></footer>
 </main>
-<script defer src="scripts/mobile-nav.js?v=20260726"></script></body>
+<script defer="" src="scripts/mobile-nav.js?v=20260726"></script></body>
 </html>
