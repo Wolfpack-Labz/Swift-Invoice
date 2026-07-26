@@ -124,7 +124,20 @@
 }
 
 @media (min-width: 861px) {
-  .nav-accordion > .nav {
+  /* A closed <details> element normally hides everything except its summary.
+     Explicitly keep the desktop navigation visible, even before JavaScript runs. */
+  .nav-accordion,
+  .nav-accordion:not([open]) {
+    display: block;
+  }
+
+  .nav-accordion > summary {
+    display: none !important;
+  }
+
+  .nav-accordion > .nav,
+  .nav-accordion:not([open]) > .nav {
     display: flex !important;
+    visibility: visible !important;
   }
 }
