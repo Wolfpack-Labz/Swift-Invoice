@@ -1,0 +1,49 @@
+/* Full Wolfpack Labs wordmark used in every site header. */
+.topbar .site-brand {
+  width: clamp(235px, 27vw, 310px);
+  max-width: 100%;
+  flex: 0 1 auto;
+  gap: 0;
+  min-width: 0;
+}
+
+.topbar .site-brand .brand-logo {
+  width: 100% !important;
+  height: auto !important;
+  aspect-ratio: 1168 / 363;
+  flex: 0 1 auto !important;
+  flex-basis: auto !important;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 7px 10px;
+  overflow: visible;
+  border: 1px solid rgba(255, 255, 255, 0.44) !important;
+  border-radius: 16px !important;
+  background: rgba(255, 255, 255, 0.96) !important;
+  box-shadow: 0 14px 30px rgba(2, 6, 23, 0.26) !important;
+}
+
+.topbar .site-brand .brand-logo img {
+  width: 100% !important;
+  height: auto !important;
+  max-height: none !important;
+  object-fit: contain !important;
+}
+
+@media (max-width: 860px) {
+  .topbar .site-brand {
+    width: min(300px, 100%);
+  }
+}
+
+@media (max-width: 620px) {
+  .topbar .site-brand {
+    width: min(275px, 100%);
+  }
+
+  .topbar .site-brand .brand-logo {
+    padding: 6px 9px;
+    border-radius: 14px !important;
+  }
+}
