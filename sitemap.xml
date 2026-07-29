@@ -2,20 +2,20 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
   <url>
     <loc>https://wolfpack-labs.com/</loc>
-    <lastmod>2026-07-28</lastmod>
+    <lastmod>2026-07-24</lastmod>
     <image:image><image:loc>https://wolfpack-labs.com/images/link-preview.png</image:loc><image:title>Swift Invoice mobile invoicing app for contractors and freelancers</image:title></image:image>
     <image:image><image:loc>https://wolfpack-labs.com/images/screenshots/swift-dashboard.jpeg</image:loc><image:title>Swift Invoice dashboard showing invoices estimates jobs and payments</image:title></image:image>
   </url>
   <url>
     <loc>https://wolfpack-labs.com/swift-invoice.html</loc>
-    <lastmod>2026-07-28</lastmod>
+    <lastmod>2026-07-24</lastmod>
     <image:image><image:loc>https://wolfpack-labs.com/images/screenshots/swift-jobs.jpeg</image:loc><image:title>Contractor job tracking in Swift Invoice</image:title></image:image>
     <image:image><image:loc>https://wolfpack-labs.com/images/screenshots/swift-custom.jpeg</image:loc><image:title>Custom branding for freelance estimates and invoices</image:title></image:image>
     <image:image><image:loc>https://wolfpack-labs.com/images/screenshots/swift-invoice.jpeg</image:loc><image:title>Invoice and payment tracking in Swift Invoice</image:title></image:image>
   </url>
   <url>
     <loc>https://wolfpack-labs.com/invoice-vs-estimate.html</loc>
-    <lastmod>2026-07-28</lastmod>
+    <lastmod>2026-07-24</lastmod>
     <image:image><image:loc>https://wolfpack-labs.com/images/screenshots/swift-template.jpeg</image:loc><image:title>Saved invoice and estimate items and templates</image:title></image:image>
   </url>
   <url><loc>https://wolfpack-labs.com/contact.html</loc><lastmod>2026-07-24</lastmod></url>
