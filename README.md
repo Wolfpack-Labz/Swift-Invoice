@@ -400,3 +400,12 @@ Website: `https://wolfpack-labs.com/`
 ## License
 
 No open-source license is included in this package. Unless Wolfpack Labs LLC adds a license, the source code, design, written content, product media, and branding should be treated as proprietary and all rights reserved.
+
+
+## July 29, 2026 — Header and favicon refresh
+
+- Replaced the old icon-and-text header with the new horizontal Wolfpack Labs logo.
+- Reduced the displayed logo size by approximately 40% for a tighter header.
+- Rebuilt favicon, Apple touch icon, and web-manifest icon assets from the new wolf mark.
+- Changed mobile navigation to a right-aligned icon-only accordion aligned with the logo.
+- Added an overlay dropdown and click-outside/Escape closing behavior on mobile.
