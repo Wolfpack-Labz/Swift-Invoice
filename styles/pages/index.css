@@ -92,6 +92,39 @@
       font-size: 14px;
     }
 
+    .brand-with-wordmark {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 4px;
+    }
+
+    .brand-wordmark-shell {
+      display: block;
+      width: clamp(246px, 22vw, 302px);
+      padding: 7px 11px;
+      overflow: hidden;
+      border: 1px solid rgba(255, 255, 255, 0.78);
+      border-radius: 18px;
+      background: rgba(255, 255, 255, 0.96);
+      box-shadow: 0 14px 30px rgba(2, 6, 23, 0.24);
+    }
+
+    .brand-wordmark {
+      display: block;
+      width: 100%;
+      height: auto;
+      object-fit: contain;
+    }
+
+    .brand-with-wordmark .brand-tagline {
+      margin: 0 0 0 clamp(76px, 7vw, 94px);
+      color: #cbd5e1;
+      font-size: 14px;
+      font-weight: 400;
+      line-height: 1.25;
+      white-space: nowrap;
+    }
+
     .nav {
       display: flex;
       align-items: center;
@@ -876,6 +909,17 @@
         width: 46px;
         height: 46px;
         flex-basis: 46px;
+      }
+
+      .brand-wordmark-shell {
+        width: min(260px, calc(100vw - 44px));
+        padding: 6px 9px;
+        border-radius: 15px;
+      }
+
+      .brand-with-wordmark .brand-tagline {
+        margin-left: clamp(72px, 25vw, 82px);
+        font-size: 13px;
       }
 
       .app-card {
