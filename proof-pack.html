@@ -1,0 +1,125 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="referrer" content="no-referrer" />
+  <meta http-equiv="Content-Security-Policy" content="default-src 'none'; connect-src https://gwmckwqxnrnzqmhvodgm.supabase.co; script-src 'unsafe-inline'; style-src 'unsafe-inline'; img-src https: data:; object-src 'none'; frame-src 'none'; base-uri 'none'; form-action 'none'; frame-ancestors 'none'" />
+  <title>Quote &amp; Pay ProofPack</title>
+  <style>
+    :root { color-scheme: light; --ink:#0f172a; --muted:#64748b; --line:#dbe5ef; --soft:#eef3f8; --brand:#0f172a; }
+    * { box-sizing:border-box; }
+    body { margin:0; min-height:100vh; display:grid; place-items:center; padding:24px; background:var(--soft); color:var(--ink); font-family:Arial,Helvetica,sans-serif; }
+    .card { width:min(580px,100%); overflow:hidden; background:#fff; border:1px solid var(--line); border-top:8px solid var(--brand); border-radius:18px; box-shadow:0 24px 70px rgba(15,23,42,.14); }
+    .inner { padding:38px; }
+    .eyebrow { margin-bottom:12px; color:var(--muted); font-size:12px; font-weight:900; letter-spacing:.14em; text-transform:uppercase; }
+    h1 { margin:0; font-size:30px; line-height:1.12; }
+    p { margin:12px 0 0; color:var(--muted); line-height:1.65; }
+    .status { display:flex; align-items:center; gap:12px; margin-top:24px; padding:15px; background:#f8fafc; border:1px solid var(--line); border-radius:12px; }
+    .spinner { width:22px; height:22px; flex:0 0 auto; border:3px solid #cbd5e1; border-top-color:var(--brand); border-radius:50%; animation:spin .8s linear infinite; }
+    .status strong { display:block; font-size:14px; }
+    .status span { display:block; margin-top:3px; color:var(--muted); font-size:12px; }
+    .error .spinner { display:none; }
+    .error .status { border-color:#fecaca; background:#fff7f7; }
+    .error .status strong { color:#991b1b; }
+    .brand { padding:15px 38px; background:#f8fafc; border-top:1px solid var(--line); color:var(--muted); font-size:12px; }
+    @keyframes spin { to { transform:rotate(360deg); } }
+  </style>
+</head>
+<body data-proof-pack-bootstrap="proof-pack-bootstrap-v4">
+  <main class="card" id="card" aria-live="polite">
+    <div class="inner">
+      <div class="eyebrow">Quote &amp; Pay ProofPack</div>
+      <h1 id="title">Opening your job completion package</h1>
+      <p id="message">Your professional job record is being prepared securely.</p>
+      <div class="status">
+        <div class="spinner" aria-hidden="true"></div>
+        <div>
+          <strong id="status-title">Loading package</strong>
+          <span id="status-detail">This normally takes only a moment.</span>
+        </div>
+      </div>
+    </div>
+    <div class="brand">Prepared with Quote &amp; Pay by Wolfpack Labs.</div>
+  </main>
+
+  <script>
+    (() => {
+      'use strict';
+
+      const API_URL = 'https://gwmckwqxnrnzqmhvodgm.supabase.co/functions/v1/proof-pack-public';
+      const card = document.getElementById('card');
+      const title = document.getElementById('title');
+      const message = document.getElementById('message');
+      const statusTitle = document.getElementById('status-title');
+      const statusDetail = document.getElementById('status-detail');
+
+      function showError(detail) {
+        card.classList.add('error');
+        title.textContent = 'ProofPack could not be opened';
+        message.textContent = 'The customer package is unavailable from this link.';
+        statusTitle.textContent = 'Unable to load package';
+        statusDetail.textContent = detail || 'Ask the contractor to send a new ProofPack link.';
+        document.title = 'ProofPack unavailable';
+      }
+
+      function getLinkParameters() {
+        const hashParams = new URLSearchParams(window.location.hash.replace(/^#/, ''));
+        const queryParams = new URLSearchParams(window.location.search);
+        return {
+          token: hashParams.get('token') || queryParams.get('token') || '',
+          version: hashParams.get('v') || queryParams.get('v') || '',
+        };
+      }
+
+      async function openProofPack() {
+        const { token, version } = getLinkParameters();
+        if (!/^[a-f0-9]{64}$/i.test(token)) {
+          showError('This package link is incomplete or invalid.');
+          return;
+        }
+
+        const apiUrl = new URL(API_URL);
+        apiUrl.searchParams.set('token', token);
+        apiUrl.searchParams.set('format', 'json');
+        if (version) apiUrl.searchParams.set('v', version);
+
+        const controller = new AbortController();
+        const timeout = window.setTimeout(() => controller.abort(), 20000);
+
+        try {
+          const response = await fetch(apiUrl.toString(), {
+            method: 'GET',
+            headers: { Accept: 'application/json' },
+            cache: 'no-store',
+            credentials: 'omit',
+            referrerPolicy: 'no-referrer',
+            signal: controller.signal,
+          });
+
+          const payload = await response.json().catch(() => ({}));
+          if (!response.ok) {
+            throw new Error(payload.error || 'The package service returned an error.');
+          }
+          if (typeof payload.html !== 'string' || !/<(?:!doctype|html)/i.test(payload.html)) {
+            throw new Error('The package response was incomplete.');
+          }
+
+          document.open();
+          document.write(payload.html);
+          document.close();
+        } catch (error) {
+          const detail = error && error.name === 'AbortError'
+            ? 'The package took too long to load. Refresh the page and try again.'
+            : (error && error.message) || 'Ask the contractor to send a new ProofPack link.';
+          showError(detail);
+        } finally {
+          window.clearTimeout(timeout);
+        }
+      }
+
+      openProofPack();
+    })();
+  </script>
+</body>
+</html>
