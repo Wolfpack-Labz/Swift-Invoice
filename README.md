@@ -37,7 +37,7 @@ There is no compilation or build step. The files inside this folder are the depl
 ```text
 Wolfpack Labs/
 ├── index.html                         # Main landing page
-├── swift-invoice.html                 # Main WP Labs: Invoice product page
+├── wp-labs-invoice.html                 # Main WP Labs: Invoice product page
 ├── invoice-vs-estimate.html           # Educational SEO guide
 ├── contact.html                       # Support/contact form
 │
@@ -61,8 +61,8 @@ Wolfpack Labs/
 │   ├── screenshots/                   # WP Labs: Invoice product screenshots
 │   ├── link-preview.png               # Open Graph/social preview image
 │   ├── logo.png                       # Wordmark asset
-│   ├── swift.png                      # WP Labs: Invoice app icon
-│   └── swift_invoice_demo.mp4         # Homepage walkthrough video
+│   ├── wp-labs-invoice.png                      # WP Labs: Invoice app icon
+│   └── wp-labs-invoice-demo.mp4         # Homepage walkthrough video
 │
 ├── styles/
 │   ├── shared.css                     # Shared site components
@@ -84,7 +84,7 @@ Wolfpack Labs/
 ### Public, indexable pages
 
 - `/`
-- `/swift-invoice.html`
+- `/wp-labs-invoice.html`
 - `/invoice-vs-estimate.html`
 - `/contact.html`
 - `/privacy-policy.html`
@@ -107,8 +107,8 @@ These pages perform customer-specific actions and should not appear in normal se
 
 ### Legacy redirect pages
 
-- `/invoice-app-for-contractors.html` → `/swift-invoice.html#contractors`
-- `/invoice-app-for-freelancers.html` → `/swift-invoice.html#freelancers`
+- `/invoice-app-for-contractors.html` → `/wp-labs-invoice.html#contractors`
+- `/invoice-app-for-freelancers.html` → `/wp-labs-invoice.html#freelancers`
 
 The redirects use JavaScript plus a meta refresh because GitHub Pages does not provide per-file server redirect configuration.
 
@@ -363,7 +363,7 @@ The uploaded package was statically reviewed for local references, metadata, pag
 #### High priority
 
 1. **Deploy the current package.** The publicly retrievable homepage reviewed on July 26, 2026 still showed the older “Legal Documentation Hub” content rather than the newer product-focused homepage in this package. Confirm the correct branch/folder is being published and clear deployment caches.
-2. **Remove the unused duplicate video.** `images/swift_invoice_demo2.mp4` is approximately 26 MB and is not referenced by the site. Keeping it increases repository and deployment size without adding functionality.
+2. **Remove the unused duplicate video.** `images/wp-labs-invoice-demo2.mp4` is approximately 26 MB and is not referenced by the site. Keeping it increases repository and deployment size without adding functionality.
 3. **Remove the remaining footer inconsistency.** `invoice-vs-estimate.html` still contains an `Invoice Guide` footer link, while the other footers do not.
 4. **Review homepage autoplay.** The homepage video still includes the `autoplay` attribute. Remove it unless autoplay is a deliberate product decision.
 5. **Protect public form endpoints.** Confirm server-side rate limits, bot controls, input validation, logging, and abuse monitoring for subscription, contact, estimate, and payment-related endpoints.
@@ -400,12 +400,3 @@ Website: `https://wolfpack-labs.com/`
 ## License
 
 No open-source license is included in this package. Unless Wolfpack Labs LLC adds a license, the source code, design, written content, product media, and branding should be treated as proprietary and all rights reserved.
-
-
-## July 29, 2026 — Header and favicon refresh
-
-- Replaced the old icon-and-text header with the new horizontal Wolfpack Labs logo.
-- Reduced the displayed logo size by approximately 40% for a tighter header.
-- Rebuilt favicon, Apple touch icon, and web-manifest icon assets from the new wolf mark.
-- Changed mobile navigation to a right-aligned icon-only accordion aligned with the logo.
-- Added an overlay dropdown and click-outside/Escape closing behavior on mobile.
