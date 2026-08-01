@@ -37,7 +37,7 @@ There is no compilation or build step. The files inside this folder are the depl
 ```text
 Wolfpack Labs/
 ├── index.html                         # Main landing page
-├── wp-labs-invoice.html                 # Main WP Labs: Invoice product page
+├── swift-invoice.html                 # Main WP Labs: Invoice product page
 ├── invoice-vs-estimate.html           # Educational SEO guide
 ├── contact.html                       # Support/contact form
 │
@@ -61,8 +61,8 @@ Wolfpack Labs/
 │   ├── screenshots/                   # WP Labs: Invoice product screenshots
 │   ├── link-preview.png               # Open Graph/social preview image
 │   ├── logo.png                       # Wordmark asset
-│   ├── wp-labs-invoice.png                      # WP Labs: Invoice app icon
-│   └── wp_labs_invoice_demo.mp4         # Homepage walkthrough video
+│   ├── swift.png                      # WP Labs: Invoice app icon
+│   └── swift_invoice_demo.mp4         # Homepage walkthrough video
 │
 ├── styles/
 │   ├── shared.css                     # Shared site components
@@ -84,7 +84,7 @@ Wolfpack Labs/
 ### Public, indexable pages
 
 - `/`
-- `/wp-labs-invoice.html`
+- `/swift-invoice.html`
 - `/invoice-vs-estimate.html`
 - `/contact.html`
 - `/privacy-policy.html`
@@ -107,8 +107,8 @@ These pages perform customer-specific actions and should not appear in normal se
 
 ### Legacy redirect pages
 
-- `/invoice-app-for-contractors.html` → `/wp-labs-invoice.html#contractors`
-- `/invoice-app-for-freelancers.html` → `/wp-labs-invoice.html#freelancers`
+- `/invoice-app-for-contractors.html` → `/swift-invoice.html#contractors`
+- `/invoice-app-for-freelancers.html` → `/swift-invoice.html#freelancers`
 
 The redirects use JavaScript plus a meta refresh because GitHub Pages does not provide per-file server redirect configuration.
 
@@ -149,7 +149,7 @@ The site is structured for GitHub Pages.
    - `/robots.txt`
    - `/sitemap.xml`
    - `/site.webmanifest`
-   - `/images/wp-labs-invoice-link-preview.png`
+   - `/images/link-preview.png`
 6. Test the mobile menu, forms, estimate response page, and payment redirect.
 7. Submit or resubmit the sitemap in Google Search Console and Bing Webmaster Tools after major URL or content changes.
 
@@ -363,7 +363,7 @@ The uploaded package was statically reviewed for local references, metadata, pag
 #### High priority
 
 1. **Deploy the current package.** The publicly retrievable homepage reviewed on July 26, 2026 still showed the older “Legal Documentation Hub” content rather than the newer product-focused homepage in this package. Confirm the correct branch/folder is being published and clear deployment caches.
-2. **Remove the unused duplicate video.** `images/wp-labs-invoice-demo2.mp4` is approximately 26 MB and is not referenced by the site. Keeping it increases repository and deployment size without adding functionality.
+2. **Remove the unused duplicate video.** `images/swift_invoice_demo2.mp4` is approximately 26 MB and is not referenced by the site. Keeping it increases repository and deployment size without adding functionality.
 3. **Remove the remaining footer inconsistency.** `invoice-vs-estimate.html` still contains an `Invoice Guide` footer link, while the other footers do not.
 4. **Review homepage autoplay.** The homepage video still includes the `autoplay` attribute. Remove it unless autoplay is a deliberate product decision.
 5. **Protect public form endpoints.** Confirm server-side rate limits, bot controls, input validation, logging, and abuse monitoring for subscription, contact, estimate, and payment-related endpoints.
