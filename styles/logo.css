@@ -1,49 +1,67 @@
-/* Full Wolfpack Labs wordmark used in every site header. */
-.topbar .site-brand {
-  width: clamp(235px, 27vw, 310px);
-  max-width: 100%;
+/* Shared full Wolfpack Labs wordmark for every site header. */
+.topbar .brand.brand-with-wordmark {
+  display: flex;
   flex: 0 1 auto;
-  gap: 0;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 4px;
+  width: clamp(246px, 24vw, 310px);
   min-width: 0;
+  max-width: 100%;
+  color: #ffffff;
+  text-decoration: none;
 }
 
-.topbar .site-brand .brand-logo {
-  width: 100% !important;
-  height: auto !important;
-  aspect-ratio: 1168 / 363;
-  flex: 0 1 auto !important;
-  flex-basis: auto !important;
+.topbar .brand.brand-with-wordmark .brand-wordmark-shell {
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 7px 10px;
-  overflow: visible;
-  border: 1px solid rgba(255, 255, 255, 0.44) !important;
-  border-radius: 16px !important;
-  background: rgba(255, 255, 255, 0.96) !important;
-  box-shadow: 0 14px 30px rgba(2, 6, 23, 0.26) !important;
+  width: 100%;
+  box-sizing: border-box;
+  padding: 7px 11px;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.78);
+  border-radius: 18px;
+  background: rgba(255, 255, 255, 0.96);
+  box-shadow: 0 14px 30px rgba(2, 6, 23, 0.24);
 }
 
-.topbar .site-brand .brand-logo img {
-  width: 100% !important;
-  height: auto !important;
-  max-height: none !important;
-  object-fit: contain !important;
+.topbar .brand.brand-with-wordmark .brand-wordmark {
+  display: block;
+  width: 100%;
+  height: auto;
+  max-width: 100%;
+  max-height: none;
+  object-fit: contain;
+}
+
+.topbar .brand.brand-with-wordmark .brand-tagline {
+  margin: 0 0 0 clamp(74px, 7vw, 94px);
+  color: #cbd5e1;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 1.25;
+  white-space: nowrap;
 }
 
 @media (max-width: 860px) {
-  .topbar .site-brand {
+  .topbar .brand.brand-with-wordmark {
     width: min(300px, 100%);
   }
 }
 
 @media (max-width: 620px) {
-  .topbar .site-brand {
-    width: min(275px, 100%);
+  .topbar .brand.brand-with-wordmark {
+    width: min(275px, calc(100vw - 44px));
   }
 
-  .topbar .site-brand .brand-logo {
+  .topbar .brand.brand-with-wordmark .brand-wordmark-shell {
     padding: 6px 9px;
-    border-radius: 14px !important;
+    border-radius: 15px;
+  }
+
+  .topbar .brand.brand-with-wordmark .brand-tagline {
+    margin-left: clamp(70px, 24vw, 82px);
+    font-size: 13px;
   }
 }
