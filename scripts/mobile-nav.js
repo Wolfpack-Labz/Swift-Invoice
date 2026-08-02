@@ -5,10 +5,8 @@
   const syncNavigationForViewport = () => {
     accordions.forEach((accordion) => {
       if (mobileQuery.matches) {
-        // Mobile starts collapsed and can be opened by the user.
         accordion.removeAttribute('open');
       } else {
-        // Desktop/laptop navigation must always remain visible.
         accordion.setAttribute('open', '');
       }
     });
@@ -29,6 +27,16 @@
       if (event.key === 'Escape' && mobileQuery.matches && accordion.open) {
         accordion.removeAttribute('open');
         accordion.querySelector('summary')?.focus();
+      }
+    });
+  });
+
+  document.addEventListener('click', (event) => {
+    if (!mobileQuery.matches) return;
+
+    accordions.forEach((accordion) => {
+      if (accordion.open && !accordion.contains(event.target)) {
+        accordion.removeAttribute('open');
       }
     });
   });
