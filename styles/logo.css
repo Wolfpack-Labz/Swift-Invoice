@@ -16,14 +16,14 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 100%;
+  width: 50%;
   box-sizing: border-box;
-  padding: 7px 11px;
+  padding: 4px 6px;
   overflow: hidden;
   border: 1px solid rgba(255, 255, 255, 0.78);
-  border-radius: 18px;
+  border-radius: 9px;
   background: rgba(255, 255, 255, 0.96);
-  box-shadow: 0 14px 30px rgba(2, 6, 23, 0.24);
+  box-shadow: 0 7px 15px rgba(2, 6, 23, 0.24);
 }
 
 .topbar .brand.brand-with-wordmark .brand-wordmark {
@@ -36,8 +36,10 @@
 }
 
 .topbar .brand.brand-with-wordmark .brand-tagline {
-  margin: 0 0 0 clamp(74px, 7vw, 94px);
+  width: 50%;
+  margin: 0;
   color: #cbd5e1;
+  text-align: center;
   font-size: 14px;
   font-weight: 400;
   line-height: 1.25;
@@ -56,12 +58,12 @@
   }
 
   .topbar .brand.brand-with-wordmark .brand-wordmark-shell {
-    padding: 6px 9px;
-    border-radius: 15px;
+    padding: 3px 5px;
+    border-radius: 8px;
   }
 
   .topbar .brand.brand-with-wordmark .brand-tagline {
-    margin-left: clamp(70px, 24vw, 82px);
+    margin-left: 0;
     font-size: 13px;
   }
 }
