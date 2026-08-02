@@ -57,3 +57,24 @@
     width: min(60%, 190px);
   }
 }
+
+/* Keep the homepage header flush with the homepage content edge.
+   The homepage has legacy header rules in index.css; these final rules
+   normalize only its header to match the other site pages. */
+@media (min-width: 861px) {
+  .home-page > .topbar {
+    width: 100% !important;
+    max-width: none !important;
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+    box-sizing: border-box;
+  }
+
+  .home-page > .topbar > .brand.brand-with-wordmark {
+    align-self: center !important;
+    margin-left: 0 !important;
+    transform: none !important;
+  }
+}
