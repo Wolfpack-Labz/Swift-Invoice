@@ -18,26 +18,33 @@
 
 @media (max-width: 860px) {
   .topbar {
-    align-items: stretch !important;
-    flex-direction: column !important;
-    gap: 14px !important;
+    position: relative;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: space-between !important;
+    flex-direction: row !important;
+    flex-wrap: nowrap !important;
+    gap: 12px !important;
   }
 
   .nav-accordion {
-    width: 100%;
-    margin-left: 0;
+    position: relative;
+    flex: 0 0 auto;
+    width: 48px;
+    margin-left: auto;
   }
 
   .nav-accordion > summary {
     display: flex;
     align-items: center;
-    justify-content: space-between;
-    width: 100%;
+    justify-content: center;
+    width: 48px;
+    height: 48px;
     min-height: 48px;
-    padding: 11px 14px;
+    padding: 0;
     color: #ffffff;
     background: rgba(255, 255, 255, 0.10);
-    border: 1px solid rgba(255, 255, 255, 0.20);
+    border: 1px solid rgba(255, 255, 255, 0.24);
     border-radius: 14px;
     box-shadow: 0 12px 26px rgba(2, 6, 23, 0.18);
     backdrop-filter: blur(12px);
@@ -53,9 +60,15 @@
   }
 
   .nav-menu-label {
-    font-size: 14px;
-    font-weight: 800;
-    letter-spacing: 0.01em;
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
   }
 
   .nav-menu-icon {
@@ -69,7 +82,7 @@
 
   .nav-menu-icon span {
     display: block;
-    width: 20px;
+    width: 22px;
     height: 2px;
     border-radius: 999px;
     background: currentColor;
@@ -98,17 +111,21 @@
   }
 
   .nav-accordion > .nav {
-    width: 100%;
-    margin-top: 8px;
+    position: absolute;
+    z-index: 1000;
+    top: calc(100% + 10px);
+    right: 0;
+    width: min(300px, calc(100vw - 32px));
+    margin: 0;
     padding: 10px;
     flex-direction: column;
     align-items: stretch;
     justify-content: flex-start;
     gap: 8px;
-    background: rgba(15, 23, 42, 0.96);
+    background: rgba(15, 23, 42, 0.98);
     border: 1px solid rgba(255, 255, 255, 0.18);
     border-radius: 16px;
-    box-shadow: 0 18px 40px rgba(2, 6, 23, 0.30);
+    box-shadow: 0 18px 40px rgba(2, 6, 23, 0.34);
     backdrop-filter: blur(16px);
   }
 
@@ -124,8 +141,7 @@
 }
 
 @media (min-width: 861px) {
-  /* A closed <details> element normally hides everything except its summary.
-     Explicitly keep the desktop navigation visible, even before JavaScript runs. */
+  /* Keep the desktop navigation visible even when the details element is closed. */
   .nav-accordion,
   .nav-accordion:not([open]) {
     display: block;

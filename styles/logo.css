@@ -3,10 +3,13 @@
   display: flex;
   flex: 0 1 auto;
   align-items: center;
+  justify-content: flex-start;
   width: clamp(246px, 24vw, 310px);
   min-width: 0;
   max-width: 100%;
+  margin-right: auto;
   color: #ffffff;
+  text-align: left;
   text-decoration: none;
 }
 
@@ -14,7 +17,7 @@
   display: flex;
   align-items: center;
   justify-content: flex-start;
-  width: 50%;
+  width: 60%; /* 20% larger than the previous 50% setting. */
   box-sizing: border-box;
   padding: 0;
   overflow: visible;
@@ -30,17 +33,27 @@
   height: auto;
   max-width: 100%;
   max-height: none;
+  margin: 0;
   object-fit: contain;
+  object-position: left center;
 }
 
 @media (max-width: 860px) {
   .topbar .brand.brand-with-wordmark {
-    width: min(300px, 100%);
+    flex: 1 1 auto;
+    width: min(300px, calc(100% - 62px));
+    max-width: calc(100% - 62px);
+    margin-right: 0;
   }
 }
 
 @media (max-width: 620px) {
   .topbar .brand.brand-with-wordmark {
-    width: min(275px, calc(100vw - 44px));
+    width: calc(100% - 58px);
+    max-width: calc(100% - 58px);
+  }
+
+  .topbar .brand.brand-with-wordmark .brand-wordmark-shell {
+    width: min(60%, 190px);
   }
 }
