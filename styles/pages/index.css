@@ -3152,3 +3152,522 @@
     font-size: 21px;
   }
 }
+
+/* =========================================================
+   Polished App Store download section — 2026-08-12
+   Uses unique class names to avoid the legacy subscribe layout.
+   ========================================================= */
+#download.download-section {
+  width: 100% !important;
+  min-height: 0 !important;
+  margin: 22px 0 0 !important;
+  padding: 0 !important;
+  overflow: hidden !important;
+  border: 0 !important;
+  border-radius: var(--radius) !important;
+  background: transparent !important;
+  box-shadow: none !important;
+}
+
+#download .download-card {
+  position: relative;
+  display: grid;
+  grid-template-columns: minmax(0, 1.15fr) minmax(320px, 390px);
+  align-items: center;
+  width: 100%;
+  min-width: 0;
+  gap: clamp(40px, 5vw, 76px);
+  padding: clamp(38px, 4.6vw, 62px);
+  overflow: hidden;
+  border-radius: var(--radius);
+  background:
+    radial-gradient(circle at 86% 8%, rgba(37, 99, 235, 0.24), transparent 33%),
+    radial-gradient(circle at 5% 95%, rgba(14, 165, 233, 0.10), transparent 28%),
+    linear-gradient(135deg, #0f172a 0%, #16213a 55%, #102b42 100%);
+  box-shadow: 0 20px 52px rgba(2, 8, 23, 0.18);
+}
+
+#download .download-card::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: linear-gradient(110deg, rgba(255,255,255,0.025), transparent 45%);
+}
+
+#download .download-copy,
+#download .download-qr-card {
+  position: relative;
+  z-index: 1;
+  min-width: 0;
+}
+
+#download .download-copy {
+  max-width: 690px;
+}
+
+#download .download-kicker {
+  display: inline-flex;
+  align-items: center;
+  width: fit-content;
+  margin: 0 0 18px;
+  padding: 8px 12px;
+  border: 1px solid rgba(147, 197, 253, 0.34);
+  border-radius: 999px;
+  background: rgba(37, 99, 235, 0.14);
+  color: #c7dcff;
+  font-size: 12px;
+  font-weight: 850;
+  letter-spacing: 0.055em;
+  text-transform: uppercase;
+}
+
+#download .download-copy h2 {
+  max-width: 650px !important;
+  margin: 0 !important;
+  color: #ffffff !important;
+  font-size: clamp(32px, 3.6vw, 50px) !important;
+  line-height: 1.02 !important;
+  letter-spacing: -1.55px !important;
+  text-wrap: balance;
+}
+
+#download .download-lead {
+  max-width: 620px !important;
+  margin: 18px 0 0 !important;
+  color: #cbd5e1 !important;
+  font-size: clamp(15px, 1.15vw, 18px) !important;
+  line-height: 1.68 !important;
+}
+
+#download .download-cta-row {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 16px 20px;
+  margin-top: 26px;
+}
+
+#download .store-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  min-height: 62px;
+  padding: 9px 18px 9px 13px;
+  border: 1px solid rgba(255,255,255,0.22);
+  border-radius: 15px;
+  background: #05070b;
+  color: #ffffff;
+  text-decoration: none;
+  box-shadow: 0 14px 30px rgba(2, 8, 23, 0.32);
+  transition: transform 160ms ease, box-shadow 160ms ease, border-color 160ms ease;
+}
+
+#download .store-badge:hover {
+  transform: translateY(-2px);
+  border-color: rgba(255,255,255,0.38);
+  box-shadow: 0 18px 36px rgba(2, 8, 23, 0.40);
+}
+
+#download .store-badge:focus-visible,
+#download .store-text-link:focus-visible {
+  outline: 3px solid rgba(96, 165, 250, 0.52);
+  outline-offset: 3px;
+}
+
+#download .store-badge-mark {
+  display: grid;
+  place-items: center;
+  width: 42px;
+  height: 42px;
+  flex: 0 0 42px;
+}
+
+#download .store-badge-mark svg {
+  width: 34px;
+  height: 34px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.8;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+#download .store-badge-text {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  line-height: 1;
+}
+
+#download .store-badge-text small {
+  margin-bottom: 3px;
+  color: rgba(255,255,255,0.82);
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.01em;
+}
+
+#download .store-badge-text strong {
+  color: #ffffff;
+  font-size: 21px;
+  font-weight: 700;
+  letter-spacing: -0.45px;
+}
+
+#download .store-text-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 9px 2px;
+  color: #bfdbfe;
+  font-size: 14px;
+  font-weight: 800;
+  text-decoration: none;
+}
+
+#download .store-text-link:hover {
+  color: #ffffff;
+}
+
+#download .download-helper {
+  max-width: 560px !important;
+  margin: 18px 0 0 !important;
+  color: #94a3b8 !important;
+  font-size: 13px !important;
+  line-height: 1.55 !important;
+}
+
+#download .download-qr-card {
+  justify-self: end;
+  width: min(100%, 390px);
+  padding: 20px;
+  border: 1px solid rgba(255,255,255,0.78);
+  border-radius: 28px;
+  background: rgba(248, 250, 252, 0.98);
+  color: #0f172a;
+  box-shadow: 0 28px 65px rgba(2, 8, 23, 0.30);
+  text-align: center;
+}
+
+#download .download-qr-heading {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 16px;
+  text-align: left;
+}
+
+#download .download-app-icon {
+  width: 54px;
+  height: 54px;
+  flex: 0 0 54px;
+  object-fit: cover;
+  border-radius: 14px;
+  box-shadow: 0 8px 18px rgba(15,23,42,0.14);
+}
+
+#download .download-qr-heading strong {
+  display: block;
+  color: #0f172a;
+  font-size: 15px;
+  line-height: 1.25;
+}
+
+#download .download-qr-heading span {
+  display: block;
+  margin-top: 2px;
+  color: #64748b;
+  font-size: 12px;
+  line-height: 1.35;
+}
+
+#download .download-qr-shell {
+  display: grid;
+  place-items: center;
+  width: 100%;
+  padding: 16px;
+  border: 1px solid #e2e8f0;
+  border-radius: 22px;
+  background: #ffffff;
+}
+
+#download .download-qr-image {
+  display: block;
+  width: min(100%, 250px);
+  height: auto;
+  margin: 0 auto;
+  border-radius: 10px;
+}
+
+#download .download-qr-title {
+  display: block;
+  margin-top: 16px;
+  color: #0f172a;
+  font-size: 18px;
+  font-weight: 850;
+  line-height: 1.2;
+}
+
+#download .download-qr-card > p {
+  max-width: 270px;
+  margin: 7px auto 0;
+  color: #64748b;
+  font-size: 13px;
+  line-height: 1.5;
+}
+
+@media (max-width: 900px) {
+  #download .download-card {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 34px;
+    padding: clamp(30px, 5vw, 46px);
+  }
+
+  #download .download-copy {
+    max-width: 720px;
+  }
+
+  #download .download-copy h2 {
+    max-width: 700px !important;
+    font-size: clamp(30px, 6vw, 44px) !important;
+  }
+
+  #download .download-qr-card {
+    justify-self: center;
+    width: min(100%, 360px);
+  }
+}
+
+@media (max-width: 620px) {
+  #download.download-section {
+    border-radius: 20px !important;
+  }
+
+  #download .download-card {
+    gap: 28px;
+    padding: 24px 18px;
+    border-radius: 20px;
+  }
+
+  #download .download-kicker {
+    margin-bottom: 14px;
+    padding: 7px 10px;
+    font-size: 10px;
+  }
+
+  #download .download-copy h2 {
+    font-size: clamp(27px, 9vw, 34px) !important;
+    line-height: 1.04 !important;
+    letter-spacing: -0.9px !important;
+  }
+
+  #download .download-lead {
+    margin-top: 14px !important;
+    font-size: 15px !important;
+  }
+
+  #download .download-cta-row {
+    align-items: stretch;
+    flex-direction: column;
+    gap: 10px;
+    margin-top: 20px;
+  }
+
+  #download .store-badge {
+    width: 100%;
+    justify-content: center;
+  }
+
+  #download .store-text-link {
+    justify-content: center;
+    width: 100%;
+  }
+
+  #download .download-helper {
+    margin-top: 13px !important;
+  }
+
+  #download .download-qr-card {
+    width: min(100%, 320px);
+    padding: 16px;
+    border-radius: 23px;
+  }
+
+  #download .download-app-icon {
+    width: 48px;
+    height: 48px;
+    flex-basis: 48px;
+    border-radius: 12px;
+  }
+
+  #download .download-qr-shell {
+    padding: 12px;
+    border-radius: 18px;
+  }
+
+  #download .download-qr-image {
+    width: min(100%, 220px);
+  }
+}
+
+/* =========================================================
+   Final App Store section cleanup — 2026-08-12
+   One primary CTA, balanced desktop layout, clean mobile stack.
+   ========================================================= */
+#download .download-card {
+  grid-template-columns: minmax(0, 1fr) minmax(300px, 370px);
+  gap: clamp(38px, 5vw, 70px);
+  padding: clamp(38px, 4.4vw, 58px);
+}
+
+#download .download-copy {
+  max-width: 650px;
+  align-self: center;
+}
+
+#download .download-copy h2 {
+  max-width: 610px !important;
+  font-size: clamp(30px, 3.15vw, 44px) !important;
+  line-height: 1.04 !important;
+  letter-spacing: -1.25px !important;
+}
+
+#download .download-lead {
+  max-width: 590px !important;
+  margin-top: 16px !important;
+  color: #cbd5e1 !important;
+}
+
+#download .download-cta-row {
+  display: block;
+  margin-top: 26px;
+}
+
+#download .download-primary-button {
+  min-height: 54px;
+  padding: 14px 22px;
+  border-radius: 14px;
+  font-size: 15px;
+  font-weight: 800;
+  box-shadow: 0 14px 30px rgba(37, 99, 235, 0.28);
+  transition: transform 160ms ease, box-shadow 160ms ease, background 160ms ease;
+}
+
+#download .download-primary-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 18px 36px rgba(37, 99, 235, 0.36);
+}
+
+#download .download-primary-button:focus-visible {
+  outline: 3px solid rgba(147, 197, 253, 0.55);
+  outline-offset: 3px;
+}
+
+/* Old alternate CTAs are intentionally removed from the markup. */
+#download .store-badge,
+#download .store-text-link,
+#download .download-helper,
+#download .download-badge-wrap,
+#download .badge-caption,
+#download .download-note {
+  display: none !important;
+}
+
+#download .download-qr-card {
+  justify-self: end;
+  width: min(100%, 360px);
+  padding: 18px;
+  border-radius: 26px;
+  background: rgba(248, 250, 252, 0.985);
+  box-shadow: 0 24px 58px rgba(2, 8, 23, 0.28);
+}
+
+#download .download-qr-heading {
+  margin-bottom: 14px;
+}
+
+#download .download-qr-shell {
+  padding: 14px;
+  border-radius: 20px;
+}
+
+#download .download-qr-image {
+  width: min(100%, 230px);
+}
+
+#download .download-qr-title {
+  margin-top: 14px;
+  font-size: 17px;
+}
+
+#download .download-qr-card > p {
+  max-width: 250px;
+  margin-top: 6px;
+  font-size: 12.5px;
+}
+
+@media (max-width: 900px) {
+  #download .download-card {
+    grid-template-columns: 1fr;
+    gap: 30px;
+  }
+
+  #download .download-copy {
+    max-width: 720px;
+  }
+
+  #download .download-copy h2 {
+    max-width: 660px !important;
+    font-size: clamp(29px, 5.6vw, 40px) !important;
+  }
+
+  #download .download-qr-card {
+    justify-self: center;
+    width: min(100%, 340px);
+  }
+}
+
+@media (max-width: 620px) {
+  #download .download-card {
+    gap: 24px;
+    padding: 24px 18px;
+  }
+
+  #download .download-copy h2 {
+    font-size: clamp(27px, 8.4vw, 33px) !important;
+  }
+
+  #download .download-primary-button {
+    width: 100%;
+    min-height: 52px;
+    padding: 13px 16px;
+  }
+
+  #download .download-qr-card {
+    width: min(100%, 300px);
+    padding: 15px;
+    border-radius: 22px;
+  }
+
+  #download .download-qr-heading {
+    gap: 10px;
+    margin-bottom: 12px;
+  }
+
+  #download .download-app-icon {
+    width: 46px;
+    height: 46px;
+    flex-basis: 46px;
+  }
+
+  #download .download-qr-shell {
+    padding: 10px;
+    border-radius: 17px;
+  }
+
+  #download .download-qr-image {
+    width: min(100%, 205px);
+  }
+}
+
