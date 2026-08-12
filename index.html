@@ -26,7 +26,7 @@
 <link href="https://wolfpack-labs.com/" rel="canonical"/>
 <!-- Structured Data -->
 <link href="styles/shared.css" rel="stylesheet"/>
-<link href="styles/pages/index.css?v=20260812-matched-widths-smaller-titles" rel="stylesheet"/><link href="styles/pages/seo-landing.css" rel="stylesheet"/>
+<link href="styles/pages/index.css?v=20260812-clean-download" rel="stylesheet"/><link href="styles/pages/seo-landing.css" rel="stylesheet"/>
 <style>
   /* WP Labs: Invoice video + screenshot preview */
   .product-preview-layout {
@@ -801,6 +801,368 @@
   }
 }
 </style>
+<style id="polished-download-overrides">
+
+
+/* =========================================================
+   Polished App Store download section — 2026-08-12
+   Uses unique class names to avoid the legacy subscribe layout.
+   ========================================================= */
+#download.download-section {
+  width: 100% !important;
+  min-height: 0 !important;
+  margin: 22px 0 0 !important;
+  padding: 0 !important;
+  overflow: hidden !important;
+  border: 0 !important;
+  border-radius: var(--radius) !important;
+  background: transparent !important;
+  box-shadow: none !important;
+}
+
+#download .download-card {
+  position: relative;
+  display: grid;
+  grid-template-columns: minmax(0, 1.15fr) minmax(320px, 390px);
+  align-items: center;
+  width: 100%;
+  min-width: 0;
+  gap: clamp(40px, 5vw, 76px);
+  padding: clamp(38px, 4.6vw, 62px);
+  overflow: hidden;
+  border-radius: var(--radius);
+  background:
+    radial-gradient(circle at 86% 8%, rgba(37, 99, 235, 0.24), transparent 33%),
+    radial-gradient(circle at 5% 95%, rgba(14, 165, 233, 0.10), transparent 28%),
+    linear-gradient(135deg, #0f172a 0%, #16213a 55%, #102b42 100%);
+  box-shadow: 0 20px 52px rgba(2, 8, 23, 0.18);
+}
+
+#download .download-card::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: linear-gradient(110deg, rgba(255,255,255,0.025), transparent 45%);
+}
+
+#download .download-copy,
+#download .download-qr-card {
+  position: relative;
+  z-index: 1;
+  min-width: 0;
+}
+
+#download .download-copy {
+  max-width: 690px;
+}
+
+#download .download-kicker {
+  display: inline-flex;
+  align-items: center;
+  width: fit-content;
+  margin: 0 0 18px;
+  padding: 8px 12px;
+  border: 1px solid rgba(147, 197, 253, 0.34);
+  border-radius: 999px;
+  background: rgba(37, 99, 235, 0.14);
+  color: #c7dcff;
+  font-size: 12px;
+  font-weight: 850;
+  letter-spacing: 0.055em;
+  text-transform: uppercase;
+}
+
+#download .download-copy h2 {
+  max-width: 650px !important;
+  margin: 0 !important;
+  color: #ffffff !important;
+  font-size: clamp(32px, 3.6vw, 50px) !important;
+  line-height: 1.02 !important;
+  letter-spacing: -1.55px !important;
+  text-wrap: balance;
+}
+
+#download .download-lead {
+  max-width: 620px !important;
+  margin: 18px 0 0 !important;
+  color: #cbd5e1 !important;
+  font-size: clamp(15px, 1.15vw, 18px) !important;
+  line-height: 1.68 !important;
+}
+
+#download .download-cta-row {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 16px 20px;
+  margin-top: 26px;
+}
+
+#download .store-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  min-height: 62px;
+  padding: 9px 18px 9px 13px;
+  border: 1px solid rgba(255,255,255,0.22);
+  border-radius: 15px;
+  background: #05070b;
+  color: #ffffff;
+  text-decoration: none;
+  box-shadow: 0 14px 30px rgba(2, 8, 23, 0.32);
+  transition: transform 160ms ease, box-shadow 160ms ease, border-color 160ms ease;
+}
+
+#download .store-badge:hover {
+  transform: translateY(-2px);
+  border-color: rgba(255,255,255,0.38);
+  box-shadow: 0 18px 36px rgba(2, 8, 23, 0.40);
+}
+
+#download .store-badge:focus-visible,
+#download .store-text-link:focus-visible {
+  outline: 3px solid rgba(96, 165, 250, 0.52);
+  outline-offset: 3px;
+}
+
+#download .store-badge-mark {
+  display: grid;
+  place-items: center;
+  width: 42px;
+  height: 42px;
+  flex: 0 0 42px;
+}
+
+#download .store-badge-mark svg {
+  width: 34px;
+  height: 34px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.8;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+#download .store-badge-text {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  line-height: 1;
+}
+
+#download .store-badge-text small {
+  margin-bottom: 3px;
+  color: rgba(255,255,255,0.82);
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.01em;
+}
+
+#download .store-badge-text strong {
+  color: #ffffff;
+  font-size: 21px;
+  font-weight: 700;
+  letter-spacing: -0.45px;
+}
+
+#download .store-text-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 9px 2px;
+  color: #bfdbfe;
+  font-size: 14px;
+  font-weight: 800;
+  text-decoration: none;
+}
+
+#download .store-text-link:hover {
+  color: #ffffff;
+}
+
+#download .download-helper {
+  max-width: 560px !important;
+  margin: 18px 0 0 !important;
+  color: #94a3b8 !important;
+  font-size: 13px !important;
+  line-height: 1.55 !important;
+}
+
+#download .download-qr-card {
+  justify-self: end;
+  width: min(100%, 390px);
+  padding: 20px;
+  border: 1px solid rgba(255,255,255,0.78);
+  border-radius: 28px;
+  background: rgba(248, 250, 252, 0.98);
+  color: #0f172a;
+  box-shadow: 0 28px 65px rgba(2, 8, 23, 0.30);
+  text-align: center;
+}
+
+#download .download-qr-heading {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 16px;
+  text-align: left;
+}
+
+#download .download-app-icon {
+  width: 54px;
+  height: 54px;
+  flex: 0 0 54px;
+  object-fit: cover;
+  border-radius: 14px;
+  box-shadow: 0 8px 18px rgba(15,23,42,0.14);
+}
+
+#download .download-qr-heading strong {
+  display: block;
+  color: #0f172a;
+  font-size: 15px;
+  line-height: 1.25;
+}
+
+#download .download-qr-heading span {
+  display: block;
+  margin-top: 2px;
+  color: #64748b;
+  font-size: 12px;
+  line-height: 1.35;
+}
+
+#download .download-qr-shell {
+  display: grid;
+  place-items: center;
+  width: 100%;
+  padding: 16px;
+  border: 1px solid #e2e8f0;
+  border-radius: 22px;
+  background: #ffffff;
+}
+
+#download .download-qr-image {
+  display: block;
+  width: min(100%, 250px);
+  height: auto;
+  margin: 0 auto;
+  border-radius: 10px;
+}
+
+#download .download-qr-title {
+  display: block;
+  margin-top: 16px;
+  color: #0f172a;
+  font-size: 18px;
+  font-weight: 850;
+  line-height: 1.2;
+}
+
+#download .download-qr-card > p {
+  max-width: 270px;
+  margin: 7px auto 0;
+  color: #64748b;
+  font-size: 13px;
+  line-height: 1.5;
+}
+
+@media (max-width: 900px) {
+  #download .download-card {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 34px;
+    padding: clamp(30px, 5vw, 46px);
+  }
+
+  #download .download-copy {
+    max-width: 720px;
+  }
+
+  #download .download-copy h2 {
+    max-width: 700px !important;
+    font-size: clamp(30px, 6vw, 44px) !important;
+  }
+
+  #download .download-qr-card {
+    justify-self: center;
+    width: min(100%, 360px);
+  }
+}
+
+@media (max-width: 620px) {
+  #download.download-section {
+    border-radius: 20px !important;
+  }
+
+  #download .download-card {
+    gap: 28px;
+    padding: 24px 18px;
+    border-radius: 20px;
+  }
+
+  #download .download-kicker {
+    margin-bottom: 14px;
+    padding: 7px 10px;
+    font-size: 10px;
+  }
+
+  #download .download-copy h2 {
+    font-size: clamp(27px, 9vw, 34px) !important;
+    line-height: 1.04 !important;
+    letter-spacing: -0.9px !important;
+  }
+
+  #download .download-lead {
+    margin-top: 14px !important;
+    font-size: 15px !important;
+  }
+
+  #download .download-cta-row {
+    align-items: stretch;
+    flex-direction: column;
+    gap: 10px;
+    margin-top: 20px;
+  }
+
+  #download .store-badge {
+    width: 100%;
+    justify-content: center;
+  }
+
+  #download .store-text-link {
+    justify-content: center;
+    width: 100%;
+  }
+
+  #download .download-helper {
+    margin-top: 13px !important;
+  }
+
+  #download .download-qr-card {
+    width: min(100%, 320px);
+    padding: 16px;
+    border-radius: 23px;
+  }
+
+  #download .download-app-icon {
+    width: 48px;
+    height: 48px;
+    flex-basis: 48px;
+    border-radius: 12px;
+  }
+
+  #download .download-qr-shell {
+    padding: 12px;
+    border-radius: 18px;
+  }
+
+  #download .download-qr-image {
+    width: min(100%, 220px);
+  }
+}
+
+</style>
 </head>
 <body>
 <main class="page home-page">
@@ -834,26 +1196,31 @@
 <div class="metric"><strong>Job Photos</strong><span>Keep visual job documentation connected to customer work.</span></div>
 </aside>
 </section>
-<section class="section" id="download">
-<div class="subscribe-card">
-<div class="download-panel">
-<div class="subscribe-copy">
-<div class="eyebrow">Available now on the App Store</div>
-<h2>WP Labs: Invoice is live for iPhone.</h2>
-<p>Download WP Labs: Invoice today and manage estimates, invoices, customers, payments, jobs, receipts, and business records from your iPhone.</p>
-<div class="download-actions">
-<a class="button primary" href="https://apps.apple.com/us/app/wp-labs-invoice/id6797280708" target="_blank" rel="noopener noreferrer" aria-label="Download WP Labs: Invoice from the Apple App Store">Download on the App Store</a>
-</div>
-<p class="badge-caption">A badge-style App Store callout for visitors who prefer a familiar download prompt.</p>
-</div>
-<p class="download-note"><strong>Tip:</strong> Scan the QR code to open the App Store page instantly on your iPhone.</p>
-</div>
-<aside class="qr-card" aria-label="QR code to open the App Store page for WP Labs: Invoice">
-<img alt="QR code linking to the WP Labs: Invoice App Store page" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAZoAAAGaAQAAAAAefbjOAAADBElEQVR4nO2cQY6cMBBF/w9IszRSDtBHMTfIkUa5GT5KH2Aks0Qy+lnYBs9kNckEOnSxQG3spy5Eddn1XTSFTx/h2+cZwCCDDDLIIIMMuibEcvQAZpLj3CM3w3aNJDmeYp5Bx0NekhQBjgAQBkATAL7ma50kSe+h48wz6DgI+Un7CMDHTgA6AS5BituQrcNL0vTg92TQl0I+VhfYA8X4T77JoIeE+g9thdtCwL31gnvry6f5LPMMOhyqHuEENA9+fhF9RD4BAFol68HvyaAvgAJJcgD4en8pywrMfT5xxJpTjbPMM+joGNEEgHBLqNcWAlhZIsgZ5hl0OFRzjZx9djU85KPTnmZoqoMt17g0VB6ylLIoAa8ESSmnGZpc7UAVJcwjLg3Vn30WILr6SaUJH7smeJhHXB/aZo2EokspofoBqkzlUjPYPOLSUBMjcnPaekpQSGjCg3nE5aFmHbGHBzRStoqeva8ozCMuDdUYgTpNTE7aT4B712sx4vJQ4xElBW0SDqmEDJfQDDGPuD7E17gSmEmEYWVWsTms1ISVZV9c6SzzDDpeswy31AMu9YTrBMwr4acVWbf29xchsKsu8eD3ZNDfQNkjCAcosBMw9wlwqVeo2xj000JlPftg8ww6HKq5RuyKcAm3NSNK6rHlH7ayfB7ILcybnf5OcsRKhKEOKjUTto54BqikFABqsaVSTkGzjukjajNajHgGqEkyy/ZFnkQ2V3E1I90Gm0c8BeQSyNtC/RxWkkMnACvhY5k/NKETx5PMM+gwaAsFVYMCsKlR+0Y4UEVtixEXh9odrCJXlsXEXilRCicibF/jCaCqR+SjS8I8QOHHGxCGqNIxf895ho42z6DDoY9VdWWLM+5CBZqpw2aN60Mf3+mqdTLtS1xlpK0jnhMKQyeE20JJC/WTPbI45e89OJ5tnkGHQ15LXjzkF8RHtzBHkK1s//+7J4M+c/y2jkBbV1WSiyxgm2b5DFCrYm+1dEW7xr7dVarqzCOuD9H+mcwggwwyyCCDDPpD6BcUC9YRPcsJXgAAAABJRU5ErkJggg=="/>
-<span class="qr-card-title">Scan to download</span>
-<p>Use your iPhone camera to open the WP Labs: Invoice App Store page.</p>
-</aside>
-</div>
+<section class="section download-section" id="download">
+<div class="download-card">
+  <div class="download-copy">
+    <div class="download-kicker">Available now on the App Store</div>
+    <h2>WP Labs: Invoice is live for iPhone.</h2>
+    <p class="download-lead">Create estimates and invoices, manage customers and jobs, track payments, save receipts, and keep your business records organized from your phone.</p>
+    <div class="download-cta-row">
+      <a class="button primary download-primary-button" href="https://apps.apple.com/us/app/wp-labs-invoice/id6797280708" target="_blank" rel="noopener noreferrer" aria-label="Download WP Labs: Invoice on the App Store">Download on the App Store</a>
+    </div>
+  </div>
+
+  <aside class="download-qr-card" aria-label="QR code for the WP Labs: Invoice App Store listing">
+    <div class="download-qr-heading">
+      <img class="download-app-icon" alt="WP Labs: Invoice app icon" src="images/wp-labs-invoice.png"/>
+      <div>
+        <strong>WP Labs: Invoice</strong>
+        <span>Open in the App Store</span>
+      </div>
+    </div>
+    <div class="download-qr-shell">
+      <img class="download-qr-image" alt="QR code linking to WP Labs: Invoice on the App Store" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAZoAAAGaAQAAAAAefbjOAAADBElEQVR4nO2cQY6cMBBF/w9IszRSDtBHMTfIkUa5GT5KH2Aks0Qy+lnYBs9kNckEOnSxQG3spy5Eddn1XTSFTx/h2+cZwCCDDDLIIIMMuibEcvQAZpLj3CM3w3aNJDmeYp5Bx0NekhQBjgAQBkATAL7ma50kSe+h48wz6DgI+Un7CMDHTgA6AS5BituQrcNL0vTg92TQl0I+VhfYA8X4T77JoIeE+g9thdtCwL31gnvry6f5LPMMOhyqHuEENA9+fhF9RD4BAFol68HvyaAvgAJJcgD4en8pywrMfT5xxJpTjbPMM+joGNEEgHBLqNcWAlhZIsgZ5hl0OFRzjZx9djU85KPTnmZoqoMt17g0VB6ylLIoAa8ESSmnGZpc7UAVJcwjLg3Vn30WILr6SaUJH7smeJhHXB/aZo2EokspofoBqkzlUjPYPOLSUBMjcnPaekpQSGjCg3nE5aFmHbGHBzRStoqeva8ozCMuDdUYgTpNTE7aT4B712sx4vJQ4xElBW0SDqmEDJfQDDGPuD7E17gSmEmEYWVWsTms1ISVZV9c6SzzDDpeswy31AMu9YTrBMwr4acVWbf29xchsKsu8eD3ZNDfQNkjCAcosBMw9wlwqVeo2xj000JlPftg8ww6HKq5RuyKcAm3NSNK6rHlH7ayfB7ILcybnf5OcsRKhKEOKjUTto54BqikFABqsaVSTkGzjukjajNajHgGqEkyy/ZFnkQ2V3E1I90Gm0c8BeQSyNtC/RxWkkMnACvhY5k/NKETx5PMM+gwaAsFVYMCsKlR+0Y4UEVtixEXh9odrCJXlsXEXilRCicibF/jCaCqR+SjS8I8QOHHGxCGqNIxf895ho42z6DDoY9VdWWLM+5CBZqpw2aN60Mf3+mqdTLtS1xlpK0jnhMKQyeE20JJC/WTPbI45e89OJ5tnkGHQ15LXjzkF8RHtzBHkK1s//+7J4M+c/y2jkBbV1WSiyxgm2b5DFCrYm+1dEW7xr7dVarqzCOuD9H+mcwggwwyyCCDDPpD6BcUC9YRPcsJXgAAAABJRU5ErkJggg=="/>
+    </div>
+    <strong class="download-qr-title">Scan to download</strong>
+    <p>Point your iPhone camera at the code to open the app listing.</p>
+  </aside>
 </div>
 </section>
 <section class="section app-showcase-section" id="product">
