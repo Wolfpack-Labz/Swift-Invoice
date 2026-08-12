@@ -101,12 +101,12 @@
     .brand-wordmark-shell {
       display: block;
       width: clamp(246px, 22vw, 302px);
-      padding: 7px 11px;
       overflow: hidden;
-      border: 1px solid rgba(255, 255, 255, 0.78);
-      border-radius: 18px;
-      background: rgba(255, 255, 255, 0.96);
-      box-shadow: 0 14px 30px rgba(2, 6, 23, 0.24);
+      padding: 0;
+      border: 0;
+      border-radius: 0;
+      background: transparent;
+      box-shadow: none;
     }
 
     .brand-wordmark {
@@ -114,15 +114,6 @@
       width: 100%;
       height: auto;
       object-fit: contain;
-    }
-
-    .brand-with-wordmark .brand-tagline {
-      margin: 0 0 0 clamp(76px, 7vw, 94px);
-      color: #cbd5e1;
-      font-size: 14px;
-      font-weight: 400;
-      line-height: 1.25;
-      white-space: nowrap;
     }
 
     .nav {
@@ -913,13 +904,11 @@
 
       .brand-wordmark-shell {
         width: min(260px, calc(100vw - 44px));
-        padding: 6px 9px;
-        border-radius: 15px;
-      }
-
-      .brand-with-wordmark .brand-tagline {
-        margin-left: clamp(72px, 25vw, 82px);
-        font-size: 13px;
+      padding: 0;
+      border: 0;
+      border-radius: 0;
+      background: transparent;
+      box-shadow: none;
       }
 
       .app-card {
@@ -2796,3 +2785,228 @@
 .app-showcase-section::before {
   display: none !important;
 }
+
+
+/* =========================================================
+     App Store release section responsive fix
+     Desktop/laptop: full viewport breakout + full-height card.
+     Tablet/mobile: contained and stacked.
+     ========================================================= */
+  #download.section {
+    position: relative;
+    overflow: hidden;
+  }
+
+  #download .subscribe-card {
+    display: flex;
+    width: 100%;
+    min-width: 0;
+    align-items: center;
+    justify-content: center;
+    background:
+      radial-gradient(circle at 82% 16%, rgba(37, 99, 235, 0.24), transparent 32%),
+      radial-gradient(circle at 14% 86%, rgba(14, 165, 233, 0.10), transparent 30%),
+      linear-gradient(135deg, #0f172a 0%, #16213a 52%, #0f2740 100%);
+  }
+
+  #download .download-panel {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(320px, 390px);
+    align-items: center;
+    width: 100%;
+    min-width: 0;
+    max-width: 1440px;
+    margin: 0 auto;
+    gap: clamp(44px, 6vw, 100px);
+  }
+
+  #download .subscribe-copy {
+    min-width: 0;
+    max-width: 780px;
+  }
+
+  #download .subscribe-copy .eyebrow {
+    margin-bottom: 20px;
+  }
+
+  #download .subscribe-copy h2 {
+    max-width: 760px;
+    margin: 0;
+    font-size: clamp(32px, 3.6vw, 53px);
+    line-height: 0.98;
+    letter-spacing: -2.4px;
+    text-wrap: balance;
+  }
+
+  #download .subscribe-copy > p {
+    max-width: 680px;
+    margin-top: 20px;
+    font-size: clamp(16px, 1.2vw, 19px);
+    line-height: 1.72;
+  }
+
+  #download .download-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-top: 26px;
+  }
+
+  #download .download-actions .button {
+    min-height: 52px;
+    padding: 14px 20px;
+  }
+
+  #download .download-badge-wrap {
+    margin-top: 18px;
+  }
+
+  #download .app-store-badge {
+    width: fit-content;
+    max-width: 100%;
+  }
+
+  #download .badge-caption,
+  #download .download-note {
+    max-width: 560px;
+    color: #aebed3;
+  }
+
+  #download .download-note strong {
+    color: #ffffff;
+  }
+
+  #download .qr-card {
+    justify-self: end;
+    width: min(100%, 390px);
+    padding: clamp(22px, 2.4vw, 32px);
+    border-radius: 30px;
+    background: rgba(255, 255, 255, 0.96);
+    box-shadow: 0 28px 70px rgba(2, 8, 23, 0.30);
+  }
+
+  #download .qr-card img {
+    width: min(100%, 270px);
+    margin-inline: auto;
+  }
+
+  #download .qr-card-title {
+    font-size: 1.15rem;
+    font-weight: 800;
+  }
+
+  @media (min-width: 1024px) {
+    #download.section {
+      width: 100vw;
+      min-height: 100svh;
+      margin-left: calc(50% - 50vw);
+      margin-right: calc(50% - 50vw);
+      padding: clamp(28px, 3vw, 54px);
+      border: 0;
+      border-radius: 0;
+      background: transparent;
+      box-shadow: none;
+    }
+
+    #download .subscribe-card {
+      min-height: calc(100svh - clamp(56px, 6vw, 108px));
+      padding: clamp(44px, 5vw, 82px);
+      border-radius: clamp(24px, 2vw, 34px);
+    }
+  }
+
+  @media (max-width: 1023px) {
+    #download .subscribe-card {
+      display: block;
+      min-height: auto;
+      padding: clamp(28px, 5vw, 46px);
+    }
+
+    #download .download-panel {
+      grid-template-columns: minmax(0, 1fr);
+      gap: 34px;
+    }
+
+    #download .subscribe-copy {
+      max-width: 760px;
+    }
+
+    #download .subscribe-copy h2 {
+      max-width: 720px;
+      font-size: clamp(27px, 4.9vw, 41px);
+      letter-spacing: -1.6px;
+    }
+
+    #download .qr-card {
+      justify-self: center;
+      width: min(100%, 350px);
+    }
+  }
+
+  @media (max-width: 620px) {
+    #download.section {
+      padding: 12px;
+    }
+
+    #download .subscribe-card {
+      padding: 24px 18px;
+      border-radius: 22px;
+    }
+
+    #download .download-panel {
+      gap: 26px;
+    }
+
+    #download .subscribe-copy h2 {
+      font-size: clamp(24px, 7.7vw, 32px);
+      line-height: 1.01;
+      letter-spacing: -1.2px;
+    }
+
+    #download .subscribe-copy > p {
+      font-size: 15px;
+      line-height: 1.65;
+    }
+
+    #download .download-actions {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr);
+      gap: 10px;
+      margin-top: 20px;
+    }
+
+    #download .download-actions .button,
+    #download .app-store-badge {
+      width: 100%;
+    }
+
+    #download .app-store-badge {
+      min-width: 0;
+      justify-content: flex-start;
+    }
+
+    #download .qr-card {
+      width: min(100%, 300px);
+      padding: 18px;
+      border-radius: 24px;
+    }
+
+    #download .qr-card img {
+      width: min(100%, 220px);
+    }
+  }
+
+  @media (max-width: 380px) {
+    #download .subscribe-card {
+      padding-inline: 14px;
+    }
+
+    #download .subscribe-copy h2 {
+      font-size: 22px;
+    }
+
+    #download .qr-card {
+      width: 100%;
+    }
+  }
+
